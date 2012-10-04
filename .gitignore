@@ -1,0 +1,4 @@
+.metadata/
+pom.xml
+web/.settings
+web/WEB-INF/classes
