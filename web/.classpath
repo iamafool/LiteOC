@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="resources/" kind="src" path="src"/>
+	<classpathentry excluding="org/akaza/openclinica/i18n/*_en.properties|resources/" kind="src" path="src"/>
 	<classpathentry kind="src" path="src/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/Sun JDK 1.6.0_13"/>
-	<classpathentry exported="true" kind="var" path="M2_REPO/javax/activation/activation/1.0.2/activation-1.0.2.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/javax/activation/activation/1.0.2/activation-1.0.2.jar" sourcepath="/M2_REPO"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/javax/servlet/jstl/1.1.2/jstl-1.1.2.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/javax/transaction/jta/1.1/jta-1.1.jar"/>
@@ -106,13 +106,13 @@
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/security/spring-security-acl/3.0.5.RELEASE/spring-security-acl-3.0.5.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/security/spring-security-config/3.0.5.RELEASE/spring-security-config-3.0.5.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/security/spring-security-core/3.0.5.RELEASE/spring-security-core-3.0.5.RELEASE.jar"/>
-	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/security/oauth/spring-security-oauth/1.0.0.M2/spring-security-oauth-1.0.0.M2.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/security/spring-security-taglibs/3.0.5.RELEASE/spring-security-taglibs-3.0.5.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/security/spring-security-web/3.0.5.RELEASE/spring-security-web-3.0.5.RELEASE.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/security/oauth/spring-security-oauth/1.0.0.M2/spring-security-oauth-1.0.0.M2.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE.jar"/>
-	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/spring-tx/3.0.5.RELEASE/spring-tx-3.0.5.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/spring-web/3.0.5.RELEASE/spring-web-3.0.5.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/spring-webmvc/3.0.5.RELEASE/spring-webmvc-3.0.5.RELEASE.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/spring-tx/3.0.5.RELEASE/spring-tx-3.0.5.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/taglibs/standard/1.1.2/standard-1.1.2.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/xalan/xalan/2.6.0/xalan-2.6.0.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar"/>

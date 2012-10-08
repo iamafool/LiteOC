@@ -25,7 +25,7 @@
        
        <field name="OriginalTarget"
             type="org.akaza.openclinica.domain.rule.expression.ExpressionBean">
-            <bind-xml name="Target"
+            <bind-xml name="Target">
 
                 <class name="org.akaza.openclinica.domain.rule.expression.ExpressionBean"  auto-complete="true">
 			        <map-to ns-prefix="ns3" xml="Target" />

@@ -67,36 +67,32 @@
 
 </head>
 
-<body class="main_BG" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0"
-    <c:if test="${(study.status.locked || study.status.frozen)}">
+<body class="main_BG" topmargin="0" leftmargin="0" marginwidth="0"
+	marginheight="0"
+	<c:if test="${(study.status.locked || study.status.frozen)}">
         <c:if test="${userBean.numVisitsToMainMenu<=1 || studyJustChanged=='yes'}">
             onload="initmb();sm('box', 730,100);"
          </c:if>
-      </c:if>
-    <jsp:include page="../include/showPopUp.jsp"/>
->
+	</c:if>
+	<jsp:include page="../include/showPopUp.jsp" />
+	>
 
-<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%" class="background">
-    <tr>
-        <td valign="top">
-<!-- Header Table -->
-<script language="JavaScript">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%"
+		height="100%" class="background">
+		<tr>
+			<td valign="top">
+				<!-- Header Table --> <script language="JavaScript">
 	var StatusBoxValue=1;
-	</script>
-
-<SCRIPT LANGUAGE="JavaScript">
+	</script> <SCRIPT LANGUAGE="JavaScript">
 
 document.write('<table border="0" cellpadding="0" cellspacing="0" width="' + document.body.clientWidth + '" class="header">');
 
 </script>
-            <tr>
-                <td valign="top">
+				<tr>
+					<td valign="top">
+						<!-- Logo -->
 
-<!-- Logo -->
-
-    <div class="logo"><img src="images/Logo.gif"></div>
-
-<!-- Main Navigation -->
-
-    <jsp:include page="../include/navBar.jsp"/>
-<!-- End Main Navigation -->
+						<div class="logo">
+							<img src="images/Logo.gif">
+						</div> <!-- Main Navigation --> <jsp:include
+							page="../include/navBar.jsp" /> <!-- End Main Navigation -->

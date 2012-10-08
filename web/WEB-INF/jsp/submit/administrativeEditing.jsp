@@ -110,7 +110,7 @@ margin-top:20px; updateTabs(<c:out value="${tabId}"/>);--%>
 		<h1><span class="title_manage"> <c:out value="${studySubject.label}" />&nbsp;&nbsp; </span></h1></td></tr></table>
 <%--</div>--%>
 
-<form id="mainForm" name="crfForm" method="POST" action="AdministrativeEditing" onLoad="javascript:leftnavExpand('CRF_infobox_open');"> 
+<form id="mainForm" name="crfForm" method="post" action="AdministrativeEditing" onLoad="javascript:leftnavExpand('CRF_infobox_open');"> 
 <input type="hidden" name="eventCRFId" value="<c:out value="${section.eventCRF.id}"/>" />
 <input type="hidden" name="sectionId" value="<c:out value="${section.section.id}"/>" />
 <input type="hidden" name="checkInputs" value="<c:out value="${checkInputsValue}"/>" />

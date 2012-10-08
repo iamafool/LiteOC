@@ -21,7 +21,7 @@ public class ResourceBundleProvider {
         //logger.info("* found locale " + l.getDisplayCountry() + " " + l.getDisplayLanguage());
         localeMap.put(Thread.currentThread(), l);
         if (!resBundleSetMap.containsKey(l)) {
-            HashMap<String, ResourceBundle> resBundleSet = new HashMap<String, ResourceBundle>();
+            HashMap<String, ResourceBundle> resBundleSet = new HashMap<String, ResourceBundle>();            
             resBundleSet.put("org.akaza.openclinica.i18n.admin", ResourceBundle.getBundle("org.akaza.openclinica.i18n.admin", l));
             resBundleSet.put("org.akaza.openclinica.i18n.audit_events", ResourceBundle.getBundle("org.akaza.openclinica.i18n.audit_events", l));
             resBundleSet.put("org.akaza.openclinica.i18n.exceptions", ResourceBundle.getBundle("org.akaza.openclinica.i18n.exceptions", l));

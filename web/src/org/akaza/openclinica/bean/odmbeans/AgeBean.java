@@ -16,7 +16,7 @@ package org.akaza.openclinica.bean.odmbeans;
  *
  */
 
-public class AgeBean {
+class AgeBean {
     private String minimumAge;
     private String maximumAge;
     

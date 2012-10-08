@@ -3,6 +3,7 @@
            xmlns:OpenClinica="http://www.openclinica.org/ns/openclinica_odm/v1.3"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
+           
 	<xs:import schemaLocation="OpenClinica-ODM1-3-0-OC1-foundation.xsd"
 	           namespace="http://www.openclinica.org/ns/openclinica_odm/v1.3" />
 	<xs:redefine schemaLocation="ODM1-3-0-foundation.xsd">

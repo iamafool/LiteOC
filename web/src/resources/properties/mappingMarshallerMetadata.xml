@@ -89,9 +89,9 @@
         <field name="Message"
                type="java.lang.String">
             <bind-xml name="Message" node="element">
-            	<class name="java.lang.String">
-            		<map-to ns-prefix="OpenClinicaRules"/>
-            	</class>
+<!--             	<class name="java.lang.String"> -->
+<!--             		<map-to ns-prefix="OpenClinicaRules"/> -->
+<!--             	</class> -->
             </bind-xml>
         </field>
      </class>
@@ -108,17 +108,17 @@
         <field name="Message"
                type="java.lang.String">
             <bind-xml name="Message" node="element">
-            	<class name="java.lang.String">
-            		<map-to ns-prefix="OpenClinicaRules"/>
-            	</class>
+<!--             	<class name="java.lang.String"> -->
+<!--             		<map-to ns-prefix="OpenClinicaRules"/> -->
+<!--             	</class> -->
             </bind-xml>
         </field>
         <field name="To"
                type="java.lang.String" handler="emailHandler" >
             <bind-xml name="To" node="element">
-            	<class name="java.lang.String">
-            		<map-to ns-prefix="OpenClinicaRules"/>
-            	</class>
+<!--             	<class name="java.lang.String"> -->
+<!--             		<map-to ns-prefix="OpenClinicaRules"/> -->
+<!--             	</class> -->
             </bind-xml>
         </field>
      </class>
@@ -135,9 +135,9 @@
         <field name="Message"
                type="java.lang.String">
             <bind-xml name="Message" node="element">
-            	<class name="java.lang.String">
-            		<map-to ns-prefix="OpenClinicaRules"/>
-            	</class>
+<!--             	<class name="java.lang.String"> -->
+<!--             		<map-to ns-prefix="OpenClinicaRules"/> -->
+<!--             	</class> -->
             </bind-xml>
         </field>
         <field name="Properties"
@@ -159,9 +159,9 @@
         <field name="Message"
                type="java.lang.String">
             <bind-xml name="Message" node="element">
-            	<class name="java.lang.String">
-            		<map-to ns-prefix="OpenClinicaRules"/>
-            	</class>
+<!--             	<class name="java.lang.String"> -->
+<!--             		<map-to ns-prefix="OpenClinicaRules"/> -->
+<!--             	</class> -->
             </bind-xml>
         </field>
         <field name="Properties"

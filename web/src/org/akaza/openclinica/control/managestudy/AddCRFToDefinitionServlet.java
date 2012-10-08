@@ -57,7 +57,8 @@ public class AddCRFToDefinitionServlet extends SecureController {
         String submit = request.getParameter("Submit");
 
         CRFDAO cdao = new CRFDAO(sm.getDataSource());
-        ArrayList crfs = (ArrayList) cdao.findAllByStatus(Status.AVAILABLE);
+
+		ArrayList crfs = (ArrayList) cdao.findAllByStatus(Status.AVAILABLE);
         ArrayList edcs = (ArrayList) session.getAttribute("eventDefinitionCRFs");
         if (edcs == null) {
             edcs = new ArrayList();

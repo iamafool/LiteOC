@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * TODO To change the template for this generated type comment go to Window -
  * Preferences - Java - Code Style - Code Templates
  */
-public class DisplaySubjectRow extends EntityBeanRow {
+public class DisplaySubjectRow extends EntityBeanRow { // NO_UCD (unused code)
     // columns:
     public static final int COL_NAME = 0;
 

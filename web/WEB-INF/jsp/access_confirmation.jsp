@@ -43,11 +43,11 @@
       <p>Loading Rule Designer ...</p>
       
 
-      <form id="confirmationForm" name="confirmationForm" action="<%=request.getContextPath() + VerificationCodeFilter.DEFAULT_PROCESSING_URL%>" method="POST">
+      <form id="confirmationForm" name="confirmationForm" action="<%=request.getContextPath() + VerificationCodeFilter.DEFAULT_PROCESSING_URL%>" method="post">
         <input name="<%=BasicUserApprovalFilter.DEFAULT_APPROVAL_REQUEST_PARAMETER%>" value="<%=BasicUserApprovalFilter.DEFAULT_APPROVAL_PARAMETER_VALUE%>" type="hidden"/>
         <!--<label><input name="authorize" value="Authorize" type="submit"></label>-->
       </form>
-      <form id="denialForm" name="denialForm" action="<%=request.getContextPath() + VerificationCodeFilter.DEFAULT_PROCESSING_URL%>" method="POST">
+      <form id="denialForm" name="denialForm" action="<%=request.getContextPath() + VerificationCodeFilter.DEFAULT_PROCESSING_URL%>" method="post">
         <input name="<%=BasicUserApprovalFilter.DEFAULT_APPROVAL_REQUEST_PARAMETER%>" value="not_<%=BasicUserApprovalFilter.DEFAULT_APPROVAL_PARAMETER_VALUE%>" type="hidden"/>
         <!--<label><input name="deny" value="Deny" type="submit"></label>-->
       </form>
