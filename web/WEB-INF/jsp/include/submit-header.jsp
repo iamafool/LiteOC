@@ -39,7 +39,6 @@
 <!-- End -->
 
   <script type="text/JavaScript" language="JavaScript" src="includes/prototype.js"></script>
-  <script type="text/JavaScript" language="JavaScript" src="includes/scriptaculous.js"></script>
   <script type="text/JavaScript" language="JavaScript" src="includes/effects.js"></script>
 </head>
  <%-- I removed this include because you cannot have both
@@ -72,7 +71,7 @@ onload="<jsp:include page="../include/showPopUp.jsp"/>"
 
 <!-- Logo -->
 
-	<div class="logo"><img src="images/Logo.gif"></div>
+<!-- 	<div class="logo"><img src="images/Logo.gif"></div> -->
 
 <!-- Main Navigation -->
 

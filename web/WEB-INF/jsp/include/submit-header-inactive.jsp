@@ -27,7 +27,6 @@
   <script type="text/JavaScript" language="JavaScript" src="includes/CalendarPopup.js"></script>
   <%--<script type="text/javascript"  language="JavaScript" src="includes/repetition-model/repetition-model.js"></script>--%>
   <script type="text/JavaScript" language="JavaScript" src="includes/prototype.js"></script>
-  <script type="text/JavaScript" language="JavaScript" src="includes/scriptaculous.js"></script>
   <script type="text/JavaScript" language="JavaScript" src="includes/effects.js"></script>
 <!-- Added for the new Calender -->
 
@@ -60,7 +59,7 @@ document.write('<table border="0" cellpadding="0" cellspacing="0" width="' +
 
       <!-- Logo -->
 
-    <div class="logo"><img src="images/Logo.gif"></div>
+<!--     <div class="logo"><img src="images/Logo.gif"></div> -->
 
     <!-- Main Navigation -->
 

@@ -121,7 +121,7 @@
 	<classpathentry exported="true" kind="lib" path="C:/Documents and Settings/kyan1/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Documents and Settings/kyan1/.m2/repository/xerces/xercesImpl/2.4.0/xercesImpl-2.4.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/kyan1/.m2/repository/struts/struts/1.2.4/struts-1.2.4.jar"/>
+	<!-- <classpathentry kind="lib" path="C:/Documents and Settings/kyan1/.m2/repository/struts/struts/1.2.4/struts-1.2.4.jar"/> -->
 	<classpathentry kind="lib" path="C:/Documents and Settings/kyan1/.m2/repository/javax/j2ee/j2ee/1.4/j2ee-1.4.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

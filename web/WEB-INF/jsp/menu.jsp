@@ -12,14 +12,13 @@
 
 <jsp:include page="include/home-header.jsp"/>
 <!-- move the alert message to the sidebar-->
-<jsp:include page="include/sideAlert.jsp"/>
+<%-- <jsp:include page="include/sideAlert.jsp"/> --%>
 
 
 <link rel="stylesheet" href="includes/jmesa/jmesa.css" type="text/css">
 <script type="text/JavaScript" language="JavaScript" src="includes/jmesa/jquery-1.3.2.min.js"></script>
 <script type="text/JavaScript" language="JavaScript" src="includes/jmesa/jquery.jmesa.js"></script>
 <script type="text/JavaScript" language="JavaScript" src="includes/jmesa/jmesa.js"></script>
-<script type="text/JavaScript" language="JavaScript" src="includes/jmesa/jmesa-original.js"></script>
 <script type="text/javascript" language="JavaScript" src="includes/jmesa/jquery.blockUI.js"></script>
 <style type="text/css">
 
@@ -42,7 +41,7 @@
 </style>
 
 <!-- then instructions-->
-<div id="box" class="dialog">
+<%-- <div id="box" class="dialog">
 <span id="mbm">
     <br>
      <fmt:message key="study_frozen_locked_note" bundle="${restext}"/>
@@ -73,10 +72,11 @@
         <b><fmt:message key="instructions" bundle="${resword}"/></b>
 
         </td>
-  </tr>
+  </tr> --%>
 
-<jsp:include page="include/sideInfo.jsp"/>
+<%-- <jsp:include page="include/sideInfo.jsp"/> --%>
 
+<div class="aka_revised_content">
 
 <h1> 
     <span class="title_manage" style="line-height:5px;">
@@ -269,6 +269,6 @@
 
 </div>
 </c:if>
-
+</div>
 
 <jsp:include page="include/footer.jsp"/>

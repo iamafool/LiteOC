@@ -31,7 +31,6 @@
 <script type="text/JavaScript" language="JavaScript" src=
   "includes/repetition-model/repetition-model.js"></script>
   <script type="text/JavaScript" language="JavaScript" src="includes/prototype.js"></script>
-  <script type="text/JavaScript" language="JavaScript" src="includes/scriptaculous.js"></script>
   <script type="text/JavaScript" language="JavaScript" src="includes/effects.js"></script>
     <!-- Added for the new Calender -->
 
@@ -42,12 +41,6 @@
 <!-- End -->
 
     <script language="JavaScript">
-        function reportBug() {
-            var bugtrack = "https://www.openclinica.com/OpenClinica/bug.php?version=<fmt:message key="version_number" bundle="${resword}"/>&user=";
-            var user= "<c:out value="${userBean.name}"/>";
-            bugtrack = bugtrack + user+ "&url=" + window.location.href;
-            openDocWindow(bugtrack);
-        }
         function pageWidth() {return window.innerWidth != null? window.innerWidth: document.documentElement && document.documentElement.clientWidth ? document.documentElement.clientWidth:document.body != null? document.body.clientWidth:null;}
         function pageHeight() {return window.innerHeight != null? window.innerHeight: document.documentElement && document.documentElement.clientHeight ? document.documentElement.clientHeight:document.body != null? document.body.clientHeight:null;}
         function posLeft() {return typeof window.pageXOffset != 'undefined' ? window.pageXOffset:document.documentElement && document.documentElement.scrollLeft? document.documentElement.scrollLeft:document.body.scrollLeft? document.body.scrollLeft:0;}
@@ -67,8 +60,7 @@
 
 </head>
 
-<body class="main_BG" topmargin="0" leftmargin="0" marginwidth="0"
-	marginheight="0"
+<body class="main_BG" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0"
 	<c:if test="${(study.status.locked || study.status.frozen)}">
         <c:if test="${userBean.numVisitsToMainMenu<=1 || studyJustChanged=='yes'}">
             onload="initmb();sm('box', 730,100);"
@@ -77,22 +69,22 @@
 	<jsp:include page="../include/showPopUp.jsp" />
 	>
 
-	<table border="0" cellpadding="0" cellspacing="0" width="100%"
-		height="100%" class="background">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%" class="background">
 		<tr>
 			<td valign="top">
-				<!-- Header Table --> <script language="JavaScript">
-	var StatusBoxValue=1;
-	</script> <SCRIPT LANGUAGE="JavaScript">
-
-document.write('<table border="0" cellpadding="0" cellspacing="0" width="' + document.body.clientWidth + '" class="header">');
-
-</script>
+				<!-- Header Table -->
+				<script language="JavaScript">
+					var StatusBoxValue=1;
+				</script>
+				<SCRIPT LANGUAGE="JavaScript">
+					document.write('<table border="0" cellpadding="0" cellspacing="0" width="' + document.body.clientWidth + '" class="header">');
+				</script>
 				<tr>
 					<td valign="top">
 						<!-- Logo -->
 
-						<div class="logo">
-							<img src="images/Logo.gif">
-						</div> <!-- Main Navigation --> <jsp:include
-							page="../include/navBar.jsp" /> <!-- End Main Navigation -->
+						<!-- <div class="logo"><img src="images/Logo.gif"></div> -->
+						
+						 <!-- Main Navigation -->
+						 <jsp:include page="../include/navBar.jsp" />
+						 <!-- End Main Navigation -->

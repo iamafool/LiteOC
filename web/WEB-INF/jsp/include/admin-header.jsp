@@ -31,7 +31,6 @@
 <script type="text/JavaScript" language="JavaScript" src=
   "includes/repetition-model/repetition-model.js"></script>
   <script type="text/JavaScript" language="JavaScript" src="includes/prototype.js"></script>
-  <script type="text/JavaScript" language="JavaScript" src="includes/scriptaculous.js"></script>
   <script type="text/JavaScript" language="JavaScript" src="includes/effects.js"></script>
     <!-- Added for the new Calender -->
 
@@ -66,7 +65,7 @@ onload="TabsForwardByNum(<c:out value="${tabId}"/>);<jsp:include page="../includ
 
 <!-- Logo -->
 
-	<div class="logo"><img src="images/Logo.gif"></div>
+<!-- 	<div class="logo"><img src="images/Logo.gif"></div> -->
 
 <!-- Main Navigation -->
 
