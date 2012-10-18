@@ -91,8 +91,5 @@ function notSelectAll() {
 </form>
 </c:if>
 <br><br><br>
-<jsp:include page="createDatasetBoxes.jsp" flush="true">
-<jsp:param name="selectStudyEvents" value="1"/>
-</jsp:include>
 
 <jsp:include page="../include/footer.jsp"/>

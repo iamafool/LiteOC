@@ -627,9 +627,4 @@
     <input type="button" onclick="confirmExit('ListStudySubjects');"  name="exit" value="<fmt:message key="exit" bundle="${resword}"/>   " class="button_medium"/>
 </form>
 
-
-<c:import url="instructionsEnterData.jsp">
-    <c:param name="currStep" value="eventOverview" />
-</c:import>
-
 <jsp:include page="../include/footer.jsp"/>

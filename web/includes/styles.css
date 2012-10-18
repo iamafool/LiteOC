@@ -58,7 +58,9 @@
     border: thin solid black;
 }
 .aka_revised_content{
-    padding-left: 156px;
+	position: relative;
+	left: 156px;
+    padding-left: 22px;
     padding-right: 36px;
     padding-top: 8px;
     padding-bottom: 18px;
@@ -382,8 +384,7 @@ a:hover, a:active { color: #789EC5;
     font-weight: bold;
 }
 
-.background { background-image: url(../images/bgdots.gif);
-    background-repeat: repeat-y;
+.background { background-repeat: repeat-y;
     background-position: left;
 }
 
@@ -407,10 +408,12 @@ a:hover, a:active { color: #789EC5;
     height: 65px;
 }
 
-.main_BG { background-image: url(../images/header_BG.gif);
+.main_BG {
+	background-image: url(../images/header_BG.gif);
     background-repeat: repeat-x;
     background-position: top;
     background-color: #FFFFFF;
+    width: 1024px;
 }
 
 
@@ -423,7 +426,6 @@ a:hover, a:active { color: #789EC5;
 }
 
 .nav {
-    background-image: url(../images/dots.gif);
     background-repeat: repeat-x;
     background-position: bottom;
     background-color: transparent;
@@ -1263,18 +1265,19 @@ a.breadcrumb_completed:hover, a.breadcrumb_completed:active { font-family: Tahom
 }
 
 .tab_L { background-image: url(../images/tab_L.gif);
-    background-repeat: no-repeat;
-    background-position: top left;
-    padding-left: 18px;
-    height: 23px;
-}
+	background-repeat: no-repeat;
+	background-position: top left;
+	padding-left: 9px;
+	height: 23px;
+	}
 
 .tab_R { background-image: url(../images/tab_R.gif);
-    background-repeat: no-repeat;
-    background-position: top right;
-    padding-right: 23px;
-    height: 23px;
-}
+	background-repeat: no-repeat;
+	background-position: top right;
+	padding-right: 23px;
+	height: 23px;
+	text-align: center;
+	}
 
 .tab_BG_h { font-weight: bold;
     background-image: url(../images/tab_BG_h.gif);
@@ -1283,7 +1286,7 @@ a.breadcrumb_completed:hover, a.breadcrumb_completed:active { font-family: Tahom
     background-color: #FFFFFF;
     height: 23px;
 }
-/* BWP:  I reduced the padding by half here, from 18px to 9px */
+
 .tab_L_h { background-image: url(../images/tab_L_h.gif);
     background-repeat: no-repeat;
     background-position: top left;
@@ -1333,19 +1336,19 @@ a.breadcrumb_completed:hover, a.breadcrumb_completed:active { font-family: Tahom
 }
 
 .tab_L_h { background-image: url(../images/tab_L_h.gif);
-    background-repeat: no-repeat;
-    background-position: top left;
-    padding-left: 18px;
-    height: 23px;
-}
+	background-repeat: no-repeat;
+	background-position: top left;
+	padding-left: 9px;
+	height: 23px;
+	}
 
 .tab_R_h { background-image: url(../images/tab_R_h.gif);
-    background-repeat: no-repeat;
-    background-position: top right;
-    padding-right: 23px;
-    height: 23px;
-    text-align: center;
-}
+	background-repeat: no-repeat;
+	background-position: top right;
+	padding-right: 9px;
+	height: 23px;
+	text-align: center;
+	}
 
 .tabtext { line-height: 22px;
     font-weight: bold;
@@ -1386,46 +1389,49 @@ a.breadcrumb_completed:hover, a.breadcrumb_completed:active { font-family: Tahom
     background-color: #F5F5F5;
 }
 
-.table_cell_shaded {
-    padding: 0.2em;
-    border-style: solid;
-    border-top-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    border-left-color: #CCCCCC;
-    border-top-color: #E6E6E6;
-    vertical-align: top;
-    background-color: #F5F5F5;
-}
+.table_cell_shaded { padding-top: 3px;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-bottom: 3px;
+	border-style: solid;
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-color: #CCCCCC;
+	border-top-color: #E6E6E6;
+	vertical-align: top;
+	background-color: #F5F5F5;
+	}
 
-.table_cell_shaded_left {
-    padding: 0.2em;
-    border-style: solid;
-    border-top-width: 1px;
-    border-left-width: 2px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    border-left-color: #CCCCCC;
-    border-top-color: #E6E6E6;
-    vertical-align: top;
-    background-color: #F5F5F5;
-}
+.table_cell_shaded_left { padding-top: 3px;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-bottom: 3px;
+	border-style: solid;
+	border-top-width: 1px;
+	border-left-width: 2px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-color: #CCCCCC;
+	border-top-color: #E6E6E6;
+	vertical-align: top;
+	background-color: #F5F5F5;
+	}
 
 .sidebar_tab { background-image: url(../images/sidebar_tab.gif);
-    background-repeat: no-repeat;
-    background-position: top right;
-    border-style: solid;
-    border-width: 0px 0px 1px 0px;
-    border-color: #B2B2B2;
-    width: 160px;
-    padding-top: 4px;
-/*padding-top: 6px;*/
-    padding-left: 6px;
-    padding-right: 8px;
-    padding-bottom: 4px;
-    background-color: #FFFFFF
-}
+	background-repeat: no-repeat;
+	background-position: top right;
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #B2B2B2;
+	width: 160px;
+	padding-top: 4px;
+	padding-left: 6px;
+	padding-right: 8px;
+	padding-bottom: 4px;
+	background-color: #FFFFFF
+	}
 
 .sidebar_tab_content { padding-top: 8px;
     padding-left: 2px;
@@ -1433,23 +1439,18 @@ a.breadcrumb_completed:hover, a.breadcrumb_completed:active { font-family: Tahom
 }
 
 .sidebar { background-image: url(../images/dots.gif);
-    background-repeat: repeat-x;
-    background-position: top;
-    width: 160px;
-    padding-left: 3px;
-    padding-right: 0px;
-    padding-top: 8px;
-    padding-bottom: 18px;
-    font-family: Tahoma, Arial, Helvetica, Sans-Serif;
-    font-size: 11px;
-    line-height: 13px;
-    color: #789EC5
-}
-
-.background { background-image: url(../images/bgdots.gif);
-    background-repeat: repeat-y;
-    background-position: left;
-}
+	background-repeat: repeat-x;
+	background-position: top;
+	width: 160px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 8px;
+	padding-bottom: 18px;
+	font-family: Tahoma, Arial, Helvetica, Sans-Serif;
+	font-size: 11px;
+	line-height: 13px;
+	color: #789EC5 
+	}
 
 .workflowBox { border-style: solid;
     border-color: #B4B4B2;
@@ -1607,4 +1608,58 @@ div#sumBox table tr:first-child td { border-top-width: 0px;
 	border-bottom-color: #cccccc;
 	background-color: #efefef;
 	}
+
+
+.tooltip {
+		
+	width:170px;
+	font-size:11px;
+	color:black; 
+	background-color: #FFFFE5;
+	border-color:gray;
+	margin-right:auto;
+	
+}
+.tooltip .label {
+	color:black;
+	font-family:Tahoma,Arial,Helvetica,Sans-Serif;
+	font-size:11px;
+	border-color:gray;
+	width:5px;
+	
+}
+.tooltip .header1 {
+	color:black;
+	font-family:Tahoma,Arial,Helvetica,Sans-Serif;
+	font-size:11px;
+	font-weight:bold;
+	height:30px;
+	margin-right:auto;
+	
+}
+.tooltip.tableborder{
+	border-style:solid;
+}
+
+
+
+.tooltip .borderlabel {
+	color:black;
+	font-family:Tahoma,Arial,Helvetica,Sans-Serif;
+	font-size:11px;
+	border-color:gray;
+	width:10px;
+	border-color:gray;
+	border-bottom:dotted;
+	border-bottom-width:thin;
+	border-bottom-color:gray;
+}
+.tooltip .note {
+	color:black;
+	
+	font-family:Tahoma,Arial,Helvetica,Sans-Serif;
+	font-size:11px;
+	border-color:gray;
+	
+}
 

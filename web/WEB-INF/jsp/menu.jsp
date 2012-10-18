@@ -40,61 +40,22 @@
         .graph .bar span { position: absolute; left: 1em; }
 </style>
 
-<!-- then instructions-->
-<%-- <div id="box" class="dialog">
-<span id="mbm">
-    <br>
-     <fmt:message key="study_frozen_locked_note" bundle="${restext}"/>
-   </span><br>
-    <div style="text-align:center; width:100%;">
-        <button onclick="hm('box');">OK</button>
-    </div>
-</div>
-<tr id="sidebar_Instructions_open" style="display: all">
-        <td class="sidebar_tab">
-
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-        <div class="sidebar_tab_content">
-        <fmt:message key="may_change_request_access" bundle="${restext}"/>
-        </div>
-
-        </td>
-
-    </tr>
-    <tr id="sidebar_Instructions_closed" style="display: none">
-        <td class="sidebar_tab">
-
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-        </td>
-  </tr> --%>
-
-<%-- <jsp:include page="include/sideInfo.jsp"/> --%>
 
 <div class="aka_revised_content">
 
-<h1> 
-    <span class="title_manage" style="line-height:5px;">
-        <fmt:message key="welcome_to" bundle="${restext}"/>
-            <c:choose>
-                <c:when test='${study.parentStudyId > 0}'>
-                    <c:out value='${study.parentStudyName}'/>                
-                </c:when>
-                <c:otherwise>
-                    <c:out value='${study.name}'/>
-                </c:otherwise>
-        </c:choose>
-        <a href="javascript:openDocWindow('https://docs.openclinica.com/3.1/openclinica-user-guide/overview-openclinica')">
-            <img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
-    </span>
-</h1>
+	<h1>
+		<span class="title_manage" style="line-height:5px;"> <fmt:message
+				key="welcome_to" bundle="${restext}" /> <c:choose>
+				<c:when test='${study.parentStudyId > 0}'>
+					<c:out value='${study.parentStudyName}' />
+				</c:when>
+				<c:otherwise>
+					<c:out value='${study.name}' />
+				</c:otherwise>
+			</c:choose> </span>
+	</h1>
 
-<c:set var="roleName" value=""/>
+	<c:set var="roleName" value=""/>
 <c:if test="${userRole != null && !userRole.invalid}">
 <c:set var="roleName" value="${userRole.role.name}"/>
 

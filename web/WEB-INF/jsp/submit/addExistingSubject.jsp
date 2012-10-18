@@ -509,8 +509,4 @@
 <DIV ID="testdiv1" STYLE="position:absolute;visibility:hidden;background-color:white;layer-background-color:white;"></DIV>
 <br><br>
 
-<c:import url="instructionsSetupStudyEvent.jsp">
-	<c:param name="currStep" value="enroll" />
-</c:import>
-
 <jsp:include page="../include/footer.jsp"/>

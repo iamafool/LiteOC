@@ -787,10 +787,4 @@
 </div>
 </div>
 
-<%--<br>--%>
-<%--<input type="button" onclick="confirmExit('ListStudy');"  name="cancel" value="   <fmt:message key="exit" bundle="${resword}"/>   " class="button_medium"/>--%>
-<%--<br>--%>
- <%--<c:import url="../include/workflow.jsp">--%>
-  <%--<c:param name="module" value="admin"/>--%>
- <%--</c:import>--%>
 <jsp:include page="../include/footer.jsp"/>

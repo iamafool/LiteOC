@@ -27,7 +27,7 @@
 <title><fmt:message key="openclinica" bundle="${resword}"/></title>
 
 <link rel="stylesheet" href="includes/styles.css" type="text/css">
-<link rel="stylesheet" href="includes/styles2.css" type="text/css">
+
 <link rel="stylesheet" href="includes/NewNavStyles.css" type="text/css" />
 <script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript.js"></script>
 <script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript2.js"></script>
@@ -55,7 +55,7 @@
  <%-- style="width:1152px;" I removed this include because you cannot have both
     "onLoad" tests: <jsp:include page="../include/showPopUp.jsp"/> style="width:980px;" reduce page width--%>
     <%-- TabsForwardByNum(<c:out value="${tabId}"/>);--%>
-<body style="width:1024px;" class="main_BG"
+<body class="main_BG"
 
 <c:choose>
 

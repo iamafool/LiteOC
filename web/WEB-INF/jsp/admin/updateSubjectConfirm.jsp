@@ -102,8 +102,4 @@
  <input type="submit" name="Submit" value="<fmt:message key="submit" bundle="${resword}"/>" class="button_medium">
  <input type="button" onclick="confirmCancel('ListSubject');"  name="cancel" value="   <fmt:message key="cancel" bundle="${resword}"/>   " class="button_medium"/>
 </form>
-
-<c:import url="../include/workflow.jsp">
-  <c:param name="module" value="admin"/>
- </c:import>
 <jsp:include page="../include/footer.jsp"/>

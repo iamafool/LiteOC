@@ -599,8 +599,6 @@ public class Page {
     public final static Page UPDATE_STUDY_EVENT_SIGNED = new Page("/WEB-INF/jsp/managestudy/updateStudyEventSigned.jsp", "Upate Study Event");
     public final static Page VIEW_STUDY_EVENTS = new Page("/WEB-INF/jsp/managestudy/viewStudyEvents.jsp", "View Study Events");
 
-    public final static Page VIEW_STUDY_EVENTS_PRINT = new Page("/WEB-INF/jsp/managestudy/viewStudyEventsPrint.jsp", "View Study Events");
-
     public final static Page DELETE_CRF_VERSION = new Page("/WEB-INF/jsp/admin/deleteCRFVersion.jsp", "delete CRF Version");
 
     public final static Page ADD_DISCREPANCY_NOTE = new Page("/WEB-INF/jsp/submit/addDiscrepancyNote.jsp", "Add Discrepancy Note");

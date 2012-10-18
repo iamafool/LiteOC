@@ -199,11 +199,7 @@
 
 </div>
 </c:if>
-<p><a href="#" onClick="history.go(-1)"><fmt:message key="go_back" bundle="${resword}"/></a></p>  
- 
- <c:import url="../include/workflow.jsp">
-   <c:param name="module" value="manage"/> 
- </c:import>
+<p><a href="#" onClick="history.go(-1)"><fmt:message key="go_back" bundle="${resword}"/></a></p>
  
    
 <jsp:include page="../include/footer.jsp"/>

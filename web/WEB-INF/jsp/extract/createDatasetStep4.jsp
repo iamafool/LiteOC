@@ -90,22 +90,13 @@
 
 <c:choose>
 <c:when test="${newDataset.id>0}">
-<h1><span class="title_manage"><fmt:message key="edit_dataset" bundle="${resword}"/> - <fmt:message key="specify_dataset_properties" bundle="${resword}"/> <a href="javascript:openDocWindow('help/4_7_editDataset_Help.html#step3')"><img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
+<h1><span class="title_manage"><fmt:message key="edit_dataset" bundle="${resword}"/> - <fmt:message key="specify_dataset_properties" bundle="${resword}"/>
 : <c:out value="${newDataset.name}"/></span></h1>
 </c:when>
-<c:otherwise><h1><span class="title_manage"><fmt:message key="create_dataset" bundle="${resword}"/>: <fmt:message key="specify_dataset_properties" bundle="${resword}"/> <a href="javascript:openDocWindow('help/4_2_createDataset_Help.html#step4')"><img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a></span></h1>
+<c:otherwise><h1><span class="title_manage"><fmt:message key="create_dataset" bundle="${resword}"/>: <fmt:message key="specify_dataset_properties" bundle="${resword}"/></span></h1>
 </c:otherwise>
 </c:choose>
 
-<%--
-<jsp:include page="createDatasetBoxes.jsp" flush="true">
-<jsp:param name="specifyMetadata" value="1"/>
-</jsp:include>
---%>
-
-<!--
-<p>Please enter the dataset properties in the fields below.  Be descriptive.  <font color="red">All fields are required.</font></p>
--->
 
 <c:if test="${newDataset.id<=0}"><fmt:message key="enter_dataset_properties_be_descriptive" bundle="${restext}"/> <font color="red"><fmt:message key="name_description_required" bundle="${restext}"/></font></c:if>
 
@@ -264,48 +255,6 @@
 
 
 
-	<%--<tr>
-
-		<td><fmt:message key="status" bundle="${resword}"/>:</td>
-
-		<td><i>Set to Active</i>--%>
-
-		<%--
-
-			<select name="dsStatus">
-
-				<option value="0">-- Select Status --</option>
-
-			<c:forEach var="status" items="${statuses}">
-
-				<c:choose>
-
-					<c:when test="${dsStatusId == status.id}">
-
-						<option value="<c:out value='${status.id}' />" selected><c:out value="${status.name}" /></option>
-
-					</c:when>
-
-					<c:otherwise>
-
-						<option value="<c:out value='${status.id}' />"><c:out value="${status.name}" /></option>
-
-					</c:otherwise>
-
-				</c:choose>
-
-			</c:forEach>
-
-			</select>
-
-			--%>
-
-
-
-		<%--</td>
-
-	</tr>--%>
-
 	<tr>
 
 		<td class="text" colspan="2" align="left">
@@ -325,10 +274,5 @@
 
 <br><br>
 
-
-
-<c:import url="../include/workflow.jsp">
-   <c:param name="module" value="extract"/>
-</c:import>
 
 <jsp:include page="../include/footer.jsp"/>

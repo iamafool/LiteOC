@@ -150,13 +150,7 @@ public class ViewStudyEventsServlet extends SecureController {
             INPUT_STARTDATE + "=" + local_df.format(startDate) + "&" + INPUT_ENDDATE + "=" + local_df.format(endDate) + "&" + INPUT_DEF_ID + "=" + definitionId
                 + "&" + INPUT_STATUS_ID + "=" + statusId + "&" + "sedId=" + sedId + "&submitted=" + fp.getInt("submitted");
         request.setAttribute("queryUrl", queryUrl);
-        if ("yes".equalsIgnoreCase(fp.getString(PRINT))) {
-            allEvents = genEventsForPrint(fp, definitions, startDate, endDate, sedId, definitionId, statusId);
-            request.setAttribute("allEvents", allEvents);
-            forwardPage(Page.VIEW_STUDY_EVENTS_PRINT);
-        } else {
-            forwardPage(Page.VIEW_STUDY_EVENTS);
-        }
+        forwardPage(Page.VIEW_STUDY_EVENTS);
 
     }
 

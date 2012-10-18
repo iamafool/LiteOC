@@ -57,7 +57,6 @@ public class FormServlet extends HttpServlet {
             + "        \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" + "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" + "<head>\n"
             + "\t<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\n"
             + "\t<title>test form</title><link rel=\"stylesheet\" href=\"includes/styles.css\" type=\"text/css\">\n"
-            + "  <link rel=\"stylesheet\" href=\"includes/styles2.css\" type=\"text/css\">\n"
             + " <script type=\"text/javascript\"  language=\"JavaScript\" src=\n" + "    \"includes/repetition-model/repetition-model.js\"></script>"
             + "</head>\n" + "<body>");
         pw.write(builder.createMarkup());

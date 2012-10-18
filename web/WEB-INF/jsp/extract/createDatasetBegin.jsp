@@ -43,7 +43,9 @@
 <jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
 
 
-<h1><span class="title_manage"><c:out value="${study.name}"/>: <fmt:message key="create_dataset" bundle="${resword}"/> <a href="javascript:openDocWindow('https://docs.openclinica.com/3.1/openclinica-user-guide')"><img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a></span></h1>
+<h1>
+	<span class="title_manage"> <c:out value="${study.name}" />: <fmt:message key="create_dataset" bundle="${resword}" /> </span>
+</h1>
 
 <p><fmt:message key="steps_to_extract_or_filter_dataset" bundle="${restext}"/>
 <ol>
@@ -59,7 +61,4 @@
 <input type="button" onclick="confirmCancel('ViewDatasets');"  name="cancel" value="   <fmt:message key="cancel" bundle="${resword}"/>   " class="button_medium"/>
 </form>
 
-<c:import url="../include/workflow.jsp">
-   <c:param name="module" value="extract"/>
-</c:import>
 <jsp:include page="../include/footer.jsp"/>

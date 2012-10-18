@@ -61,7 +61,7 @@
 	<input type="submit" value="<fmt:message key="proceed_to_add_subject" bundle="${resword}"/>" class="button_long">
 </form>
 <br>
-	<jsp:include page="instructionsSetupStudyEvent.jsp" />
+
 <br>
-   <%-- <jsp:include page="instructionsEnterData.jsp" />--%>
+
 <jsp:include page="../include/footer.jsp"/>

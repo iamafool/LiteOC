@@ -142,7 +142,5 @@
     </c:otherwise>
    </c:choose>  
 
-<c:import url="../include/workflow.jsp">
-  <c:param name="module" value="manage"/>
-</c:import>
+
 <jsp:include page="../include/footer.jsp"/>

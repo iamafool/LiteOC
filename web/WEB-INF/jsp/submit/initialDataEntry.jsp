@@ -232,10 +232,6 @@ if (checkDataStatus()) {
 
 </form>
 
-<c:import url="instructionsEnterData.jsp">
-	<c:param name="currStep" value="dataEntry" />
-</c:import>
-
 <DIV ID="testdiv1" STYLE="position:absolute;visibility:hidden;background-color:white;"></DIV>
 
 

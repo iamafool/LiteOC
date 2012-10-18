@@ -72,16 +72,6 @@ function notSelectAll() {
 <h1>
  <span class="title_manage">
    <fmt:message key="edit_dataset" bundle="${resword}"/> - <fmt:message key="select_items" bundle="${resword}"/>
-   <c:choose>
-   <c:when test="${newDataset.id<=0}">
-   <a href="javascript:openDocWindow('help/4_2_createDataset_Help.html#step1')">
-   <img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
-   </c:when>
-   <c:otherwise>
-   <a href="javascript:openDocWindow('help/4_7_editDataset_Help.html#step1')">
-   <img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
-   </c:otherwise>
-   </c:choose>
    : <c:out value="${newDataset.name}"/>
  </span>
 </h1>
@@ -90,8 +80,6 @@ function notSelectAll() {
 <h1>
  <span class="title_manage">
    <fmt:message key="create_dataset" bundle="${resword}"/>: <fmt:message key="select_items" bundle="${resword}"/>
-   <a href="javascript:openDocWindow('help/4_2_createDataset_Help.html#step1')">
-   <img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
  </span>
 </h1>
 </c:otherwise>
@@ -391,7 +379,5 @@ function notSelectAll() {
 </form>
 </c:if>
 
-<c:import url="../include/workflow.jsp">
-   <c:param name="module" value="extract"/>
-</c:import>
+
 <jsp:include page="../include/footer.jsp"/>

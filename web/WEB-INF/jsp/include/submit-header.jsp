@@ -23,7 +23,7 @@
  <meta http-equiv="X-UA-Compatible" content="IE=8" />
 
 <link rel="stylesheet" href="includes/styles.css" type="text/css">
-<link rel="stylesheet" href="includes/styles2.css" type="text/css">
+
 <link rel="stylesheet" href="includes/NewNavStyles.css" type="text/css" />
 <script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript.js"></script>
 <script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript2.js"></script>
@@ -44,7 +44,7 @@
  <%-- I removed this include because you cannot have both
  	"onLoad" tests: <jsp:include page="../include/showPopUp.jsp"/> --%>
  	<%-- --%>
-<body style="width:1024px;" class="main_BG" 
+<body class="main_BG" 
 <c:choose>
 <c:when test="${tabId != null && tabId>0}">
 onload="TabsForwardByNum(<c:out value="${tabId}"/>);<jsp:include page="../include/showPopUp2.jsp"/>"

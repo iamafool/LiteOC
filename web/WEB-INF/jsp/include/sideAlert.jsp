@@ -11,7 +11,7 @@
 	<td valign="top">
 	
 
-<table border="0" cellpadding="0" cellspacing="0" width="160">
+<table border="0" cellpadding="0" cellspacing="0">
 
 <!-- Side alert, onlu show the content after user logs in -->
 
