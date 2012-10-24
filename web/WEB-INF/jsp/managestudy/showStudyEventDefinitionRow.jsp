@@ -59,8 +59,8 @@
          <c:otherwise><fmt:message key="no" bundle="${resword}"/></c:otherwise> 
         </c:choose>
        </td>      
-      <td class="table_cell"><fmt:formatDate value="${currRow.bean.createdDate}" pattern="${dteFormat}"/><br>(<c:out value="${currRow.bean.owner.name}"/>)</td>
-      <td class="table_cell"><fmt:formatDate value="${currRow.bean.updatedDate}" pattern="${dteFormat}"/><br>(<c:out value="${currRow.bean.updater.name}"/>)</td>
+      <td class="table_cell"><fmt:formatDate value="${currRow.bean.createdDate}" pattern="${dteFormat}"/><br/>(<c:out value="${currRow.bean.owner.name}"/>)</td>
+      <td class="table_cell"><fmt:formatDate value="${currRow.bean.updatedDate}" pattern="${dteFormat}"/><br/>(<c:out value="${currRow.bean.updater.name}"/>)</td>
       <td class="table_cell" style="display: none;white-space:nowrap" id="Groups_0_9_<c:out value="${eblRowCount+1}"/>">
         <c:forEach var="entry" items="${currRow.bean.crfsWithDefaultVersion}" varStatus="status">
             <c:out value="${entry.key}"/>

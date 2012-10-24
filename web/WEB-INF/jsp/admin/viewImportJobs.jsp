@@ -9,32 +9,8 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
@@ -53,8 +29,8 @@
 <c:import url="../include/showTable.jsp">
 	<c:param name="rowURL" value="showImportJobRow.jsp" />
 </c:import>
-<br><br>
+<br/><br/>
 <input type="button" onclick="confirmExit('ViewAllJobs');" name="exit" value="<fmt:message key="exit" bundle="${resword}"/>   "class="button_medium"/>   </td>
-<br><br>
+<br/><br/>
 
 <jsp:include page="../include/footer.jsp"/>

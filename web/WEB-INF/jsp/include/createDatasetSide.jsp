@@ -6,7 +6,7 @@
 
 <c:choose>
 <c:when test="${panel.orderedData}">
-    <b><fmt:message key="study_events" bundle="${resword}"/>:</b><br>
+    <b><fmt:message key="study_events" bundle="${resword}"/>:</b><br/>
     <c:set var="count" value="0"/>
     <c:set var="newEvent" value="0"/>
     <c:set var="eventCount" value="0"/>
@@ -76,15 +76,13 @@
         </table>
     </c:if>
 
-    <br><a href='SelectItems?eventAttr=1'><b><fmt:message key="event_attributes" bundle="${resword}"/></b></a><br><br>
-    <a href='SelectItems?subAttr=1'><b><fmt:message key="subject_attributes" bundle="${resword}"/></b></a><br><br>
-    <a href='SelectItems?CRFAttr=1'><b>CRF Attributes</b></a><br><br>
-    <a href='SelectItems?groupAttr=1'><b>Group Attributes</b></a><br><br>
-    <%--
-        <a href='SelectItems?discAttr=1'><b>Discrepancy Note Attributes</b></a><br><br>
-    --%>
+    <br/><a href='SelectItems?eventAttr=1'><b><fmt:message key="event_attributes" bundle="${resword}"/></b></a><br/><br/>
+    <a href='SelectItems?subAttr=1'><b><fmt:message key="subject_attributes" bundle="${resword}"/></b></a><br/><br/>
+    <a href='SelectItems?CRFAttr=1'><b>CRF Attributes</b></a><br/><br/>
+    <a href='SelectItems?groupAttr=1'><b>Group Attributes</b></a><br/><br/>
+
     <a href='ViewSelected'><b><fmt:message key="view_selected_items" bundle="${resword}"/></b></a>
-    <br /><br>
+    <br /><br/>
     <form id="selectAllItems" action="EditSelected" method="post" name="selectAllItems">
         <input type="hidden" name="all" value="1">
     </form>
@@ -101,7 +99,7 @@
         </c:forEach>
     </c:if>
     <a href="javascript: openDocWindow('ViewSelected?status=html')"><b><fmt:message key="view_selected_items" bundle="${resword}"/></b></a><br />
-    <br>
+    <br/>
     <form id="selectAllItems" action="EditSelected" method="post" name="selectAllItems">
         <input type="hidden" name="all" value="1">
     </form>

@@ -73,7 +73,7 @@ public class DeleteEventCRFServlet extends SecureController {
 
         if (eventCRFId == 0) {
             addPageMessage(respage.getString("please_choose_an_event_CRF_to_delete"));
-            request.setAttribute("id", new Integer(studySubId).toString());
+            request.setAttribute("id", Integer.toString(studySubId));
             forwardPage(Page.VIEW_STUDY_SUBJECT_SERVLET);
         } else {
             EventCRFBean eventCRF = (EventCRFBean) ecdao.findByPK(eventCRFId);
@@ -148,7 +148,7 @@ public class DeleteEventCRFServlet extends SecureController {
 
                 addPageMessage(emailBody);
                 // sendEmail(emailBody);
-                request.setAttribute("id", new Integer(studySubId).toString());
+                request.setAttribute("id", Integer.toString(studySubId));
                 forwardPage(Page.VIEW_STUDY_SUBJECT_SERVLET);
             }
 

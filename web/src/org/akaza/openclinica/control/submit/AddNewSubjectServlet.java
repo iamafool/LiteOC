@@ -458,7 +458,7 @@ public class AddNewSubjectServlet extends SecureController {
                              Validator.addError(errors, STUDY_EVENT_DEFINITION, resexception.getString("input_not_acceptable_option"));
                         }
                         String location = fp.getString(LOCATION);
-                        if (location == null && location.length() == 0) {
+                        if (location == null || location.length() == 0) {
                             Validator.addError(errors, LOCATION, resexception.getString("field_not_blank"));
                         }
                         request.setAttribute("showOverlay", true);
@@ -546,7 +546,7 @@ public class AddNewSubjectServlet extends SecureController {
                     // Current study required DOB
                     if (currentStudy.getStudyParameterConfig().getCollectDob().equals("1")) {
                         // date-of-birth in subject table is not completed
-                        if (subjectWithSameId.isDobCollected() == false) {
+                        if (!(subjectWithSameId.isDobCollected())) {
                             needUpdate = true;
                             updateSubject = subjectWithSameId;
                             updateSubject.setDobCollected(true);

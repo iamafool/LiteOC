@@ -49,7 +49,7 @@
         <td class="table_header_column"><c:out value="${studySub.status.name}"/></td>
 
     </tr>
-</table><br><br>
+</table><br/><br/>
 
 <%-- Subject Audit Events --%>
 <table border="0" cellpadding="0" cellspacing="0" width="550" style="border-style: solid; border-width: 1px; border-color: #CCCCCC;">
@@ -74,15 +74,15 @@
         </tr>
     </c:forEach>
 </table>
-<br>
+<br/>
 <%-- Study Events--%>
 <%-- TODO:Anchor these to the Study Event Summaries --%>
 <table border="0" cellpadding="0" cellspacing="0" width="550" style="border-style: solid; border-width: 1px; border-color: #CCCCCC;">
     <tr>
-        <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="study_events" bundle="${resword}"/></b><br></td>
-        <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="location" bundle="${resword}"/></b><br></td>
-        <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="date" bundle="${resword}"/></b><br></td>
-        <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="occurrence_number" bundle="${resword}"/></b><br></td>
+        <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="study_events" bundle="${resword}"/></b><br/></td>
+        <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="location" bundle="${resword}"/></b><br/></td>
+        <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="date" bundle="${resword}"/></b><br/></td>
+        <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="occurrence_number" bundle="${resword}"/></b><br/></td>
     </tr>
     <c:forEach var="event" items="${events}">
         <tr>
@@ -100,7 +100,7 @@
         </tr>
     </c:forEach>
 </table>
-<br>
+<br/>
 <c:forEach var="event" items="${events}">
 <%-- Study Event Summary --%>
 <table border="0" cellpadding="0" cellspacing="0" width="550" style="border-style: solid; border-width: 1px; border-color: #CCCCCC;">
@@ -367,7 +367,7 @@
     <tr><td colspan="2">&nbsp;</td></tr>
 </c:forEach>
 </table>
-<br>
+<br/>
 </c:forEach>
 
 <hr>

@@ -8,35 +8,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">		
-        
-        <fmt:message key="confirm_removal_of_this_CRF_from_event"  bundle="${resword}"/> <c:out value="${event.studyEventDefinition.name}"/> (<fmt:message key="date"  bundle="${resword}"/> <fmt:formatDate value="${event.dateStarted}" pattern="${dteFormat}"/>). <fmt:message key="all_data_associated_with_the_CRF_in_this_event"  bundle="${resword}"/>
-        
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope="request" id="displayEventCRF" class="org.akaza.openclinica.bean.submit.DisplayEventCRFBean"/>
@@ -47,7 +21,7 @@
 <h1><span class="title_manage">
 <fmt:message key="remove_CRF_from_event"  bundle="${resword}"/>
 </span></h1>
-<br>
+<br/>
 <div style="width: 600px">   
 <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
 
@@ -67,7 +41,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
 <span class="table_title_manage"><fmt:message key="event_CRF" bundle="${resword}"/></span>
 <div style="width: 600px">
  <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
@@ -98,7 +72,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  <c:if test="${!empty items}">
  <span class="table_title_manage"><fmt:message key="item_data" bundle="${resword}"/></span>
  <div style="width: 600px">
@@ -129,7 +103,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  </c:if>
    <c:choose>
     <c:when test="${!empty items && count>0}">

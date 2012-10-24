@@ -35,7 +35,7 @@
 </script>
 
 <c:set var="profilePage" value="${param.profilePage}" />
-<!--  If Controller Spring based append ../ to urls -->
+
 <c:set var="urlPrefix" value="" />
 <c:set var="requestFromSpringController"
 	value="${param.isSpringController}" />
@@ -43,7 +43,7 @@
 	<c:set var="urlPrefix" value="../" />
 </c:if>
 
-<!-- Main Navigation -->
+<%-- Main Navigation --%>
 <div class="oc_nav">
 	<div id="StudyInfo">
 		<c:choose>
@@ -220,7 +220,7 @@
 											</tr>
 										</table>
 									</div>
-									<!-- End shaded box border DIVs -->
+									<%-- End shaded box border DIVs --%>
 								</div>
 							</div>
 						</div>
@@ -235,7 +235,7 @@
 </td>
 </tr>
 </table>
-<!-- NAVIGATION DROP-DOWN -->
+<%-- NAVIGATION DROP-DOWN --%>
 
 
 <div id="nav_hide"
@@ -250,8 +250,8 @@
 
 </div>
 <img src="${urlPrefix}images/spacer.gif" width="596" height="1">
-<br>
-<!-- End Main Navigation -->
+<br/>
+<%-- End Main Navigation --%>
 <div id="subnav_Tasks" class="dropdown">
 	<div class="dropdown_BG">
 		<c:if test="${userRole.monitor }">
@@ -563,15 +563,7 @@
 							key="nav_users" bundle="${resword}" />
 					</a>
 				</div>
-				<%--
-            <c:choose>
-                <c:when test="${study.parentStudyId > 0 && (userRole.coordinator || userRole.director) }">
-                </c:when>
-                <c:otherwise>
-                    <div class="taskLink"><a href="${urlPrefix}ListSite?read=true"><fmt:message key="nav_sites" bundle="${resword}"/></a></div>
-                </c:otherwise>
-            </c:choose>
-             --%>
+			
 			</div>
 			<br clear="all">
 		</c:if>

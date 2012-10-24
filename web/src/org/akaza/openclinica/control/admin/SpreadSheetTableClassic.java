@@ -671,7 +671,7 @@ public class SpreadSheetTableClassic implements SpreadSheetTable {// extends
                                         + resPageMsg.getString("it_should_only_contain_one") + "'\\'. ");
                                     htmlErrors.put(j + "," + k + ",17", resPageMsg.getString("INVALID_FIELD"));
                                 } else {
-                                    if (finalRegexp.startsWith("/") && finalRegexp.endsWith("/")) {
+                                    if ((finalRegexp.length() > 0 && finalRegexp.charAt(0) == '/') && finalRegexp.endsWith("/")) {
                                         finalRegexp = finalRegexp.substring(1, finalRegexp.length() - 1);
                                         try {
                                             Pattern p = Pattern.compile(finalRegexp);
@@ -791,7 +791,7 @@ public class SpreadSheetTableClassic implements SpreadSheetTable {// extends
                             vlSql =
                                 "INSERT INTO ITEM (NAME,DESCRIPTION,UNITS,PHI_STATUS,"
                                     + "ITEM_DATA_TYPE_ID, ITEM_REFERENCE_TYPE_ID,STATUS_ID,OWNER_ID,DATE_CREATED,OC_OID) " + "VALUES ('"
-                                    + stripQuotes(itemName) + "','" + stripQuotes(descLabel) + "','" + stripQuotes(unit) + "'," + (phiBoolean == true ? 1 : 0)
+                                    + stripQuotes(itemName) + "','" + stripQuotes(descLabel) + "','" + stripQuotes(unit) + "'," + (phiBoolean ? 1 : 0)
                                     + "," + dataTypeIdString + ",1,1," + ub.getId() + ", sysdate" + ",'" + itemOid + "')";
                         } else {
                             vlSql =

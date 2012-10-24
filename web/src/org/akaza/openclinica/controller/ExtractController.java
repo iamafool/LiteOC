@@ -1,17 +1,17 @@
 package org.akaza.openclinica.controller;
 
 import org.akaza.openclinica.bean.extract.DatasetBean;
-import org.akaza.openclinica.bean.extract.ExtractBean;
+
 import org.akaza.openclinica.bean.extract.ExtractPropertyBean;
 import org.akaza.openclinica.bean.login.UserAccountBean;
 import org.akaza.openclinica.bean.login.StudyUserRoleBean;
-import org.akaza.openclinica.bean.managestudy.StudyBean;
+
 import org.akaza.openclinica.bean.core.Role;
 // import org.akaza.openclinica.control.extract.StdScheduler;
 import org.akaza.openclinica.control.SpringServletAccess;
 import org.akaza.openclinica.dao.core.CoreResources;
 import org.akaza.openclinica.dao.extract.DatasetDAO;
-import org.akaza.openclinica.dao.managestudy.StudyDAO;
+
 import org.akaza.openclinica.i18n.util.ResourceBundleProvider;
 
 import org.akaza.openclinica.service.extract.ExtractUtils;
@@ -34,8 +34,8 @@ import org.springframework.scheduling.quartz.JobDetailBean;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

@@ -3,7 +3,7 @@
  */
 package org.akaza.openclinica.control.submit;
 
-import org.akaza.openclinica.bean.core.Role;
+
 import org.akaza.openclinica.control.managestudy.ListStudySubjectServlet;
 import org.akaza.openclinica.view.Page;
 import org.akaza.openclinica.web.InsufficientPermissionException;

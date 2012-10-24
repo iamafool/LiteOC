@@ -201,7 +201,7 @@ public class SPSSReportBean extends ReportBean {
                         }
                         answer.append(len);
                     }
-                    answer.append("\n");
+                    answer.append('\n');
                 }
                 // YW >>
             }
@@ -409,7 +409,7 @@ public class SPSSReportBean extends ReportBean {
             // answer += (String) row.get(j) + "\t";
             answer.append(itemNames.get(j) + "\t");
         }
-        answer.append("\n");
+        answer.append('\n');
 
         for (int i = 2; i < data.size(); i++) {// if start with row 2, not
             // include header, just row data
@@ -425,7 +425,7 @@ public class SPSSReportBean extends ReportBean {
                 // System.out.println("just converted from " + local_df_string + ": " + s + " -> " + convertAgain);
                 // << tbh
             }
-            answer.append("\n");
+            answer.append('\n');
         }
 
         return answer;
@@ -526,7 +526,7 @@ public class SPSSReportBean extends ReportBean {
     private int builtinIndex(String itemName, String[] attributes) {
         for (int i = 0; i < attributes.length; ++i) {
             logger.debug("itemName[" + itemName + "] attribute[" + attributes[i] + "]");
-            if (itemName != null & itemName.startsWith(attributes[i])) {
+            if (itemName != null && itemName.startsWith(attributes[i])) {
                 return i;
             }
         }
@@ -538,7 +538,7 @@ public class SPSSReportBean extends ReportBean {
     // String attribute = (String) list.get(i);
     private String getDescription(String itemName, String[] attributes) {
         for (int i = 0; i < attributes.length; ++i) {
-            if (itemName != null & itemName.startsWith(attributes[i])) {
+            if (itemName != null && itemName.startsWith(attributes[i])) {
                 return (String) descriptions.get(attributes[i]);
             }
         }

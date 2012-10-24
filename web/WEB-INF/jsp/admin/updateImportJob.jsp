@@ -10,32 +10,8 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 
 <jsp:include page="../include/sideInfo.jsp"/>
 
@@ -60,18 +36,18 @@
 <input type="hidden" name="tname" value="<c:out value="${jobName}"/>" />
 <table>
 	<tr>
-		<td class="text"><b><fmt:message key="import_job_name" bundle="${resword}"/>:</b><br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="jobName"/></jsp:include></td>
+		<td class="text"><b><fmt:message key="import_job_name" bundle="${resword}"/>:</b><br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="jobName"/></jsp:include></td>
 		<td class="text">
 			<input type="text" name="jobName" size="30" value="<c:out value="${jobName}"/>"/>
 		</td>
 	</tr>
 	<tr>
-		<td class="text"><b><fmt:message key="import_job_desc" bundle="${resword}"/>:</b><br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="jobDesc"/></jsp:include></td>
+		<td class="text"><b><fmt:message key="import_job_desc" bundle="${resword}"/>:</b><br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="jobDesc"/></jsp:include></td>
 		<td class="text"><input type="text" name="jobDesc" size="60" value="<c:out value="${jobDesc}"/>"/>
 		</td>
 	</tr>
 	<tr>
-		<td class="text"><b><fmt:message key="import_job_study" bundle="${resword}"/>:</b><br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="jobDesc"/></jsp:include></td>
+		<td class="text"><b><fmt:message key="import_job_study" bundle="${resword}"/>:</b><br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="jobDesc"/></jsp:include></td>
 		<td class="text">
 						<%-- <select name="studyId">
 							<c:forEach var="studyRole" items="${studies}">
@@ -119,14 +95,14 @@
 		<td class="text"><c:out value="${firstFilePath}"/></td>
 	</tr>
 	<tr>
-		<td class="text"><fmt:message key="you_can_create_a_new_directory" bundle="${resword}"/>:<br>
+		<td class="text"><fmt:message key="you_can_create_a_new_directory" bundle="${resword}"/>:<br/>
 		<jsp:include page="../showMessage.jsp"><jsp:param name="key" value="filePathDir"/></jsp:include>
 		</td>
 		<td class="text"><input name="filePathDir" type=text value="<c:out value="${filePath}"/>"/></td>
 	</tr>
 
 	<tr>
-		<td class="text"><b><fmt:message key="frequency" bundle="${resword}"/>:</b><br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="hours"/></jsp:include>
+		<td class="text"><b><fmt:message key="frequency" bundle="${resword}"/>:</b><br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="hours"/></jsp:include>
 		</td>
 		<td class="text">
 			<fmt:message key="run_every" bundle="${resword}"/>&nbsp;
@@ -207,7 +183,7 @@
 			<b><fmt:message key="contact_email" bundle="${resword}"/>:</b></td>
 		<td class="text">
 			<input type="text" name="contactEmail" size="90" value="<c:out value="${contactEmail}"/>" />
-			<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="contactEmail"/></jsp:include>
+			<br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="contactEmail"/></jsp:include>
 		</td>
 	</tr>
 

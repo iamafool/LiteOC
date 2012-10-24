@@ -429,7 +429,7 @@ public class EntityBeanTable {
 
             String[] keywords = null;
             if(keywordFilter != null) {
-                if(keywordFilter.startsWith(" ")){
+                if(keywordFilter.length() > 0 && keywordFilter.charAt(0) == ' '){
                     //the search allows the user to implement a search such as " 20 " thus
                     //searching only for space char-20-space char alone, not 1920, for example
                     keywords = new String[]{keywordFilter};

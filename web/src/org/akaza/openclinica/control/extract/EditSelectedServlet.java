@@ -169,7 +169,7 @@ public class EditSelectedServlet extends SecureController {
         }
         ArrayList allSelectItems = selectAll ? selectAll(events, crfdao, idao) : ViewSelectedServlet.getAllSelected(db, idao, imfdao);
         // >> tbh
-        session.setAttribute("numberOfStudyItems", new Integer(ids.size()).toString());
+        session.setAttribute("numberOfStudyItems", Integer.toString(ids.size()));
         // << tbh 11/2009
         session.setAttribute("allSelectedItems", allSelectItems);
         setUpStudyGroups();

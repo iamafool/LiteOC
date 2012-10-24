@@ -11,33 +11,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-		<div class="sidebar_tab_content"> 
-		
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <!-- org.akaza.openclinica.bean.core.AuditableEntityBean -->
@@ -79,7 +55,7 @@
  </div>
 </div></div></div></div></div></div></div></div>
 </div>
-<br>
+<br/>
 <p><strong><fmt:message key="please_choose_a_study_in_the_following_list2" bundle="${restext}"/></strong></P>
     
    <table border="0" cellpadding="0" cellspacing="0"> 
@@ -99,7 +75,7 @@
           </c:if>
          </c:otherwise>
         </c:choose> 
-        <br>        
+        <br/>        
      </td></tr> 
       <c:forEach var="child" items="${displayStudy.children}">
       <tr><td>
@@ -127,7 +103,7 @@
 
 
 </form>
- <br><br>
+ <br/><br/>
 
 
 <jsp:include page="../include/footer.jsp"/>

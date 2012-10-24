@@ -8,34 +8,8 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">		  
-   		
-    <fmt:message key="please_select_users_in_the_following_table"  bundle="${resword}"/>
-   		
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='request' id='table' class='org.akaza.openclinica.web.bean.EntityBeanTable'/>
@@ -83,7 +57,7 @@
     </c:otherwise>
 </c:choose>
 
-<br><br>
+<br/><br/>
 
 <form name="userForm" action="AssignUserToStudy" method="post">
 <input type="hidden" name="action" value="submit">
@@ -92,7 +66,7 @@
 <c:param name="rowURL" value="showStudyUserRow.jsp" />
 <c:param name="outerFormName" value="userForm" />
 </c:import>
-<br>
+<br/>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td>
@@ -103,6 +77,6 @@
 </tr></table>
 
 </form>
-<br><br>
+<br/><br/>
 
 <jsp:include page="../include/footer.jsp"/>

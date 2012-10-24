@@ -8,36 +8,8 @@
 <jsp:include page="../include/extract-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-		<div class="sidebar_tab_content">
-		<p><fmt:message key="filter_data_selecting_range" bundle="${restext}"/></p>
-		<p><fmt:message key="select_event_start_end_however" bundle="${restext}"/></p>
-		<p><fmt:message key="not_filter_study_by_enrollment_leave_blank" bundle="${restext}"/></p>
-		</div>
-		</td>
-  </tr>
 
 <jsp:include page="../include/createDatasetSideInfo.jsp"/>
 
@@ -106,7 +78,7 @@
 				<c:set var="monthNum" value="${monthNum + 1}" />
 			</c:forEach>
 			</select>
-			<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="firstmonth"/></jsp:include>
+			<br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="firstmonth"/></jsp:include>
 		</td>
 		<td class="text" valign="top">
 			<select name="firstyear">
@@ -144,7 +116,7 @@
 				<c:set var="monthNum" value="${monthNum + 1}" />
 			</c:forEach>
 			</select>
-			<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="lastmonth"/></jsp:include>
+			<br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="lastmonth"/></jsp:include>
 		</td>
 		<td class="text" valign="top">
 			<select name="lastyear">

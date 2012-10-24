@@ -144,7 +144,7 @@ margin-top:20px; updateTabs(<c:out value="${tabId}"/>);--%>
   <c:param name="hasNameNote" value="${hasNameNote}"/>
   <c:param name="hasDateNote" value="${hasDateNote}"/>
 </c:import>
-<!--<br><br>-->
+<!--<br/><br/>-->
 <br />
 <%--I don't think we need this segment to accompany the existing error messages:--%>
 <%-- need to put this back, otherwise, error msg from 'mark complete' cannot show--%>
@@ -152,7 +152,7 @@ margin-top:20px; updateTabs(<c:out value="${tabId}"/>);--%>
     <div class="alert">
         <c:forEach var="message" items="${pageMessages}">
             <c:out value="${message}" escapeXml="false"/>
-            <br><br>
+            <br/><br/>
         </c:forEach>
     </div>
 </c:if>
@@ -204,7 +204,7 @@ margin-top:20px; updateTabs(<c:out value="${tabId}"/>);--%>
 <div id="box" class="dialog" style="display:none;">
 <span id="mbm">
     <fmt:message key="crf_data_entry_password_required" bundle="${restext}"/>
-</span><br>
+</span><br/>
     <div style="text-align:center; width:100%;">
         <input align="center" type="password" name="password" id="passwordId"/>
         <input type="button" onclick="hm('box');requestSignatureFromCheckbox(document.getElementById('passwordId').value, checkboxObject);" value="OK"/>

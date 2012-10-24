@@ -1,6 +1,6 @@
 package org.akaza.openclinica.control.submit;
 
-import org.akaza.openclinica.bean.core.EntityBean;
+
 import org.akaza.openclinica.bean.core.Role;
 import org.akaza.openclinica.bean.core.Status;
 import org.akaza.openclinica.bean.core.SubjectEventStatus;
@@ -17,7 +17,7 @@ import org.akaza.openclinica.bean.submit.SubjectBean;
 import org.akaza.openclinica.bean.submit.SubjectGroupMapBean;
 import org.akaza.openclinica.control.AbstractTableFactory;
 import org.akaza.openclinica.control.DefaultActionsEditor;
-import org.akaza.openclinica.control.DefaultView;
+
 import org.akaza.openclinica.control.ListStudyView;
 import org.akaza.openclinica.dao.managestudy.EventDefinitionCRFDAO;
 import org.akaza.openclinica.dao.managestudy.FindSubjectsFilter;
@@ -46,7 +46,7 @@ import org.jmesa.view.editor.BasicCellEditor;
 import org.jmesa.view.editor.CellEditor;
 import org.jmesa.view.html.HtmlBuilder;
 import org.jmesa.view.html.editor.DroplistFilterEditor;
-import org.omg.CORBA.Request;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

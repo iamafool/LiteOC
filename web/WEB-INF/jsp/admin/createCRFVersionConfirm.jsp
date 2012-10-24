@@ -17,34 +17,7 @@
 </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href=
-      "javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-<%-- remove display?  style="display: all"--%>
-  <tr id="sidebar_Instructions_closed">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
+<%-- move the alert message to the sidebar --%>
 
 <jsp:include page="../include/sideInfo_prev.jsp"/>
 
@@ -90,7 +63,7 @@
   </table>
 <br/>
 
-<jsp:include page="../managestudy/viewSectionDataPreview.jsp"/><br><br>
+<jsp:include page="../managestudy/viewSectionDataPreview.jsp"/><br/><br/>
 
  <table border="0">
 <tr><td><b><form action="CreateCRFVersion?action=confirmsql&crfId=<c:out value=
@@ -106,14 +79,14 @@
 </c:when>
 <c:otherwise>
 <br/>
-<fmt:message key="there_were_several_invalid_fields" bundle="${restext}"/> <br>
+<fmt:message key="there_were_several_invalid_fields" bundle="${restext}"/> <br/>
 <fmt:message key="click" bundle="${resword}"/> <input type="submit" name="submit" value="<fmt:message key="go_back" bundle="${restext}"/>" class="button" onclick="javascript:window.location.href='CreateCRFVersion?module=&crfId=<c:out value="${version.crfId}"/>'">
 <fmt:message key="to_go_back_and_upload" bundle="${restext}"/>
 <br/>
 <c:forEach var="error" items="${excelErrors}">
-<span class="alert"><c:out value="${error}"/><br></span>
+<span class="alert"><c:out value="${error}"/><br/></span>
 </c:forEach>
-<br>
+<br/>
 <%=htmlTable%>
 
 </c:otherwise>

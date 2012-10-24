@@ -23,7 +23,7 @@
 
 
 <form action="RequestAccount" method="post"> 
-<fmt:message key="all_fields_are_required" bundle="${resword}"/><br>
+<fmt:message key="all_fields_are_required" bundle="${resword}"/><br/>
 <input type="hidden" name="action" value="confirm"> 
 <!-- These DIVs define shaded box borders -->
 <div style="width: 600px">

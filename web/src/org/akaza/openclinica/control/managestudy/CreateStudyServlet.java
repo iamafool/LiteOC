@@ -970,7 +970,7 @@ public class CreateStudyServlet extends SecureController {
                 if (!StringUtil.isBlank(type) && !StringUtil.isBlank(name)) {
                     InterventionBean ib = new InterventionBean(fp.getString("interType" + i), fp.getString("interName" + i));
                     interventionArray.add(ib);
-                    interventions.append(ib.toString()).append(",");
+                    interventions.append(ib.toString()).append(',');
                 }
             }
             newStudy.setInterventions(interventions.toString());

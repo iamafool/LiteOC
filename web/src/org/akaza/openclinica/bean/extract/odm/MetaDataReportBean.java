@@ -443,7 +443,7 @@ public class MetaDataReportBean extends OdmXmlReportBean {
             if (t != null && t.getText() != null && t.getText().length() > 0) {
                 if (!hasNode) {
                     hasNode = true;
-                    xml.append(">");
+                    xml.append('>');
                     xml.append(nls);
                 }
                 if ("oc1.3".equalsIgnoreCase(ODMVersion)) {
@@ -471,7 +471,7 @@ public class MetaDataReportBean extends OdmXmlReportBean {
             if (muRefOid != null && muRefOid.length() > 0) {
                 if (!hasNode) {
                     hasNode = true;
-                    xml.append(">");
+                    xml.append('>');
                     xml.append(nls);
                 }
                 xml.append(currentIndent + indent + this.measurementUnitRefString(muRefOid));
@@ -484,7 +484,7 @@ public class MetaDataReportBean extends OdmXmlReportBean {
                     if (rc.getComparator().length() > 0) {
                         if (!hasNode) {
                             hasNode = true;
-                            xml.append(">");
+                            xml.append('>');
                             xml.append(nls);
                         }
                         xml.append(currentIndent + indent + "<RangeCheck Comparator=\"" + StringEscapeUtils.escapeXml(rc.getComparator()) + "\" SoftHard=\""
@@ -511,7 +511,7 @@ public class MetaDataReportBean extends OdmXmlReportBean {
             if (clOid != null && clOid.length() > 0) {
                 if (!hasNode) {
                     hasNode = true;
-                    xml.append(">");
+                    xml.append('>');
                     xml.append(nls);
                 }
                 xml.append(currentIndent + indent + "<CodeListRef CodeListOID=\"" + StringEscapeUtils.escapeXml(clOid) + "\"/>");
@@ -524,7 +524,7 @@ public class MetaDataReportBean extends OdmXmlReportBean {
                     if (mslOid != null && mslOid.length() > 0) {
                         if (!hasNode) {
                             hasNode = true;
-                            xml.append(">");
+                            xml.append('>');
                             xml.append(nls);
                         }
                         // xml.append(currentIndent + indent +
@@ -539,7 +539,7 @@ public class MetaDataReportBean extends OdmXmlReportBean {
             if ("oc1.3".equals(ODMVersion) && isStudy) {
                 if (!hasNode) {
                     hasNode = true;
-                    xml.append(">");
+                    xml.append('>');
                     xml.append(nls);
                 }
                 this.addItemDetails(item.getItemDetails(), currentIndent + indent);
@@ -613,7 +613,7 @@ public class MetaDataReportBean extends OdmXmlReportBean {
                     if (l.getActualDataType() != null) {
                         xml.append("ActualDataType=\"" + StringEscapeUtils.escapeXml(l.getActualDataType()) + "\" ");
                     }
-                    xml.append(">");
+                    xml.append('>');
                     xml.append(nls);
 
                     ArrayList<MultiSelectListItemBean> mslis = (ArrayList<MultiSelectListItemBean>) l.getMultiSelectListItems();
@@ -691,7 +691,7 @@ public class MetaDataReportBean extends OdmXmlReportBean {
             if (study.getDatePlannedEnd() != null) {
                 xml.append(" StudyCompletionDate=\"" + new SimpleDateFormat("yyyy-MM-dd").format(study.getDatePlannedEnd()) + "\"");
             }
-            xml.append(">");
+            xml.append('>');
             xml.append(nls);
             temp = study.getStatus() == null ? "" : study.getStatus().getName();
             if (temp != null && temp.length() > 0) {
@@ -946,7 +946,7 @@ public class MetaDataReportBean extends OdmXmlReportBean {
         String temp = "";
         xml.append(currentIndent + "<OpenClinica:FormDetails FormOID=\"" + StringEscapeUtils.escapeXml(detail.getOid()) 
                 + "\" ParentFormOID=\"" + StringEscapeUtils.escapeXml(detail.getParentFormOid())+"\"");
-        xml.append(">");
+        xml.append('>');
         xml.append(nls);
         temp = detail.getVersionDescription();
         xml.append(temp != null && temp.length() > 0 ? currentIndent + indent + "<OpenClinica:VersionDescription>" + StringEscapeUtils.escapeXml(temp)
@@ -1118,7 +1118,7 @@ public class MetaDataReportBean extends OdmXmlReportBean {
                     if (l.getSubjectAssignment() != null) {
                         xml.append("SubjectAssignment=\"" + StringEscapeUtils.escapeXml(l.getSubjectAssignment()) + "\" ");
                     }
-                    xml.append(">");
+                    xml.append('>');
                     xml.append(nls);
                     for (StudyGroupItemBean i : (ArrayList<StudyGroupItemBean>) l.getStudyGroupItems()) {
                         xml.append(currentIndent + indent + "<OpenClinica:StudyGroupItem ");

@@ -16,33 +16,9 @@
 </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content"> 
-		
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='request' id='siteToRemove' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
@@ -78,7 +54,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  <c:choose>      
  <c:when test="${fromListSite=='yes'}">
   <span class="table_title_manage">
@@ -111,7 +87,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br> 
+<br/> 
  <c:choose>      
  <c:when test="${fromListSite=='yes'}">
   <span class="table_title_manage">
@@ -146,7 +122,7 @@
 </div>
  
 
-<br> 
+<br/> 
 <form action='RemoveSite?action=submit&id=<c:out value="${siteToRemove.id}"/>' method="POST">
  <input type="submit" name="submit" value="<fmt:message key="remove_site" bundle="${resword}"/>" class="button_long" onClick='return confirm("<fmt:message key="if_you_remove_this_site" bundle="${resword}"/>");'>
     &nbsp;
@@ -154,7 +130,7 @@
     
 </form>
 
-<br><br>
+<br/><br/>
 
 
 

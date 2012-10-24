@@ -3,7 +3,7 @@
 	<classpathentry excluding="org/akaza/openclinica/i18n/*_en.properties|resources/" kind="src" path="src"/>
 	<classpathentry kind="src" path="src/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/Sun JDK 1.6.0_13"/>
-	<classpathentry exported="true" kind="var" path="M2_REPO/javax/activation/activation/1.0.2/activation-1.0.2.jar" sourcepath="/M2_REPO"/>
+	<!-- <classpathentry exported="true" kind="var" path="M2_REPO/javax/activation/activation/1.0.2/activation-1.0.2.jar" sourcepath="/M2_REPO"/> -->
 	<classpathentry exported="true" kind="var" path="M2_REPO/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/javax/servlet/jstl/1.1.2/jstl-1.1.2.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/javax/transaction/jta/1.1/jta-1.1.jar"/>

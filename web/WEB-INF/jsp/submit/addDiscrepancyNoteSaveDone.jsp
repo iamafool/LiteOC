@@ -37,7 +37,7 @@
 <br clear="all">
 <p class="alert" style="font-size: 14px; margin: 120px 50px;" >    
 <c:forEach var="message" items="${pageMessages}">
- <c:out value="${message}" escapeXml="false"/><br><br>
+ <c:out value="${message}" escapeXml="false"/><br/><br/>
 </c:forEach>
 </p>
 </html>

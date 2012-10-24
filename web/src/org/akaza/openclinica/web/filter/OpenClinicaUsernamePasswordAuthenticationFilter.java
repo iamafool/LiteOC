@@ -22,7 +22,7 @@ import org.akaza.openclinica.control.core.SecureController;
 import org.akaza.openclinica.dao.hibernate.AuditUserLoginDao;
 import org.akaza.openclinica.dao.hibernate.ConfigurationDao;
 import org.akaza.openclinica.dao.login.UserAccountDAO;
-import org.akaza.openclinica.dao.admin.AuditEventDAO;
+
 import org.akaza.openclinica.domain.technicaladmin.AuditUserLoginBean;
 import org.akaza.openclinica.domain.technicaladmin.LoginStatus;
 import org.akaza.openclinica.i18n.util.ResourceBundleProvider;

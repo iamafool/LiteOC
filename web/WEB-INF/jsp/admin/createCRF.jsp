@@ -16,34 +16,8 @@
 </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-		<div class="sidebar_tab_content">
-        <fmt:message key="if_created_CRF_using_excel" bundle="${restext}"/><br><br>
-
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='crf' class='org.akaza.openclinica.bean.admin.CRFBean'/>

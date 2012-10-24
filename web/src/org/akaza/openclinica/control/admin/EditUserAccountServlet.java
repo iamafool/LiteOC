@@ -257,7 +257,7 @@ public class EditUserAccountServlet extends SecureController {
         // UserType.USER.getId();
         fp.addPresetValue(INPUT_USER_TYPE, userTypeId);
         fp.addPresetValue(ARG_USERID, user.getId());
-        fp.addPresetValue(INPUT_RUN_WEBSERVICES, user.getRunWebservices() == true ? 1 : 0);
+        fp.addPresetValue(INPUT_RUN_WEBSERVICES, user.getRunWebservices() ? 1 : 0);
 
         String sendPwd = SQLInitServlet.getField("user_account_notification");
         fp.addPresetValue(USER_ACCOUNT_NOTIFICATION, sendPwd);

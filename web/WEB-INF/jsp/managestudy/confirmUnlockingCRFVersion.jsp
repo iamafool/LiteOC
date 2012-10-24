@@ -7,36 +7,9 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-        <fmt:message key="confirm_unarchiving_of_this_version"  bundle="${resword}"/>
-        <fmt:message key="this_version_will_available_when_creating_event"  bundle="${resword}"/>
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
@@ -84,7 +57,7 @@
  </div>
 </div></div></div></div></div></div></div></div>
  </div>
-<br>
+<br/>
 <c:choose>
 <c:when test="${!empty eventSubjectsUsingVersion}">
 <fmt:message key="subjects_events_using_this_version"  bundle="${resword}"/>:

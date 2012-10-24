@@ -51,14 +51,14 @@ public class ListNotesFilter implements CriteriaCommand {
                 criteria = criteria + " and ";
                 criteria = criteria + "ss.study_id in ( SELECT study_id FROM study WHERE unique_identifier like '%"+ value.toString() +"%')";
             } else if (property.equals("age")) {
-                if(value.toString().startsWith(">") || value.toString().startsWith("<")
-                        || value.toString().startsWith("=")){
+                if((value.toString().length() > 0 && value.toString().charAt(0) == '>') || (value.toString().length() > 0 && value.toString().charAt(0) == '<')
+                        || (value.toString().length() > 0 && value.toString().charAt(0) == '=')){
                     criteria = criteria + " and ";
                     criteria = criteria + " age " + value.toString();
                 }
             } else if (property.equals("days")) {
-                if(value.toString().startsWith(">") || value.toString().startsWith("<")
-                        || value.toString().startsWith("=")){
+                if((value.toString().length() > 0 && value.toString().charAt(0) == '>') || (value.toString().length() > 0 && value.toString().charAt(0) == '<')
+                        || (value.toString().length() > 0 && value.toString().charAt(0) == '=')){
                     criteria = criteria + " and ";
                     criteria = criteria + " days " + value.toString();
                 }

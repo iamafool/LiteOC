@@ -7,7 +7,7 @@
  */
 package org.akaza.openclinica.control.managestudy;
 
-import org.akaza.openclinica.bean.core.Role;
+
 import org.akaza.openclinica.bean.core.SubjectEventStatus;
 import org.akaza.openclinica.bean.managestudy.StudyEventBean;
 import org.akaza.openclinica.bean.managestudy.StudyEventDefinitionBean;
@@ -273,9 +273,9 @@ public class ViewStudyEventsServlet extends SecureController {
             table.setColumns(new ArrayList(Arrays.asList(columns)));
             table.hideColumnLink(3);
             HashMap args = new HashMap();
-            args.put("sedId", new Integer(sed.getId()).toString());
-            args.put("definitionId", new Integer(definitionId).toString());
-            args.put("statusId", new Integer(statusId).toString());
+            args.put("sedId", Integer.toString(sed.getId()));
+            args.put("definitionId", Integer.toString(definitionId));
+            args.put("statusId", Integer.toString(statusId));
             args.put("startDate", local_df.format(startDate));
             args.put("endDate", local_df.format(endDate));
             table.setQuery("ViewStudyEvents", args);

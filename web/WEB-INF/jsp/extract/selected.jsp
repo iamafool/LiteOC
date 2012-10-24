@@ -250,7 +250,7 @@
 </div>
 
 
-<br>
+<br/>
 <span class="table_title_extract"><fmt:message key="CRF_data" bundle="${resword}"/></span>
 
 <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
@@ -299,7 +299,7 @@
            <c:out value="${meta.crfVersionName}"/>
           </c:when>
           <c:otherwise>
-           <c:out value="${meta.crfVersionName}"/>,<br>
+           <c:out value="${meta.crfVersionName}"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>&nbsp;
@@ -314,7 +314,7 @@
            <c:out value="${meta.responseSet.label}"/>
           </c:when>
           <c:otherwise>
-            <c:out value="${meta.responseSet.label}"/>,<br>
+            <c:out value="${meta.responseSet.label}"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>&nbsp;

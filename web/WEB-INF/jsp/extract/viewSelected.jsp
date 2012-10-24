@@ -62,7 +62,7 @@ function notSelectAll() {
  <input type="submit" name="submit" value="<fmt:message key="select_all_items_in_study" bundle="${resword}"/>" class="button_xlong" onClick='return confirm("<fmt:message key="there_a_total_of" bundle="${resword}"><fmt:param value="${numberOfStudyItems}"/></fmt:message>")' />
 </form>
 
-<br><br>
+<br/><br/>
 </c:if>
 <c:if test="${!empty allSelectedItems}">
 <form action="CreateDataset" method="post" name="cl">
@@ -77,7 +77,7 @@ function notSelectAll() {
    <td><input type="button" onclick="confirmCancel('ViewDatasets');"  name="cancel" value="   <fmt:message key="cancel" bundle="${resword}"/>   " class="button_medium"/></td>
   </tr>
 </table>
-<br>
+<br/>
 
 <jsp:include page="selected.jsp"/>
 
@@ -90,6 +90,6 @@ function notSelectAll() {
 </table>
 </form>
 </c:if>
-<br><br><br>
+<br/><br/><br/>
 
 <jsp:include page="../include/footer.jsp"/>

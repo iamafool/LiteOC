@@ -288,7 +288,7 @@ public class RulesPostImportContainerService {
             EventDefinitionCRFBean eventDefinitionCRFBean) {
         if (ruleActionBean instanceof ShowActionBean) {
             List<PropertyBean> properties = ((ShowActionBean) ruleActionBean).getProperties();
-            if (ruleActionBean.getRuleActionRun().getBatch() == true || ruleActionBean.getRuleActionRun().getImportDataEntry() == true) {
+            if (ruleActionBean.getRuleActionRun().getBatch() || ruleActionBean.getRuleActionRun().getImportDataEntry()) {
                 ruleSetBeanWrapper.error("ShowAction " + ((ShowActionBean) ruleActionBean).toString()
                     + " is not Valid. You cannot have ImportDataEntry=\"true\" Batch=\"true\". ");
             }
@@ -302,7 +302,7 @@ public class RulesPostImportContainerService {
         }
         if (ruleActionBean instanceof HideActionBean) {
             List<PropertyBean> properties = ((HideActionBean) ruleActionBean).getProperties();
-            if (ruleActionBean.getRuleActionRun().getBatch() == true || ruleActionBean.getRuleActionRun().getImportDataEntry() == true) {
+            if (ruleActionBean.getRuleActionRun().getBatch() || ruleActionBean.getRuleActionRun().getImportDataEntry()) {
                 ruleSetBeanWrapper.error("HideAction " + ((HideActionBean) ruleActionBean).toString()
                     + " is not Valid. You cannot have ImportDataEntry=\"true\" Batch=\"true\". ");
             }
@@ -315,7 +315,7 @@ public class RulesPostImportContainerService {
             }
         }
         if (ruleActionBean instanceof InsertActionBean) {
-            if (ruleActionBean.getRuleActionRun().getBatch() == true || ruleActionBean.getRuleActionRun().getImportDataEntry() == true) {
+            if (ruleActionBean.getRuleActionRun().getBatch() || ruleActionBean.getRuleActionRun().getImportDataEntry()) {
                 ruleSetBeanWrapper.error("InsertAction " + ((InsertActionBean) ruleActionBean).toString() + " is not Valid. ");
             }
             DataBinder dataBinder = new DataBinder(ruleActionBean);
@@ -330,7 +330,7 @@ public class RulesPostImportContainerService {
             }
         }
         if (ruleActionBean instanceof EmailActionBean) {
-            if (ruleActionBean.getRuleActionRun().getImportDataEntry() == true) {
+            if (ruleActionBean.getRuleActionRun().getImportDataEntry()) {
                 ruleSetBeanWrapper.error("EmailAction " + ((EmailActionBean) ruleActionBean).toString()
                     + " is not Valid.You cannot have ImportDataEntry=\"true\". ");
             }

@@ -11,7 +11,7 @@ package org.akaza.openclinica.control.managestudy;
 import org.akaza.openclinica.bean.admin.AuditBean;
 import org.akaza.openclinica.bean.core.Status;
 import org.akaza.openclinica.bean.core.Utils;
-import org.akaza.openclinica.bean.core.Role;
+
 import org.akaza.openclinica.bean.managestudy.StudyBean;
 import org.akaza.openclinica.bean.managestudy.StudyEventBean;
 import org.akaza.openclinica.bean.managestudy.StudyEventDefinitionBean;

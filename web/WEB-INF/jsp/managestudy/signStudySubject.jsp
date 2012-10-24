@@ -29,8 +29,8 @@
 </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
+
 <script type="text/JavaScript" language="JavaScript">
     <!--
     function myCancel() {
@@ -50,29 +50,6 @@
     //-->
 </script>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-    <td class="sidebar_tab">
-
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-        <div class="sidebar_tab_content">
-        </div>
-
-    </td>
-
-</tr>
-<tr id="sidebar_Instructions_closed" style="display: all">
-    <td class="sidebar_tab">
-
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-    </td>
-</tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope="request" id="subject" class="org.akaza.openclinica.bean.submit.SubjectBean"/>
@@ -144,7 +121,7 @@
     <fmt:message key="sure_to_sign_subject2" bundle="${resword}"/>
     <br/>
     <fmt:message key="role" bundle="${resword}"/>: <c:out value="${userRole.role.description}"/></b>
-<br><br>
+<br/><br/>
 <form action="SignStudySubject" method="post">
     <input type="hidden" name="id" value="<c:out value="${studySub.id}"/>">
     <input type="hidden" name="action" value="confirm">
@@ -181,7 +158,7 @@
     <input type="button" name="Cancel" id="cancel" value="<fmt:message key="cancel" bundle="${resword}"/>"
            class="button_medium" onClick="javascript:myCancel();"/>
 </form>
-<br>
+<br/>
 <p>
     <%--
         <a href="#events"><fmt:message key="events" bundle="${resword}"/></a> &nbsp; &nbsp; &nbsp;
@@ -404,7 +381,7 @@
 </td>
 </tr>
 </table>
-<br><br>
+<br/><br/>
 </div>
 <c:choose>
     <c:when test="${isAdminServlet == 'admin' && userBean.sysAdmin && module=='admin'}">
@@ -626,7 +603,7 @@
 
     </div>
 
-    <br><br>
+    <br/><br/>
 </div>
 
 <div style="width: 250px">

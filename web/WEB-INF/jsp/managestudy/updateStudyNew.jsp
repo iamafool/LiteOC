@@ -21,55 +21,8 @@
 
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<jsp:useBean scope="request" id="facRecruitStatusMap" class="java.util.HashMap"/>
-<jsp:useBean scope="request" id="statuses" class="java.util.ArrayList"/>
-<jsp:useBean scope ="request" id="studyPhaseMap" class="java.util.HashMap"/>
-<jsp:useBean scope ="request" id="studyTypes" class="java.util.ArrayList"/>
+<%-- move the alert message to the sidebar --%>
 
-<jsp:useBean scope ="request" id="interPurposeMap" class="java.util.HashMap"/>
-<jsp:useBean scope ="request" id="allocationMap" class="java.util.HashMap"/>
-<jsp:useBean scope ="request" id="maskingMap" class="java.util.HashMap"/>
-<jsp:useBean scope ="request" id="controlMap" class="java.util.HashMap"/>
-<jsp:useBean scope ="request" id="assignmentMap" class="java.util.HashMap"/>
-<jsp:useBean scope ="request" id="endpointMap" class="java.util.HashMap"/>
-<jsp:useBean scope ="request" id="interTypeMap" class="java.util.HashMap"/>
-<jsp:useBean scope ="request" id="interventions" class="java.util.ArrayList"/>
-<jsp:useBean scope ="request" id="interventionError" class="java.lang.String"/>
-
-<jsp:useBean scope="request" id="obserPurposeMap" class ="java.util.HashMap"/>
-<jsp:useBean scope="request" id="durationMap" class ="java.util.HashMap"/>
-<jsp:useBean scope="request" id="selectionMap" class ="java.util.HashMap"/>
-<jsp:useBean scope="request" id="timingMap" class ="java.util.HashMap"/>
-<jsp:useBean scope="request" id="isInterventional" class ="java.lang.String"/>
-<jsp:useBean scope="request" id="studyId" class ="java.lang.String"/>
-
-
-
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 <jsp:useBean scope='request' id='parentStudy' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
 <jsp:useBean scope='request' id='studyToView' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
@@ -120,9 +73,9 @@
 </c:forEach>
 
 
-<br><br>
+<br/><br/>
 
-<br>
+<br/>
 <form action="UpdateStudyNew" method="post">
 <input type=hidden name="action" value="submit">
 <input type=hidden name="studyId" value="<c:out value="${studyId}"/>">
@@ -205,7 +158,7 @@
 
               </div>
           </td><td>*</td></tr>
-          <tr valign="top"><td class="formlabel"><a href="http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds" target="def_win" onClick="openDefWindow('http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds'); return false;"><b><fmt:message key="secondary_IDs" bundle="${resword}"/></b>:</a><br>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td>
+          <tr valign="top"><td class="formlabel"><a href="http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds" target="def_win" onClick="openDefWindow('http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds'); return false;"><b><fmt:message key="secondary_IDs" bundle="${resword}"/></b>:</a><br/>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td>
           <td> <div class="formtextareaXL4_BG">
            <textarea class="formtextareaXL4" name="secondProId" rows="4" cols="50"><c:out value="${studyToView.secondaryIdentifier}"/></textarea></div>
            <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="secondProId"/></jsp:include>
@@ -231,7 +184,7 @@
             <div class="formfieldXL_BG"><input type="text" name="sponsor" value="<c:out value="${studyToView.sponsor}"/>" class="formfieldXL"></div>
             <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="sponsor"/></jsp:include></td><td >*</td></tr>
 
-            <tr valign="top"><td class="formlabel"><fmt:message key="collaborators" bundle="${resword}"/>:<br>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td><td>
+            <tr valign="top"><td class="formlabel"><fmt:message key="collaborators" bundle="${resword}"/>:<br/>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td><td>
             <div class="formtextareaXL4_BG"><textarea class="formtextareaXL4" name="collaborators" rows="4" cols="50"><c:out value="${studyToView.collaborators}"/></textarea></div>
              <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="collaborators"/></jsp:include>
             </td>
@@ -550,13 +503,13 @@
 </div></div></div></div></div></div></div></div>
 </div>
 </div>
-<br>
+<br/>
 
 <div style="font-family: Tahoma, Arial, Helvetica, Sans-Serif;font-size:17px;">
     
     <fmt:message key="expand_each_section" bundle="${restext}"/>
 </div>
-    <br>
+    <br/>
 
 <a href="javascript:leftnavExpand('sectionc');">
 	<img id="excl_sectionc" src="images/bt_Expand.gif" border="0"> <span class="table_title_Admin">
@@ -573,7 +526,7 @@
       <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="conditions"/></jsp:include>
       </td></tr>
 
-      <tr valign="top"><td class="formlabel"><fmt:message key="keywords" bundle="${resword}"/>:<br>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td><td>
+      <tr valign="top"><td class="formlabel"><fmt:message key="keywords" bundle="${resword}"/>:<br/>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td><td>
        <div class="formtextareaXL4_BG"><textarea name="keywords" rows="4" cols="50"  class="formtextareaXL4"><c:out value="${studyToView.keywords}"/></textarea>
        </div>
         <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="keywords"/></jsp:include>
@@ -649,7 +602,7 @@
 </div></div></div></div></div></div></div></div>
 </div>
 </div>
-<br>
+<br/>
 
 <a href="javascript:leftnavExpand('sectiond');">
 	<img id="excl_sectiond" src="images/bt_Expand.gif" border="0">
@@ -727,7 +680,7 @@
 </div></div></div></div></div></div></div></div>
 </div>
 </div>
-<br>
+<br/>
 
 
  <a href="javascript:leftnavExpand('sectione');">
@@ -775,7 +728,7 @@
 
 </div>
 </div>
-<br>
+<br/>
 <a href="javascript:leftnavExpand('sectionf');">
 	<img id="excl_sectionf" src="images/bt_Expand.gif" border="0"> <span class="table_title_Admin">
     <fmt:message key="study_parameter_configuration" bundle="${resword}"/></span></a>
@@ -1017,7 +970,7 @@
 
 </div>
 </div>
-<br>
+<br/>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td>
@@ -1030,10 +983,10 @@
 
 </form>
 
-<br>
+<br/>
 
 
-<br>
+<br/>
 
-<br>
+<br/>
 <jsp:include page="../include/footer.jsp"/>

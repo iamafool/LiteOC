@@ -144,7 +144,7 @@ public class DataEntryDecorator {
         // add the href to the span
         spanElement.addContent(ahref);
 
-        ahref.setAttribute("tabindex", tabNumber + 1000 + "");
+        ahref.setAttribute("tabindex", (tabNumber + 1000) + "");
         ahref.setAttribute("href", "#");
         // disable this note for printing
         // In the future, this method might be used for more than printing CRFs

@@ -337,7 +337,7 @@ public class ViewStudySubjectServlet extends SecureController {
             }
             // YW >>
             HashMap args = new HashMap();
-            args.put("id", new Integer(studySubId).toString());
+            args.put("id", Integer.toString(studySubId));
             table.setQuery("ViewStudySubject", args);
             table.setRows(allEventRows);
             table.computeDisplay();

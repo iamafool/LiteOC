@@ -6,7 +6,7 @@
 
 <jsp:useBean scope="request" id="section" class="org.akaza.openclinica.bean.submit.DisplaySectionBean" />
 <jsp:useBean scope="request" id="annotations" class="java.lang.String" />
-<br>
+<br/>
 
 
 <c:set var="currPage" value="" />
@@ -187,5 +187,5 @@
 </div>
 </div></div></div></div></div></div></div></div>
 </div>
-<br>
+<br/>
 <%-- <c:import url="../submit/showFixedComments.jsp" /> --%>

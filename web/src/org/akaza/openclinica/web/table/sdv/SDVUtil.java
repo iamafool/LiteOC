@@ -972,7 +972,7 @@ public class SDVUtil {
 
         StringBuilder builderHref = new StringBuilder("<a href='javascript:void(0)' onclick=\"");
         //ViewSectionDataEntry?eventDefinitionCRFId=127&crfVersionId=682&tabId=1&studySubjectId=203
-        builderHref.append("document.location.href='").append(request.getContextPath()).append("/");
+        builderHref.append("document.location.href='").append(request.getContextPath()).append('/');
         builderHref.append("ViewSectionDataEntry?eventDefinitionCRFId=").append(eventDefinitionCRFId);
         builderHref.append("&crfVersionId=").append(crfVersionId).append("&tabId=1&studySubjectId=").append(studySubjectId).append("'\">");
 
@@ -992,7 +992,7 @@ public class SDVUtil {
         builder.append(ICON_FORCRFSTATUS_SUFFIX);
         //"<input type=\"hidden\" statusId=\"1\" />"
         builder.append("</a>");
-        builder.append(" ");
+        builder.append(' ');
         builder.append(input.toString());
         return builder.toString();
     }

@@ -11,34 +11,8 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
+<%-- move the alert message to the sidebar --%>
 
-<%-- TODO wrap into one page with createExportJob.jsp, tbh--%>
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 
 <jsp:include page="../include/sideInfo.jsp"/>
 
@@ -66,13 +40,13 @@
 
 <table>
 <tr>
-		<td class="text"><b><fmt:message key="job_name" bundle="${resword}"/>:</b><br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="jobName"/></jsp:include></td>
+		<td class="text"><b><fmt:message key="job_name" bundle="${resword}"/>:</b><br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="jobName"/></jsp:include></td>
 		<td class="text">
 			<input type="text" name="jobName" size="30" value="<c:out value="${jobName}"/>"/>
 		</td>
 	</tr>
 	<tr>
-		<td class="text"><b><fmt:message key="description" bundle="${resword}"/>:</b><br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="jobDesc"/></jsp:include></td>
+		<td class="text"><b><fmt:message key="description" bundle="${resword}"/>:</b><br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="jobDesc"/></jsp:include></td>
 		<td class="text"><input type="text" name="jobDesc" size="60" value="<c:out value="${jobDesc}"/>"/>
 		</td>
 	</tr>
@@ -173,7 +147,7 @@
 
 
 	<tr>
-		<td class="text"><b><fmt:message key="contact_email" bundle="${resword}"/>:</b><br>
+		<td class="text"><b><fmt:message key="contact_email" bundle="${resword}"/>:</b><br/>
 		<jsp:include page="../showMessage.jsp"><jsp:param name="key" value="contactEmail"/></jsp:include></td>
 		<td class="text"><input type="text" name="contactEmail" size="60" value="<c:out value="${contactEmail}"/>"/>
 		</td>

@@ -22,18 +22,18 @@ function reportBug(versionNumber) {
 
 <!-- Sidebar Contents -->
 
-    <br><br>
+    <br/><br/>
     <a href="MainMenu">&nbsp;<fmt:message key="home" bundle="${resworkflow}"/></a>
-    <br><br>
+    <br/><br/>
 <!--    <a href="RequestAccount">&nbsp;<fmt:message key="request_an_account" bundle="${resword}"/></a>
-    <br><br>
+    <br/><br/>
     <a href="RequestPassword">&nbsp;<fmt:message key="forgot_password" bundle="${resword}"/></a>
     
     -->
 
 <!-- End Sidebar Contents -->
 
-                <br><img src="images/spacer.gif" width="120" height="1">
+                <br/><img src="images/spacer.gif" width="120" height="1">
 
                 </td>
                 <td class="content" valign="top">

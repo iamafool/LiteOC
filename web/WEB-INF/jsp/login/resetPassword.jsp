@@ -12,7 +12,7 @@
 <jsp:include page="../login-include/login-alertbox.jsp"/>
 
 <form action="ResetPassword" method="post">
-* <fmt:message key="indicates_required_field" bundle="${resword}"/><br>
+* <fmt:message key="indicates_required_field" bundle="${resword}"/><br/>
 <input type="hidden" name="mustChangePwd" value=<c:out value="${mustChangePass}"/> >
 <!-- These DIVs define shaded box borders -->
 <div style="width: 600px">

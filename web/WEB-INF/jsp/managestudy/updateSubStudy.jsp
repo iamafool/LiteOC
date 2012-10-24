@@ -85,7 +85,7 @@ function updateThis(multiSelEle, count) {
 <h1><span class="title_manage">
 <fmt:message key="update_site_details" bundle="${resword}"/>: <c:out value="${newStudy.name}"/>
 </span></h1>
-<br><br>
+<br/><br/>
 
 <jsp:include page="../include/alertbox.jsp" />
 <form action="UpdateSubStudy" method="post">
@@ -120,7 +120,7 @@ function updateThis(multiSelEle, count) {
   <div class="formfieldXL_BG"><input type="text" name="uniqueProId" value="<c:out value="${newStudy.identifier}"/>"  class="formfieldXL"></div>
   <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="uniqueProId"/></jsp:include></td><td class="formlabel">*</td></tr>
 
-  <tr valign="top"><td class="formlabel"><a href="http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds" target="def_win" onClick="openDefWindow('http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds'); return false;"><b><fmt:message key="secondary_IDs" bundle="${resword}"/></b>:</a><br>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td>
+  <tr valign="top"><td class="formlabel"><a href="http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds" target="def_win" onClick="openDefWindow('http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds'); return false;"><b><fmt:message key="secondary_IDs" bundle="${resword}"/></b>:</a><br/>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td>
   <td><div class="formtextareaXL4_BG">
    <textarea class="formtextareaXL4" name="secondProId" rows="4" cols="50"><c:out value="${newStudy.secondaryIdentifier}"/></textarea></div>
   <jsp:include page="../showMessage.jsp"><jsp:param name="secondProId" value="facName"/></jsp:include>
@@ -210,7 +210,7 @@ function updateThis(multiSelEle, count) {
   <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="facCountry"/></jsp:include>
   </td></tr>
 
- <!-- <tr valign="top"><td class="formlabel"><fmt:message key="facility_recruitment_status" bundle="${resword}"/>:</td><td>
+ <%-- <tr valign="top"><td class="formlabel"><fmt:message key="facility_recruitment_status" bundle="${resword}"/>:</td><td>
   <c:set var="facStatus" value="${newStudy.facilityRecruitmentStatus}"/>
   <select name="facRecStatus">
     <option value="">-<fmt:message key="select" bundle="${resword}"/>-</option>
@@ -227,7 +227,7 @@ function updateThis(multiSelEle, count) {
   </select>
 
   </div></td></tr>
-  -->
+  --%>
   <tr valign="top"><td class="formlabel"><fmt:message key="facility_contact_name" bundle="${resword}"/>:</td><td>
   <div class="formfieldXL_BG"><input type="text" name="facConName" value="<c:out value="${newStudy.facilityContactName}"/>"  class="formfieldXL">
   </div>
@@ -504,7 +504,7 @@ function updateThis(multiSelEle, count) {
   </div></div></div></div></div></div></div></div>
 </div>
   </div>
-<br>
+<br/>
 
  <div class="table_title_Manage"><fmt:message key="update_site_event_definitions" bundle="${resword}"/></div>
 <c:set var="defCount" value="0"/>
@@ -672,10 +672,10 @@ function updateThis(multiSelEle, count) {
 	</div>
   	</div></div></div></div></div></div></div></div>
 	</div>
-	</div><br>
+	</div><br/>
 </c:forEach>
 
-<br><br>
+<br/><br/>
   <table border="0" cellpadding="0" cellspacing="0">
   <input type="submit" name="Submit" value="<fmt:message key="submit_site" bundle="${resword}"/>" class="button_long">
     &nbsp;

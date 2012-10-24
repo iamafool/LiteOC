@@ -47,7 +47,7 @@
 	</c:choose>
 	<c:out value="${study.name}"/></a>
 
-	<br><br>
+	<br/><br/>
 
 	<b><fmt:message key="start_date" bundle="${resword}"/>:</b>&nbsp;
 	 <c:choose>
@@ -58,7 +58,7 @@
 	   <fmt:message key="na" bundle="${resword}"/>
 	 </c:otherwise>
 	 </c:choose>
-	<br><br>
+	<br/><br/>
 
 	<b><fmt:message key="end_date" bundle="${resword}"/>:</b>&nbsp;
 	<c:choose>
@@ -69,16 +69,16 @@
 	   <fmt:message key="na" bundle="${resword}"/>
 	  </c:otherwise>
     </c:choose>
-	<br><br>
+	<br/><br/>
 
 	<b><fmt:message key="pi" bundle="${resword}"/>:</b>&nbsp; <c:out value="${study.principalInvestigator}"/>
 
-	<br><br>
+	<br/><br/>
 
 	<b><fmt:message key="protocol_verification" bundle="${resword}"/>:</b>&nbsp;
 	<fmt:formatDate value="${study.protocolDateVerification}" pattern="${dteFormat}"/>
 
-	<br><br>
+	<br/><br/>
 
 
 
@@ -101,7 +101,7 @@
    </c:otherwise>
    </c:choose>
 
-	<br><br>
+	<br/><br/>
 	</c:if>
 	<c:choose>
 		<c:when test="${panel.orderedData}">
@@ -109,14 +109,14 @@
 				<b><c:out value="${line.title}" escapeXml="false"/>
 				<%--<c:if test="${line.colon}">:</c:if>--%>:</b>&nbsp;
 				<c:out value="${line.info}" escapeXml="false"/>
-			    <br><br>
+			    <br/><br/>
 		    </c:forEach>
 		</c:when>
 		<c:otherwise>
 			<c:forEach var='line' items="${panel.data}">
 				<b><c:out value="${line.key}" escapeXml="false"/>:</b>&nbsp;
 				<c:out value="${line.value}" escapeXml="false"/>
-			    <br><br>
+			    <br/><br/>
 		    </c:forEach>
 		</c:otherwise>
 	 </c:choose>
@@ -241,11 +241,11 @@
   </c:choose>
 </c:when>
 <c:otherwise>
-    <br><br>
+    <br/><br/>
 	<a href="MainMenu"><fmt:message key="login" bundle="${resword}"/></a>
-	<br><br>
+	<br/><br/>
 	<a href="RequestAccount"><fmt:message key="request_an_account" bundle="${resword}"/></a>
-	<br><br>
+	<br/><br/>
 	<a href="RequestPassword"><fmt:message key="forgot_password" bundle="${resword}"/></a>
 </c:otherwise>
 </c:choose>
@@ -253,7 +253,7 @@
 
 <!-- End Sidebar Contents -->
 
-				<br><img src="images/spacer.gif" width="120" height="1">
+				<br/><img src="images/spacer.gif" width="120" height="1">
 
 				</td>
 				<td class="aka_revised_content_preview" valign="top">

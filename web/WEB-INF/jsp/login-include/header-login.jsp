@@ -58,7 +58,7 @@
 </c:choose>
 <!-- End User Info -->
 
-		<br>
+		<br/>
 		<table border="0" cellpadding="0" cellspacing="0" background="images/spacer.gif">
 		   <tr>
 			<td background="images/button_BG.gif" height="16" class="buttontext" align="right">

@@ -11,43 +11,8 @@
 <jsp:include page="../include/extract-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-		<c:if test="${newDataset.id>0}">
-		<div class="sidebar_tab_content">
-		<P><fmt:message key="enter_dataset_properties_be_descriptive" bundle="${restext}"/> <font color="red"><fmt:message key="name_description_required" bundle="${restext}"/></font></P>
-		<p><fmt:message key="copy_dataset_by_change_name" bundle="${restext}"/></p>
-		</div>
-		</c:if>
-		</td>
-  </tr>
 
 <jsp:include page="../include/createDatasetSideInfo.jsp"/>
 
@@ -111,7 +76,7 @@
 		<td><input type="text" name="dsName" size="30" value="<c:out value='${dsName}' />"/>
 		<c:if test="${newDataset.id>0}"><fmt:message key="change_dataset_name_create_copy" bundle="${restext}"/></c:if>
 
-		<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="dsName"/></jsp:include>
+		<br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="dsName"/></jsp:include>
 
 		</td>
 
@@ -123,7 +88,7 @@
 
 		<td><textarea name="dsDesc" cols="40" rows="4"><c:out value="${dsDesc}" /></textarea>
 
-		<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="dsDesc"/></jsp:include>
+		<br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="dsDesc"/></jsp:include>
 
 		</td>
 
@@ -173,7 +138,7 @@
 
 	<td colspan="2">
 
-	<br><br><br><br>
+	<br/><br/><br/><br/>
 
  <fmt:message key="long_note1" bundle="${restext}"/>
 
@@ -187,11 +152,11 @@
 
  <fmt:message key="long_note6" bundle="${restext}"/>
 
-	<br><br>
+	<br/><br/>
 
 	</td>
 
-	<br><br>
+	<br/><br/>
 
 	</tr>
 
@@ -205,7 +170,7 @@
 
 		<input type="text" name="mdvOID" size="25" value="<c:out value='${mdvOID}' />"/>
 
-		<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="mdvOID"/></jsp:include>
+		<br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="mdvOID"/></jsp:include>
 
 		</td>
 
@@ -219,7 +184,7 @@
 
 		<input type="text" name="mdvName" size="25" value="<c:out value='${mdvName}' />"/>
 
-		<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="mdvName"/></jsp:include>
+		<br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="mdvName"/></jsp:include>
 
 		</td>
 
@@ -233,7 +198,7 @@
 
 		<input type="text" name="mdvPrevStudy" size="25" value="<c:out value='${mdvPrevStudy}' />"/>
 
-		<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="mdvPrevStudy"/></jsp:include>
+		<br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="mdvPrevStudy"/></jsp:include>
 
 		</td>
 
@@ -247,7 +212,7 @@
 
 		<input type="text" name="mdvPrevOID" size="25" value="<c:out value='${mdvPrevOID}' />"/>
 
-		<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="mdvPrevOID"/></jsp:include>
+		<br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="mdvPrevOID"/></jsp:include>
 
 		</td>
 
@@ -272,7 +237,7 @@
 
 </form>
 
-<br><br>
+<br/><br/>
 
 
 <jsp:include page="../include/footer.jsp"/>

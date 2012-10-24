@@ -409,7 +409,7 @@ public class CreateDiscrepancyNoteServlet extends SecureController {
         } else {//Role.STUDYDIRECTOR Role.COORDINATOR  
             ArrayList<ResolutionStatus> resStatuses = ResolutionStatus.toArrayList();
             resStatuses.remove(ResolutionStatus.NOT_APPLICABLE);
-            request.setAttribute(RES_STATUSES, resStatuses); ;   
+            request.setAttribute(RES_STATUSES, resStatuses);    
             request.setAttribute(WHICH_RES_STATUSES, "2");
             //it's for parentDNId is null or 0 and FVC  
             //ArrayList<ResolutionStatus> resStatuses = new ArrayList<ResolutionStatus>(); 
@@ -587,14 +587,14 @@ public class CreateDiscrepancyNoteServlet extends SecureController {
             // ideally should be only two cases
             if (currentRole.getRole().equals(Role.RESEARCHASSISTANT) && currentStudy.getId() != currentStudy.getParentStudyId()) {
                 // assigning back to OP, tbh
-                request.setAttribute(USER_ACCOUNT_ID, new Integer(parent.getOwnerId()).toString());
+                request.setAttribute(USER_ACCOUNT_ID, Integer.toString(parent.getOwnerId()));
                 System.out.println("assigned owner id: " + parent.getOwnerId());
             } else if (dnb.getEventCRFId() > 0) {
                 System.out.println("found a event crf id: " + dnb.getEventCRFId());
                 EventCRFDAO eventCrfDAO = new EventCRFDAO(sm.getDataSource());
                 EventCRFBean eventCrfBean = new EventCRFBean();
                 eventCrfBean = (EventCRFBean) eventCrfDAO.findByPK(dnb.getEventCRFId());
-                request.setAttribute(USER_ACCOUNT_ID, new Integer(eventCrfBean.getOwnerId()).toString());
+                request.setAttribute(USER_ACCOUNT_ID, Integer.toString(eventCrfBean.getOwnerId()));
                 System.out.println("assigned owner id: " + eventCrfBean.getOwnerId());
             } else {
                 // the end case
@@ -700,7 +700,7 @@ public class CreateDiscrepancyNoteServlet extends SecureController {
             request.setAttribute(WRITE_TO_DB, writeToDB ? "1" : "0");
             ArrayList userAccounts = this.generateUserAccounts(ub.getActiveStudyId(), subjectId);
 
-            request.setAttribute(USER_ACCOUNT_ID, new Integer(note.getAssignedUserId()).toString());
+            request.setAttribute(USER_ACCOUNT_ID, Integer.toString(note.getAssignedUserId()));
             // formality more than anything else, we should go to say the note
             // is done
 

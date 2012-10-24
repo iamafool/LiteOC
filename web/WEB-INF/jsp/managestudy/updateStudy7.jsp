@@ -7,33 +7,9 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='newStudy' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
@@ -61,7 +37,7 @@
 
 <form action="UpdateStudy" method="post">
 <span class="title_Admin"><p><b><fmt:message key="section_e_related_information" bundle="${resword}"/></b></p></span>
-* <fmt:message key="indicates_required_field" bundle="${resword}"/><br>
+* <fmt:message key="indicates_required_field" bundle="${resword}"/><br/>
 <input type="hidden" name="action" value="next">
 <input type="hidden" name="pageNum" value="6">
 <!-- These DIVs define shaded box borders -->
@@ -115,5 +91,5 @@
 </tr>
 </table>
 </form>
-<br><br>
+<br/><br/>
 <jsp:include page="../include/footer.jsp"/>

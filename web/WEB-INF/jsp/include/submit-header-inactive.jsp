@@ -45,7 +45,7 @@
   "100%" class="background">
 <tr>
 <td valign="top">
-<!-- Header Table -->
+<%-- Header Table --%>
 
 <%--<SCRIPT LANGUAGE="JavaScript">
 
@@ -64,4 +64,4 @@ document.write('<table border="0" cellpadding="0" cellspacing="0" width="' +
     <!-- Main Navigation -->
 
    <jsp:include page="../include/navBar.jsp"/>
-    <!-- End Main Navigation -->
+    <%-- End Main Navigation --%>

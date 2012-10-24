@@ -10,33 +10,9 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-        <fmt:message key="enter_the_study_and_protocol" bundle="${resword}"/>
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='newStudy' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
@@ -90,7 +66,7 @@
   <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="officialTitle"/></jsp:include>
   </td></tr>
 
-  <tr valign="top"><td class="formlabel"><a href="http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds" target="def_win" onClick="openDefWindow('http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds'); return false;"><b><fmt:message key="secondary_IDs" bundle="${resword}"/></b>:</a><br>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td>
+  <tr valign="top"><td class="formlabel"><a href="http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds" target="def_win" onClick="openDefWindow('http://prsinfo.clinicaltrials.gov/definitions.html#SecondaryIds'); return false;"><b><fmt:message key="secondary_IDs" bundle="${resword}"/></b>:</a><br/>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td>
   <td><div class="formtextareaXL4_BG">
    <textarea class="formtextareaXL4" name="secondProId" rows="4" cols="50"><c:out value="${newStudy.secondaryIdentifier}"/></textarea></div>
    <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="secondProId"/></jsp:include>
@@ -150,7 +126,7 @@
   <div class="formfieldXL_BG"><input type="text" name="sponsor" value="<c:out value="${newStudy.sponsor}"/>" class="formfieldXL"></div>
   <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="sponsor"/></jsp:include></td><td class="formlabel">*</td></tr>
 
-  <tr valign="top"><td class="formlabel"><fmt:message key="collaborators" bundle="${resword}"/>:<br>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td><td>
+  <tr valign="top"><td class="formlabel"><fmt:message key="collaborators" bundle="${resword}"/>:<br/>(<fmt:message key="separate_by_commas" bundle="${resword}"/>)</td><td>
   <div class="formtextareaXL4_BG">
   <textarea class="formtextareaXL4" name="collaborators" rows="4" cols="50"><c:out value="${newStudy.collaborators}"/></textarea></div>
    <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="collaborators"/></jsp:include>
@@ -168,8 +144,8 @@
     <div class="textbox_center">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><fmt:message key="select_user_for_edit_update" bundle="${restext}"/> </tr>
-        <br>
-        <br>
+        <br/>
+        <br/>
         <tr valign="top"><td class="formlabel">Select User :</td><td>
          <div class="formfieldL_BG">
           <select name="selectedUser" class="formfieldL">1
@@ -196,6 +172,6 @@
 </table>
 
 </form>
-<br><br>
+<br/><br/>
 
 <jsp:include page="../include/footer.jsp"/>

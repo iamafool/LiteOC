@@ -118,11 +118,11 @@ public class ClinicalDataReportBean extends OdmXmlReportBean {
                         xml.append("\" OpenClinica:SubjectAgeAtEvent=\"" + se.getAgeAtEvent());
                     }
                 }
-                xml.append("\"");
+                xml.append('"');
                 if (!"-1".equals(se.getStudyEventRepeatKey())) {
                     xml.append(" StudyEventRepeatKey=\"" + se.getStudyEventRepeatKey() + "\"");
                 }
-                xml.append(">");
+                xml.append('>');
                 xml.append(nls);
                 //
                 ArrayList<ExportFormDataBean> forms = se.getExportFormData();
@@ -183,7 +183,7 @@ public class ClinicalDataReportBean extends OdmXmlReportBean {
                                 if (muRefOid != null && muRefOid.length() > 0) {
                                     if (hasElm) {
                                     } else {
-                                        xml.append(">");
+                                        xml.append('>');
                                         xml.append(nls);
                                         hasElm = true;
                                     }
@@ -197,7 +197,7 @@ public class ClinicalDataReportBean extends OdmXmlReportBean {
                                     if (item.getAuditLogs() != null && item.getAuditLogs().getAuditLogs().size() > 0) {
                                         if (hasElm) {
                                         } else {
-                                            xml.append(">");
+                                            xml.append('>');
                                             xml.append(nls);
                                             hasElm = true;
                                         }
@@ -207,7 +207,7 @@ public class ClinicalDataReportBean extends OdmXmlReportBean {
                                     if (item.getDiscrepancyNotes() != null && item.getDiscrepancyNotes().getDiscrepancyNotes().size() > 0) {
                                         if (hasElm) {
                                         } else {
-                                            xml.append(">");
+                                            xml.append('>');
                                             xml.append(nls);
                                             hasElm = true;
                                         }
@@ -495,7 +495,7 @@ public class ClinicalDataReportBean extends OdmXmlReportBean {
         if (n > 0) {
             xml.append("NumberOfChildNotes=\"" + dn.getNumberOfChildNotes() + "\"");
         }
-        xml.append(">");
+        xml.append('>');
         xml.append(nls);
         if (dn.getChildNotes() != null && dn.getChildNotes().size() > 0) {
             for (ChildNoteBean cn : dn.getChildNotes()) {
@@ -512,7 +512,7 @@ public class ClinicalDataReportBean extends OdmXmlReportBean {
                         xml.append("DateCreated=\"" + new SimpleDateFormat("yyyy-MM-dd").format(d) + "\"");
                     }
                 }
-                xml.append(">");
+                xml.append('>');
                 xml.append(nls);
                 if (cn.getDescription() != null) {
                     String dc = cn.getDescription();

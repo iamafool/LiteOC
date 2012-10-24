@@ -10,34 +10,8 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-		<div class="sidebar_tab_content">
-        <fmt:message key="director_coordinator_privileges_manage" bundle="${restext}"/><br><br>
-        <fmt:message key="side_tables_shows_last_modified" bundle="${restext}"/>
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <h1><span class="title_manage">
@@ -163,7 +137,7 @@
 
 	</td>
 		</tr>
-		</table><br>
+		</table><br/>
 	<table border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td valign="top" width="330" style="padding-right: 20px">

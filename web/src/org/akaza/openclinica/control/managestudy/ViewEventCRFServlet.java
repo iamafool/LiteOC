@@ -90,7 +90,7 @@ public class ViewEventCRFServlet extends SecureController {
             }
 
             request.setAttribute("sections", sections);
-            request.setAttribute("studySubId", new Integer(studySubId).toString());
+            request.setAttribute("studySubId", Integer.toString(studySubId));
             forwardPage(Page.VIEW_EVENT_CRF);
         }
     }

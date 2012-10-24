@@ -68,20 +68,20 @@ function reportBug(versionNumber) {
 
 <!-- Sidebar Contents -->
 
-	<br><br>
+	<br/><br/>
 	<a href="MainMenu"><fmt:message key="login" bundle="${resword}"/> </a>	
 
     <c:if test="${userBean != null && userRole != null && !userRole.invalid && passwordExpired == 'no'}">
-	<br><br>
+	<br/><br/>
 	<a href="RequestAccount"><fmt:message key="request_an_account" bundle="${resword}"/></a>
-	<br><br>
+	<br/><br/>
 	<a href="RequestPassword"><fmt:message key="forgot_password" bundle="${resword}"/></a>
 	
     </c:if>
 
 <!-- End Sidebar Contents -->
 
-				<br><img src="images/spacer.gif" width="120" height="1">
+				<br/><img src="images/spacer.gif" width="120" height="1">
 
 				</td>
 				<td class="content" valign="top">

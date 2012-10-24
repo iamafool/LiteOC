@@ -56,7 +56,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%" class="background">
 <tr>
 <td valign="top">
-<!-- Header Table -->
+<%-- Header Table --%>
 <table border="0" cellpadding="0" cellspacing="0" class="header">
 <tr>
 <td valign="top">
@@ -68,4 +68,4 @@
 <!-- Main Navigation -->
 
 <jsp:include page="../include/navBar.jsp"/>
-<!-- End Main Navigation -->
+<%-- End Main Navigation --%>

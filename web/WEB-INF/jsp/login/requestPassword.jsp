@@ -15,7 +15,7 @@
 <jsp:include page="../login-include/login-alertbox.jsp"/>
 <p><fmt:message key="you_must_be_an_openClinica_member_to_receive_a_password" bundle="${resword}"/></p>
 <form action="RequestPassword" method="post">
-<fmt:message key="all_fields_are_required" bundle="${resword}"/><br>
+<fmt:message key="all_fields_are_required" bundle="${resword}"/><br/>
 <input type="hidden" name="action" value="confirm">
 <!-- These DIVs define shaded box borders -->
 <div style="width: 600px">

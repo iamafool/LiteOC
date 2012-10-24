@@ -304,7 +304,7 @@ public class RuleSetService implements RuleSetServiceInterface {
         dynamicsMetadataService.setExpressionService(getExpressionService());
         ruleRunner.setDynamicsMetadataService(dynamicsMetadataService);
         ruleRunner.setRuleActionRunLogDao(ruleActionRunLogDao);
-        ExecutionMode executionMode = dryRun == true ? ExecutionMode.DRY_RUN : ExecutionMode.SAVE;
+        ExecutionMode executionMode = dryRun ? ExecutionMode.DRY_RUN : ExecutionMode.SAVE;
         return ruleRunner.runRulesBulkFromRuleSetScreen(ruleSets, executionMode, currentStudy, null, ub);
         // return runRulesBulkFromRuleSetScreen(ruleSets, dryRun, currentStudy, null, ub);
     }
@@ -321,7 +321,7 @@ public class RuleSetService implements RuleSetServiceInterface {
         ruleRunner.setDynamicsMetadataService(dynamicsMetadataService);
         ruleRunner.setRuleActionRunLogDao(ruleActionRunLogDao);
         // TODO: KK return the new object && Pass in the Execution Mode
-        ExecutionMode executionMode = dryRun == true ? ExecutionMode.DRY_RUN : ExecutionMode.SAVE;
+        ExecutionMode executionMode = dryRun ? ExecutionMode.DRY_RUN : ExecutionMode.SAVE;
         return ruleRunner.runRules(ruleSets, executionMode, currentStudy, variableAndValue, ub, phase, request);
         // return new HashMap<String, ArrayList<String>>();
         // return runRules(ruleSets, dryRun, currentStudy, c.variableAndValue, ub);

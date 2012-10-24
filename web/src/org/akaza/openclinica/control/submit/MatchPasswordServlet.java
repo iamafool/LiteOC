@@ -41,6 +41,5 @@ public class MatchPasswordServlet extends SecureController {
 
     @Override
     protected void mayProceed() throws InsufficientPermissionException {
-        return;
     }
 }

@@ -173,7 +173,7 @@ public class CellFactoryPrintDecorator {
         spanElement.setAttribute("style", "float:left;clear:both");
         // surround units with parentheses
         units = units.insert(0, "(");
-        units = units.append(")");
+        units = units.append(')');
         spanElement.addContent(" " + units.toString());
         tdCell.addContent(spanElement);
         return tdCell;

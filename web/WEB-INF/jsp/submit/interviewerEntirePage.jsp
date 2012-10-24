@@ -133,7 +133,7 @@
     </td>
     <td class="table_header_row" style="color: #789EC5"><b><fmt:message key="crf_notes" bundle="${resword}"/>:</b> </td>
     <td class="table_header_row_left" style="color: #789EC5"><font color="#CC0000"><c:out value="${openNum}"/> <fmt:message key="open" bundle="${resword}"/></font>, <font color="#D4A718"><c:out value="${updatedNum}"/> <fmt:message key="updated" bundle="${resword}"/></font>, <font color="#7CB98F"><c:out value="${resolvedNum}"/> <fmt:message key="resolved" bundle="${resword}"/></font>,
-        <br><font color="#000000"><c:out value="${closedNum}"/> <fmt:message key="closed" bundle="${resword}"/></font>, <font color="#000000"><c:out value="${notAppNum}"/> <fmt:message key="not_applicable" bundle="${resword}"/></font>
+        <br/><font color="#000000"><c:out value="${closedNum}"/> <fmt:message key="closed" bundle="${resword}"/></font>, <font color="#000000"><c:out value="${notAppNum}"/> <fmt:message key="not_applicable" bundle="${resword}"/></font>
     </td>
 
 </tr>
@@ -164,7 +164,7 @@
 <tr>
     <td class="table_cell_noborder" style="color: #789EC5">
 
-        <b><fmt:message key="study_site" bundle="${resword}"/>:</b><br>
+        <b><fmt:message key="study_site" bundle="${resword}"/>:</b><br/>
     </td>
     <td class="table_cell_noborder" style="color: #789EC5">
         <c:choose>
@@ -174,15 +174,15 @@
             <c:otherwise>
             <a href="ViewStudy?id=<c:out value="${study.id}"/>&viewFull=yes">
                 </c:otherwise>
-                </c:choose> <c:out value="${studyTitle}" /></a><br>
+                </c:choose> <c:out value="${studyTitle}" /></a><br/>
     </td>
     <td class="table_cell_top" style="color: #789EC5">
 
-        <b><fmt:message key="age_at_enrollment" bundle="${resword}"/>:</b><br>
+        <b><fmt:message key="age_at_enrollment" bundle="${resword}"/>:</b><br/>
 
     </td>
     <td class="table_cell_noborder" style="color: #789EC5">
-        <c:out value="${age}" /><br>
+        <c:out value="${age}" /><br/>
     </td>
 </tr>
 

@@ -204,7 +204,7 @@ public class CellFactory {
         }
         // surround units with parentheses
         units = units.insert(0, "(");
-        units = units.append(")");
+        units = units.append(')');
         tdCell.addContent(" " + units.toString());
         return tdCell;
     }

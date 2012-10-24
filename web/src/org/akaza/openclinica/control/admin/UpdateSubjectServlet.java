@@ -186,7 +186,7 @@ public class UpdateSubjectServlet extends SecureController {
                 session.removeAttribute("genderDNFlag");
                 session.removeAttribute("birthDNFlag");
                 if (studySubId > 0) {
-                    request.setAttribute("id", new Integer(studySubId).toString());
+                    request.setAttribute("id", Integer.toString(studySubId));
                     forwardPage(Page.VIEW_STUDY_SUBJECT_SERVLET);
                 } else {
                     forwardPage(Page.LIST_SUBJECT_SERVLET);

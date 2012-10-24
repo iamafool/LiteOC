@@ -1,6 +1,6 @@
 package org.akaza.openclinica.control.admin;
 
-import org.akaza.openclinica.bean.core.Role;
+
 import org.akaza.openclinica.bean.managestudy.StudyBean;
 import org.akaza.openclinica.control.SpringServletAccess;
 import org.akaza.openclinica.control.core.SecureController;
@@ -108,8 +108,8 @@ public class CreateJobImportServlet extends SecureController {
         request.setAttribute(JOB_NAME, fp2.getString(JOB_NAME));
         request.setAttribute(JOB_DESC, fp2.getString(JOB_DESC));
         request.setAttribute(EMAIL, fp2.getString(EMAIL));
-        request.setAttribute(HOURS, new Integer(fp2.getInt(HOURS)).toString());
-        request.setAttribute(MINUTES, new Integer(fp2.getInt(MINUTES)).toString());
+        request.setAttribute(HOURS, Integer.toString(fp2.getInt(HOURS)));
+        request.setAttribute(MINUTES, Integer.toString(fp2.getInt(MINUTES)));
 
     }
 

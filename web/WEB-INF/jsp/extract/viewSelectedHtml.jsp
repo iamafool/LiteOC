@@ -302,7 +302,7 @@
            <c:out value="${meta.crfVersionName}"/>
           </c:when>
           <c:otherwise>
-           <c:out value="${meta.crfVersionName}"/>,<br>
+           <c:out value="${meta.crfVersionName}"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>
@@ -327,7 +327,7 @@
            <c:out value="${meta.responseSet.label}"/>
           </c:when>
           <c:otherwise>
-            <c:out value="${meta.responseSet.label}"/>,<br>
+            <c:out value="${meta.responseSet.label}"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>

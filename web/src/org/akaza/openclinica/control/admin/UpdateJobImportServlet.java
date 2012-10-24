@@ -1,6 +1,6 @@
 package org.akaza.openclinica.control.admin;
 
-import org.akaza.openclinica.bean.core.Role;
+
 import org.akaza.openclinica.bean.managestudy.StudyBean;
 import org.akaza.openclinica.control.SpringServletAccess;
 import org.akaza.openclinica.control.core.SecureController;
@@ -72,8 +72,8 @@ public class UpdateJobImportServlet extends SecureController {
         request.setAttribute(ImportSpringJob.STUDY_NAME, studyName);
         request.setAttribute("filePath", directory);
         request.setAttribute("firstFilePath", IMPORT_DIR);
-        request.setAttribute("hours", new Integer(hours).toString());
-        request.setAttribute("minutes", new Integer(minutes).toString());
+        request.setAttribute("hours", Integer.toString(hours));
+        request.setAttribute("minutes", Integer.toString(minutes));
 
         Date jobDate = trigger.getNextFireTime();
 

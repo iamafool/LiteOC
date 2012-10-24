@@ -42,13 +42,13 @@ import java.util.ResourceBundle;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-import javax.servlet.http.HttpSession;
-import javax.servlet.ServletContext;
-import javax.servlet.RequestDispatcher;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.akaza.openclinica.web.InsufficientPermissionException;
-import org.akaza.openclinica.view.Page;
-import org.akaza.openclinica.control.SpringServletAccess;
+
+
+
+
+
+
+
 import org.akaza.openclinica.bean.core.Role;
 import org.akaza.openclinica.bean.login.StudyUserRoleBean;
 

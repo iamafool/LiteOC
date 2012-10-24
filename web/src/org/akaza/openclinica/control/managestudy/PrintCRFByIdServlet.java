@@ -32,7 +32,6 @@ public class PrintCRFByIdServlet extends PrintCRFServlet {
      */
     @Override
     public void mayProceed(HttpServletRequest request, HttpServletResponse response) throws InsufficientPermissionException {
-        return;
     }
 
     /*

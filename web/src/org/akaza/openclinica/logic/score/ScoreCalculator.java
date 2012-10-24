@@ -424,7 +424,7 @@ public class ScoreCalculator {
     public int parseWidth(String widthDecimal) {
         String w = "";
         widthDecimal = widthDecimal.trim();
-        if (widthDecimal.startsWith("(")) {
+        if (widthDecimal.length() > 0 && widthDecimal.charAt(0) == '(') {
         } else if (widthDecimal.contains("(")) {
             w = widthDecimal.split("\\(")[0];
         } else {
@@ -439,7 +439,7 @@ public class ScoreCalculator {
     public int parseDecimal(String widthDecimal) {
         String d = "";
         widthDecimal = widthDecimal.trim();
-        if (widthDecimal.startsWith("(")) {
+        if (widthDecimal.length() > 0 && widthDecimal.charAt(0) == '(') {
             d = widthDecimal.substring(1, widthDecimal.length() - 1);
         } else if (widthDecimal.contains("(")) {
             d = widthDecimal.split("\\(")[1].trim();

@@ -120,12 +120,12 @@
 						<td class="table_header_row_left">
 						<fmt:message key="subject" bundle="${resword}"/>: <c:out value="${subjectName}"/>
 		
-						<br>
+						<br/>
 		
 						<fmt:message key="CRF" bundle="${resword}"/>: <c:out value="${crfName}"/>
 
 		
-						<br>
+						<br/>
 						<c:choose>
 		                  <c:when test="${crfStatus== 'invalid'}">
 						   <fmt:message key="status" bundle="${resword}"/>: <fmt:message key="removed" bundle="${resword}"/>
@@ -205,7 +205,7 @@
 										 <c:when test="${crfStatus==no_startedi18n}">	
 										  <c:choose>
 										    <c:when test="${eventId>0}">
-										      <i><fmt:message key="click_to_enter_data" bundle="${restext}"/><br><fmt:message key="to_use_another_version_click" bundle="${restext}"/></i>
+										      <i><fmt:message key="click_to_enter_data" bundle="${restext}"/><br/><fmt:message key="to_use_another_version_click" bundle="${restext}"/></i>
 										 
 										    </c:when>
 										    <c:otherwise>
@@ -215,7 +215,7 @@
 										  
 										 </c:when>
 										 <c:when test="${eventId<=0 && crfStatus==no_startedi18n}">										  
-										  <i><fmt:message key="click_to_enter_data" bundle="${restext}"/><br><fmt:message key="to_use_another_version_click" bundle="${restext}"/></i>
+										  <i><fmt:message key="click_to_enter_data" bundle="${restext}"/><br/><fmt:message key="to_use_another_version_click" bundle="${restext}"/></i>
 										 </c:when>
 										 <c:otherwise>
 										   <i><fmt:message key="click_for_more_options" bundle="${restext}"/></i>

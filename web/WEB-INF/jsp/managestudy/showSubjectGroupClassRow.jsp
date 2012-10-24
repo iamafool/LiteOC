@@ -16,7 +16,7 @@
       <td class="table_cell"><c:out value="${currRow.bean.studyName}"/></td>
        <td class="table_cell">
         <c:forEach var="studyGroup" items="${currRow.bean.studyGroups}">
-          <c:out value="${studyGroup.name}"/><br>
+          <c:out value="${studyGroup.name}"/><br/>
         </c:forEach>  
        </td>
       <td class="table_cell"><c:out value="${currRow.bean.status.name}"/></td>

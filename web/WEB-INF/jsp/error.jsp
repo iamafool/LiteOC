@@ -21,7 +21,7 @@
 
 		<jsp:include page="include/userbox-inactive.jsp"/>
 		<table border="0" cellpadding=0" cellspacing="0">
-			<tr><td class="sidebar" valign="top"><br><b><a href="j_spring_security_logout"><fmt:message key="logout" bundle="${restext}"/></a></b></br></td>
+			<tr><td class="sidebar" valign="top"><br/><b><a href="j_spring_security_logout"><fmt:message key="logout" bundle="${restext}"/></a></b></br></td>
 				<td class="content" valign="top">
 	</c:otherwise>
 </c:choose>
@@ -37,8 +37,6 @@
 	</c:if>
 </c:forEach>
 <fmt:message key="error_page" bundle="${resword}">
-	<%--<fmt:param><%=request.getHeader("Referer")%></fmt:param>--%>
-	<%-- tbh 02/2010 remove HTML/XML from the referer name --%>
 	<fmt:param><c:out value="${referer}"/></fmt:param>
 	<fmt:param><%=SQLInitServlet.getField("mail.errormsg")%></fmt:param>
 </fmt:message>

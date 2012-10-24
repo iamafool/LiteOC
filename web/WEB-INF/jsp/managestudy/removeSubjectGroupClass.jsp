@@ -8,33 +8,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
@@ -64,7 +40,7 @@
 </div>
 </div></div></div></div></div></div></div></div>
 </div>
-<br>
+<br/>
 <div class="table_title_manage"><fmt:message key="study_group_and_associated_subjects" bundle="${resword}"/>:</div>
 <div style="width: 600px">
 <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
@@ -86,7 +62,7 @@
      </td>
      <td class="table_cell">  
       <c:forEach var="subjectMap" items="${studyGroup.subjectMaps}">       
-       <c:out value="${subjectMap.subjectLabel}"/><br>      
+       <c:out value="${subjectMap.subjectLabel}"/><br/>      
      </c:forEach>&nbsp;
      </td>
     </tr>     
@@ -109,5 +85,5 @@
     <input type="button" onclick="confirmCancel('ListSubjectGroupClass');"  name="cancel" value="   <fmt:message key="cancel" bundle="${resword}"/>   " class="button_medium"/>   
 
  </form> 
-<br><br>
+<br/><br/>
 <jsp:include page="../include/footer.jsp"/>

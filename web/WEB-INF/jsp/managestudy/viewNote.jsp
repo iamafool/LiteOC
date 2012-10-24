@@ -222,7 +222,7 @@
  </tbody>
 </table>
 
-<br>
+<br/>
 
  </body>
 </html>

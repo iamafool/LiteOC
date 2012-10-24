@@ -114,7 +114,7 @@ public class DownloadDiscrepancyNote implements DownLoadBean{
             DiscrepancyNoteBean discNBean = (DiscrepancyNoteBean) discNoteBean;
             singleBeanContent = serializeToString(discNBean, false, 0);
             allContent.append(singleBeanContent);
-            allContent.append("\n");
+            allContent.append('\n');
 
         }
 
@@ -195,132 +195,132 @@ public class DownloadDiscrepancyNote implements DownLoadBean{
         //for CSV format
         if(includeHeaderRow) {
             writer.append("Study Subject ID");
-            writer.append(",");
+            writer.append(',');
             writer.append("Subject Status");
-            writer.append(",");
+            writer.append(',');
             writer.append("Study/Site OID");
-            writer.append(",");
+            writer.append(',');
             //we're adding a thread number row
             writer.append("Thread ID");
-            writer.append(",");
+            writer.append(',');
 
             writer.append("Note ID");
-            writer.append(",");
+            writer.append(',');
 
             writer.append("Parent Note ID");
-            writer.append(",");
+            writer.append(',');
 
             writer.append("Date Created");
-            writer.append(",");
+            writer.append(',');
             writer.append("Date Update");
-            writer.append(",");
+            writer.append(',');
             writer.append("Days Open");
-            writer.append(",");
+            writer.append(',');
             writer.append("Days Since Updated");
-            writer.append(",");
+            writer.append(',');
 
 
             if(discNoteBean.getDisType() != null)  {
                 writer.append("Discrepancy Type");
-                writer.append(",");
+                writer.append(',');
             }
             writer.append("Resolution Status");
-            writer.append(",");
+            writer.append(',');
             writer.append("Event Name");
-            writer.append(",");
+            writer.append(',');
             writer.append("CRF Name");
-            writer.append(",");
+            writer.append(',');
             writer.append("CRF Status");
-            writer.append(",");
+            writer.append(',');
             writer.append("Entity name");
-            writer.append(",");
+            writer.append(',');
             writer.append("Entity value");
-            writer.append(",");
+            writer.append(',');
             writer.append("Description");
-            writer.append(",");
+            writer.append(',');
             writer.append("Detailed Notes");
-            writer.append(",");
+            writer.append(',');
             writer.append("Assigned User");
-            writer.append(",");
+            writer.append(',');
             writer.append("Study Id");
 
-            writer.append("\n");
+            writer.append('\n');
         }
 
         //Fields with embedded commas must be
         // delimited with double-quote characters.
         writer.append(escapeQuotesInCSV(discNoteBean.getStudySub().getLabel()));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getStudySub().getStatus().getName()));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getStudy().getOid()));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(threadNumber+""));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getId()+""));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(discNoteBean.getParentDnId()>0?discNoteBean.getParentDnId():"");
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getCreatedDateString()+""));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getUpdatedDateString()+""));
-        writer.append(",");
+        writer.append(',');
 
         if (discNoteBean.getParentDnId() == 0){
             writer.append(escapeQuotesInCSV(discNoteBean.getAge()+""));
-            writer.append(",");
+            writer.append(',');
 
             String daysSinceUpdated = escapeQuotesInCSV(discNoteBean.getDays()+"");
             writer.append(daysSinceUpdated.equals("0") ? "" : daysSinceUpdated);
-            writer.append(",");
+            writer.append(',');
         } else {
-            writer.append(",");
-            writer.append(",");
+            writer.append(',');
+            writer.append(',');
         }
 
         if (discNoteBean.getDisType() != null)  {
             writer.append(escapeQuotesInCSV(discNoteBean.getDisType().getName()));
-            writer.append(",");
+            writer.append(',');
         }
 
         writer.append(escapeQuotesInCSV(RESOLUTION_STATUS_MAP.get(discNoteBean.getResolutionStatusId())+""));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getEventName()));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getCrfName()));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getCrfStatus()));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getEntityName()));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getEntityValue()));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getDescription()+""));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getDetailedNotes()+""));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getAssignedUser().getName()));
-        writer.append(",");
+        writer.append(',');
 
         writer.append(escapeQuotesInCSV(discNoteBean.getStudyId()+""));
 
 
-        writer.append("\n");
+        writer.append('\n');
 //        System.out.println(writer.toString());
         return writer.toString();
 
@@ -460,7 +460,7 @@ public class DownloadDiscrepancyNote implements DownLoadBean{
 
                 singleBeanContent = counter == 1 ? serializeToString(discNoteBean, true, 0) : serializeToString(discNoteBean, false, 0);
                 allContent.append(singleBeanContent);
-                allContent.append("\n");
+                allContent.append('\n');
 
             }
         }
@@ -569,7 +569,7 @@ public class DownloadDiscrepancyNote implements DownLoadBean{
 
 
         if(csvValue.contains(",")){
-            return new StringBuilder("\"").append(csvValue).append("\"").toString();
+            return new StringBuilder("\"").append(csvValue).append('"').toString();
         }  else {
             return csvValue;
         }
@@ -630,7 +630,7 @@ public class DownloadDiscrepancyNote implements DownLoadBean{
 
             StringBuilder tmpStrBuilder = new StringBuilder("CRF: ");
             tmpStrBuilder.append(dnBean.getCrfName());
-            tmpStrBuilder.append("\n");
+            tmpStrBuilder.append('\n');
             tmpStrBuilder.append("Status: ");
             tmpStrBuilder.append(dnBean.getCrfStatus());
             content.append(dnBean.getCrfName());
@@ -744,12 +744,5 @@ public class DownloadDiscrepancyNote implements DownLoadBean{
         return table;
 
     }
-
-//    public static void main (String arg[]){
-//        String s = "test‘ “ & $ % +";
-//        System.out.println(StringEscapeUtils.escapeJava(s));
-//        s = s.replaceAll("\u201C","\"");
-//        System.out.println(s);
-//    }
 
 }

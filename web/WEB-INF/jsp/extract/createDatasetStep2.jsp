@@ -34,34 +34,6 @@ function notSelectAll() {
 //-->
 </script>
 
-<%--<jsp:include page="../include/sidebar.jsp"/>--%>
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
-
 <jsp:include page="../include/createDatasetSideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
@@ -85,11 +57,6 @@ function notSelectAll() {
 </c:otherwise>
 </c:choose>
 
-<%--
-<jsp:include page="createDatasetBoxes.jsp" flush="true">
-<jsp:param name="selectStudyEvents" value="1"/>
-</jsp:include>
---%>
 
 <p><fmt:message key="please_select_one_CRF_from_the" bundle="${restext}"/> <b><fmt:message key="left_side_info_panel" bundle="${restext}"/></b><fmt:message key="select_items_in_CRF_include_dataset" bundle="${restext}"/></p>
 <p><fmt:message key="click_event_subject_attributes_specify" bundle="${restext}"/></p>
@@ -132,7 +99,7 @@ function notSelectAll() {
 </div>
 
 </c:if>
-<br>
+<br/>
 <c:if test="${!empty allItems}">
 <form action="CreateDataset" method="post" name="cl">
 <input type="hidden" name="action" value="beginsubmit"/>
@@ -197,7 +164,7 @@ function notSelectAll() {
            <c:out value="${meta.crfVersionName}"/>
           </c:when>
           <c:otherwise>
-           <c:out value="${meta.crfVersionName}"/>,<br>
+           <c:out value="${meta.crfVersionName}"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>
@@ -213,7 +180,7 @@ function notSelectAll() {
            <c:out value="${meta.sectionName}"/>
           </c:when>
           <c:otherwise>
-            <c:out value="${meta.sectionName}"/>,<br>
+            <c:out value="${meta.sectionName}"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>
@@ -233,7 +200,7 @@ function notSelectAll() {
            <c:out value="${meta.groupLabel}" default="Ungrouped"/>
           </c:when>
           <c:otherwise>
-            <c:out value="${meta.groupLabel}" default="Ungrouped"/>,<br>
+            <c:out value="${meta.groupLabel}" default="Ungrouped"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>
@@ -258,7 +225,7 @@ function notSelectAll() {
            <c:out value="${meta.responseSet.responseType.name}"/>
           </c:when>
           <c:otherwise>
-            <c:out value="${meta.responseSet.responseType.name}"/>,<br>
+            <c:out value="${meta.responseSet.responseType.name}"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>
@@ -274,7 +241,7 @@ function notSelectAll() {
            <c:out value="${meta.responseSet.label}"/>
           </c:when>
           <c:otherwise>
-            <c:out value="${meta.responseSet.label}"/>,<br>
+            <c:out value="${meta.responseSet.label}"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>
@@ -324,7 +291,7 @@ function notSelectAll() {
            <c:out value="${meta.regexp}"/>
           </c:when>
           <c:otherwise>
-            <c:out value="${meta.regexp}"/>,<br>
+            <c:out value="${meta.regexp}"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>
@@ -340,7 +307,7 @@ function notSelectAll() {
            <c:out value="${meta.defaultValue}" default="None"/>
           </c:when>
           <c:otherwise>
-            <c:out value="${meta.defaultValue}" default="None"/>,<br>
+            <c:out value="${meta.defaultValue}" default="None"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>
@@ -355,7 +322,7 @@ function notSelectAll() {
            <c:out value="${meta.repeatMax}"/>
           </c:when>
           <c:otherwise>
-            <c:out value="${meta.repeatMax}"/>,<br>
+            <c:out value="${meta.repeatMax}"/>,<br/>
           </c:otherwise>
         </c:choose>
       </c:forEach>

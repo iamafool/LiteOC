@@ -9,34 +9,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-    <td class="sidebar_tab">
 
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-        <div class="sidebar_tab_content">
-
-            <fmt:message key="A_study_event_definition_describes_a_type_of_study_event"  bundle="${resword}"/> <fmt:message key="please_consult_the_ODM"  bundle="${resword}"/>
-        </div>
-
-    </td>
-
-</tr>
-<tr id="sidebar_Instructions_closed" style="display: none">
-    <td class="sidebar_tab">
-
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-    </td>
-</tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 
@@ -131,7 +106,7 @@
     </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
 <div class="table_title_manage"><fmt:message key="CRFs" bundle="${resword}"/></div>
 <div style="width: 600px">
 <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B">
@@ -486,7 +461,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
 <table border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td>
@@ -496,5 +471,5 @@
             <input type="button" name="Cancel" id="cancel" value="<fmt:message key="cancel" bundle="${resword}"/>" class="button_long" onClick="javascript:myCancel();"/></td>
     </tr></table>
 </form>
-<br><br>
+<br/><br/>
 <jsp:include page="../include/footer.jsp"/>

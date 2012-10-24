@@ -27,32 +27,9 @@
 </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-        <td class="sidebar_tab">
 
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-        <div class="sidebar_tab_content">
-        </div>
-
-        </td>
-
-    </tr>
-    <tr id="sidebar_Instructions_closed" style="display: all">
-        <td class="sidebar_tab">
-
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-        </td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 <script type="text/JavaScript" language="JavaScript">
   <!--
@@ -104,7 +81,7 @@
 <fmt:message key="sure_to_sign_subject2" bundle="${resword}"/>
 <br/>
 <fmt:message key="role" bundle="${resword}"/>: <c:out value="${userRole.role.description}"/></b>
-<br><br>
+<br/><br/>
 
 
 
@@ -118,7 +95,7 @@
 
 
 
-<br>
+<br/>
 <form action="UpdateStudyEvent" method="post">
     <input type="hidden" name="event_id" value="<c:out value="${studyEvent.id}"/>">
     <input type="hidden" name="ss_id" value="<c:out value="${ss_id}"/>">
@@ -152,7 +129,7 @@
      </table>
    </div>
    </div></div></div></div></div></div></div></div>
-    <br>
+    <br/>
     <input type="submit" name="Submit" value="<fmt:message key="submit" bundle="${resword}"/>" class="button_long">
     <input type="button" name="Cancel" id="cancel" value="<fmt:message key="cancel" bundle="${resword}"/>"
                 class="button_medium" onClick="javascript:myCancel();"/>

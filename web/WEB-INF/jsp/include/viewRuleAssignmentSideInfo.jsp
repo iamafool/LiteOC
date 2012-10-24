@@ -47,7 +47,11 @@ width:160px;
 
 
 <!-- Sidebar Contents after alert-->
-
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top">
+      <table border="0" cellpadding="0" cellspacing="0">
+  
     
 <c:choose>
  <c:when test="${userBean != null && userBean.id>0}">   
@@ -64,7 +68,7 @@ width:160px;
             
       <c:if test="${panel.studyInfoShown}">
                 <c:import url="/WEB-INF/jsp/include/viewRuleAssignmentStudySideInfo.jsp"/>
-        <br>
+        <br/>
         </c:if>       
 
       <c:if test="${panel.createDataset}">   
@@ -77,16 +81,16 @@ width:160px;
         -->
 
         <c:import url="../include/viewRuleAssignmentSide.jsp"/>
-        <br><br>
+        <br/><br/>
       </c:if>  
-      <br>
+      <br/>
       <c:if test="${newDataset.id>0}">
         <c:forEach var='line' items="${panel.data}">
             <b><c:out value="${line.key}" escapeXml="false"/>:</b>&nbsp;
             <c:out value="${line.value}" escapeXml="false"/>
-            <br>
+            <br/>
         </c:forEach> 
-        <br><br>
+        <br/><br/>
         <c:import url="../include/studySideInfo.jsp"/> 
       </c:if>
  <script language="JavaScript">
@@ -122,11 +126,11 @@ width:160px;
     
 </c:when>
 <c:otherwise>
-    <br><br>
+    <br/><br/>
     <a href="MainMenu"><fmt:message key="login" bundle="${resword}"/></a>   
-    <br><br>
+    <br/><br/>
     <a href="RequestAccount"><fmt:message key="request_an_account" bundle="${resword}"/></a>
-    <br><br>
+    <br/><br/>
     <a href="RequestPassword"><fmt:message key="forgot_password" bundle="${resword}"/></a>
 </c:otherwise>
 </c:choose>
@@ -134,7 +138,7 @@ width:160px;
 
 <!-- End Sidebar Contents -->
 
-                <br><img src="images/spacer.gif" width="120" height="1">
+                <br/><img src="images/spacer.gif" width="120" height="1">
 
                 </td>
                

@@ -157,7 +157,7 @@ giveFirstElementFocus(); BWP: TabsForwardByNum(<c:out value="${tabId}"/>);--%>
   <c:param name="hasNameNote" value="${hasNameNote}"/>
   <c:param name="hasDateNote" value="${hasDateNote}"/>
 </c:import>
-<!--<br><br>-->
+<!--<br/><br/>-->
 <br />
 <%--I don't think we need this segment to accompany the existing error messages:--%>
 <%-- need to put this back, otherwise, error msg from 'mark complete' cannot show--%>
@@ -165,7 +165,7 @@ giveFirstElementFocus(); BWP: TabsForwardByNum(<c:out value="${tabId}"/>);--%>
     <div class="alert">
         <c:forEach var="message" items="${pageMessages}">
             <c:out value="${message}" escapeXml="false"/>
-            <br><br>
+            <br/><br/>
         </c:forEach>
     </div>
 </c:if>
@@ -214,7 +214,7 @@ giveFirstElementFocus(); BWP: TabsForwardByNum(<c:out value="${tabId}"/>);--%>
   <fmt:message key="marking_CRF_complete_finalize_DE" bundle="${restext}"/>
   </c:otherwise>
 </c:choose>
-</span><br>
+</span><br/>
     <div style="text-align:center; width:100%;">
         <input align="center" type="password" name="password" id="passwordId"/>
         <input type="button" onclick="hm('box');requestSignatureFromCheckbox(document.getElementById('passwordId').value, checkboxObject);" value="OK"/>

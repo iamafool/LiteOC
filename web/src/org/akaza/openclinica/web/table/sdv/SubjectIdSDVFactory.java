@@ -386,7 +386,7 @@ public class SubjectIdSDVFactory extends AbstractTableFactory {
                 partialOrHundred = true;
             }
             if ((eventDefinitionCrf.getSourceDataVerification() == SourceDataVerification.AllREQUIRED || eventDefinitionCrf.getSourceDataVerification() == SourceDataVerification.PARTIALREQUIRED)
-                && eventBean.isSdvStatus() == false && (eventBean.getStatus() == Status.UNAVAILABLE || eventBean.getStatus() == Status.LOCKED)) {
+                && !(eventBean.isSdvStatus()) && (eventBean.getStatus() == Status.UNAVAILABLE || eventBean.getStatus() == Status.LOCKED)) {
                 areEventCRFsSDVd = 1;
             }
 
@@ -395,8 +395,8 @@ public class SubjectIdSDVFactory extends AbstractTableFactory {
         HashMap<String, Integer> stats = new HashMap<String, Integer>();
         stats.put("numberOfCompletedEventCRFs", numberOfCompletedEventCRFs);
         stats.put("numberOfSDVdEventCRFs", numberOfSDVdEventCRFs);
-        stats.put("areEventCRFsSDVd", partialOrHundred == false ? 1 : areEventCRFsSDVd);
-        stats.put("shouldDisplaySDVButton", numberOfCompletedEventCRFs > 0 && partialOrHundred == true ? 1 : 0);
+        stats.put("areEventCRFsSDVd", !(partialOrHundred) ? 1 : areEventCRFsSDVd);
+        stats.put("shouldDisplaySDVButton", numberOfCompletedEventCRFs > 0 && partialOrHundred ? 1 : 0);
         return stats;
     }
 

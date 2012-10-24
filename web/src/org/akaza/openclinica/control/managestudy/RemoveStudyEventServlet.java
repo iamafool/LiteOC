@@ -77,7 +77,7 @@ public class RemoveStudyEventServlet extends SecureController {
 
         if (studyEventId == 0) {
             addPageMessage(respage.getString("please_choose_a_SE_to_remove"));
-            request.setAttribute("id", new Integer(studySubId).toString());
+            request.setAttribute("id", Integer.toString(studySubId));
             forwardPage(Page.VIEW_STUDY_SUBJECT_SERVLET);
         } else {
 
@@ -166,7 +166,7 @@ public class RemoveStudyEventServlet extends SecureController {
 
                 addPageMessage(emailBody);
 //                sendEmail(emailBody);
-                request.setAttribute("id", new Integer(studySubId).toString());
+                request.setAttribute("id", Integer.toString(studySubId));
                 forwardPage(Page.VIEW_STUDY_SUBJECT_SERVLET);
             }
         }

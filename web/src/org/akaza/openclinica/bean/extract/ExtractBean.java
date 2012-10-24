@@ -2526,7 +2526,7 @@ public class ExtractBean {
          */
         @Override
         public String toString() {
-            String ret = new String("");
+            String ret = "";
 
             // "primary key"
             if (itemDataId == null) {
@@ -2757,7 +2757,7 @@ public class ExtractBean {
          */
         @Override
         public String toString() {
-            String ret = new String("");
+            String ret = "";
 
             if (itemDataId == null) {
                 ret = ret + "null";

@@ -39,7 +39,7 @@
   <tr><td class="table_header_column"><fmt:message key="email" bundle="${resword}"/>:</td><td class="table_cell_top">
 <c:out value="${newUserBean.email}"/></td></tr> 
  <tr><td class="table_header_column"><fmt:message key="institutional_affiliation" bundle="${resword}"/>:</td><td class="table_cell_top">
-  <c:out value="${newUserBean.institutionalAffiliation}"/><br></td></tr>
+  <c:out value="${newUserBean.institutionalAffiliation}"/><br/></td></tr>
  <tr><td class="table_header_column"><fmt:message key="default_active_study" bundle="${resword}"/>:</td>
  <td class="table_cell_top"><c:out value="${studyName}"/></td></tr>
 <tr><td class="table_header_column">

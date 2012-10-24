@@ -10,8 +10,8 @@
 <jsp:include page="../include/submit-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
+
 <tr id="sidebar_Instructions_open" style="display: none">
 		<td class="sidebar_tab">
 
@@ -108,7 +108,7 @@
 <h1><span class="title_manage">
 <c:out value="${study.name}" />: <fmt:message key="enroll_subject" bundle="${resword}"/> <a href="javascript:openDocWindow('help/2_2_enrollSubject_Help.html#step1')"><img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
 </span></h1>
-<br>
+<br/>
 
 <jsp:include page="../include/alertbox.jsp" />
 <p><fmt:message key="based_ID_subject_exist_confirm" bundle="${restext}"/></p>
@@ -126,7 +126,7 @@
 <div class="textbox_center">
 <table border="0" cellpadding="5">
 	<tr valign="top">
-		<td class="formlabel"><fmt:message key="unique_identifier" bundle="${resword}"/><br> (<fmt:message key="study_subject_ID" bundle="${resword}"/>):</td>
+		<td class="formlabel"><fmt:message key="unique_identifier" bundle="${resword}"/><br/> (<fmt:message key="study_subject_ID" bundle="${resword}"/>):</td>
 		<td valign="top">
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
@@ -435,7 +435,7 @@
 </div>
 
 <c:if test="${(!empty groups)}">
-<br>
+<br/>
 <div style="width: 550px">
 <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
 
@@ -495,7 +495,7 @@
 </div>
 </c:if>
 
-<br>
+<br/>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td>
@@ -507,6 +507,6 @@
 </table>
 </form>
 <DIV ID="testdiv1" STYLE="position:absolute;visibility:hidden;background-color:white;layer-background-color:white;"></DIV>
-<br><br>
+<br/><br/>
 
 <jsp:include page="../include/footer.jsp"/>

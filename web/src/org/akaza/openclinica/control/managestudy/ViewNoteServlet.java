@@ -15,7 +15,7 @@ import java.util.Collection;
 
 import org.akaza.openclinica.bean.admin.CRFBean;
 import org.akaza.openclinica.bean.core.DiscrepancyNoteType;
-import org.akaza.openclinica.bean.core.Status;
+
 import org.akaza.openclinica.bean.login.UserAccountBean;
 import org.akaza.openclinica.bean.managestudy.*;
 import org.akaza.openclinica.bean.submit.CRFVersionBean;

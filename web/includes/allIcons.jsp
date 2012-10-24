@@ -19,7 +19,7 @@
 </head>
 
 <body>
- 	<b><fmt:message key="icon_key" bundle="${resword}"/></b><br clear="all"><br>
+ 	<b><fmt:message key="icon_key" bundle="${resword}"/></b><br clear="all"><br/>
 
 		<table border="0" cellpadding="4" cellspacing="0">
 		   <tr>

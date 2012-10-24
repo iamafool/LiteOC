@@ -1,10 +1,10 @@
 package org.akaza.openclinica.control.admin;
 
-import org.akaza.openclinica.bean.core.Role;
+
 import org.akaza.openclinica.bean.extract.DatasetBean;
 import org.akaza.openclinica.bean.extract.ExtractPropertyBean;
 import org.akaza.openclinica.bean.login.UserAccountBean;
-import org.akaza.openclinica.bean.managestudy.StudyBean;
+
 import org.akaza.openclinica.control.SpringServletAccess;
 import org.akaza.openclinica.control.core.SecureController;
 import org.akaza.openclinica.control.form.FormProcessor;
@@ -18,7 +18,7 @@ import org.akaza.openclinica.service.extract.XsltTriggerService;
 import org.akaza.openclinica.view.Page;
 import org.akaza.openclinica.web.InsufficientPermissionException;
 import org.akaza.openclinica.web.SQLInitServlet;
-import org.akaza.openclinica.web.job.ExampleSpringJob;
+
 import org.akaza.openclinica.web.job.TriggerService;
 import org.quartz.SchedulerException;
 import org.quartz.SimpleTrigger;
@@ -27,7 +27,7 @@ import org.springframework.scheduling.quartz.JobDetailBean;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.math.BigInteger;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 

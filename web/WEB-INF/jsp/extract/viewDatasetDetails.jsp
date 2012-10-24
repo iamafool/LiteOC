@@ -10,33 +10,8 @@
 <jsp:include page="../include/extract-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 
 <jsp:include page="../include/sideInfo.jsp"/>
 
@@ -83,7 +58,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br><br>
+<br/><br/>
 <jsp:include page="selected-inactive.jsp"></jsp:include>
 
 <table border="0">
@@ -93,7 +68,7 @@
              <td>
                 <form action="EditDataset">
                 <input type="hidden" name="dsId" value="<c:out value="${dataset.id}"/>"/>
-                <input type="submit" value="<fmt:message key="edit_dataset" bundle="${resword}"/>" class="button_xlong"/><br>
+                <input type="submit" value="<fmt:message key="edit_dataset" bundle="${resword}"/>" class="button_xlong"/><br/>
                 </form>
              </td>
         </c:when>
@@ -102,7 +77,7 @@
                 <td>
                    <form action="EditDataset">
                    <input type="hidden" name="dsId" value="<c:out value="${dataset.id}"/>"/>
-                   <input type="submit" value="<fmt:message key="edit_dataset" bundle="${resword}"/>" class="button_xlong"/><br>
+                   <input type="submit" value="<fmt:message key="edit_dataset" bundle="${resword}"/>" class="button_xlong"/><br/>
                    </form>
                 </td>
             </c:if>
@@ -111,7 +86,7 @@
   <td>
    <form action="ExportDataset">
     <input type="hidden" name="datasetId" value="<c:out value="${dataset.id}"/>"/>
-    <input type="submit" value="<fmt:message key="export_this_dataset" bundle="${resword}"/>" class="button_xlong"/><br>
+    <input type="submit" value="<fmt:message key="export_this_dataset" bundle="${resword}"/>" class="button_xlong"/><br/>
    </form>
   </td>
 </tr>

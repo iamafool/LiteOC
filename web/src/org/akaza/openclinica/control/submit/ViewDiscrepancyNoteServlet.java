@@ -146,7 +146,7 @@ public class ViewDiscrepancyNoteServlet extends SecureController {
         } else {//Role.STUDYDIRECTOR Role.COORDINATOR  
             ArrayList<ResolutionStatus> resStatuses = ResolutionStatus.toArrayList();
             resStatuses.remove(ResolutionStatus.NOT_APPLICABLE);
-            request.setAttribute(RES_STATUSES, resStatuses); ;  
+            request.setAttribute(RES_STATUSES, resStatuses);   
             //it's for parentDNId is null or 0 and FVC  
             request.setAttribute(WHICH_RES_STATUSES, "2");
             ArrayList<ResolutionStatus> resStatuses2 = new ArrayList<ResolutionStatus>(); 

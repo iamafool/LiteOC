@@ -10,37 +10,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-		<div class="sidebar_tab_content">
-        <fmt:message key="study_can_have_many_event_with_more_CRF" bundle="${restext}"/>
-        <br><br>
-        <fmt:message key="click_up_down_to_order" bundle="${restext}"/>
-         <br><br>
-        <fmt:message key="event_also_locked_prevent" bundle="${restext}"/>
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
@@ -68,7 +40,7 @@
     <c:param name="rowURL" value="showStudyEventDefinitionRow.jsp" />
     <c:param name="groupNum" value="${0}"/>
 </c:import>
-<br><br>
+<br/><br/>
 
 <div class="homebox_bullets"><a href="pages/studymodule"><fmt:message key="go_back_build_study_page" bundle="${resword}"/></a></div>
 <p>

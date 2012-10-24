@@ -263,7 +263,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
         ItemDAO itemDAO = new ItemDAO(getDataSource());
         List<ItemBean> items = itemDAO.findAllBySectionId(sectionId);
         if (!items.isEmpty()) {
-            return new Integer(items.get(0).getId()).toString();
+            return Integer.toString(items.get(0).getId());
         }
         return "";
     }
@@ -409,7 +409,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
         Status s = ssb.getStatus();
         if ("removed".equalsIgnoreCase(s.getName()) || "auto-removed".equalsIgnoreCase(s.getName())) {
             addPageMessage(respage.getString("you_may_not_perform_data_entry_on_a_CRF") + respage.getString("study_subject_has_been_deleted"), request);
-            request.setAttribute("id", new Integer(ecb.getStudySubjectId()).toString());
+            request.setAttribute("id", Integer.toString(ecb.getStudySubjectId()));
             forwardPage(Page.VIEW_STUDY_SUBJECT_SERVLET, request, response);
         }
         // YW >>
@@ -1913,7 +1913,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
                                 } else {
                                     tabNum = fp.getInt("tab");
                                 }
-                                request.setAttribute("tab", new Integer(tabNum - 1).toString());
+                                request.setAttribute("tab", Integer.toString(tabNum - 1));
                                 forwardPage(getServletPage(request), request, response);
                             }
                         } else if (!fp.getString(GO_NEXT).equals("")) {
@@ -1927,7 +1927,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
                                 } else {
                                     tabNum = fp.getInt("tab");
                                 }
-                                request.setAttribute("tab", new Integer(tabNum + 1).toString());
+                                request.setAttribute("tab", Integer.toString(tabNum + 1));
                                 forwardPage(getServletPage(request), request, response);
                             }
                         }
@@ -1944,18 +1944,18 @@ public abstract class DataEntryServlet extends CoreSecureController {
                                 session.removeAttribute(DDE_PROGESS);
                                 session.removeAttribute("to_create_crf");
 
-                                request.setAttribute("eventId", new Integer(ecb.getStudyEventId()).toString());
+                                request.setAttribute("eventId", Integer.toString(ecb.getStudyEventId()));
                                 forwardPage(Page.ENTER_DATA_FOR_STUDY_EVENT_SERVLET, request, response);
                             } else {
                                 // use clicked 'save'
                                 addPageMessage(respage.getString("data_saved_continue_entering_edit_later"), request);
                                 request.setAttribute(INPUT_EVENT_CRF, ecb);
-                                request.setAttribute(INPUT_EVENT_CRF_ID, new Integer(ecb.getId()).toString());
+                                request.setAttribute(INPUT_EVENT_CRF_ID, Integer.toString(ecb.getId()));
                                 // forward to the next section if the previous one
                                 // is not the last section
                                 if (!section.isLastSection()) {
                                     request.setAttribute(INPUT_SECTION, nextSec);
-                                    request.setAttribute(INPUT_SECTION_ID, new Integer(nextSec.getId()).toString());
+                                    request.setAttribute(INPUT_SECTION_ID, Integer.toString(nextSec.getId()));
                                     session.removeAttribute("mayProcessUploading");
                                 } else if(section.isLastSection()){ //JN ADDED TO avoid return down
                                     // already the last section, should go back to
@@ -1966,7 +1966,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
                                     session.removeAttribute("to_create_crf");
                                     session.removeAttribute("mayProcessUploading");
 
-                                    request.setAttribute("eventId", new Integer(ecb.getStudyEventId()).toString());
+                                    request.setAttribute("eventId", Integer.toString(ecb.getStudyEventId()));
                                     if(fromViewNotes != null && "1".equals(fromViewNotes)) {
                                         String viewNotesPageFileName = (String)session.getAttribute("viewNotesPageFileName");
                                         session.removeAttribute("viewNotesPageFileName");
@@ -1988,7 +1988,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
                                     tabNum = fp.getInt("tab");
                                 }
                                 if (!section.isLastSection()) {
-                                    request.setAttribute("tab", new Integer(tabNum + 1).toString());
+                                    request.setAttribute("tab", Integer.toString(tabNum + 1));
                                 }
 
                                 forwardPage(getServletPage(request), request, response);
@@ -3981,7 +3981,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
          * reviewed once."); return false; }
          */
 
-        if (isEachRequiredFieldFillout(request) == false) {
+        if (!(isEachRequiredFieldFillout(request))) {
             addPageMessage(respage.getString("not_mark_CRF_complete4"), request);
             return false;
         }
@@ -4025,7 +4025,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
         // create them
         if (!isEachSectionReviewedOnce(request)) {
             boolean canSave = saveItemsToMarkComplete(newStatus, request);
-            if (canSave == false) {
+            if (!(canSave)) {
                 addPageMessage(respage.getString("not_mark_CRF_complete3"), request);
                 return false;
             }
@@ -5299,7 +5299,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
             DisplayItemGroupBean formItemGroup = formGroups.get(j);
             logger.debug("begin formGroup Ordinal:" + formItemGroup.getOrdinal());
 
-            if (formItemGroup.isAuto() == false) {
+            if (!(formItemGroup.isAuto())) {
                 manualRows = manualRows + 1;
             }
 

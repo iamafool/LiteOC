@@ -108,16 +108,16 @@ public class ManageStudyServlet extends SecureController {
         resetPanel();
 
         if (allSubjects.size() > 0) {
-            setToPanel("Subjects", new Integer(allSubjects.size()).toString());
+            setToPanel("Subjects", Integer.toString(allSubjects.size()));
         }
         if (allUsers.size() > 0) {
-            setToPanel("Users", new Integer(allUsers.size()).toString());
+            setToPanel("Users", Integer.toString(allUsers.size()));
         }
         if (allSites.size() > 0) {
-            setToPanel("Sites", new Integer(allSites.size()).toString());
+            setToPanel("Sites", Integer.toString(allSites.size()));
         }
         if (allSeds.size() > 0) {
-            setToPanel("Event Definitions", new Integer(allSeds.size()).toString());
+            setToPanel("Event Definitions", Integer.toString(allSeds.size()));
         }
         String proto = request.getParameter("proto");
         if (proto == null || "".equalsIgnoreCase(proto)) {

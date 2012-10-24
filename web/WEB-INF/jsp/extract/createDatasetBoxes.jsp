@@ -30,7 +30,7 @@ jsp:param name="selectStudyEvents" value="1"
  						<fmt:message key="select_items_or_event_subject_attributes" bundle="${resword}"/>
 						</c:otherwise> 
 					</c:choose>
-					<br><br>
+					<br/><br/>
 					</span>
 
 					</div>
@@ -57,7 +57,7 @@ jsp:param name="selectStudyEvents" value="1"
 					</c:choose>
 					
 					
-					<br><br>
+					<br/><br/>
 					</span>
 
 					</div>
@@ -84,7 +84,7 @@ jsp:param name="selectStudyEvents" value="1"
 						</c:otherwise> 
 					</c:choose>
 					
-					<br><br>
+					<br/><br/>
 					</span>
 
 					</div>
@@ -111,7 +111,7 @@ jsp:param name="selectStudyEvents" value="1"
 					</c:choose>
 					
 					
-					<br><br>
+					<br/><br/>
 					</span>
 
 					</div>
@@ -122,4 +122,4 @@ jsp:param name="selectStudyEvents" value="1"
 		</tr>
 	</table>
 
-	<br>
+	<br/>

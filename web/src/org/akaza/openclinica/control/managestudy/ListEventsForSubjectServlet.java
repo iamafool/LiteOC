@@ -96,7 +96,7 @@ public class ListEventsForSubjectServlet extends SecureController {
 
         if (searchSubmitted) {
             extendedQuery.append("&ebl_sortColumnInd=0&submitted=1&ebl_sortAscending=1&ebl_filtered=1");
-            extendedQuery.append("&").append(ListStudySubjectServlet.FILTER_KEYWORD).append("=").append(filterKeywordURLEncode);
+            extendedQuery.append('&').append(ListStudySubjectServlet.FILTER_KEYWORD).append('=').append(filterKeywordURLEncode);
         }
         request.setAttribute(ListStudySubjectServlet.PAGINATING_QUERY, extendedQuery.toString());
 
@@ -225,7 +225,7 @@ public class ListEventsForSubjectServlet extends SecureController {
                             break;
                         }
                     }
-                    if (hasCRF == false) {
+                    if (!(hasCRF)) {
                         DisplayEventCRFBean db = new DisplayEventCRFBean();
                         db.setEventDefinitionCRF(edc);
                         db.getEventDefinitionCRF().setCrf(edc.getCrf());

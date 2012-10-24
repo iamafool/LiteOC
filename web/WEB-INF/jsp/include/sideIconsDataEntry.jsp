@@ -9,7 +9,7 @@
 
 		<a href="javascript:leftnavExpand('sidebar_IconKey_open'); leftnavExpand('sidebar_IconKey_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
 
-		<b><fmt:message key="icon_key" bundle="${reswords}"/></b><br clear="all"><br>
+		<b><fmt:message key="icon_key" bundle="${reswords}"/></b><br clear="all"><br/>
 
 		<table border="0" cellpadding="4" cellspacing="0">
 			<tr>

@@ -58,14 +58,10 @@
     border: thin solid black;
 }
 .aka_revised_content{
-	position: relative;
-	left: 156px;
-    padding-left: 22px;
+    padding-left: 8px;
     padding-right: 36px;
-    padding-top: 8px;
+    padding-top: 0px;
     padding-bottom: 18px;
-    /* float:left; */
-/*width: 660px;*/
 }
 
 .aka_group_header{

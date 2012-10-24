@@ -36,11 +36,11 @@
 </script>
 
 <body>
-<br><br><br>
+<br/><br/><br/>
 <c:forEach var="message" items="${pageMessages}">
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${message}" escapeXml="false"/>
 </c:forEach>
-<br><br><br>
+<br/><br/><br/>
 <form name="uploadForm" action="UploadFile" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="itemId" value="${fileItemId}">
 	<input type="hidden" name="inputName" value="${inputName}">
@@ -60,16 +60,16 @@
 				</script>
 			</c:otherwise>
 			</c:choose>
-			<br><br>
+			<br/><br/>
 			<fmt:message key="select_close_window_button" bundle="${restext}"/>
-			<br><br><br>
+			<br/><br/><br/>
 			<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="close" value="<fmt:message key="close_window" bundle="${resword}"/>" onClick="javascript:window.close();" class="button_long"></P>
 		</c:when>
 		<c:otherwise>
 			<fmt:message key="upload_note" bundle="${restext}"/>
-			<br><br>
+			<br/><br/>
 			<fmt:message key="select_cancel_upload_button" bundle="${restext}"/>
-			<br><br><br>
+			<br/><br/><br/>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="file" type="file" name="browse" size="60">
 			<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="upload" value="<fmt:message key="upload_file" bundle="${resword}"/>" class="button_long">
 			<input type="button" name="cancel" value="<fmt:message key="cancel_upload" bundle="${resword}"/>" onClick="cleanFile()" class="button_long"></P>

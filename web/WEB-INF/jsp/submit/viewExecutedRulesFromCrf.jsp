@@ -17,24 +17,9 @@
 </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-    <tr id="sidebar_Instructions_open" style="display: none">
-        <td class="sidebar_tab">
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-        <b><fmt:message key="instructions" bundle="${resword}"/></b>
-        <div class="sidebar_tab_content">
-        </div>
-        </td>
-    </tr>
-    <tr id="sidebar_Instructions_closed" style="display: all">
-        <td class="sidebar_tab">
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-        <b><fmt:message key="instructions" bundle="${resword}"/></b>
-        </td>
-    </tr>
+
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <script language="JavaScript" type="text/JavaScript">
@@ -83,7 +68,7 @@
 
   <tr valign="top"><td class="table_header_column"><fmt:message key="rule_actions" bundle="${resword}"/>:</td><td class="table_cell">
   <c:forEach items="${status.current.key.actions}" var="action">
-    <c:out value="${action.actionType}"/> : <c:out value="${action.summary}"/><br>
+    <c:out value="${action.actionType}"/> : <c:out value="${action.summary}"/><br/>
   </c:forEach>
   </td></tr>
   <%--
@@ -100,7 +85,7 @@
 
 
 </div>
-<br>
+<br/>
 <c:choose>
 <c:when test="${userBean.sysAdmin && module=='admin'}">
 <span class="table_title_Admin">

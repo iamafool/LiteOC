@@ -9,32 +9,8 @@
 <c:import url="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 
@@ -101,7 +77,7 @@
 
 </div></div></div></div></div></div></div></div>
 </div>
-<br><br>
+<br/><br/>
 <div class="table_title_Admin"><fmt:message key="associated_study_events" bundle="${resword}"/></div>
 <div style="width: 600px">
 <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
@@ -128,11 +104,11 @@
 </div>
 </div></div></div></div></div></div></div></div>
 </div>
-<br>
+<br/>
 <form action='RemoveSubject?action=submit&id=<c:out value="${subjectToRemove.id}"/>' method="POST">
  <input type="submit" name="submit" value="<fmt:message key="remove_subject" bundle="${resword}"/>" class="button_long" onClick='return confirm("<fmt:message key="if_you_remove_this_subject" bundle="${restext}"/>");'>
  <input type="button" value="<fmt:message key="cancel" bundle="${resword}"/>" title="<fmt:message key="cancel" bundle="${resword}"/>" class="button_long" size="50" onclick="history.back();"/>
 </form>
-<br><br>
+<br/><br/>
 
 <jsp:include page="../include/footer.jsp"/>

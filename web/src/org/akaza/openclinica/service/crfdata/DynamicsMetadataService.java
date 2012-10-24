@@ -485,7 +485,7 @@ public class DynamicsMetadataService implements MetadataServiceInterface {
                 String itemGroupBOrdinal = getExpressionService().getGroupOrdninalCurated(expression);
                 ItemDataBean itemData =
                     getItemDataDAO().findByItemIdAndEventCRFIdAndOrdinal(itemBean.getId(), eventCrfBean.getId(),
-                            itemGroupBOrdinal == "" ? 1 : Integer.valueOf(itemGroupBOrdinal));
+                            itemGroupBOrdinal.equals("") ? 1 : Integer.valueOf(itemGroupBOrdinal));
                 if (itemData.getId() == 0) {
                     logger.info("Cannot get Value for ExpressionValue {}", expression);
                 } else {

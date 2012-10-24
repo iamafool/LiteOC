@@ -331,7 +331,7 @@ function switchStr(itemId, id,attribute,str1,str2) {
 			<del id="a<c:out value="${inputName}"/>"><c:out value="${inputTxtValue}"/></del>
 			<input type="hidden" id="hidft<c:out value="${inputName}"/>" name="fileText<c:out value="${inputName}"/>" disabled class="disabled">
 			<input type="hidden" id="hidup<c:out value="${inputName}"/>" name="uploadFile<c:out value="${inputName}"/>" value="<fmt:message key="click_to_upload" bundle="${resword}"/>" onClick="javascript:openDocWindow('UploadFile?submitted=no&itemId=<c:out value="${itemId}"/>&inputName=<c:out value="${inputName}"/>')">
-		</div><br>
+		</div><br/>
 		<input id="rp<c:out value="${inputName}"/>" type="button" value="<fmt:message key="replace" bundle="${resword}"/>" onClick="replaceSwitch('<c:out value="${section.eventCRF.id}"/>','<c:out value="${inputName}"/>','rp','value','Replace','Cancel Replace','<c:out value="${inputTxtValue}"/>','<c:out value="${fn:replace(pathAndName,'+','%2B')}"/>','notFound')">
 		<input id="rm<c:out value="${inputName}"/>" type="button" value="<fmt:message key="remove" bundle="${resword}"/>" onClick="removeSwitch('<c:out value="${section.eventCRF.id}"/>','<c:out value="${inputName}"/>','rm','value','Remove','Cancel Remove','<c:out value="${inputTxtValue}"/>','<c:out value="${fn:replace(pathAndName,'+','%2B')}"/>','notFound')">
 		</c:when>
@@ -340,7 +340,7 @@ function switchStr(itemId, id,attribute,str1,str2) {
 			<a href="DownloadAttachedFile?eventCRFId=<c:out value="${section.eventCRF.id}"/>&fileName=<c:out value="${fn:replace(prefilename,'+','%2B')}"/>" id="a<c:out value="${inputName}"/>"><c:out value="${inputTxtValue}"/></a>
 			<input type="hidden" id="hidft<c:out value="${inputName}"/>" name="fileText<c:out value="${inputName}"/>" disabled class="disabled">
 			<input type="hidden" id="hidup<c:out value="${inputName}"/>" name="uploadFile<c:out value="${inputName}"/>" value="<fmt:message key="click_to_upload" bundle="${resword}"/>" onClick="javascript:openDocWindow('UploadFile?submitted=no&itemId=<c:out value="${itemId}"/>&inputName=<c:out value="${inputName}"/>')">
-		</div><br>
+		</div><br/>
 		<input id="rp<c:out value="${inputName}"/>" type="button" value="<fmt:message key="replace" bundle="${resword}"/>" onClick="replaceSwitch('<c:out value="${section.eventCRF.id}"/>','<c:out value="${inputName}"/>','rp','value','Replace','Cancel Replace','<c:out value="${inputTxtValue}"/>','<c:out value="${fn:replace(pathAndName,'+','%2B')}"/>','found')">
 		<input id="rm<c:out value="${inputName}"/>" type="button" value="<fmt:message key="remove" bundle="${resword}"/>" onClick="removeSwitch('<c:out value="${section.eventCRF.id}"/>','<c:out value="${inputName}"/>','rm','value','Remove','Cancel Remove','<c:out value="${inputTxtValue}"/>','<c:out value="${fn:replace(pathAndName,'+','%2B')}"/>','found')">
 		</c:otherwise>
@@ -668,7 +668,7 @@ function switchStr(itemId, id,attribute,str1,str2) {
 
 </c:if>
 <%-- we won't need this if we're not embedding error messages
-<br><c:import url="../showMessage.jsp"><c:param name="key" value=
+<br/><c:import url="../showMessage.jsp"><c:param name="key" value=
               "${inputName}" /></c:import>    --%>
 <%--
 adding units...

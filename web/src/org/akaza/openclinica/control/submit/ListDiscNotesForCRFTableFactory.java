@@ -279,7 +279,7 @@ public class ListDiscNotesForCRFTableFactory extends AbstractTableFactory {
                         // getDiscrepancyNoteDAO().findAllByStudyEvent(studyEventBean);
                         List<DiscrepancyNoteBean> discs =
                             getDiscrepancyNoteDAO().findAllParentItemNotesByEventCRFWithConstraints(eventCRFBean.getId(), constraints);
-                        hasDN = hasDN == false ? discs != null && discs.size() > 0 : hasDN;
+                        hasDN = !(hasDN) ? discs != null && discs.size() > 0 : hasDN;
                         for (DiscrepancyNoteBean discrepancyNoteBean : discs) {
                             Integer value = discCounts.get(discrepancyNoteBean.getResStatus());
                             if (value != null) {
@@ -941,13 +941,9 @@ public class ListDiscNotesForCRFTableFactory extends AbstractTableFactory {
         String schedule = resword.getString("schedule");
         String view = resword.getString("view") + "/" + resword.getString("enter_data");
         String edit = resword.getString("edit");
-        ;
         String remove = resword.getString("remove");
-        ;
         String subjectText = resword.getString("subject");
-        ;
         String eventText = resword.getString("event");
-        ;
 
         SubjectEventStatus eventStatus = studyEvents.size() == 0 ? SubjectEventStatus.NOT_SCHEDULED : studyEvents.get(0).getSubjectEventStatus();
         // String studyEventName = studyEvents.size() == 0 ? "" :

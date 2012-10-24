@@ -21,7 +21,7 @@
 		<td colspan="3" bgcolor="#E6E6E6" height="16" class="footer">
 	
 <!-- Footer -->
-<img src="images/spacer.gif" width=1 height=3><br>
+<img src="images/spacer.gif" width=1 height=3><br/>
 <center>
 <fmt:message key="Openclinica_Release_1_1" bundle="${resword}"/>
 </center>

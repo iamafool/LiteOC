@@ -108,16 +108,16 @@ function reportBug(versionNumber) {
 	<input type="submit" value="<fmt:message key="login" bundle="${resword}"/>" class="loginbutton">
    --></form>
 	
-	<%--BWP 01/29/2009 issue 3255<br><br>
+	<%--BWP 01/29/2009 issue 3255<br/><br/>
 	<a href="RequestAccount"> <fmt:message key="request_an_account" bundle="${resword}"/></a>--%>
-	<br><br>
+	<br/><br/>
 	<a href="<c:url value="/RequestPassword"/>"> <fmt:message key="forgot_password" bundle="${resword}"/></a>
 	</div>
 
 
 <!-- End Sidebar Contents -->
 
-				<br><img src="<tags:imagesLink value="spacer.gif"/>" width="120" height="1">
+				<br/><img src="<tags:imagesLink value="spacer.gif"/>" width="120" height="1">
 
 				</td>
 				<td class="content" valign="top">

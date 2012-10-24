@@ -93,7 +93,7 @@ public abstract class ListStudySubjectServlet extends SecureController {
                 // tempNum is already initialized to 0
             }
             if (tempNum > 0) {
-                paginatingQuery = new StringBuilder(SUBJECT_PAGE_NUMBER).append("=").append(pageNumber);
+                paginatingQuery = new StringBuilder(SUBJECT_PAGE_NUMBER).append('=').append(pageNumber);
                 paginatingQuery.append("&ebl_paginated=1");
 
             }
@@ -104,7 +104,7 @@ public abstract class ListStudySubjectServlet extends SecureController {
         String filterKeywordURLEncode = java.net.URLEncoder.encode(filterKeyword, "UTF-8");
         if (searchSubmitted) {
             paginatingQuery.append("&ebl_sortColumnInd=0&submitted=1&ebl_sortAscending=1&ebl_filtered=1");
-            paginatingQuery.append("&").append(FILTER_KEYWORD).append("=").append(filterKeywordURLEncode);
+            paginatingQuery.append('&').append(FILTER_KEYWORD).append('=').append(filterKeywordURLEncode);
         }
 
         request.setAttribute(PAGINATING_QUERY, paginatingQuery.toString());

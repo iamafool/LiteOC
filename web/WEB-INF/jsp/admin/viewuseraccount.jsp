@@ -7,37 +7,13 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
+
 
 <%-- BWP>> for formatting dates --%>
 <c:set var="dateFormatPattern" value="${requestScope['dateFormatPattern']}" />
 <c:set var="dteFormat"><fmt:message key="date_format_string" bundle="${resformat}"/></c:set>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 
@@ -51,7 +27,7 @@
 
 
 <%--<p><a href="EditUserAccount?userId=<c:out value="${user.id}" />">Edit this user account</a>
-&nbsp;<br>
+&nbsp;<br/>
 <a href="AuditLogUser?userLogId=<c:out value="${user.id}" />">View Audit Logs for this user</a>--%>
 
 <div style="width: 400px">
@@ -142,14 +118,14 @@
     </tr>
 <!-- TODO:
 for each study user is in, show:
-�	Role
-�	Studies created/owned
-�	CRFs created/owned (including versions)
-�	Study Events created/owned
-�	Subjects created/owned
-�	Queries created/owned
-�	Datasets downloaded
-�	Link to reload page including full audit record for User.
+Role
+Studies created/owned
+CRFs created/owned (including versions)
+Study Events created/owned
+Subjects created/owned
+Queries created/owned
+Datasets downloaded
+Link to reload page including full audit record for User.
 
 -->
 

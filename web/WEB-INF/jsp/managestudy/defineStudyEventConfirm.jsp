@@ -10,32 +10,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content"> 
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
@@ -55,7 +32,7 @@
 						<div class="textbox_center" align="center">
 
 						<span class="title_manage">
-						<fmt:message key="enter_definition_name_and_description" bundle="${resword}"/><br><br>
+						<fmt:message key="enter_definition_name_and_description" bundle="${resword}"/><br/><br/>
 						</span>
 
 						</div>
@@ -72,7 +49,7 @@
 						<div class="textbox_center" align="center">
 
 						<span class="title_manage">
-						<fmt:message key="add_CRFs_to_definition" bundle="${resword}"/><br><br>
+						<fmt:message key="add_CRFs_to_definition" bundle="${resword}"/><br/><br/>
 						</span>
 
 						</div>
@@ -89,7 +66,7 @@
 						<div class="textbox_center" align="center">
 
 						<span class="title_manage">
-						<fmt:message key="edit_properties_for_each_CRF" bundle="${resword}"/><br><br>
+						<fmt:message key="edit_properties_for_each_CRF" bundle="${resword}"/><br/><br/>
 						</span>
 
 						</div>
@@ -106,7 +83,7 @@
 						<div class="textbox_center" align="center">
 
 						<span class="title_manage">
-						<b><fmt:message key="confirm_and_submit_definition" bundle="${resword}"/><br><br></b>
+						<b><fmt:message key="confirm_and_submit_definition" bundle="${resword}"/><br/><br/></b>
 						</span>
 
 						</div>
@@ -120,7 +97,7 @@
 			</tr>
 		</table>
 --%>
-		<br>
+		<br/>
 <div style="width: 600px">
 <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
 
@@ -152,7 +129,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  
  <span class="table_title_manage"><fmt:message key="CRFs" bundle="${resword}"/></span>
  <div style="width: 600px">
@@ -228,7 +205,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>   
     <td><form action="DefineStudyEvent" method="POST">
@@ -251,5 +228,5 @@
     </td>
     </tr>  
    </table>
-   <br><br>
+   <br/><br/>
 <jsp:include page="../include/footer.jsp"/>

@@ -20,30 +20,8 @@
 </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp" />
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-    <td class="sidebar_tab"><a
-        href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img
-        src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-    <b><fmt:message key="instructions" bundle="${resword}" /></b>
-
-    <div class="sidebar_tab_content"></div>
-        <fmt:message key="test_rules_instructions_1" bundle="${resword}" />
-
-    </td>
-
-</tr>
-<tr id="sidebar_Instructions_closed" style="display: none">
-    <td class="sidebar_tab"><a
-        href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img
-        src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-    <b><fmt:message key="instructions" bundle="${resword}" /></b></td>
-</tr>
 <jsp:include page="../include/sideInfo.jsp" />
 
 
@@ -64,7 +42,7 @@
     function spliceAndReturn(itemOid)
     {
         if (itemOid.length > 50){
-            document.write(itemOid.substr(0,50) + "<br>");
+            document.write(itemOid.substr(0,50) + "<br/>");
             document.write(itemOid.substr(50,itemOid.length));
         }else{
             document.write(itemOid);
@@ -530,7 +508,7 @@
 
 </table>
 </form>
-<br>
+<br/>
 <p><a href="ViewRuleAssignment?restore=true"/><fmt:message key="test_rules_back_to_rule_assignments" bundle="${resword}"/></a></p>
-<br>
+<br/>
 <jsp:include page="../include/footer.jsp" />

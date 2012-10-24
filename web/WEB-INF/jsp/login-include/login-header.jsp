@@ -66,9 +66,8 @@ onload="TabsForwardByNum(<c:out value="${tabId}"/>);<jsp:include page="../includ
   "background">
     <tr>
         <td valign="top">
-<!-- Header Table -->
+<%-- Header Table --%>
 
-<!-- NEW 06-22 -->
     <script language="JavaScript">
     var StatusBoxValue=1;
     </script>
@@ -82,4 +81,4 @@ onload="TabsForwardByNum(<c:out value="${tabId}"/>);<jsp:include page="../includ
                         <!-- Main Navigation -->
                         <%-- <jsp:include page="../include/navBar.jsp"/> --%>
                         
-<!-- End Main Navigation -->
+<%-- End Main Navigation --%>

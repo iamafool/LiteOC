@@ -25,7 +25,7 @@ public class SubjectMatrixUtil {
             }
             if(tempNum > 0){
                 paginatingQuery = new StringBuilder(ListStudySubjectServlet.SUBJECT_PAGE_NUMBER).
-                  append("=").append(pageNumber);
+                  append('=').append(pageNumber);
                 paginatingQuery.append("&ebl_paginated=1");
             }
         }

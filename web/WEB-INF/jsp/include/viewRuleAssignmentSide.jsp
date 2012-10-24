@@ -4,9 +4,10 @@
 
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
 
+    
 <c:choose>
 <c:when test="${panel.orderedData}">
-    <b><fmt:message key="study_events" bundle="${resword}"/>:</b><br>
+    <b><fmt:message key="study_events" bundle="${resword}"/>:</b><br/>
     <fmt:message key="view_rules_assignment_filter" bundle="${resword}"/>
     <c:set var="count" value="0"/>
     <c:set var="newEvent" value="0"/>
@@ -76,7 +77,7 @@
         </tr>
         </table>
     </c:if>
-    <br>
+    <br/>
 </c:when>
 <c:otherwise>
     <c:if test="${newDataset.id<=0}">
@@ -87,7 +88,7 @@
         </c:forEach>
     </c:if>
     <a href="javascript: openDocWindow('ViewSelected?status=html')"><b><fmt:message key="view_selected_items" bundle="${resword}"/></b></a><br />
-    <br>
+    <br/>
     <form id="selectAllItems" action="EditSelected" method="post" name="selectAllItems">
         <input type="hidden" name="all" value="1">
     </form>

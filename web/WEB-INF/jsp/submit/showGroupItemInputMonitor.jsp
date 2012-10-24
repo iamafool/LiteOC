@@ -495,7 +495,7 @@
 
 </c:if>
 <%-- we won't need this if we're not embedding error messages
-<br><c:import url="../showMessage.jsp"><c:param name="key" value=
+<br/><c:import url="../showMessage.jsp"><c:param name="key" value=
               "${inputName}" /></c:import>    --%>
 <%--
 adding units...

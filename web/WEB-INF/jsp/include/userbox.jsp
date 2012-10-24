@@ -43,24 +43,24 @@
 			<div class="userboxtext">
 
 				<b><fmt:message key="user" bundle="${resword}"/>:</b>&nbsp; <c:out value="${userBean.name}" />
-				<br>
+				<br/>
 				<c:choose>
 				    <c:when test='${(isAdminServlet == "admin" && userBean.techAdmin) || (!userRole.role.active && userBean.techAdmin)}'>
                         <c:if test="${study.status.name != 'removed' && study.status.name != 'auto-removed'}">
                             <c:choose>
                                 <c:when test='${study.parentStudyId > 0}'>
                                     <b><fmt:message key="study" bundle="${resword}"/>:</b> &nbsp; <c:out value="${study.parentStudyName}" />
-                                    <br><b><fmt:message key="current_site" bundle="${resword}"/>:</b> &nbsp; <c:out value="${study.name}" />
+                                    <br/><b><fmt:message key="current_site" bundle="${resword}"/>:</b> &nbsp; <c:out value="${study.name}" />
                                 </c:when>
                                 <c:otherwise>
                                     <b><fmt:message key="study" bundle="${resword}"/>:</b> &nbsp; <c:out value="${study.name}" />
                                 </c:otherwise>
                             </c:choose>
-                            <br>
+                            <br/>
                             <b><fmt:message key="protocol_ID" bundle="${resword}"/>:</b>&nbsp; <c:out value="${study.identifier}" />
-                            <br>
+                            <br/>
                             <b><fmt:message key="role" bundle="${resword}"/>:</b>&nbsp; <c:out value="${userRole.role.description}" />
-                            <br>
+                            <br/>
                         </c:if>
 	                </c:when>
 	                <c:when test='${(isAdminServlet == "admin" && userBean.sysAdmin) || (!userRole.role.active && userBean.sysAdmin)}'>
@@ -71,32 +71,32 @@
 	                        <c:choose>
 	                            <c:when test='${study.parentStudyId > 0}'>
 	                                <b><fmt:message key="study" bundle="${resword}"/>:</b> &nbsp; <c:out value="${study.parentStudyName}" />
-				                    <br><b><fmt:message key="current_site" bundle="${resword}"/>:</b> &nbsp; <c:out value="${study.name}" />
+				                    <br/><b><fmt:message key="current_site" bundle="${resword}"/>:</b> &nbsp; <c:out value="${study.name}" />
 				                </c:when>
 				                <c:otherwise>
 				                    <b><fmt:message key="study" bundle="${resword}"/>:</b> &nbsp; <c:out value="${study.name}" />
 				                </c:otherwise>
 				            </c:choose>
-            				<br>
+            				<br/>
 	            			<b><fmt:message key="protocol_ID" bundle="${resword}"/>:</b>&nbsp; <c:out value="${study.identifier}" />
-		    	        	<br>
+		    	        	<br/>
 			    	        <b><fmt:message key="role" bundle="${resword}"/>:</b>&nbsp; <c:out value="${userRole.role.description}" />
-				            <br>
+				            <br/>
     				    </c:if>
                 </c:otherwise>
 				</c:choose>
-				<img src="images/UserBox_line.gif" width="161" height="1" vspace="4"><br>
+				<img src="images/UserBox_line.gif" width="161" height="1" vspace="4"><br/>
 
 				<div style="position: absolute; z-index: 3;">
 				<span class="logout"><a href="ChangeStudy"><fmt:message key="change_study_site" bundle="${resworkflow}"/></a></span>
 				<span class="logout"><a href="j_spring_security_logout"><fmt:message key="log_out" bundle="${resword}"/></a></span>
 	          	</div>
-	          	<br>
+	          	<br/>
 				</div>
 
 	<!-- End User Box contents -->
 
-			<br></div>
+			<br/></div>
 
 		</div></div></div></div></div></div></div></div>
 

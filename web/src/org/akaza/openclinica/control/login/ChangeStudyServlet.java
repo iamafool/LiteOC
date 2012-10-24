@@ -174,7 +174,7 @@ public class ChangeStudyServlet extends SecureController {
         String idSetting = current.getStudyParameterConfig().getSubjectIdGeneration();
         if (idSetting.equals("auto editable") || idSetting.equals("auto non-editable")) {
             int nextLabel = this.getStudySubjectDAO().findTheGreatestLabel() + 1;
-            request.setAttribute("label", new Integer(nextLabel).toString());
+            request.setAttribute("label", Integer.toString(nextLabel));
         }
 
         StudyConfigService scs = new StudyConfigService(sm.getDataSource());

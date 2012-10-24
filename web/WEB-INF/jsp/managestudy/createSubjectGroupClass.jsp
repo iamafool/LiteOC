@@ -5,33 +5,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
@@ -56,7 +32,7 @@
 <h1><span class="title_manage"><fmt:message key="create_a_subject_group_class" bundle="${resword}"/> <a href="javascript:openDocWindow('help/3_4_subjectGroups_Help.html')"><img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a></span></h1>
 
 <form action="CreateSubjectGroupClass" method="post">
-* <fmt:message key="indicates_required_field" bundle="${resword}"/><br>
+* <fmt:message key="indicates_required_field" bundle="${resword}"/><br/>
 <input type="hidden" name="action" value="confirm">
 <!-- These DIVs define shaded box borders -->
 <div style="width: 500px">
@@ -102,9 +78,9 @@
   <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="subjectAssignment"/></jsp:include></td><td>*</td></tr>      
         
   
-  <tr valign="top"><td class="formlabel"><br><fmt:message key="study_groups" bundle="${resword}"/>:</td>
+  <tr valign="top"><td class="formlabel"><br/><fmt:message key="study_groups" bundle="${resword}"/>:</td>
   
-  <td><br>
+  <td><br/>
   <c:set var="count" value="0"/>
   <table border="0" cellpadding="0" cellspacing="0">  
    <tr>      
@@ -140,7 +116,7 @@
        <c:set var="count" value="${count+1}"/>
     </c:forEach>   
    </c:if> 
-   <br>    
+   <br/>    
    </table> 
    <span class="alert"><c:out value="${studyGroupError}"/></span>
   </td></tr>  

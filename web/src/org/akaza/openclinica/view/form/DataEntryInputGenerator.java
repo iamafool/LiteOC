@@ -614,7 +614,7 @@ public class DataEntryInputGenerator implements InputGenerator {
     // uses the same markup as the existing discrepancy-note related JSPs.
     public Element createDiscrepancyNoteSymbol(Integer numDiscrepancyNotes, Integer tabNumber, Integer itemDataId, Integer itemId, boolean forPrinting) {
         Element ahref = new Element("a");
-        ahref.setAttribute("tabindex", tabNumber + 1000 + "");
+        ahref.setAttribute("tabindex", (tabNumber + 1000) + "");
         ahref.setAttribute("href", "#");
         StringBuilder clickValue = new StringBuilder("");
         // Disable the D Note icon for CRF print views

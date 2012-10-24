@@ -138,7 +138,7 @@ margin-top:20px; updateTabs(<c:out value="${tabId}"/>);--%>
   <c:param name="hasNameNote" value="${hasNameNote}"/>
   <c:param name="hasDateNote" value="${hasDateNote}"/>
 </c:import>
-<!--<br><br>-->
+<!--<br/><br/>-->
 <br />
 <%--I don't think we need this segment to accompany the existing error messages:--%>
 <%-- need to put this back, otherwise, error msg from 'mark complete' cannot show--%>
@@ -146,7 +146,7 @@ margin-top:20px; updateTabs(<c:out value="${tabId}"/>);--%>
     <div class="alert">
         <c:forEach var="message" items="${pageMessages}">
             <c:out value="${message}" escapeXml="false"/>
-            <br><br>
+            <br/><br/>
         </c:forEach>
     </div>
 </c:if>

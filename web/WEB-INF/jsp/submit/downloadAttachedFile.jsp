@@ -58,7 +58,7 @@
 		%>
 	</c:when>
 	<c:otherwise>
-		<br><br><br><br><br>
+		<br/><br/><br/><br/><br/>
 		<c:forEach var="message" items="${pageMessages}">
 		 <c:out value="${message}" escapeXml="false"/>
 		</c:forEach>

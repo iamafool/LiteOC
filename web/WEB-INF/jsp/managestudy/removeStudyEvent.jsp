@@ -9,35 +9,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-        <fmt:message key="confirm_removal_of_this_event_from_study"  bundle="${resword}"/> <c:out value="${study.name}"/>. <fmt:message key="this_event_and_all_data_associated_with_it_in"  bundle="${resword}"/>
-        <fmt:message key="it_may_be_restored_by"  bundle="${resword}"/>
-
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope="request" id="displayEvent" class="org.akaza.openclinica.bean.managestudy.DisplayStudyEventBean"/>
@@ -65,7 +39,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  <c:choose>
  <c:when test="${!empty displayEvent.displayEventCRFs}"> 
  <span class="table_title_manage"><fmt:message key="event_CRFs" bundle="${resword}"/></span>
@@ -100,7 +74,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  </c:when>
  <c:otherwise>
   <p><fmt:message key="no_event_CRFs" bundle="${resword}"/></p>
@@ -123,5 +97,5 @@
     </c:otherwise>
    </c:choose>  
  
-<br><br>
+<br/><br/>
 <jsp:include page="../include/footer.jsp"/>

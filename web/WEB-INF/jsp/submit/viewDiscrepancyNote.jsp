@@ -180,7 +180,7 @@
 
 <div class="alert">    
 <c:forEach var="message" items="${pageMessages}">
- <c:out value="${message}" escapeXml="false"/><br><br>
+ <c:out value="${message}" escapeXml="false"/><br/><br/>
 </c:forEach>
 </div>
 
@@ -215,7 +215,7 @@
                                             </c:if></b>
                                     </div>
                                     <div style="float: right; padding-left: 30px;">
-                                    	<fmt:message key="Last_updated" bundle="${resword}"/>: <b><fmt:formatDate value="${note.value.lastDateUpdated}" pattern="${dteFormat}"/> by <c:out value="${note.value.owner.name}"/></b><br>
+                                    	<fmt:message key="Last_updated" bundle="${resword}"/>: <b><fmt:formatDate value="${note.value.lastDateUpdated}" pattern="${dteFormat}"/> by <c:out value="${note.value.owner.name}"/></b><br/>
                                     	<fmt:message key="Assigned_to" bundle="${resword}"/>:&nbsp;&nbsp;  <b> <c:out value="${note.value.assignedUser.firstName}"/> <c:out value="${note.value.assignedUser.lastName}"/> (<c:out value ="${note.value.assignedUser.name}"/>)
                                     </div>
                                 </td>
@@ -241,7 +241,7 @@
                                     <td class="table_cell_left" colspan="2" bgcolor="#f5f5f5" width="50%" valign="top"><b><c:out value="${child.description}"/></b></td>
                                     <td class="table_cell" bgcolor="#f5f5f5" align="left" width="25%" valign="top" nowrap><fmt:message key="status" bundle="${resword}"/>: <c:out value="${child.resStatus.name}"/></td>
                                     <td class="table_cell" bgcolor="#f5f5f5" width="25%" align="right" valign="top" nowrap>
-                                    	<fmt:formatDate value="${child.createdDate}" pattern="${dteFormat}"/> by <c:out value="${child.owner.name}"/><br>
+                                    	<fmt:formatDate value="${child.createdDate}" pattern="${dteFormat}"/> by <c:out value="${child.owner.name}"/><br/>
                                     	<c:if test="${child.assignedUserId > 0}">
                                         <fmt:message key="Assigned_to" bundle="${resword}"/>: <c:out value="${child.assignedUser.firstName}"/> <c:out value="${child.assignedUser.lastName}"/> (<c:out value ="${child.assignedUser.name}"/>)
                                 </tr>
@@ -283,7 +283,7 @@
                         					</c:choose>
                         					<c:set var="sindex" value="${sindex+1}"/>
                             			</c:forEach>
-                            			<br>
+                            			<br/>
                             			<c:set var="showDNBox" value="y"/>
                             		</c:if>
                             	</td>

@@ -107,7 +107,7 @@
 	</tr>
 	</c:forEach> 
 </table>
-<br>
+<br/>
 
 <c:set var="eventList" value="${events[studySubject.id]}"/>
 
@@ -115,9 +115,9 @@
 
 <table border="0" cellpadding="0" cellspacing="0" width="550" style="border-style: solid; border-width: 1px; border-color: #CCCCCC;">
 	<tr>
-	 <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="study_events" bundle="${resword}"/></b><br></td>
-	 <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="location" bundle="${resword}"/></b><br></td>
-	 <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="date" bundle="${resword}"/></b><br></td>
+	 <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="study_events" bundle="${resword}"/></b><br/></td>
+	 <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="location" bundle="${resword}"/></b><br/></td>
+	 <td class="table_header_column_top" style="color: #789EC5"><b><fmt:message key="date" bundle="${resword}"/></b><br/></td>
 	</tr>
 	<c:forEach var="event" items="${eventList}">
 		<tr>
@@ -127,7 +127,7 @@
 		</tr>
 	</c:forEach> 
 </table>
-<br>
+<br/>
 
 </div></div></div></div></div></div></div></div></div></div></div>
 

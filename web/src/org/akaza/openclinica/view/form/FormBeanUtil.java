@@ -653,7 +653,7 @@ public class FormBeanUtil {
         List<DisplayItemBean> itemsList;
         int numberOfBeansInRow;
 
-        Element  formFieldRow = new Element("tr");;
+        Element  formFieldRow = new Element("tr");
         Element headerRow;
         Element subHeaderRow;
 

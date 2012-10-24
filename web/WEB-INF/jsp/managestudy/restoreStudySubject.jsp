@@ -8,33 +8,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-         <fmt:message key="confirm_restoration_of_this_subject_to_study"  bundle="${resword}"/> <c:out value="${study.name}"/>. <fmt:message key="the_subject_and_all_data_associated_with_it_in" bundle="${resword}"/> 
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope="session" id="studySub" class="org.akaza.openclinica.bean.managestudy.StudySubjectBean"/>
@@ -72,7 +48,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  <c:if test="${!empty events}">
  <span class="table_title_manage"><fmt:message key="subject_events" bundle="${resword}"/> </span>
  <div style="width: 600px">
@@ -120,7 +96,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
    </c:if>  
    
    <c:choose>

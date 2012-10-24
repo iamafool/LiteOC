@@ -9,36 +9,11 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
+
 
 <%-- BWP>> for formatting dates --%>
 <c:set var="dateFormatPattern" value="${requestScope['dateFormatPattern']}" />
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-        <td class="sidebar_tab">
-
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-        <div class="sidebar_tab_content">
- 
-
-        </div>
-
-        </td>
-    
-    </tr>
-    <tr id="sidebar_Instructions_closed" style="display: all">
-        <td class="sidebar_tab">
-
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-        </td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope="request" id="user" class="org.akaza.openclinica.bean.login.UserAccountBean"/>
@@ -85,7 +60,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br><p><a href="ListStudyUser"><fmt:message key="go_back_to_user_list" bundle="${resword}"/></a></p>
-<br><br>
+<br/><p><a href="ListStudyUser"><fmt:message key="go_back_to_user_list" bundle="${resword}"/></a></p>
+<br/><br/>
  
 <jsp:include page="../include/footer.jsp"/>

@@ -58,7 +58,7 @@ onload="<jsp:include page="../include/showPopUp.jsp"/>"
   "background">
 	<tr>
 		<td valign="top">
-<!-- Header Table -->
+<%-- Header Table --%>
 
 <!-- NEW 06-22 -->
 	<script language="JavaScript">
@@ -76,4 +76,4 @@ onload="<jsp:include page="../include/showPopUp.jsp"/>"
 <!-- Main Navigation -->
 
 	<jsp:include page="../include/navBar.jsp"/>
-<!-- End Main Navigation -->
+<%-- End Main Navigation --%>

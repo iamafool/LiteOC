@@ -9,7 +9,7 @@ package org.akaza.openclinica.control.managestudy;
 
 import org.akaza.openclinica.bean.admin.DisplayStudyBean;
 import org.akaza.openclinica.bean.managestudy.StudyBean;
-import org.akaza.openclinica.bean.core.Role;
+
 import org.akaza.openclinica.control.core.SecureController;
 import org.akaza.openclinica.control.form.FormProcessor;
 import org.akaza.openclinica.dao.managestudy.StudyDAO;
@@ -100,10 +100,10 @@ public class ListStudyServlet extends SecureController {
         panel.setOrderedData(true);
         setToPanel(resword.getString("in_the_application"), "");
         if (parents.size() > 0) {
-            setToPanel(resword.getString("studies"), new Integer(parents.size()).toString());
+            setToPanel(resword.getString("studies"), Integer.toString(parents.size()));
         }
         if (studies.size() > 0) {
-            setToPanel(resword.getString("sites"), new Integer(studies.size() - parents.size()).toString());
+            setToPanel(resword.getString("sites"), Integer.toString(studies.size() - parents.size()));
         }
         forwardPage(Page.STUDY_LIST);
 

@@ -16,13 +16,13 @@
 					<span class="title_submit">
 					<c:choose>
 					<c:when test='${param.selectCrf=="1"}'>
- 						<b><fmt:message key="select" bundle="${resword}"/><br> <fmt:message key="CRF" bundle="${resword}"/></b>
+ 						<b><fmt:message key="select" bundle="${resword}"/><br/> <fmt:message key="CRF" bundle="${resword}"/></b>
 						</c:when>
 						<c:otherwise>
- 							<fmt:message key="select" bundle="${resword}"/><br> <fmt:message key="CRF" bundle="${resword}"/>
+ 							<fmt:message key="select" bundle="${resword}"/><br/> <fmt:message key="CRF" bundle="${resword}"/>
  						</c:otherwise> 
 					</c:choose>
-					<br><br>
+					<br/><br/>
 					</span>
 
 					</div>
@@ -41,13 +41,13 @@
 					<span class="title_submit">
 					<c:choose>
 					<c:when test='${param.selectSection=="1"}'>
- 						<b><fmt:message key="select" bundle="${resword}"/><br> <fmt:message key="section" bundle="${resword}"/></b>
+ 						<b><fmt:message key="select" bundle="${resword}"/><br/> <fmt:message key="section" bundle="${resword}"/></b>
 						</c:when>
 						<c:otherwise>
- 						<fmt:message key="select" bundle="${resword}"/><br> <fmt:message key="section" bundle="${resword}"/>
+ 						<fmt:message key="select" bundle="${resword}"/><br/> <fmt:message key="section" bundle="${resword}"/>
 						</c:otherwise> 
 					</c:choose>
-					<br><br>
+					<br/><br/>
 					</span>
 
 					</div>
@@ -66,13 +66,13 @@
 					<span class="title_submit">
 					<c:choose>
 					<c:when test='${param.selectParameters=="1"}'>
- 						<b><fmt:message key="select" bundle="${resword}"/><br> <fmt:message key="parameters" bundle="${resword}"/></b>
+ 						<b><fmt:message key="select" bundle="${resword}"/><br/> <fmt:message key="parameters" bundle="${resword}"/></b>
 						</c:when>
 						<c:otherwise>
- 						<fmt:message key="select" bundle="${resword}"/><br> <fmt:message key="parameters" bundle="${resword}"/>
+ 						<fmt:message key="select" bundle="${resword}"/><br/> <fmt:message key="parameters" bundle="${resword}"/>
 						</c:otherwise> 
 					</c:choose>
-					<br><br>
+					<br/><br/>
 					</span>
 
 					</div>
@@ -91,13 +91,13 @@
 					<span class="title_submit">
 					<c:choose>
 					<c:when test='${param.selectValue=="1"}'>
- 						<b><fmt:message key="specify" bundle="${resword}"/><br> <fmt:message key="criteria" bundle="${resword}"/></b>
+ 						<b><fmt:message key="specify" bundle="${resword}"/><br/> <fmt:message key="criteria" bundle="${resword}"/></b>
 						</c:when>
 						<c:otherwise>
- 						<fmt:message key="specify" bundle="${resword}"/><br> <fmt:message key="criteria" bundle="${resword}"/>
+ 						<fmt:message key="specify" bundle="${resword}"/><br/> <fmt:message key="criteria" bundle="${resword}"/>
 						</c:otherwise> 
 					</c:choose>
-					<br><br>
+					<br/><br/>
 					</span>
 
 					</div>
@@ -116,13 +116,13 @@
 					<span class="title_submit">
 					<c:choose>
 					<c:when test='${param.save=="1"}'>
- 						<b><fmt:message key="save" bundle="${resword}"/><br> <fmt:message key="And" bundle="${resword}"/><br> <fmt:message key="exit" bundle="${resword}"/></b>
+ 						<b><fmt:message key="save" bundle="${resword}"/><br/> <fmt:message key="And" bundle="${resword}"/><br/> <fmt:message key="exit" bundle="${resword}"/></b>
 						</c:when>
 						<c:otherwise>
- 						<fmt:message key="save" bundle="${resword}"/><br> <fmt:message key="And" bundle="${resword}"/><br> <fmt:message key="exit" bundle="${resword}"/>
+ 						<fmt:message key="save" bundle="${resword}"/><br/> <fmt:message key="And" bundle="${resword}"/><br/> <fmt:message key="exit" bundle="${resword}"/>
 						</c:otherwise> 
 					</c:choose>
-					<br><br>
+					<br/><br/>
 					</span>
 
 					</div>
@@ -133,4 +133,4 @@
 		</tr>
 	</table>
 
-	<br>
+	<br/>

@@ -8,32 +8,8 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 
@@ -64,7 +40,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  <span class="table_title_Admin"><fmt:message key="sites" bundle="${resword}"/>:</span>
  <div style="width: 600px">
  <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
@@ -86,7 +62,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  <span class="table_title_Admin"><fmt:message key="user_and_roles" bundle="${resword}"/>:</span>
  <div style="width: 600px">
  <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
@@ -112,7 +88,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-  <br>
+  <br/>
  <span class="table_title_Admin"><fmt:message key="subjects" bundle="${resword}"/>:</span>
  <div style="width: 600px">
  <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
@@ -138,7 +114,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  <span class="table_title_Admin"><fmt:message key="SED" bundle="${resword}"/>:</span>
  <div style="width: 600px">
  <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">

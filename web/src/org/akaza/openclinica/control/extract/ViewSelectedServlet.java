@@ -104,7 +104,7 @@ public class ViewSelectedServlet extends SecureController {
         // ids.add(itemId);
         // }
         // }
-        session.setAttribute("numberOfStudyItems", new Integer(ids.size()).toString());
+        session.setAttribute("numberOfStudyItems", Integer.toString(ids.size()));
 
         ArrayList items = new ArrayList();
         if (db == null || db.getItemIds().size() == 0) {

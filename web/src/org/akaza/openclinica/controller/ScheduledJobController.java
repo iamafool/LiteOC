@@ -5,13 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
+
 import java.util.Iterator;
 import java.util.List;
 
 import org.akaza.openclinica.bean.extract.ExtractPropertyBean;
 import org.akaza.openclinica.control.SpringServletAccess;
-import org.akaza.openclinica.control.admin.CreateJobExportServlet;
+
 import org.akaza.openclinica.i18n.util.ResourceBundleProvider;
 import org.akaza.openclinica.service.extract.XsltTriggerService;
 import org.akaza.openclinica.web.table.scheduledjobs.ScheduledJobTableFactory;
@@ -19,11 +19,11 @@ import org.akaza.openclinica.web.table.scheduledjobs.ScheduledJobs;
 import org.akaza.openclinica.web.table.sdv.SDVUtil;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.jmesa.facade.TableFacade;
-import org.quartz.CronTrigger;
+
 import org.quartz.JobExecutionContext;
 import org.quartz.SchedulerException;
 import org.quartz.SimpleTrigger;
-import org.quartz.Trigger;
+
 import org.quartz.impl.StdScheduler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

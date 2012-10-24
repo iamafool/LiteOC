@@ -184,33 +184,33 @@ function getSib(theSibling){
   </c:choose>
 <tr>
 <tr>
- <td class="table_cell_noborder" ><b><fmt:message key="study_subject_ID" bundle="${resword}"/>:</b><br></td>
- <td class="table_cell_noborder" ><c:out value="${studySubject.label}"/><br>
+ <td class="table_cell_noborder" ><b><fmt:message key="study_subject_ID" bundle="${resword}"/>:</b><br/></td>
+ <td class="table_cell_noborder" ><c:out value="${studySubject.label}"/><br/>
  </td>
  <c:choose>
  <c:when test="${study.studyParameterConfig.personIdShownOnCRF == 'true'}">
 
- <td class="table_cell_top" ><b><fmt:message key="person_ID" bundle="${resword}"/>:</b><br></td>
- <td class="table_cell_noborder" ><c:out value="${subject.uniqueIdentifier}"/><br></td>
+ <td class="table_cell_top" ><b><fmt:message key="person_ID" bundle="${resword}"/>:</b><br/></td>
+ <td class="table_cell_noborder" ><c:out value="${subject.uniqueIdentifier}"/><br/></td>
  </c:when>
  <c:otherwise>
- <td class="table_cell_top" ><b><fmt:message key="person_ID" bundle="${resword}"/>:</b><br></td>
+ <td class="table_cell_top" ><b><fmt:message key="person_ID" bundle="${resword}"/>:</b><br/></td>
  <td class="table_cell_noborder" ><fmt:message key="na" bundle="${resword}"/></td>
  </c:otherwise>
  </c:choose>
 </tr>
 <tr>
- <td class="table_cell_noborder"><b><fmt:message key="study_site" bundle="${resword}"/>:</b><br></td>
- <td class="table_cell_noborder" ><c:out value="${studyTitle}"/><br></td>
- <td class="table_cell_top" ><b><fmt:message key="age" bundle="${resword}"/>:</b><br></td>
+ <td class="table_cell_noborder"><b><fmt:message key="study_site" bundle="${resword}"/>:</b><br/></td>
+ <td class="table_cell_noborder" ><c:out value="${studyTitle}"/><br/></td>
+ <td class="table_cell_top" ><b><fmt:message key="age" bundle="${resword}"/>:</b><br/></td>
  <td class="table_cell_noborder"><c:choose><c:when test="${age!=''}"><c:out value="${age}"/></c:when>
-	 <c:otherwise> <fmt:message key="na" bundle="${resword}"/></c:otherwise></c:choose><br></td>
+	 <c:otherwise> <fmt:message key="na" bundle="${resword}"/></c:otherwise></c:choose><br/></td>
 </tr>
 <tr>
  <td class="table_cell_noborder" ><b><fmt:message key="event" bundle="${resword}"/>:</b></td>
  <td class="table_cell_noborder" ><c:out value="${studyEvent.studyEventDefinition.name}"/> (<fmt:formatDate value="${studyEvent.dateStarted}" pattern="${dteFormat}"/>)</td>
- <td class="table_cell_top" ><b><fmt:message key="date_of_birth" bundle="${resword}"/>:</b><br></td>
- <td class="table_cell_noborder" ><fmt:formatDate value="${subject.dateOfBirth}" pattern="${dteFormat}"/><br></td>
+ <td class="table_cell_top" ><b><fmt:message key="date_of_birth" bundle="${resword}"/>:</b><br/></td>
+ <td class="table_cell_noborder" ><fmt:formatDate value="${subject.dateOfBirth}" pattern="${dteFormat}"/><br/></td>
 </tr>
 <tr>
   <td class="table_cell_noborder" ><b><fmt:message key="interviewer" bundle="${resword}"/>:</b></td>
@@ -240,7 +240,7 @@ function getSib(theSibling){
 	</div></div></div></div></div></div></div>
 
 </c:if>
-<br>
+<br/>
 <form name="sForm">
 <!-- section tabs here -->
 <table border="0" cellpadding="0" cellspacing="0">

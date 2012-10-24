@@ -10,32 +10,8 @@
 <jsp:include page="../include/submit-header-inactive.jsp"/>
 
 <jsp:include page="../include/userbox-inactive.jsp"/>
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-         <fmt:message key="enter_data_in_the_form" bundle="${restext}"/>
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/submitSideInfo-inactive.jsp"/>
 
 <jsp:useBean scope="request" id="section" class=
@@ -99,7 +75,7 @@
 
 
 <c:import url="interviewer.jsp"/>
-<br><br>
+<br/><br/>
 <c:set var="sectionNum" value="0"/>
 <c:forEach var="section" items="${toc.sections}">
 <c:set var="sectionNum" value="${sectionNum+1}"/>

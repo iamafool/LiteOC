@@ -84,7 +84,7 @@
 
 </div></div></div></div></div></div></div></div>
 </div>
-<br>
+<br/>
 
 <span class="table_title_manage"><fmt:message key="item_meta_crf_att" bundle="${resword}"/></span>
 <p><fmt:message key="click_on_each_CRF_version_link" bundle="${restext}"/></p>
@@ -139,7 +139,7 @@
             |
                 <c:out value="${option.value}"/>
                 <c:if test="${!status.last}">
-                <br>
+                <br/>
                 </c:if>
 
             </c:forEach>&nbsp;
@@ -177,7 +177,7 @@
   
   </table>
   
-  <br>
+  <br/>
   <c:set var="versionCount" value="${versionCount+1}"/>
  </c:forEach>
  </td>

@@ -11,7 +11,7 @@
 
  <c:out value="${message}" escapeXml="false"/> 
 </c:forEach>
-<br><br></div>
+<br/><br/></div>
 
 </div></div></div></div></div></div></div></div>
 </c:if>

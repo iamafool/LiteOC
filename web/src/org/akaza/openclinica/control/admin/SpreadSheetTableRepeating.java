@@ -912,7 +912,7 @@ public class SpreadSheetTableRepeating implements SpreadSheetTable {
                                         + resPageMsg.getString("it_should_only_contain_one") + "'\\'. ");
                                     htmlErrors.put(j + "," + k + "," + cellIndex, resPageMsg.getString("INVALID_FIELD"));
                                 } else {
-                                    if (finalRegexp.startsWith("/") && finalRegexp.endsWith("/")) {
+                                    if ((finalRegexp.length() > 0 && finalRegexp.charAt(0) == '/') && finalRegexp.endsWith("/")) {
                                         finalRegexp = finalRegexp.substring(1, finalRegexp.length() - 1);
                                         try {
                                             Pattern p = Pattern.compile(finalRegexp);
@@ -1083,7 +1083,7 @@ public class SpreadSheetTableRepeating implements SpreadSheetTable {
                         String display = getValue(cell);
                         String controlItemName = "",optionValue="", message="";
                         if (!StringUtil.isBlank(display)) {
-                            if(isShowItem != false) {
+                            if(isShowItem) {
                                 errors.add(resPageMsg.getString("the") + " " + resPageMsg.getString("ITEM_DISPLAY_STATUS_column") + " "
                                         + resPageMsg.getString("was_invalid_at_row") + " " + k + ", " + resPageMsg.getString("items_worksheet") + ". "
                                         + resPageMsg.getString("should_be_hide_for_scd"));
@@ -1151,7 +1151,7 @@ public class SpreadSheetTableRepeating implements SpreadSheetTable {
                             vlSql =
                                 "INSERT INTO ITEM (NAME,DESCRIPTION,UNITS,PHI_STATUS,"
                                     + "ITEM_DATA_TYPE_ID, ITEM_REFERENCE_TYPE_ID,STATUS_ID,OWNER_ID,DATE_CREATED,OC_OID) " + "VALUES ('"
-                                    + stripQuotes(itemName) + "','" + stripQuotes(descLabel) + "','" + stripQuotes(unit) + "'," + (phiBoolean == true ? 1 : 0)
+                                    + stripQuotes(itemName) + "','" + stripQuotes(descLabel) + "','" + stripQuotes(unit) + "'," + (phiBoolean ? 1 : 0)
                                     + "," + dataTypeIdString + ",1,1," + ub.getId() + ", sysdate" + ",'" + itemOid + "')";
 
                         } else {

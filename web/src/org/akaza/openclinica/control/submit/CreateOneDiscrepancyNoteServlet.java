@@ -16,20 +16,20 @@ import org.akaza.openclinica.bean.managestudy.*;
 import org.akaza.openclinica.bean.submit.EventCRFBean;
 import org.akaza.openclinica.bean.submit.ItemBean;
 import org.akaza.openclinica.bean.submit.ItemDataBean;
-import org.akaza.openclinica.bean.submit.SectionBean;
-import org.akaza.openclinica.bean.admin.CRFBean;
+
+
 import org.akaza.openclinica.control.core.SecureController;
 import org.akaza.openclinica.control.form.FormDiscrepancyNotes;
 import org.akaza.openclinica.control.form.FormProcessor;
 import org.akaza.openclinica.control.form.Validator;
 import org.akaza.openclinica.core.EmailEngine;
-import org.akaza.openclinica.core.form.StringUtil;
+
 import org.akaza.openclinica.dao.login.UserAccountDAO;
 import org.akaza.openclinica.dao.managestudy.*;
 import org.akaza.openclinica.dao.submit.EventCRFDAO;
 import org.akaza.openclinica.dao.submit.ItemDAO;
 import org.akaza.openclinica.dao.submit.ItemDataDAO;
-import org.akaza.openclinica.dao.admin.CRFDAO;
+
 import org.akaza.openclinica.view.Page;
 import org.akaza.openclinica.web.InsufficientPermissionException;
 import org.akaza.openclinica.web.SQLInitServlet;
@@ -200,7 +200,7 @@ public class CreateOneDiscrepancyNoteServlet extends SecureController {
                 refresh = 1;
                 dndao.createMapping(dn);
                 success = dndao.isQuerySuccessful();
-                if(success == false) {
+                if(!(success)) {
                     mess.add(restext.getString("failed_create_dn_mapping_for_dnId") + dn.getId()+". ");
                 } 
                 noteTree.addNote(field, dn);

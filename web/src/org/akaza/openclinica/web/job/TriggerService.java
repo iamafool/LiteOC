@@ -189,7 +189,7 @@ public class TriggerService {
         String spss = fp.getString(SPSS);
         Date jobDate = fp.getDateTime(DATE_START_JOB);
         HashMap errors = v.validate();
-        if ((tab == "") && (cdisc == "") && (spss == "") && (cdisc12 == "") && (cdisc13 == "") && (cdisc13oc == "")) {
+        if ((tab.equals("")) && (cdisc.equals("")) && (spss.equals("")) && (cdisc12.equals("")) && (cdisc13.equals("")) && (cdisc13oc.equals(""))) {
             // throw an error here, at least one should work
             // errors.put(TAB, "Error Message - Pick one of the below");
             v.addError(errors, TAB, "Please pick at least one of the below.");

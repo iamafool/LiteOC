@@ -19,36 +19,8 @@
   </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		  <fmt:message key="events_month_shown_default" bundle="${restext}"/>
-          <br><br>
-          <fmt:message key="subject_scheduled_no_DE_yellow" bundle="${restext}"/>
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <c:forEach var="presetValue" items="${presetValues}">
@@ -159,7 +131,7 @@
 </div>
 </div></div></div></div></div></div></div></div>
 </div>
-<br><br>
+<br/><br/>
 <c:if test="${empty allEvents}">
  <p><fmt:message key="no_events_within_parameters" bundle="${restext}"/>
 </c:if>
@@ -173,7 +145,7 @@
         </c:otherwise>
       </c:choose>
 
-  <fmt:message key="event_name" bundle="${resword}"/>: <c:out value="${eventView.definition.name}"/></span><br>
+  <fmt:message key="event_name" bundle="${resword}"/>: <c:out value="${eventView.definition.name}"/></span><br/>
 	<b><fmt:message key="event_type" bundle="${resword}"/></b>:<fmt:message key="${eventView.definition.type}" bundle="${resword}"/>,
 	<c:choose>
      <c:when test="${eventView.definition.repeating}">
@@ -192,7 +164,7 @@
 	   <c:out value="${eventView.definition.category}"/>
 	 </c:otherwise>
 	</c:choose>
-	<br>
+	<br/>
 	<b><fmt:message key="subjects_who_scheduled" bundle="${resword}"/></b>: <c:out value="${eventView.subjectScheduled}"/> (<fmt:message key="start_date_of_first_event" bundle="${resword}"/>:
 	<c:choose>
       <c:when test="${eventView.firstScheduledStartDate== null}">
@@ -209,16 +181,16 @@
    <c:otherwise>
     <fmt:formatDate value="${eventView.lastCompletionDate}" pattern="${dteFormat}"/>
    </c:otherwise>
- </c:choose>), <b><fmt:message key="discontinued" bundle="${resword}"/></b>: <c:out value="${eventView.subjectDiscontinued}"/><br>
+ </c:choose>), <b><fmt:message key="discontinued" bundle="${resword}"/></b>: <c:out value="${eventView.subjectDiscontinued}"/><br/>
 	<c:set var="table" value="${eventView.studyEventTable}" scope="request" />
 	<c:import url="../include/showTable.jsp"><c:param name="rowURL" value="showEventByDefinitionRow.jsp" /></c:import>
-<br>
+<br/>
 </c:forEach>
 
 <!--<input type="button" onclick="confirmExit('MainMenu');"  name="exit" value="<fmt:message key="exit" bundle="${resword}"/>   " class="button_medium"/>-->
 
 <DIV ID="testdiv1" STYLE="position:absolute;visibility:hidden;background-color:white;layer-background-color:white;"></DIV>
-<br><br>
+<br/><br/>
 
 
 <jsp:include page="../include/footer.jsp"/>

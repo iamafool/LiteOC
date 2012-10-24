@@ -13,7 +13,7 @@ import org.akaza.openclinica.bean.extract.DatasetBean;
 import org.akaza.openclinica.bean.login.UserAccountBean;
 import org.akaza.openclinica.dao.extract.DatasetDAO;
 import org.akaza.openclinica.dao.core.CoreResources;
-import org.akaza.openclinica.dao.login.UserAccountDAO;
+
 import org.akaza.openclinica.core.OpenClinicaMailSender;
 
 import javax.sql.DataSource;
@@ -48,7 +48,7 @@ public class LegacyJobConverterJob extends QuartzJobBean {
             String triggerGroup = "DEFAULT";
             String[] legacyTriggers = scheduler.getTriggerNames(triggerGroup);
 ExtractUtils extractUtils = new ExtractUtils();
-            if (legacyTriggers == null && legacyTriggers.length == 0) {
+            if (legacyTriggers == null || legacyTriggers.length == 0) {
                 logger.info("No legacy jobs to convert");
                 return;
             }

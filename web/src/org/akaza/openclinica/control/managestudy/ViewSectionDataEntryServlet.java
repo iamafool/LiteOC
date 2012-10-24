@@ -49,7 +49,7 @@ import org.akaza.openclinica.control.submit.AddNewSubjectServlet;
 import org.akaza.openclinica.control.submit.DataEntryServlet;
 import org.akaza.openclinica.control.submit.SubmitDataServlet;
 import org.akaza.openclinica.control.submit.TableOfContentsServlet;
-import org.akaza.openclinica.core.SessionManager;
+
 import org.akaza.openclinica.core.form.StringUtil;
 import org.akaza.openclinica.dao.managestudy.DiscrepancyNoteDAO;
 import org.akaza.openclinica.dao.managestudy.EventDefinitionCRFDAO;
@@ -555,7 +555,7 @@ public class ViewSectionDataEntryServlet extends DataEntryServlet {
             } else {
                 tabNum = fp.getInt("tabId");
             }
-            request.setAttribute("tabId", new Integer(tabNum).toString());
+            request.setAttribute("tabId", Integer.toString(tabNum));
 
             // 2808: Signal interviewer.jsp that the containing page is
             // viewSectionData,

@@ -2,12 +2,12 @@ package org.akaza.openclinica.control.submit;
 
 import org.akaza.openclinica.control.core.CoreSecureController;
 import org.akaza.openclinica.control.core.SecureController;
-import org.akaza.openclinica.control.OCSessionListener;
+
 import org.akaza.openclinica.web.InsufficientPermissionException;
 import org.akaza.openclinica.bean.login.UserAccountBean;
 import org.akaza.openclinica.dao.login.UserAccountDAO;
 
-import javax.servlet.http.HttpSessionListener;
+
 
 /**
  * Created by IntelliJ IDEA.
@@ -44,6 +44,5 @@ public class CheckCRFLocked extends SecureController {
     }
     @Override
     protected void mayProceed() throws InsufficientPermissionException {
-        return;
     }
 }

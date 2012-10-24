@@ -98,15 +98,15 @@ public class RuleActionRunBean extends AbstractMutableDomainObject {
     public String getRunActionRunsForDisplay() {
 
         ArrayList<String> r = new ArrayList<String>();
-        if (getAdministrativeDataEntry() == true)
+        if (getAdministrativeDataEntry())
             r.add("Administrative Data Entry");
-        if (getInitialDataEntry() == true)
+        if (getInitialDataEntry())
             r.add("Initial Data Entry");
-        if (getDoubleDataEntry() == true)
+        if (getDoubleDataEntry())
             r.add("Double Data Entry");
-        if (getImportDataEntry() == true)
+        if (getImportDataEntry())
             r.add("Import Data Entry");
-        if (getBatch() == true)
+        if (getBatch())
             r.add("Batch");
         return seperateStringBasedListBy(r, ", ", "");
 

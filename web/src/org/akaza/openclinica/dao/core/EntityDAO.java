@@ -1377,7 +1377,7 @@ public abstract class EntityDAO implements DAOInterface {
                 // itemgroupname
                 String vitemgroupname = rs.getString("name");
                 if (rs.wasNull()) {
-                    vitemgroupname = new String("");
+                    vitemgroupname = "";
                 }
 
                 if ("ungrouped".equalsIgnoreCase(vitemgroupname) && vitemdataordinal <= 0) {
@@ -1387,13 +1387,13 @@ public abstract class EntityDAO implements DAOInterface {
                 // itemdesc
                 String vitemdesc = rs.getString("itemdesc");
                 if (rs.wasNull()) {
-                    vitemdesc = new String("");
+                    vitemdesc = "";
                 }
 
                 // itemname
                 String vitemname = rs.getString("itemname");
                 if (rs.wasNull()) {
-                    vitemname = new String("");
+                    vitemname = "";
                 }
 
                 String vitemvalue = rs.getString("itemvalue");
@@ -1407,13 +1407,13 @@ public abstract class EntityDAO implements DAOInterface {
                 // itemunits
                 String vitemunits = rs.getString("itemunits");
                 if (rs.wasNull()) {
-                    vitemunits = new String("");
+                    vitemunits = "";
                 }
 
                 // crfversioname
                 String vcrfversioname = rs.getString("crfversioname");
                 if (rs.wasNull()) {
-                    vcrfversioname = new String("");
+                    vcrfversioname = "";
                 }
 
                 // crfversionstatusid
@@ -1432,7 +1432,7 @@ public abstract class EntityDAO implements DAOInterface {
                 // interviewername
                 String vinterviewername = rs.getString("interviewername");
                 if (rs.wasNull()) {
-                    vinterviewername = new String("");
+                    vinterviewername = "";
                 }
 
                 // eventcrfdatecompleted
@@ -1590,13 +1590,13 @@ public abstract class EntityDAO implements DAOInterface {
                 // name
                 String vname = rs.getString("name");
                 if (rs.wasNull()) {
-                    vname = new String("");
+                    vname = "";
                 }
 
                 String vlocation = rs.getString("location");
                 // store the
                 if (rs.wasNull()) {
-                    vlocation = new String("");
+                    vlocation = "";
                 }
 
                 // date_start
@@ -2599,35 +2599,35 @@ public abstract class EntityDAO implements DAOInterface {
 
         try {
             while (rs.next()) {
-                String stsed = new String("");
+                String stsed = "";
                 stsed = ((Integer) rs.getInt("study_event_definition_id")).toString();
                 if (rs.wasNull()) {
-                    stsed = new String("");
+                    stsed = "";
                 }
 
                 // second column
-                String stso = new String("");
+                String stso = "";
                 stso = ((Integer) rs.getInt("sample_ordinal")).toString();
                 if (rs.wasNull()) {
-                    stso = new String("");
+                    stso = "";
                 }
 
-                String stcrf = new String("");
+                String stcrf = "";
                 stcrf = ((Integer) rs.getInt("crf_id")).toString();
                 if (rs.wasNull()) {
-                    stcrf = new String("");
+                    stcrf = "";
                 }
 
-                String stitem = new String("");
+                String stitem = "";
                 stitem = ((Integer) rs.getInt("item_id")).toString();
                 if (rs.wasNull()) {
-                    stitem = new String("");
+                    stitem = "";
                 }
 
-                String stgn = new String("");
+                String stgn = "";
                 stgn = rs.getString("item_group_name");
                 if (rs.wasNull()) {
-                    stgn = new String("");
+                    stgn = "";
                 }
 
                 /**
@@ -2717,12 +2717,12 @@ public abstract class EntityDAO implements DAOInterface {
 
         try {
             while (rs.next()) {
-                String obj = new String("");
+                String obj = "";
                 // first column
                 obj = ((Integer) rs.getInt("event_crf_id")).toString();
                 if (rs.wasNull()) {
                     // NOTE: It shoudln't be NULL!
-                    obj = new String("");
+                    obj = "";
                 }
 
                 // add
@@ -2879,12 +2879,12 @@ public abstract class EntityDAO implements DAOInterface {
 
         try {
             while (rs.next()) {
-                String obj = new String("");
+                String obj = "";
                 // first column
                 obj = ((Integer) rs.getInt("study_subject_id")).toString();
                 if (rs.wasNull()) {
                     // NOTE: It shoudln't be NULL!
-                    obj = new String("");
+                    obj = "";
                 }
 
                 // add

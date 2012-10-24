@@ -5,33 +5,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
@@ -56,7 +32,7 @@
 <h1><span class="title_manage"><fmt:message key="confirm_a_subject_group_class" bundle="${resword}"/>:</span></h1>
 
 <form action="CreateSubjectGroupClass" method="post">
-* <fmt:message key="indicates_required_field" bundle="${resword}"/><br>
+* <fmt:message key="indicates_required_field" bundle="${resword}"/><br/>
 <input type="hidden" name="action" value="submit">
 <!-- These DIVs define shaded box borders -->
 <div style="width: 600px">
@@ -80,7 +56,7 @@
   <tr valign="top"><td class="table_header_column"><fmt:message key="study_groups" bundle="${resword}"/>:</td>
    <td class="table_cell">  
    <c:forEach var="studyGroup" items="${studyGroups}">
-    <c:out value="${studyGroup.name}"/>&nbsp;&nbsp;<c:out value="${studyGroup.description}"/><br>   
+    <c:out value="${studyGroup.name}"/>&nbsp;&nbsp;<c:out value="${studyGroup.description}"/><br/>   
    </c:forEach>  
   
   </td></tr>  

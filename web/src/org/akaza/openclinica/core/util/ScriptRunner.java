@@ -154,7 +154,7 @@ public class ScriptRunner {
 						&& trimmedLine.equals(getDelimiter())) {
 					command.append(line.substring(0, line
 							.lastIndexOf(getDelimiter())));
-					command.append(" ");
+					command.append(' ');
 					Statement statement = conn.createStatement();
 
                     // println(command);
@@ -203,7 +203,7 @@ public class ScriptRunner {
 					Thread.yield();
 				} else {
 					command.append(line);
-					command.append(" ");
+					command.append(' ');
 				}
 			}
 			if (!autoCommit) {

@@ -48,7 +48,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
 <span class="table_title_admin"><fmt:message key="event_CRF" bundle="${resword}"/></span>
 <div style="width: 600px">
  <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
@@ -79,7 +79,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  <c:if test="${!empty items}">
  <span class="table_title_admin"><fmt:message key="item_data" bundle="${resword}"/></span>
  <div style="width: 600px">
@@ -110,7 +110,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
  </c:if>
    <c:choose>
     <c:when test="${!empty items && count>0}">

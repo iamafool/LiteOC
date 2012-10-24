@@ -108,7 +108,7 @@ public class CreateNewStudyEventServlet extends SecureController {
             if ("removed".equalsIgnoreCase(s.getName()) || "auto-removed".equalsIgnoreCase(s.getName())) {
                 addPageMessage(resword.getString("study_event") + resterm.getString("could_not_be") + resterm.getString("added") + "."
                     + respage.getString("study_subject_has_been_deleted"));
-                request.setAttribute("id", new Integer(studySubjectId).toString());
+                request.setAttribute("id", Integer.toString(studySubjectId));
                 forwardPage(Page.VIEW_STUDY_SUBJECT_SERVLET);
             }
             // YW >>
@@ -164,17 +164,17 @@ public class CreateNewStudyEventServlet extends SecureController {
             // YW 08-16-2007 << set default as blank for time
             presetValues.put(INPUT_STARTDATE_PREFIX + "Hour", new Integer(-1));
             presetValues.put(INPUT_STARTDATE_PREFIX + "Minute", new Integer(-1));
-            presetValues.put(INPUT_STARTDATE_PREFIX + "Half", new String(""));
+            presetValues.put(INPUT_STARTDATE_PREFIX + "Half", "");
             presetValues.put(INPUT_ENDDATE_PREFIX + "Hour", new Integer(-1));
             presetValues.put(INPUT_ENDDATE_PREFIX + "Minute", new Integer(-1));
-            presetValues.put(INPUT_ENDDATE_PREFIX + "Half", new String(""));
+            presetValues.put(INPUT_ENDDATE_PREFIX + "Half", "");
             for (int i = 0; i < ADDITIONAL_SCHEDULED_NUM; ++i) {
                 presetValues.put(INPUT_STARTDATE_PREFIX_SCHEDULED[i] + "Hour", new Integer(-1));
                 presetValues.put(INPUT_STARTDATE_PREFIX_SCHEDULED[i] + "Minute", new Integer(-1));
-                presetValues.put(INPUT_STARTDATE_PREFIX_SCHEDULED[i] + "Half", new String(""));
+                presetValues.put(INPUT_STARTDATE_PREFIX_SCHEDULED[i] + "Half", "");
                 presetValues.put(INPUT_ENDDATE_PREFIX_SCHEDULED[i] + "Hour", new Integer(-1));
                 presetValues.put(INPUT_ENDDATE_PREFIX_SCHEDULED[i] + "Minute", new Integer(-1));
-                presetValues.put(INPUT_ENDDATE_PREFIX_SCHEDULED[i] + "Half", new String(""));
+                presetValues.put(INPUT_ENDDATE_PREFIX_SCHEDULED[i] + "Half", "");
             }
 
             // SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -325,7 +325,7 @@ public class CreateNewStudyEventServlet extends SecureController {
             	studySubject = (StudySubjectBean) request.getAttribute(INPUT_STUDY_SUBJECT);
             }
             // << tbh
-            if (studySubject.getLabel() == "") {
+            if (studySubject.getLabel().equals("")) {
             	// add an error here, tbh
             	System.out.println("tripped the error here 20091109");
             	Validator.addError(errors, INPUT_STUDY_SUBJECT, respage.getString("must_enter_subject_ID_for_identifying"));

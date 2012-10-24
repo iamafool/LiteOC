@@ -237,7 +237,7 @@ public class ListDiscNotesSubjectTableFactory extends AbstractTableFactory {
                 } else {
                     for (StudyEventBean studyEventBean : studyEvents) {
                         discCounts = countAll(discCounts, studyEventBean, constraints, study.isSite(study.getParentStudyId()));
-                        hasDN = hasDN == false ? discCounts.size() > 0 : hasDN;
+                        hasDN = !(hasDN) ? discCounts.size() > 0 : hasDN;
                         if (studyEventBean.getSampleOrdinal() == 1) {
                             subjectEventStatus = studyEventBean.getSubjectEventStatus();
                             // break;
@@ -908,7 +908,7 @@ public class ListDiscNotesSubjectTableFactory extends AbstractTableFactory {
 
         String view = resword.getString("view")+"/"+resword.getString("enter_data");
         String edit = resword.getString("edit");
-        String remove = resword.getString("remove");;
+        String remove = resword.getString("remove");
 
         if (eventSysStatus.getId() == Status.AVAILABLE.getId() || eventSysStatus == Status.SIGNED) {
 

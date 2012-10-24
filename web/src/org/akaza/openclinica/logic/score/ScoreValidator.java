@@ -468,7 +468,7 @@ public class ScoreValidator {
      * @return
      */
     public static boolean noCommaEnds(String term) {
-        return !(term.startsWith(".") || term.endsWith("."));
+        return !((term.length() > 0 && term.charAt(0) == '.') || term.endsWith("."));
     }
 
     /**

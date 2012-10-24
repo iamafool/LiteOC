@@ -4,15 +4,15 @@ import org.akaza.openclinica.i18n.util.ResourceBundleProvider;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.scheduling.quartz.JobDetailBean;
+
+
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
+
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;

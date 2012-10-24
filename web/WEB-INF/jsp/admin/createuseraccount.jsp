@@ -6,32 +6,8 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 
@@ -329,7 +305,7 @@ int selectedValue;
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td valign="top">
-                        <br><input type="checkbox" name="runWebServices" id="runWebServices" value="1"
+                        <br/><input type="checkbox" name="runWebServices" id="runWebServices" value="1"
                             <c:if test="${runWebServices != 0}">checked</c:if>
                         >
                     </td>
@@ -347,11 +323,11 @@ int selectedValue;
 	  	<c:choose>
          <c:when test="${notifyPassword eq 'email'}">
             <input type="radio" id="displayPwd0" checked name="displayPwd" value="no"><fmt:message key="send_user_password_via_email" bundle="${resword}"/>
-            <br><input type="radio" id="displayPwd1" name="displayPwd" value="yes"><fmt:message key="show_user_password_to_admin" bundle="${resword}"/>
+            <br/><input type="radio" id="displayPwd1" name="displayPwd" value="yes"><fmt:message key="show_user_password_to_admin" bundle="${resword}"/>
          </c:when>
          <c:otherwise>
             <%--<input type="radio" id="displayPwd0" name="displayPwd" value="no"><fmt:message key="send_user_password_via_email" bundle="${resword}"/>--%>
-            <br><input type="radio" checked id="displayPwd1" checked name="displayPwd" value="yes"><fmt:message key="show_user_password_to_admin" bundle="${resword}"/>
+            <br/><input type="radio" checked id="displayPwd1" checked name="displayPwd" value="yes"><fmt:message key="show_user_password_to_admin" bundle="${resword}"/>
          </c:otherwise>
        </c:choose>
       </td>

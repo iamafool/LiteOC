@@ -139,7 +139,7 @@ margin-top:20px;margin-top:10px;document.getElementById('centralContainer').styl
 <c:import url="../submit/interviewer.jsp"/>
 <%-- <c:param var="fromPage" value="vsde"/>
 </c:import> --%>
-<!--<br><br>-->
+<!--<br/><br/>-->
 <%-- provide links from viewsectiondata page
 http://svn.akazaresearch.com:8080/OpenClinica-2.2/EnterDataForStudyEvent?eventId=3
  http://svn.akazaresearch.com:8080/OpenClinica-2.2/ViewCRF?module=&crfId=40 [^]--%>

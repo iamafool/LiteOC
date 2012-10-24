@@ -331,7 +331,7 @@ function callTip(html)
     </td>
     <td class="table_header_row" style="color: #789EC5"><b><fmt:message key="crf_notes" bundle="${resword}"/>:</b> </td>
     <td class="table_header_row_left" style="color: #789EC5"><font color="#CC0000"><c:out value="${openNum}"/> <fmt:message key="open" bundle="${resword}"/></font>, <font color="#D4A718"><c:out value="${updatedNum}"/> <fmt:message key="updated" bundle="${resword}"/></font>, <font color="#7CB98F"><c:out value="${resolvedNum}"/> <fmt:message key="resolved" bundle="${resword}"/></font>,
-        <br><font color="#000000"><c:out value="${closedNum}"/> <fmt:message key="closed" bundle="${resword}"/></font>, <font color="#000000"><c:out value="${notAppNum}"/> <fmt:message key="not_applicable" bundle="${resword}"/></font>
+        <br/><font color="#000000"><c:out value="${closedNum}"/> <fmt:message key="closed" bundle="${resword}"/></font>, <font color="#000000"><c:out value="${notAppNum}"/> <fmt:message key="not_applicable" bundle="${resword}"/></font>
     </td>
 
 </tr> -->
@@ -425,11 +425,11 @@ function callTip(html)
    <!-- Age at Enrollment-->
    <td class="table_cell_top" >
 
-        <b><fmt:message key="age_at_enrollment" bundle="${resword}"/>:</b><br>
+        <b><fmt:message key="age_at_enrollment" bundle="${resword}"/>:</b><br/>
 
     </td>
      <td class="table_cell_noborder" >
-        <c:out value="${age}" /><br>
+        <c:out value="${age}" /><br/>
     </td>
 	
 	</tr>
@@ -438,11 +438,11 @@ function callTip(html)
 		<!--study-->
 	 <td class="table_cell_noborder" >
 
-        <b><fmt:message key="study" bundle="${resword}"/>:</b><br>
+        <b><fmt:message key="study" bundle="${resword}"/>:</b><br/>
     </td>
 	
     <td class="table_cell_noborder" >
-     <c:out value="${studyTitle}" /><br>
+     <c:out value="${studyTitle}" /><br/>
     </td>
     <td class="table_cell_top" >
         <c:if test="${study.studyParameterConfig.collectDob != '3'}">
@@ -477,15 +477,15 @@ function callTip(html)
 	<!--site to be implemented -->
 	          <td class="table_cell_noborder" >
 
-        <b><fmt:message key="site" bundle="${resword}"/>:</b><br>
+        <b><fmt:message key="site" bundle="${resword}"/>:</b><br/>
     </td>
 	
     <td class="table_cell_noborder" >
         <c:if test="${study.parentStudyId > '0'}">
-            <c:out value="${siteTitle}" /><br>
+            <c:out value="${siteTitle}" /><br/>
         </c:if>
         <c:if test="${study.parentStudyId == '0'}">
-            <fmt:message key="na" bundle="${resword}"/><br>
+            <fmt:message key="na" bundle="${resword}"/><br/>
         </c:if>
     </td>
 	<!--person id todo -->

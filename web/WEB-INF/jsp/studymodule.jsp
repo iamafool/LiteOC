@@ -10,34 +10,8 @@
 <jsp:include page="include/managestudy_top_pages.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open">
-    <td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="${pageContext.request.contextPath}/images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-        <div class="sidebar_tab_content">
-
-            <fmt:message key="study_module_instruction" bundle="${restext}"/>
-
-        </div>
-
-    </td>
-
-</tr>
-<tr id="sidebar_Instructions_closed" style="display: none">
-    <td class="sidebar_tab">
-
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="${pageContext.request.contextPath}/images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-    </td>
-</tr>
 <jsp:include page="include/sideInfo.jsp"/>
 
 <style type="text/css">
@@ -412,8 +386,8 @@
         </tr>
       </tbody>
   </table>
-  <br>
-  <br>
+  <br/>
+  <br/>
   <%-- <c:if test="${studyModuleStatus.study == 3 && studyModuleStatus.crf == 3 && studyModuleStatus.eventDefinition == 3 && studyModuleStatus.subjectGroup == 3 && studyModuleStatus.rule == 3}"> --%>
   <table width="78%" class="contenttable" cellspacing="0" cellpadding="2">
       <thead>
@@ -480,8 +454,8 @@
         </tr>
       </tbody>
   </table>
-  <br>
-  <br>
+  <br/>
+  <br/>
 
   <table width="78%" class="contenttable" cellspacing="0" cellpadding="2">
         <thead>
@@ -511,11 +485,11 @@
 
             </td>
             <td>
-                <fmt:message key="total" bundle="${resword}"/> : <c:out value="${userCount}"/><br><br>
+                <fmt:message key="total" bundle="${resword}"/> : <c:out value="${userCount}"/><br/><br/>
                 <%-- changed tbh, 09/05/2009 --%>
                 <%-- <c:forEach var="childStudy" items="${childStudyUserCount}">
                     <c:out value="${childStudy.key}"></c:out> :
-                    <c:out value="${childStudy.value}"></c:out><br><br>
+                    <c:out value="${childStudy.value}"></c:out><br/><br/>
                 </c:forEach> --%>
             </td>
             <td>
@@ -554,8 +528,8 @@
 
       </tbody>
   </table>
-  <br>
-  <br>
+  <br/>
+  <br/>
   
   <%-- additional table added tbh, 09/05/2009 --%>
   <c:if test="${!empty childStudyUserCount }">

@@ -277,7 +277,6 @@ public class CoreResources implements ResourceLoaderAware {
         String dataset_file_delete = DATAINFO.getProperty("dataset_file_delete");
         if (dataset_file_delete == null)
             DATAINFO.setProperty("dataset_file_delete", "true");
-        ;// TODO:Revisit me!
         String password_expiration_time = DATAINFO.getProperty("passwdExpirationTime");
         if (password_expiration_time != null)
             DATAINFO.setProperty("passwd_expiration_time", password_expiration_time);

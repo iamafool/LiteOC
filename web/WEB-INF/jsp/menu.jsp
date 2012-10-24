@@ -11,9 +11,8 @@
 <jsp:useBean scope='session' id='userRole' class='org.akaza.openclinica.bean.login.StudyUserRoleBean' />
 
 <jsp:include page="include/home-header.jsp"/>
-<!-- move the alert message to the sidebar-->
-<%-- <jsp:include page="include/sideAlert.jsp"/> --%>
 
+<jsp:include page="include/sideInfo.jsp"/>
 
 <link rel="stylesheet" href="includes/jmesa/jmesa.css" type="text/css">
 <script type="text/JavaScript" language="JavaScript" src="includes/jmesa/jquery-1.3.2.min.js"></script>
@@ -40,7 +39,6 @@
         .graph .bar span { position: absolute; left: 1em; }
 </style>
 
-
 <div class="aka_revised_content">
 
 	<h1>
@@ -60,19 +58,6 @@
 <c:set var="roleName" value="${userRole.role.name}"/>
 
 
-<%--
-<c:set var="linkStudy">
-<c:choose>
-   <c:when test="${study.parentStudyId>0}">
-     <a href="ViewSite?id=<c:out value="${study.id}"/>">
-   </c:when>
-   <c:otherwise>
-     <a href="ViewStudy?id=<c:out value="${study.id}"/>&viewFull=yes">
-   </c:otherwise>
-</c:choose>
-<c:out value="${study.name}"/></a></span>
-</c:set>
- --%>
 <c:set var="studyidentifier">
    <span class="alert"><c:out value="${study.identifier}"/></span>
 </c:set>

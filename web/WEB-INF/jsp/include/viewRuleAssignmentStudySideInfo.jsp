@@ -12,7 +12,7 @@
         <c:choose>
             <c:when test="${study.parentStudyId>0}">
                 <b><fmt:message key="study" bundle="${resword}"/>:</b>&nbsp;<a href="${viewStudy}?id=<c:out value="${study.parentStudyId}"/>&viewFull=yes"><c:out value="${study.parentStudyName}"/></a>
-                <br><br>
+                <br/><br/>
                 <b>Site:</b>&nbsp;<a href="${viewStudy}?id=<c:out value="${study.id}"/>">
             </c:when>   
             <c:otherwise>

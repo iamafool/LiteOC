@@ -14,32 +14,8 @@
 </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='request' id='eventCRFs' class='java.util.ArrayList'/>
@@ -66,7 +42,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
 <c:choose>
 <c:when test="${userBean.sysAdmin && module=='admin'}">
 <span class="table_title_Admin">
@@ -108,7 +84,7 @@
 </div></div></div></div></div></div></div></div>
 </div>
 
-<br>
+<br/>
 <c:choose>
 <c:when test="${userBean.sysAdmin && module=='admin'}">
 <span class="table_title_Admin">
@@ -146,7 +122,7 @@
 </div></div></div></div></div></div></div></div>
 </div>
 
-<br>
+<br/>
 
 <form action='RestoreCRF?module=<c:out value="${module}"/>&action=submit&id=<c:out value="${crfToRestore.id}"/>' method="POST">
 <input type="submit" name="submit" value="<fmt:message key="restore_CRF" bundle="${resword}"/>" class="button_long" onClick='return confirm("<fmt:message key="if_you_restore_this_CRF" bundle="${restext}"/>");'>

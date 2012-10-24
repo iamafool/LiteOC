@@ -9,35 +9,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-        
-        <fmt:message key="confirm_to_restore_of_this_SED_to_study"  bundle="${resword}"/> <c:out value="${study.name}"/>. <fmt:message key="the_SED_and_all_subject_data_associated_restore"  bundle="${resword}"/>
-
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
@@ -78,7 +52,7 @@
 </div></div></div></div></div></div></div></div>
 
 </div>
-<br>
+<br/>
 <c:if test="${!empty eventDefinitionCRFs}">
 <span class="table_title_manage"><fmt:message key="CRFs" bundle="${resword}"/></span>
 <div style="width: 600px">
@@ -177,7 +151,7 @@
 </div>
  <!--<p><a href='RestoreEventDefinition?action=submit&id=<c:out value="${definitionToRestore.id}"/>' onClick='return confirm("If you restore this definition, all the data and subjects will be restored. Are you sure you want to restore it?");'><fmt:message key="restore_event_definition" bundle="${resword}"/></a>      
 </p>-->
-<br>
+<br/>
 <form action='RestoreEventDefinition?action=submit&id=<c:out value="${definitionToRestore.id}"/>' method="POST">
  <input type="submit" name="submit" value="<fmt:message key="restore_event_definition" bundle="${resword}"/>" onClick='return confirm("<fmt:message key="if_you_restore_this_definition" bundle="${resword}"/>");' class="button_xlong">
  <input type="button" onclick="confirmCancel('ListEventDefinition');"  name="cancel" value="   <fmt:message key="cancel" bundle="${resword}"/>   " class="button_medium"/>    

@@ -17,7 +17,7 @@
      <td class="table_cell"><fmt:formatDate value="${currRow.bean.studyEvent.dateStarted}" pattern="${dteFormat}"/>
      </td>
      <%--<td class="table_cell"><fmt:formatDate value="${currRow.bean.studyEvent.updatedDate}" dateStyle="short"/>
-       <br>
+       <br/>
        <c:if test="${currRow.bean.studyEvent.updater.name != null && currRow.bean.studyEvent.updater.name !=''}">
        (<c:out value="${currRow.bean.studyEvent.updater.name}"/>)
        </c:if>
@@ -273,7 +273,7 @@
 		</td>
 		<td class="table_cell" width="80">
 		<c:if test="${dec.eventCRF.updatedDate != null}">
-		 <fmt:formatDate value="${dec.eventCRF.updatedDate}" pattern="${dteFormat}"/><br>
+		 <fmt:formatDate value="${dec.eventCRF.updatedDate}" pattern="${dteFormat}"/><br/>
 		</c:if>
 		<c:choose>
 		  <c:when test="${dec.eventCRF.updater.name == null}">

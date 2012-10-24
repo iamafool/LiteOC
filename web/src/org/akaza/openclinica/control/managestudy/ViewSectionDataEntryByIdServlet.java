@@ -32,7 +32,6 @@ public class ViewSectionDataEntryByIdServlet extends ViewSectionDataEntryServlet
      */
     @Override
     public void mayProceed(HttpServletRequest request, HttpServletResponse response) throws InsufficientPermissionException {
-        return;
     }
 
     /*

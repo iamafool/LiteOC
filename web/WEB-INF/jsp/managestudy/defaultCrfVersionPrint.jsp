@@ -55,8 +55,8 @@
                 <td>&nbsp;<h1></h1></td>
             </tr>
         </table>
-    <br>
-    <br>
+    <br/>
+    <br/>
 </thead>
 <tbody>
 <tr>

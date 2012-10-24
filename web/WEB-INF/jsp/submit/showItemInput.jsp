@@ -504,14 +504,14 @@ function hideRow(itemId) {
 		<c:when test="${fn:contains(inputTxtValue, 'fileNotFound#')}">
 			<c:set var="inputTxtValue" value="${fn:substringAfter(inputTxtValue,'fileNotFound#')}"/>
 			<del id="a<c:out value="${itemId}"/>"><c:out value="${inputTxtValue}"/></del>
-		</div><br>
+		</div><br/>
 		<input id="rp<c:out value="${itemId}"/>" type="button" value="<fmt:message key="replace" bundle="${resword}"/>" onClick="replaceSwitch('<c:out value="${section.eventCRF.id}"/>','<c:out value="${itemId}"/>','rp','value','Replace','Cancel Replace','<c:out value="${inputTxtValue}"/>','<c:out value="${fn:replace(pathAndName,'+','%2B')}"/>','notFound')">
 		<input id="rm<c:out value="${itemId}"/>" type="button" value="<fmt:message key="remove" bundle="${resword}"/>" onClick="removeSwitch('<c:out value="${section.eventCRF.id}"/>','<c:out value="${itemId}"/>','rm','value','Remove','Cancel Remove','<c:out value="${inputTxtValue}"/>','<c:out value="${fn:replace(pathAndName,'+','%2B')}"/>','notFound')">
 		</c:when>
 		<c:otherwise>
 			<c:set var="prefilename" value="${pathAndName}"/>
 			<a href="DownloadAttachedFile?eventCRFId=<c:out value="${section.eventCRF.id}"/>&fileName=<c:out value="${fn:replace(prefilename,'+','%2B')}"/>" id="a<c:out value="${itemId}"/>"><c:out value="${inputTxtValue}"/></a>
-		</div><br>
+		</div><br/>
 		<input id="rp<c:out value="${itemId}"/>" type="button" value="<fmt:message key="replace" bundle="${resword}"/>" onClick="replaceSwitch('<c:out value="${section.eventCRF.id}"/>','<c:out value="${itemId}"/>','rp','value','Replace','Cancel Replace','<c:out value="${inputTxtValue}"/>','<c:out value="${pathAndName}"/>','found')">
 		<input id="rm<c:out value="${itemId}"/>" type="button" value="<fmt:message key="remove" bundle="${resword}"/>" onClick="removeSwitch('<c:out value="${section.eventCRF.id}"/>','<c:out value="${itemId}"/>','rm','value','Remove','Cancel Remove','<c:out value="${inputTxtValue}"/>','<c:out value="${pathAndName}"/>','found')">
 		</c:otherwise>

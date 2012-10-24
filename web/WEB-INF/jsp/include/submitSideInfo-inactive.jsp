@@ -36,11 +36,11 @@
 	</c:choose>
 	<c:out value="${study.name}"/></a>
 
-	<br><br>	
+	<br/><br/>	
 	
 	<b><fmt:message key="study_subject_ID" bundle="${resword}"/>:</b>&nbsp; 
 	 <c:out value="${studySubject.label}"/>
-	<br><br>
+	<br/><br/>
 
 	<b><fmt:message key="study_event" bundle="${resword}"/></b>: &nbsp;
 	<c:choose>
@@ -51,7 +51,7 @@
 	  <c:out value="${studyEvent.studyEventDefinition.name}"/>	   
 	 </c:otherwise>
 	</c:choose>
-	<br><br>
+	<br/><br/>
 	
      <b><fmt:message key="location" bundle="${resword}"/></b>: 
      <c:choose>
@@ -62,7 +62,7 @@
 	  <c:out value="${studyEvent.location}"/>	   
 	 </c:otherwise>
 	</c:choose>    
-     <br><br>
+     <br/><br/>
      
      
      <b><fmt:message key="start_date1" bundle="${resword}"/></b>:
@@ -74,13 +74,13 @@
 	  <fmt:formatDate value="${studyEvent.dateStarted}" pattern="${dteFormat}"/>
 	 </c:otherwise>
 	 </c:choose>
-      <br><br>
+      <br/><br/>
       
     
 	<c:if test="${toc != null}">	 
      <b><fmt:message key="CRF" bundle="${resword}"/></b>: 
       <c:out value="${toc.crf.name}"/> <c:out value="${toc.crfVersion.name}"/> 
-      <br><br>
+      <br/><br/>
     </c:if>  
     
   <%-- </c:if>--%>
@@ -147,11 +147,11 @@
  	
 </c:when>
 <c:otherwise>
-    <br><br>
+    <br/><br/>
 	<a href="MainMenu"><fmt:message key="login" bundle="${resword}"/></a>	
-	<br><br>
+	<br/><br/>
 	<a href="RequestAccount"><fmt:message key="request_an_account" bundle="${resword}"/></a>
-	<br><br>
+	<br/><br/>
 	<a href="RequestPassword"><fmt:message key="forgot_password" bundle="${resword}"/></a>
 </c:otherwise>
 </c:choose>

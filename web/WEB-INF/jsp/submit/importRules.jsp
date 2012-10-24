@@ -19,31 +19,9 @@
 </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-	<td class="sidebar_tab">
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');">
-			<img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10">
-		</a>
-		<b><fmt:message key="instructions" bundle="${restext}"/></b>
-		<div class="sidebar_tab_content">
-			<!--<fmt:message key="import_rule_side_bar_instructions" bundle="${restext}"/>-->
-            <fmt:message key="rules_Import_info" bundle="${respage}"/>
-		</div>
-	</td>
-</tr>
 
-<tr id="sidebar_Instructions_closed" style="display: none">
-	<td class="sidebar_tab">
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');">
-			<img src="images/sidebar_expand.gif" border="0" align="right" hspace="10">
-		</a>
-		<b><fmt:message key="instructions" bundle="${restext}"/></b>
-	</td>
-</tr>
 
 
 
@@ -83,7 +61,7 @@
 	<td class="formlabel"><fmt:message key="xml_file_to_upload" bundle="${resterm}"/>: </td>
 	<td>
 		<div class="formfieldFile_BG"><input type="file" name="xml_file" > </div>
-		<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="xml_file"/></jsp:include>
+		<br/><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="xml_file"/></jsp:include>
 	</td>
 </tr>
 <input type="hidden" name="crfId" value="<c:out value="${version.crfId}"/>">

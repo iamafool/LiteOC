@@ -4,13 +4,11 @@
 
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/> 
 
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top">
+      <table border="0" cellpadding="0" cellspacing="0">
 
-<%--<jsp:useBean scope="session" id="panel" class="org.akaza.openclinica.view.StudyInfoPanel" />--%>
-
-
-<!-- Sidebar Contents after alert-->
-
-	
 <c:choose>
  <c:when test="${userBean != null && userBean.id>0}">	
 	<tr id="sidebar_Info_open">
@@ -20,24 +18,22 @@
 
 		<b><fmt:message key="info" bundle="${resword}"/></b>
    
-		<div class="sidebar_tab_content">
+		<div class="sidebar_tab">
 
 			<span style="color: #789EC5">
 
 	  <c:if test="${panel.createDataset}">   
 
         <c:import url="../include/createDatasetSide.jsp"/>
-        <br><br>
+        <br/><br/>
       </c:if>  
-      <br>
+      <br/>
       <c:if test="${newDataset.id>0}">
       	<c:forEach var='line' items="${panel.data}">
 			<b><c:out value="${line.key}" escapeXml="false"/>:</b>&nbsp;
 			<c:out value="${line.value}" escapeXml="false"/>
-			<br>
+			<br/>
 		</c:forEach> 
-		<br><br>
-      	<c:import url="../include/studySideInfo.jsp"/> 
       </c:if>
  <script language="JavaScript">
        <!--
@@ -77,20 +73,12 @@
 </table>	
  	
 </c:when>
-<c:otherwise>
-    <br><br>
-	<a href="MainMenu"><fmt:message key="login" bundle="${resword}"/></a>	
-	<br><br>
-	<a href="RequestAccount"><fmt:message key="request_an_account" bundle="${resword}"/></a>
-	<br><br>
-	<a href="RequestPassword"><fmt:message key="forgot_password" bundle="${resword}"/></a>
-</c:otherwise>
 </c:choose>
 
 
 <!-- End Sidebar Contents -->
 
-				<br><img src="images/spacer.gif" width="120" height="1">
+				<br/><img src="images/spacer.gif" width="120" height="1">
 
 				</td>
 				<td class="content" valign="top">

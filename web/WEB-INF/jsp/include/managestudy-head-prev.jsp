@@ -74,7 +74,7 @@ onload="<jsp:include page="../include/showPopUp2.jsp"/>"
   "background">
     <tr>
         <td valign="top">
-<!-- Header Table -->
+<%-- Header Table --%>
 <table border="0" cellpadding="0" cellspacing="0" class="header">
 <tr>
 <td valign="top">
@@ -86,4 +86,4 @@ onload="<jsp:include page="../include/showPopUp2.jsp"/>"
 <!-- Main Navigation -->
 
 <jsp:include page="../include/navBar.jsp"/>
-<!-- End Main Navigation -->
+<%-- End Main Navigation --%>

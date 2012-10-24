@@ -19,7 +19,7 @@
 			<div class="alertbox_center">
             <fmt:message key="have_logged_out_application" bundle="${resword}"/>
             
-				<br><br></div>
+				<br/><br/></div>
 
 			</div></div></div></div></div></div></div></div>
             

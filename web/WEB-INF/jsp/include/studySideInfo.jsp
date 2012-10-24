@@ -13,7 +13,7 @@
     <c:when test="${study.parentStudyId>0}">
     <b><fmt:message key="study" bundle="${resword}"/>:</b>&nbsp;
      <a href="${viewStudy}?id=<c:out value="${study.parentStudyId}"/>&viewFull=yes"><c:out value="${study.parentStudyName}"/></a>
-     <br><br>
+     <br/><br/>
     <b>Site:</b>&nbsp;
      <a href="${viewStudy}?id=<c:out value="${study.id}"/>">
     </c:when>
@@ -24,11 +24,11 @@
     </c:choose>
     <c:out value="${study.name}"/></a>
 
-    <br><br>    
+    <br/><br/>    
     <c:if test="${studySubject != null}">
     <b><a href="ViewStudySubject?id=<c:out value="${studySubject.id}"/>"><fmt:message key="study_subject_ID" bundle="${resword}"/></a>:</b>&nbsp; <c:out value="${studySubject.label}"/>
 
-    <br><br>
+    <br/><br/>
     </c:if>
         <c:set var="dteFormat"><fmt:message key="date_format_string" bundle="${resformat}"/></c:set>
 
@@ -44,7 +44,7 @@
        <fmt:message key="na" bundle="${resword}"/>
      </c:otherwise>
      </c:choose>
-    <br><br>
+    <br/><br/>
 
     <b><fmt:message key="end_date" bundle="${resword}"/>:</b>&nbsp; 
     <c:choose>
@@ -55,11 +55,11 @@
        <fmt:message key="na" bundle="${resword}"/>
       </c:otherwise>
     </c:choose>
-    <br><br>
+    <br/><br/>
 
     <b><fmt:message key="pi" bundle="${resword}"/>:</b>&nbsp; <c:out value="${study.principalInvestigator}"/>
 
-    <br><br>
+    <br/><br/>
 
     <b><fmt:message key="protocol_verification" bundle="${resword}"/>:</b>&nbsp; 
     <fmt:formatDate value="${study.protocolDateVerification}" pattern="${dteFormat}"/>  

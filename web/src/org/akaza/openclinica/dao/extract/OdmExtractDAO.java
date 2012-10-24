@@ -1169,11 +1169,11 @@ public class OdmExtractDAO extends DatasetDAO {
                 formDetail.setVersionDescription(cvDesc);
                 PresentInEventDefinitionBean p = new PresentInEventDefinitionBean();
                 p.setStudyEventOid(sedOID);
-                p.setDoubleDataEntry(doubleEntry==false?"No":"Yes");
-                p.setHideCrf(hideCrf==false?"No":"Yes");
+                p.setDoubleDataEntry(!(doubleEntry)?"No":"Yes");
+                p.setHideCrf(!(hideCrf)?"No":"Yes");
                 p.setIsDefaultVersion(cvId.equals(dvId)?"Yes":"No");
                 p.setNullValues(nullValue);
-                p.setPasswordRequired(pwdRequired==false?"No":"Yes");
+                p.setPasswordRequired(!(pwdRequired)?"No":"Yes");
                 p.setSourceDataVerification(SourceDataVerification.getByCode(sdvId > 0 ? sdvId : 3).getDescription());
                 formDetail.getPresentInEventDefinitions().add(p);
                 formDetails.put(cvOID, formDetail);
@@ -1259,7 +1259,7 @@ public class OdmExtractDAO extends DatasetDAO {
                 igr.setRepeatMax(igRepeatMax);
                 igr.setRepeatNumber(igRepeatNum);
                 inForm.setItemGroupRepeatBean(igr);
-                inForm.setShowGroup(showGroup==true?"Yes":"No");
+                inForm.setShowGroup(showGroup?"Yes":"No");
                 igDetail.getPresentInForms().add(inForm);
             }
             
@@ -1277,8 +1277,8 @@ public class OdmExtractDAO extends DatasetDAO {
             itInForm.setPageNumber(itpgNum);
             itInForm.setParentItemOid(parentItemOIDs.get(itPId));
             itInForm.setSectionLabel(sectionLabels.get(itSecId));
-            itInForm.setPhi(phi==false?"No":"Yes");
-            itInForm.setShowItem(showItem==true?"Yes":"No");
+            itInForm.setPhi(!(phi)?"No":"Yes");
+            itInForm.setShowItem(showItem?"Yes":"No");
             ItemResponseBean itemResponse = new ItemResponseBean();
             itemResponse.setResponseLayout(layout);
             itemResponse.setResponseType(ResponseType.get(rsTypeId).getName());
@@ -1327,7 +1327,7 @@ public class OdmExtractDAO extends DatasetDAO {
     public int parseWidth(String widthDecimal) {
         String w = "";
         widthDecimal = widthDecimal.trim();
-        if (widthDecimal.startsWith("(")) {
+        if (widthDecimal.length() > 0 && widthDecimal.charAt(0) == '(') {
         } else if (widthDecimal.contains("(")) {
             w = widthDecimal.split("\\(")[0];
         } else {
@@ -1342,7 +1342,7 @@ public class OdmExtractDAO extends DatasetDAO {
     public int parseDecimal(String widthDecimal) {
         String d = "";
         widthDecimal = widthDecimal.trim();
-        if (widthDecimal.startsWith("(")) {
+        if (widthDecimal.length() > 0 && widthDecimal.charAt(0) == '(') {
             d = widthDecimal.substring(1, widthDecimal.length() - 1);
         } else if (widthDecimal.contains("(")) {
             d = widthDecimal.split("\\(")[1].trim();

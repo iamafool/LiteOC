@@ -155,7 +155,7 @@
 
         </td>
     </tr>
-</table><br>
+</table><br/>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td valign="top" width="330" style="padding-right: 20px">
@@ -350,7 +350,7 @@
 
 		</div>
 
-		<br><br>
+		<br/><br/>
   </div>-->
 
                 <!-- above code clipped from view study subject, tbh -->

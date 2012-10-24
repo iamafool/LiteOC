@@ -89,7 +89,7 @@
 		           <!-- start of the repeating events-->
 		              <td class="table_header_row_left" colspan="2">
 		        		<fmt:message key="subject" bundle="${resword}"/>: <c:out value="${subjectName}"/>
-						<br>
+						<br/>
 						<fmt:message key="event" bundle="${resword}"/>: <c:out value="${currEvent.studyEventDefinition.name}"/>	
 						
 		               </td>
@@ -102,7 +102,7 @@
 								layersShowOrHide('hidden','Event_<c:out value="${subjectName}"/>_<c:out value="${count}"/>_<c:out value="${eblRowCount}"/>');
 								layersShowOrHide('hidden','Lock_<c:out value="${subjectName}"/>_<c:out value="${count}"/>_<c:out value="${eblRowCount}"/>');
 								javascript:setImage('ExpandIcon_<c:out value="${subjectName}"/>_<c:out value="${count}"/>_<c:out value="${eblRowCount}"/>','images/icon_blank.gif');">X</a>
-						 <br>
+						 <br/>
 						<c:if test="${(eventSysStatus != 'removed' && eventSysStatus != 'auto-removed') && (study.status.available)}">						  
 						<span style="font-weight: normal;">
 
@@ -145,9 +145,9 @@
 						<td class="table_header_row" colspan="2">
 						<b>
 						<fmt:message key="occurrence_x_of" bundle="${resword}"><fmt:param>#1</fmt:param></fmt:message> <c:out value="${currEvent.repeatingNum}"/>
-						<br>
+						<br/>
 						<fmt:formatDate value="${currEvent.dateStarted}" pattern="${dteFormat}"/>
-						<br>
+						<br/>
 						<fmt:message key="status" bundle="${resword}"/>: <c:out value="${currEvent.subjectEventStatus.name}"/>
 						</b>
 						</td>
@@ -258,9 +258,9 @@
 						<td class="table_header_row" colspan="2">
 						<b>
 						<fmt:message key="occurrence_x_of" bundle="${resword}"><fmt:param>#<c:out value="${reNum}"/></fmt:param></fmt:message> <c:out value="${currEvent.repeatingNum}"/>
-						<br>
+						<br/>
 						<fmt:formatDate value="${reEvent.dateStarted}" pattern="${dteFormat}"/>
-						<br>	
+						<br/>	
 						<fmt:message key="status" bundle="${resword}"/>: <c:out value="${reEvent.subjectEventStatus.name}"/>
 						</b>
 						</td>
@@ -375,10 +375,10 @@
 		               <!-- start of non-repeating events-->
 		               <td class="table_header_row_left">
 						<fmt:message key="subject" bundle="${resword}"/>: <c:out value="${subjectName}"/>		
-						<br>		
+						<br/>		
 						<fmt:message key="event" bundle="${resword}"/>: <c:out value="${eventName}"/>
 	
-						<br>
+						<br/>
 						<c:choose>
 
 						<c:when test="${currEvent.studyEventDefinition.repeating == 'false'}">
@@ -406,9 +406,9 @@
 							<td class="table_header_row" colspan="2">
 							<b>
 							<fmt:message key="occurrence_x_of" bundle="${resword}"><fmt:param>#<c:out value="1"/></fmt:param></fmt:message> <c:out value="${currEvent.repeatingNum}"/>
-							<br>
+							<br/>
 							<fmt:formatDate value="${currEvent.dateStarted}" pattern="${dteFormat}"/>
-							<br>	
+							<br/>	
 							<fmt:message key="status" bundle="${resword}"/>: <c:out value="${currEvent.subjectEventStatus.name}"/> 
 							</b>
 							</td>

@@ -614,10 +614,10 @@ public class StudyBean extends AuditableEntityBean {
             StringTokenizer inter = new StringTokenizer(st.nextToken().toString(), "/");
             intervention = inter.nextToken();
             sb.append(ResourceBundleProvider.getResAdmin(intervention));
-            sb.append("/");
+            sb.append('/');
             name = inter.nextToken();
             sb.append(name);
-            sb.append(",");
+            sb.append(',');
         }
         if (sb.length() != 0)
             sb.deleteCharAt(sb.lastIndexOf(","));

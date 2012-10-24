@@ -107,7 +107,7 @@ public class ListStudySubjectsServlet extends SecureController {
         if (fp.getString("navBar").equals("yes") && fp.getString("findSubjects_f_studySubject.label").trim().length() > 0) {
             StudySubjectBean studySubject = getStudySubjectDAO().findByLabelAndStudy(fp.getString("findSubjects_f_studySubject.label"), currentStudy);
             if (studySubject.getId() > 0) {
-                request.setAttribute("id", new Integer(studySubject.getId()).toString());
+                request.setAttribute("id", Integer.toString(studySubject.getId()));
                 forwardPage(Page.VIEW_STUDY_SUBJECT_SERVLET);
             } else {
                 createTable();

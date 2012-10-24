@@ -61,7 +61,7 @@ function refreshMe() {
 <P><jsp:include page="../showInfo.jsp"/></P>
 
 <p>
-<b><fmt:message key="dataset_name" bundle="${resword}"/>:</b> <c:out value="${dataset.name}"/><br>
+<b><fmt:message key="dataset_name" bundle="${resword}"/>:</b> <c:out value="${dataset.name}"/><br/>
 <b><fmt:message key="description" bundle="${resword}"/>:</b> <c:out value="${dataset.description}"/></p>
 
 <%--<c:import url="../include/showTable.jsp">

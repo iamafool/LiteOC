@@ -9,33 +9,9 @@
 <jsp:include page="../include/managestudy-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-        <fmt:message key="please_choose_CRFs" bundle="${resword}"/>
-		</div>
-
-		</td>
-	
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 
@@ -63,7 +39,7 @@
 <h1><span class="title_manage"><fmt:message key="define_study_event"  bundle="${resword}"/> - <fmt:message key="select_CRFs"  bundle="${resword}"/></span></h1>
 
 <p><fmt:message key="select_CRFs_to_define_study_event" bundle="${restext}"/></p>
-<br>
+<br/>
 <form name="crfForm" action="DefineStudyEvent" method="post">
 <input type="hidden" name="actionName" value="next">
 <input type="hidden" name="pageNum" value="2">
@@ -83,5 +59,5 @@
 </tr>
 </table> 
 </form>
-<br><br>
+<br/><br/>
 <jsp:include page="../include/footer.jsp"/>

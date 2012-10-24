@@ -9,33 +9,9 @@
 <jsp:include page="../include/admin-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-		<td class="sidebar_tab">
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-        <fmt:message key="enter_the_study_and_protocol" bundle="${resword}"/>
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: none">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <jsp:useBean scope='session' id='newStudy' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
@@ -184,7 +160,7 @@
   </select></div>
   </td></tr>
 
-  <tr valign="top"><td class="formlabel"><a href="http://prsinfo.clinicaltrials.gov/definitions.html#InterventionType" target="def_win" onClick="openDefWindow('http://prsinfo.clinicaltrials.gov/definitions.html#InterventionType'); return false;"><fmt:message key="interventions" bundle="${resword}"/></a><br> (<fmt:message key="one_name_per_line" bundle="${resword}"/>):</td><td>
+  <tr valign="top"><td class="formlabel"><a href="http://prsinfo.clinicaltrials.gov/definitions.html#InterventionType" target="def_win" onClick="openDefWindow('http://prsinfo.clinicaltrials.gov/definitions.html#InterventionType'); return false;"><fmt:message key="interventions" bundle="${resword}"/></a><br/> (<fmt:message key="one_name_per_line" bundle="${resword}"/>):</td><td>
    <c:set var="count" value="0"/>
    <c:forEach var ="intervention" items="${interventions}">
    <fmt:message key="type" bundle="${resword}"/>:
@@ -203,7 +179,7 @@
        </c:forEach>
       </select>
      <fmt:message key="name" bundle="${resword}"/>:<input type="text" name="interName<c:out value="${count}"/>" value="<c:out value="${intervention.name}"/>">
-      <br>
+      <br/>
      <c:set var="count" value="${count+1}"/>
    </c:forEach>
    <c:if test="${count < 9}">
@@ -215,11 +191,11 @@
          <option value="<c:out value="${type.key}"/>"><c:out value="${type.value}"/>
         </c:forEach>
       </select>
-     <fmt:message key="name" bundle="${resword}"/>:<input type="text" name="interName<c:out value="${count}"/>" value=""><br>
+     <fmt:message key="name" bundle="${resword}"/>:<input type="text" name="interName<c:out value="${count}"/>" value=""><br/>
     <c:set var="count" value="${count+1}"/>
     </c:forEach>
    </c:if>
-    <br>
+    <br/>
    <span class="alert"><c:out value="${interventionError}"/></span>
 
 
@@ -237,6 +213,6 @@
 </tr>
 </table>
 </form>
-<br><br>
+<br/><br/>
 
 <jsp:include page="../include/footer.jsp"/>

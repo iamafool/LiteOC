@@ -21,35 +21,9 @@
 </c:choose>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
+<%-- move the alert message to the sidebar --%>
 
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: all">
-    <td class="sidebar_tab">
 
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-        <div class="sidebar_tab_content">
-
-            <fmt:message key="select_subject_view_more_details" bundle="${restext}"/>
-
-        </div>
-
-    </td>
-
-</tr>
-<tr id="sidebar_Instructions_closed" style="display: none">
-    <td class="sidebar_tab">
-
-        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-        <b><fmt:message key="instructions" bundle="${restext}"/></b>
-
-    </td>
-</tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <!-- the object inside the array is StudySubjectBean-->
@@ -81,9 +55,9 @@
 study events.  Select any subject to view more details and to enter subject event data.
 You may also enroll a new subject and add a new study event:
 
-<div class="homebox_bullets"><a href="AddNewSubject?instr=1">Enroll a New Subject</a></div><br>
+<div class="homebox_bullets"><a href="AddNewSubject?instr=1">Enroll a New Subject</a></div><br/>
 
-<div class="homebox_bullets"><a href="CreateNewStudyEvent">Add a New Study Event</a></div><br>
+<div class="homebox_bullets"><a href="CreateNewStudyEvent">Add a New Study Event</a></div><br/>
 -->
 
 <!---study event definition tabs -->
@@ -264,7 +238,7 @@ You may also enroll a new subject and add a new study event:
 <c:import url="addNewSubjectExpress1.jsp">
 </c:import>
 
-<br><br>
+<br/><br/>
 
 
 <jsp:include page="../include/footer.jsp"/>

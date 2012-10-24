@@ -19,32 +19,8 @@
 <%--<jsp:include page="../include/admin-header.jsp"/>--%>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 <jsp:include page="../include/sideInfo.jsp"/>
 <jsp:useBean scope='request' id='studyToView' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
 <jsp:useBean scope='request' id='sitesToView' class='java.util.ArrayList'/>
@@ -83,7 +59,7 @@
 <fmt:message key="opening_finished_may_save" bundle="${restext}"/>
  </strong>
 <fmt:message key="get_subject_oid_from_matrix_show_more" bundle="${restext}"/>
-<br><br>
+<br/><br/>
 <a href="javascript:leftnavExpand('overview');">
     <img id="excl_overview" src="images/bt_Collapse.gif" border="0">
     <span class="table_title_Admin">
@@ -123,7 +99,7 @@
 
 </div>
 </div>
-<br>
+<br/>
 
 <a href="javascript:leftnavExpand('sectiona');">
     <img id="excl_sectiona" src="images/bt_Expand.gif" border="0">
@@ -174,7 +150,7 @@
 </div></div></div></div></div></div></div></div>
 </div>
 </div>
-<br>
+<br/>
 
 
 <a href="javascript:leftnavExpand('sectionb');">
@@ -198,7 +174,7 @@
   <fmt:formatDate value="${studyToView.protocolDateVerification}" pattern="${dteFormat}"/>
   </td></tr>
 
- <!--
+ <%--
   <tr valign="top"><td class="table_header_column">Collect Subject Father/Mother Information?:</td><td class="table_cell">
   <c:choose>
     <c:when test="${studyToView.genetic == true}">
@@ -209,7 +185,7 @@
     </c:otherwise>
    </c:choose>
  </td></tr>
- -->
+ --%>
 
 
   <tr valign="top"><td class="table_header_column"><fmt:message key="start_date" bundle="${resword}"/>:</td><td class="table_cell">
@@ -308,7 +284,7 @@
 </div></div></div></div></div></div></div></div>
 </div>
 </div>
-<br>
+<br/>
 
 <a href="javascript:leftnavExpand('sectionc');">
     <img id="excl_sectionc" src="images/bt_Expand.gif" border="0"> <span class="table_title_Admin"><fmt:message key="view_study_details" bundle="${resword}"/>: [<fmt:message key="section" bundle="${resword}"/> C: <fmt:message key="conditions_and_eligibility" bundle="${resword}"/>]</span></a>
@@ -360,7 +336,7 @@
 </div></div></div></div></div></div></div></div>
 </div>
 </div>
-<br>
+<br/>
 
 <a href="javascript:leftnavExpand('sectiond');">
     <img id="excl_sectiond" src="images/bt_Expand.gif" border="0"> <span class="table_title_Admin"><fmt:message key="view_study_details" bundle="${resword}"/>: [<fmt:message key="section" bundle="${resword}"/> D: <fmt:message key="facility_information" bundle="${resword}"/>]</span></a>
@@ -410,7 +386,7 @@
 </div></div></div></div></div></div></div></div>
 </div>
 </div>
-<br>
+<br/>
 
 
  <a href="javascript:leftnavExpand('sectione');">
@@ -451,7 +427,7 @@
 
 </div>
 </div>
-<br>
+<br/>
 <a href="javascript:leftnavExpand('sectionf');">
     <img id="excl_sectionf" src="images/bt_Expand.gif" border="0"> <span class="table_title_Admin"><fmt:message key="view_study_details" bundle="${resword}"/>: [<fmt:message key="section" bundle="${resword}"/> F: <fmt:message key="study_parameter_configuration" bundle="${resword}"/>]</span></a>
 <div id="sectionf" style="display:none ">
@@ -656,7 +632,7 @@
 
 </div>
 </div>
-<br>
+<br/>
  <a href="javascript:leftnavExpand('sites');">
      <img id="excl_sites" src="images/bt_Collapse.gif" border="0"> <span class="table_title_Admin"><fmt:message key="sites" bundle="${resword}"/>: (<c:out value="${siteNum}"/> <fmt:message key="sites" bundle="${resword}"/>)</span></a>
 <div id="sites" style="display: ">
@@ -697,7 +673,7 @@
 
 </div>
 </div>
-<br>
+<br/>
 
  <a href="javascript:leftnavExpand('definitions');">
      <img id="excl_definitions" src="images/bt_Collapse.gif" border="0"> <span class="table_title_Admin"><fmt:message key="event_definitions" bundle="${resword}"/>: (<c:out value="${defNum}"/> <fmt:message key="definitions" bundle="${resword}"/>)</span></a>
@@ -740,9 +716,9 @@
 </div></div></div></div></div></div></div></div>
 </div>
 </div>
-<br>
+<br/>
 
-<br>
+<br/>
 <a href="javascript:leftnavExpand('users');">
     <img id="excl_users" src="images/bt_Expand.gif" border="0">  <span class="table_title_Admin"><fmt:message key="users" bundle="${resword}"/>: (<c:out value="${userNum}"/> <fmt:message key="users" bundle="${resword}"/>)</span></a>
 <div id="users" style="display:none ">

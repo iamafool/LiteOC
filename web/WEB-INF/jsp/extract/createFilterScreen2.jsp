@@ -28,7 +28,7 @@
 					<div class="textbox_center" align="center">
 
 					<span class="title_submit">
-					<b><fmt:message key="select" bundle="${resword}"/><br> <fmt:message key="CRF" bundle="${resword}"/></b><br><br>
+					<b><fmt:message key="select" bundle="${resword}"/><br/> <fmt:message key="CRF" bundle="${resword}"/></b><br/><br/>
 					</span>
 
 					</div>
@@ -45,7 +45,7 @@
 					<div class="textbox_center" align="center">
 
 					<span class="title_submit">
-					<b><fmt:message key="select" bundle="${resword}"/><br> <fmt:message key="section" bundle="${resword}"/></b><br><br>
+					<b><fmt:message key="select" bundle="${resword}"/><br/> <fmt:message key="section" bundle="${resword}"/></b><br/><br/>
 					</span>
 
 					</div>
@@ -62,7 +62,7 @@
 					<div class="textbox_center" align="center">
 
 					<span class="title_submit">
-					<b><fmt:message key="select" bundle="${resword}"/><br> <fmt:message key="parameters" bundle="${resword}"/></b><br><br>
+					<b><fmt:message key="select" bundle="${resword}"/><br/> <fmt:message key="parameters" bundle="${resword}"/></b><br/><br/>
 					</span>
 
 					</div>
@@ -79,7 +79,7 @@
 					<div class="textbox_center" align="center">
 
 					<span class="title_submit">
-					<b><fmt:message key="specify" bundle="${resword}"/><br> <fmt:message key="criteria" bundle="${resword}"/></b><br><br>
+					<b><fmt:message key="specify" bundle="${resword}"/><br/> <fmt:message key="criteria" bundle="${resword}"/></b><br/><br/>
 					</span>
 
 					</div>
@@ -96,7 +96,7 @@
 					<div class="textbox_center" align="center">
 
 					<span class="title_submit">
-					<b><fmt:message key="repeat_as_necessary" bundle="${resword}"/></b><br><br>
+					<b><fmt:message key="repeat_as_necessary" bundle="${resword}"/></b><br/><br/>
 					</span>
 
 					</div>
@@ -107,7 +107,7 @@
 		</tr>
 	</table>
 
-	<br>
+	<br/>
 	<P><fmt:message key="create_a_filter_to_limit_subjects" bundle="${restext}"/></P>
 <ol>
 <li><fmt:message key="select_CRF" bundle="${resworkflow}"/>

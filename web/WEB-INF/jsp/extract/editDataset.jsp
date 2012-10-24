@@ -8,32 +8,8 @@
 <jsp:include page="../include/extract-header.jsp"/>
 
 
-<!-- move the alert message to the sidebar-->
-<jsp:include page="../include/sideAlert.jsp"/>
-<!-- then instructions-->
-<tr id="sidebar_Instructions_open" style="display: none">
-		<td class="sidebar_tab">
+<%-- move the alert message to the sidebar --%>
 
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		<div class="sidebar_tab_content">
-
-		</div>
-
-		</td>
-
-	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
-		<td class="sidebar_tab">
-
-		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-
-		<b><fmt:message key="instructions" bundle="${resword}"/></b>
-
-		</td>
-  </tr>
 
 <jsp:include page="../include/createDatasetSideInfo.jsp"/>
 
@@ -64,7 +40,7 @@
 </div></div></div></div></div></div></div></div>
 </div>
 </form>
-<br><br>
+<br/><br/>
 
 <table border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -96,7 +72,7 @@
    <td><input type="button" onclick="confirmCancel('ViewDatasets');"  name="cancel" value="   <fmt:message key="cancel" bundle="${resword}"/>   " class="button_medium"/></td>
   </tr>
 </table>
-<br>
+<br/>
 
 <jsp:include page="selected.jsp"/>
 
@@ -108,6 +84,6 @@
   </tr>
 </table>
 </form>
-<br><br><br>
+<br/><br/><br/>
 
 <jsp:include page="../include/footer.jsp"/>

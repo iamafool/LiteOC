@@ -158,7 +158,7 @@ public class SignStudySubjectServlet extends SecureController {
                 // }
                 EventDefinitionCRFBean edcBean = edcdao.findByStudyEventIdAndCRFVersionId(studyBean, studyEvent.getId(), ecrf.getCRFVersionId());
                 if (ecrf.getStage().equals(DataEntryStage.INITIAL_DATA_ENTRY) || ecrf.getStage().equals(DataEntryStage.INITIAL_DATA_ENTRY_COMPLETE)
-                    && edcBean.isDoubleEntry() == true) {
+                    && edcBean.isDoubleEntry()) {
                     sign = false;
                     break;
                 }
@@ -243,7 +243,7 @@ public class SignStudySubjectServlet extends SecureController {
                     return;
                 }
             } else {
-                request.setAttribute("id", new Integer(studySubId).toString());
+                request.setAttribute("id", Integer.toString(studySubId));
                 addPageMessage(restext.getString("password_match"));
                 forwardPage(Page.LIST_STUDY_SUBJECTS);
                 return;
@@ -345,7 +345,7 @@ public class SignStudySubjectServlet extends SecureController {
         }
 
         HashMap args = new HashMap();
-        args.put("id", new Integer(studySubId).toString());
+        args.put("id", Integer.toString(studySubId));
         table.setQuery("ViewStudySubject", args);
         table.setRows(allEventRows);
         table.computeDisplay();

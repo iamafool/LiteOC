@@ -72,7 +72,7 @@ public class ListUserAccountsServlet extends SecureController {
         panel.setStudyInfoShown(false);
         panel.setOrderedData(true);
         if (allUsers.size() > 0) {
-            setToPanel(resword.getString("users"), new Integer(allUsers.size()).toString());
+            setToPanel(resword.getString("users"), Integer.toString(allUsers.size()));
         }
 
         forwardPage(Page.LIST_USER_ACCOUNTS);

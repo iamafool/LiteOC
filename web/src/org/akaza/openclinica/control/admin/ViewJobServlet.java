@@ -1,7 +1,7 @@
 package org.akaza.openclinica.control.admin;
 
 import org.akaza.openclinica.bean.admin.TriggerBean;
-import org.akaza.openclinica.bean.core.Role;
+
 import org.akaza.openclinica.bean.extract.DatasetBean;
 import org.akaza.openclinica.bean.managestudy.StudyBean;
 import org.akaza.openclinica.control.SpringServletAccess;
