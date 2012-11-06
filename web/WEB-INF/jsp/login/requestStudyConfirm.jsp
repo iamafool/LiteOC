@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
 
 
 <jsp:include page="../include/home-header.jsp"/>
@@ -11,7 +11,7 @@
 <%-- move the alert message to the sidebar --%>
 
 <jsp:include page="../include/sideInfo.jsp"/>
-<jsp:useBean scope="session" id="newRole" class="org.akaza.openclinica.bean.login.StudyUserRoleBean"/>
+<jsp:useBean scope="session" id="newRole" class="com.liteoc.bean.login.StudyUserRoleBean"/>
 <h1><span class="title_manage"><fmt:message key="confirm_your_study_acces_request" bundle="${resword}"/></span></h1>
 
 <form action="RequestStudy?action=submit" method="post">

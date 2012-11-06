@@ -1,7 +1,7 @@
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/taglibs.jsp" %>
 <!-- For Mantis Issue 6099 -->
-<jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
+<jsp:useBean scope='session' id='userBean' class='com.liteoc.bean.login.UserAccountBean'/>
     <c:if test="${userBean.name!=''}">
     <c:redirect url="/MainMenu"/>
     </c:if>
@@ -26,10 +26,10 @@
 <script type="text/JavaScript" language="JavaScript" src="<c:url value='/includes/global_functions_javascript.js'/>"></script>
 </head>
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.workflow" var="resworkflow"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
 
 <%--<c:choose>--%>
     <%--<c:when test="${resword.locale == null}"><fmt:setLocale value="en" scope="session"/></c:when>--%>

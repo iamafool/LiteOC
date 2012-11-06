@@ -1,0 +1,51 @@
+package com.liteoc.bean.submit.crfdata;
+
+import java.util.ArrayList;
+
+import com.liteoc.bean.odmbeans.AuditLogsBean;
+import com.liteoc.bean.odmbeans.DiscrepancyNotesBean;
+
+public class FormDataBean {
+    private ArrayList<ImportItemGroupDataBean> itemGroupData;
+    private AuditLogsBean auditLogs;
+    private DiscrepancyNotesBean discrepancyNotes;
+    private String formOID;
+    
+    public FormDataBean() {
+        itemGroupData = new ArrayList<ImportItemGroupDataBean>();
+        auditLogs = new AuditLogsBean();
+        discrepancyNotes = new DiscrepancyNotesBean();
+    }
+
+    public String getFormOID() {
+        return formOID;
+    }
+
+    public void setFormOID(String formOID) {
+        this.formOID = formOID;
+    }
+
+    public ArrayList<ImportItemGroupDataBean> getItemGroupData() {
+        return itemGroupData;
+    }
+
+    public void setItemGroupData(ArrayList<ImportItemGroupDataBean> itemGroupData) {
+        this.itemGroupData = itemGroupData;
+    }
+
+    public AuditLogsBean getAuditLogs() {
+        return auditLogs;
+    }
+
+    public void setAuditLogs(AuditLogsBean auditLogs) {
+        this.auditLogs = auditLogs;
+    }
+
+    public DiscrepancyNotesBean getDiscrepancyNotes() {
+        return discrepancyNotes;
+    }
+
+    public void setDiscrepancyNotes(DiscrepancyNotesBean discrepancyNotes) {
+        this.discrepancyNotes = discrepancyNotes;
+    }
+}

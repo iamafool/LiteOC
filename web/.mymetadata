@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="OpenClinica"
+  name="LiteOC"
   id="myeclipse.1347588775138"
-  context-root="/OpenClinica"
+  context-root="/LiteOC"
   j2ee-spec="1.4"
-  archive="OpenClinica.war">
+  archive="LiteOC.war">
   <attributes>
     <attribute name="webrootdir" value="&lt;prjroot&gt;" />
   </attributes>

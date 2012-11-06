@@ -6,8 +6,8 @@
 
 
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword" />
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword" />
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
 
 
 <c:choose>
@@ -52,9 +52,9 @@
 </script>
 
 <jsp:useBean scope='session' id='userBean'
-    class='org.akaza.openclinica.bean.login.UserAccountBean' />
+    class='com.liteoc.bean.login.UserAccountBean' />
 <jsp:useBean scope='request' id='ruleSet'
-    class='org.akaza.openclinica.domain.rule.RuleSetBean' />
+    class='com.liteoc.domain.rule.RuleSetBean' />
 
 
 <jsp:useBean scope="request" id="presetValues" class="java.util.HashMap" />
@@ -241,7 +241,7 @@
         <c:forEach items="${sessionScope.testValues}" var="mapEntry">
             <c:set var="tooltipKey" value="${mapEntry.key}-tooltip" />
             <c:set var="dibKey" value="${mapEntry.key}-dib" />
-            <c:set var="dibItemDataType" value ='<%= ((org.akaza.openclinica.bean.submit.DisplayItemBean)request.getAttribute((String)pageContext.getAttribute("dibKey"))).getItem().getItemDataTypeId() %>' />
+            <c:set var="dibItemDataType" value ='<%= ((com.liteoc.bean.submit.DisplayItemBean)request.getAttribute((String)pageContext.getAttribute("dibKey"))).getItem().getItemDataTypeId() %>' />
             <tr valign="top">
                 <td class="formlabel"><a
                     href="javascript: displayLink('${mapEntry.key}')"

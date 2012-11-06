@@ -2,10 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.page_messages" var="resmessages"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.page_messages" var="resmessages"/>
 
 
 <jsp:include page="include/managestudy_top_pages.jsp"/>
@@ -27,8 +27,8 @@
         //location.href = '${pageContext.request.contextPath}/ViewCRF?module=manage&crfId=' + '${crf.id}&' + parameterString;
     }
 </script>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
 
 <div id="searchFilterSDV">
     <table border="0" cellpadding="0" cellspacing="0">

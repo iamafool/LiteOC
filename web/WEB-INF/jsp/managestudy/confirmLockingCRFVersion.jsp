@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
 
 <jsp:include page="../include/admin-header.jsp"/>
 
@@ -12,8 +12,8 @@
 
 <jsp:include page="../include/sideInfo.jsp"/>
 
-<jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
-<jsp:useBean scope='request' id='crfVersionToLock' class='org.akaza.openclinica.bean.submit.CRFVersionBean'/>
+<jsp:useBean scope='session' id='userBean' class='com.liteoc.bean.login.UserAccountBean'/>
+<jsp:useBean scope='request' id='crfVersionToLock' class='com.liteoc.bean.submit.CRFVersionBean'/>
 <script type="text/JavaScript" language="JavaScript">
   <!--
  function myCancel() {

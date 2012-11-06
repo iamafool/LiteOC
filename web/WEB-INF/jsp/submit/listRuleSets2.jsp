@@ -2,10 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.workflow" var="resworkflow"/>
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
 
 <c:choose>
 <c:when test="${userBean.sysAdmin && module=='admin'}">
@@ -46,10 +46,10 @@
 
 <jsp:include page="../include/viewRuleAssignmentSideInfo.jsp"/>
 
-<jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
-<jsp:useBean scope='session' id='userRole' class='org.akaza.openclinica.bean.login.StudyUserRoleBean' />
-<jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
-<jsp:useBean scope='request' id='table' class='org.akaza.openclinica.web.domain.EntityBeanTable'/>
+<jsp:useBean scope='session' id='userBean' class='com.liteoc.bean.login.UserAccountBean'/>
+<jsp:useBean scope='session' id='userRole' class='com.liteoc.bean.login.StudyUserRoleBean' />
+<jsp:useBean scope='session' id='study' class='com.liteoc.bean.managestudy.StudyBean'/>
+<jsp:useBean scope='request' id='table' class='com.liteoc.web.domain.EntityBeanTable'/>
 <c:choose>
 <c:when test="${userBean.sysAdmin && module=='admin'}">
  <h1><span class="title_manage"><fmt:message key="rule_manage_rule_assignment" bundle="${resworkflow}"/> <c:out value="${study.name}" /> <a href="javascript:openDocWindow('https://docs.openclinica.com/3.1/rules')"><img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>

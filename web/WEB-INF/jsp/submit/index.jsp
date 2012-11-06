@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
 <%-- issue 3195--%>
 <c:set var="paginatingQuery" value="${paginatingQuery}"/>
 <c:set var="hasExtendedQuery" value="${! (paginatingQuery == null || paginatingQuery eq '')}"/>
@@ -16,7 +16,7 @@
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <!-- the object inside the array is StudySubjectBean-->
-<jsp:useBean scope='request' id='table' class='org.akaza.openclinica.web.bean.EntityBeanTable'/>
+<jsp:useBean scope='request' id='table' class='com.liteoc.web.bean.EntityBeanTable'/>
 
 
 

@@ -2,13 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.workflow" var="resworkflow"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
 <c:set var="dteFormat"><fmt:message key="date_format_string" bundle="${resformat}"/></c:set>
 
-<jsp:useBean scope="request" id="table" class="org.akaza.openclinica.web.bean.EntityBeanTable" />
+<jsp:useBean scope="request" id="table" class="com.liteoc.web.bean.EntityBeanTable" />
   <c:choose>
    <c:when test="${userRole.manageStudy}">
     <c:import url="../include/managestudy-header.jsp"/>

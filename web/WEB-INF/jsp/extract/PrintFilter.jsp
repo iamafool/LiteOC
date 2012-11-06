@@ -2,8 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
 
 <c:set var="dteFormat"><fmt:message key="date_format_string" bundle="${resformat}"/></c:set>
 
@@ -11,9 +11,9 @@
 
 
 <jsp:include page="../include/sidebar.jsp"/>
-<jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
-<jsp:useBean scope="request" id="idb" class="org.akaza.openclinica.bean.submit.ItemDataBean"/>
-<jsp:useBean scope="request" id="fdb" class="com.yanxiaoguang.bean.FilterDataBean"/>
+<jsp:useBean scope='session' id='userBean' class='com.liteoc.bean.login.UserAccountBean'/>
+<jsp:useBean scope="request" id="idb" class="com.liteoc.bean.submit.ItemDataBean"/>
+<jsp:useBean scope="request" id="fdb" class="com.liteoc.bean.extract.FilterDataBean"/>
 
 <h1><span class="title_manage"><fmt:message key="view_filter_details" bundle="${resword}"/>: <c:out value="${filter.name}"/></span></h1>
 

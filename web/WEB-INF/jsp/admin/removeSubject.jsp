@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
 <c:set var="dteFormat"><fmt:message key="date_format_string" bundle="${resformat}"/></c:set>
 
 <c:import url="../include/admin-header.jsp"/>
@@ -16,7 +16,7 @@
 
 <jsp:useBean scope='request' id='studySubs' class='java.util.ArrayList'/>
 <jsp:useBean scope='request' id='events' class='java.util.ArrayList'/>
-<jsp:useBean scope='request' id='subjectToRemove' class='org.akaza.openclinica.bean.submit.SubjectBean'/>
+<jsp:useBean scope='request' id='subjectToRemove' class='com.liteoc.bean.submit.SubjectBean'/>
 
 <h1><span class="title_manage"><fmt:message key="confirm_removal_of_subject" bundle="${resword}"/></span></h1>
 

@@ -2,41 +2,41 @@
 <!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
 <mapping>
 
-    <field-handler name="emailHandler" class="org.akaza.openclinica.bean.rule.EmailHandler"/>
+    <field-handler name="emailHandler" class="com.liteoc.bean.rule.EmailHandler"/>
 
-    <class name="org.akaza.openclinica.domain.rule.RulesPostImportContainer">
+    <class name="com.liteoc.domain.rule.RulesPostImportContainer">
         <map-to xml="Rules" ns-prefix="OpenClinicaRules" ns-uri="http://www.openclinica.org/ns/rules/v3.1"/>
         
         <field name="RuleSets"
-            type="org.akaza.openclinica.domain.rule.RuleSetBean"
+            type="com.liteoc.domain.rule.RuleSetBean"
             collection="arraylist">
             <bind-xml name="RuleAssignment"  />
         </field>
         
         <field name="RuleDefs"
-            type="org.akaza.openclinica.domain.rule.RuleBean"
+            type="com.liteoc.domain.rule.RuleBean"
             collection="arraylist">
             <bind-xml name="RuleDef"/>
         </field>
     </class>
     
-    <class name="org.akaza.openclinica.domain.rule.RuleSetBean">
+    <class name="com.liteoc.domain.rule.RuleSetBean">
     	<map-to xml="RuleAssignment" ns-prefix="OpenClinicaRules"/>
        
        <field name="Target"
-            type="org.akaza.openclinica.domain.rule.expression.ExpressionBean">
+            type="com.liteoc.domain.rule.expression.ExpressionBean">
             <bind-xml name="Target"/>
         </field>
        
        <field name="RuleSetRules"
-            type="org.akaza.openclinica.domain.rule.RuleSetRuleBean"
+            type="com.liteoc.domain.rule.RuleSetRuleBean"
             collection="arraylist">
             <bind-xml name="RuleRef"/>
        </field>
         
     </class>
     
-    <class name="org.akaza.openclinica.domain.rule.RuleSetRuleBean" >
+    <class name="com.liteoc.domain.rule.RuleSetRuleBean" >
        <map-to xml="RuleRef" ns-prefix="OpenClinicaRules"/>	
        <field name="Oid"
                type="java.lang.String">
@@ -44,14 +44,14 @@
        </field>
        
         <field name="Actions"
-            type="org.akaza.openclinica.domain.rule.action.RuleActionBean"
+            type="com.liteoc.domain.rule.action.RuleActionBean"
             collection="arraylist">
             <bind-xml auto-naming="deriveByClass" node="element"/>
        </field>
         
     </class>
     
-    <class name="org.akaza.openclinica.domain.rule.RuleBean" >
+    <class name="com.liteoc.domain.rule.RuleBean" >
        <map-to ns-prefix="OpenClinicaRules"/>
        <field name="Type"
                type="java.lang.String">
@@ -71,19 +71,19 @@
        </field>
        
        <field name="Expression"
-            type="org.akaza.openclinica.domain.rule.expression.ExpressionBean">
+            type="com.liteoc.domain.rule.expression.ExpressionBean">
             <bind-xml name="Expression"/>
         </field>
     </class>
     
-    <class name="org.akaza.openclinica.domain.rule.action.DiscrepancyNoteActionBean">
+    <class name="com.liteoc.domain.rule.action.DiscrepancyNoteActionBean">
         <map-to xml="DiscrepancyNoteAction" ns-prefix="OpenClinicaRules"/>
         <field name="ExpressionEvaluatesTo"
                type="java.lang.Boolean">
             <bind-xml name="IfExpressionEvaluates" node="attribute"/>
        </field>
        <field name="RuleActionRun"
-               type="org.akaza.openclinica.domain.rule.action.RuleActionRunBean">
+               type="com.liteoc.domain.rule.action.RuleActionRunBean">
                <bind-xml name="Run"/>
        </field>
         <field name="Message"
@@ -95,14 +95,14 @@
             </bind-xml>
         </field>
      </class>
-     <class name="org.akaza.openclinica.domain.rule.action.EmailActionBean">
+     <class name="com.liteoc.domain.rule.action.EmailActionBean">
         <map-to xml="EmailAction" ns-prefix="OpenClinicaRules"/>
         <field name="ExpressionEvaluatesTo"
                type="java.lang.Boolean">
             <bind-xml name="IfExpressionEvaluates" node="attribute"/>
        </field>
        <field name="RuleActionRun"
-               type="org.akaza.openclinica.domain.rule.action.RuleActionRunBean">
+               type="com.liteoc.domain.rule.action.RuleActionRunBean">
                <bind-xml name="Run"/>
        </field>
         <field name="Message"
@@ -122,14 +122,14 @@
             </bind-xml>
         </field>
      </class>
-     <class name="org.akaza.openclinica.domain.rule.action.ShowActionBean">
+     <class name="com.liteoc.domain.rule.action.ShowActionBean">
         <map-to xml="ShowAction" ns-prefix="OpenClinicaRules"/>
         <field name="ExpressionEvaluatesTo"
                type="java.lang.Boolean">
             <bind-xml name="IfExpressionEvaluates" node="attribute"/>
        </field>
        <field name="RuleActionRun"
-               type="org.akaza.openclinica.domain.rule.action.RuleActionRunBean">
+               type="com.liteoc.domain.rule.action.RuleActionRunBean">
                <bind-xml name="Run"/>
        </field>
         <field name="Message"
@@ -141,19 +141,19 @@
             </bind-xml>
         </field>
         <field name="Properties"
-            type="org.akaza.openclinica.domain.rule.action.PropertyBean"
+            type="com.liteoc.domain.rule.action.PropertyBean"
             collection="arraylist">
             <bind-xml name="DestinationProperty"/>
         </field>
      </class> 
-     <class name="org.akaza.openclinica.domain.rule.action.HideActionBean">
+     <class name="com.liteoc.domain.rule.action.HideActionBean">
         <map-to xml="HideAction" ns-prefix="OpenClinicaRules"/>
         <field name="ExpressionEvaluatesTo"
                type="java.lang.Boolean">
             <bind-xml name="IfExpressionEvaluates" node="attribute"/>
        </field>
        <field name="RuleActionRun"
-               type="org.akaza.openclinica.domain.rule.action.RuleActionRunBean">
+               type="com.liteoc.domain.rule.action.RuleActionRunBean">
                <bind-xml name="Run"/>
        </field>
         <field name="Message"
@@ -165,15 +165,15 @@
             </bind-xml>
         </field>
         <field name="Properties"
-            type="org.akaza.openclinica.domain.rule.action.PropertyBean"
+            type="com.liteoc.domain.rule.action.PropertyBean"
             collection="arraylist">
             <bind-xml name="DestinationProperty"/>
         </field>
      </class>
-     <class name="org.akaza.openclinica.domain.rule.action.InsertActionBean">
+     <class name="com.liteoc.domain.rule.action.InsertActionBean">
         <map-to xml="InsertAction" ns-prefix="OpenClinicaRules" />
         <field name="Properties"
-            type="org.akaza.openclinica.domain.rule.action.PropertyBean"
+            type="com.liteoc.domain.rule.action.PropertyBean"
             collection="arraylist">
             <bind-xml name="DestinationProperty"/>
         </field>
@@ -182,34 +182,34 @@
             <bind-xml name="IfExpressionEvaluates" node="attribute"/>
        </field>
        <field name="RuleActionRun"
-               type="org.akaza.openclinica.domain.rule.action.RuleActionRunBean">
+               type="com.liteoc.domain.rule.action.RuleActionRunBean">
                <bind-xml name="Run"/>
        </field>
      </class>
      
-     <class name="org.akaza.openclinica.domain.rule.action.PropertyBean" >
+     <class name="com.liteoc.domain.rule.action.PropertyBean" >
      	<map-to ns-prefix="OpenClinicaRules"/>
-        <field name="oid" type="string"  handler="org.akaza.openclinica.bean.rule.EmptySpaceHandler" required="true">
+        <field name="oid" type="string"  handler="com.liteoc.bean.rule.EmptySpaceHandler" required="true">
             <bind-xml name="OID" node="attribute"/>
        </field>
-       <field name="value" type="string" handler="org.akaza.openclinica.bean.rule.EmptySpaceHandler" required="false">
+       <field name="value" type="string" handler="com.liteoc.bean.rule.EmptySpaceHandler" required="false">
             <bind-xml name="Value" node="attribute"/>
        </field>
        <field name="valueExpression"
-               type="org.akaza.openclinica.domain.rule.expression.ExpressionBean">
+               type="com.liteoc.domain.rule.expression.ExpressionBean">
                <bind-xml name="ValueExpression"/>
        </field>
      </class>
-     <class name="org.akaza.openclinica.domain.rule.expression.ExpressionBean" >
+     <class name="com.liteoc.domain.rule.expression.ExpressionBean" >
      	<map-to ns-prefix="OpenClinicaRules"/>
-        <field name="ContextName" type="string" handler="org.akaza.openclinica.bean.rule.EmptySpaceHandler">
+        <field name="ContextName" type="string" handler="com.liteoc.bean.rule.EmptySpaceHandler">
             <bind-xml name="Context" node="attribute"/>
        </field>
-       <field name="Value" type="string" handler="org.akaza.openclinica.bean.rule.EmptySpaceHandler">
+       <field name="Value" type="string" handler="com.liteoc.bean.rule.EmptySpaceHandler">
             <bind-xml node="text"/>         
        </field>
      </class>
-     <class name="org.akaza.openclinica.domain.rule.action.RuleActionRunBean" >
+     <class name="com.liteoc.domain.rule.action.RuleActionRunBean" >
      	<map-to ns-prefix="OpenClinicaRules"/>
         <field name="administrativeDataEntry" type="boolean">
             <bind-xml name="AdministrativeDataEntry" node="attribute"/>

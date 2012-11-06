@@ -5,8 +5,8 @@
     prefix="fn" %>
 
 
-<jsp:useBean scope="request" id="section" class="org.akaza.openclinica.bean.submit.DisplaySectionBean" />
-<jsp:useBean scope="request" id="displayItem" class="org.akaza.openclinica.bean.submit.DisplayItemBean" />
+<jsp:useBean scope="request" id="section" class="com.liteoc.bean.submit.DisplaySectionBean" />
+<jsp:useBean scope="request" id="displayItem" class="com.liteoc.bean.submit.DisplayItemBean" />
 <jsp:useBean scope='request' id='formMessages' class='java.util.HashMap'/>
 <jsp:useBean scope='request' id='exitTo' class='java.lang.String'/>
 <jsp:useBean scope='request' id='nameNotes' class='java.util.ArrayList'/>
@@ -16,8 +16,8 @@
 
 
 <script type="text/javascript" src="includes/wz_tooltip/wz_tooltip.js"></script>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
 <c:set var="dteFormat"><fmt:message key="date_format_string" bundle="${resformat}"/></c:set>
 
 <c:set var="interviewer" value="${toc.eventCRF.interviewerName}" />

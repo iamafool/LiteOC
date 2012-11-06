@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
 <jsp:include page="../include/admin-header.jsp"/>
 
 
@@ -10,7 +10,7 @@
 
 <jsp:include page="../include/sideInfo.jsp"/>
 
-<jsp:useBean scope='request' id='studyToRestore' class='org.akaza.openclinica.bean.managestudy.StudyBean'/>
+<jsp:useBean scope='request' id='studyToRestore' class='com.liteoc.bean.managestudy.StudyBean'/>
 <jsp:useBean scope='request' id='sitesToRestore' class='java.util.ArrayList'/>
 <jsp:useBean scope='request' id='userRolesToRestore' class='java.util.ArrayList'/>
 <jsp:useBean scope='request' id='subjectsToRestore' class='java.util.ArrayList'/>

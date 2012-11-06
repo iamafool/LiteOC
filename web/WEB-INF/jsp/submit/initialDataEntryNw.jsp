@@ -4,16 +4,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="com.akazaresearch.tags" prefix="aka_frm" %>
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
 
-<jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
-<jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean' />
-<jsp:useBean scope='session' id='userRole' class='org.akaza.openclinica.bean.login.StudyUserRoleBean' />
+<jsp:useBean scope='session' id='userBean' class='com.liteoc.bean.login.UserAccountBean'/>
+<jsp:useBean scope='session' id='study' class='com.liteoc.bean.managestudy.StudyBean' />
+<jsp:useBean scope='session' id='userRole' class='com.liteoc.bean.login.StudyUserRoleBean' />
 <jsp:useBean scope='request' id='isAdminServlet' class='java.lang.String' />
 <jsp:useBean scope='request' id='exitTo' class='java.lang.String' />
 <jsp:useBean scope="request" id="section" class=
-  "org.akaza.openclinica.bean.submit.DisplaySectionBean" />
+  "com.liteoc.bean.submit.DisplaySectionBean" />
 <jsp:useBean scope="request" id="annotations" class="java.lang.String" />
 <jsp:useBean scope='request' id='pageMessages' class='java.util.ArrayList'/>
 <jsp:useBean scope='request' id='formMessages' class='java.util.HashMap'/>

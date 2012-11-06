@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="org/akaza/openclinica/i18n/*_en.properties|resources/" kind="src" path="src"/>
+	<classpathentry excluding="resources/" kind="src" path="src"/>
 	<classpathentry kind="src" path="src/resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/Sun JDK 1.6.0_13"/>
-	<!-- <classpathentry exported="true" kind="var" path="M2_REPO/javax/activation/activation/1.0.2/activation-1.0.2.jar" sourcepath="/M2_REPO"/> -->
 	<classpathentry exported="true" kind="var" path="M2_REPO/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/javax/servlet/jstl/1.1.2/jstl-1.1.2.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/javax/transaction/jta/1.1/jta-1.1.jar"/>
@@ -118,10 +116,10 @@
 	<classpathentry exported="true" kind="var" path="M2_REPO/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/apache/xmlgraphics/xmlgraphics-commons/1.4/xmlgraphics-commons-1.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Documents and Settings/kyan1/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Documents and Settings/kyan1/.m2/repository/xerces/xercesImpl/2.4.0/xercesImpl-2.4.0.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar"/>
+	<classpathentry exported="true" kind="var" path="M2_REPO/xerces/xercesImpl/2.4.0/xercesImpl-2.4.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<!-- <classpathentry kind="lib" path="C:/Documents and Settings/kyan1/.m2/repository/struts/struts/1.2.4/struts-1.2.4.jar"/> -->
-	<classpathentry kind="lib" path="C:/Documents and Settings/kyan1/.m2/repository/javax/j2ee/j2ee/1.4/j2ee-1.4.jar"/>
+	<classpathentry kind="var" path="M2_REPO/javax/j2ee/j2ee/1.4/j2ee-1.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

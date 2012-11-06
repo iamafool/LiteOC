@@ -4,26 +4,26 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd"
 	id="WebApp_1347763238421">
-	<display-name>OpenClinica 3.0</display-name>
+	<display-name>LiteOC 0.1</display-name>
 	<description>
-		OpenClinica web interface
+		LiteOC, Lite but Better
 	</description>
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath*:org/akaza/openclinica/applicationContext*.xml
+			classpath*:com/liteoc/applicationContext*.xml
 		</param-value>
 	</context-param>
 
 	<context-param>
 		<param-name>jmesaMessagesLocation</param-name>
-		<param-value>org/akaza/openclinica/jmesaResourceBundle</param-value>
+		<param-value>com/liteoc/jmesaResourceBundle</param-value>
 	</context-param>
 
 	<context-param>
 		<param-name>SQLInitServlet</param-name>
-		<param-value>org/</param-value>
+		<param-value>com/</param-value>
 	</context-param>
 
 
@@ -32,11 +32,11 @@
 	<listener>
 		<!--@pgawade 01-DEC-2010 Replaced the listener with the extended class 
 			<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> -->
-		<listener-class>org.akaza.openclinica.dao.core.OCContextLoaderListener
+		<listener-class>com.liteoc.dao.core.OCContextLoaderListener
 		</listener-class>
 	</listener>
 	<listener>
-		<listener-class>org.akaza.openclinica.control.OCSessionListener
+		<listener-class>com.liteoc.control.OCSessionListener
 		</listener-class>
 	</listener>
 	<listener>
@@ -44,7 +44,7 @@
 		</listener-class>
 	</listener>
 	<listener>
-		<listener-class>org.akaza.openclinica.control.OCServletContextListener
+		<listener-class>com.liteoc.control.OCServletContextListener
 		</listener-class>
 	</listener>
 
@@ -106,7 +106,7 @@
 
 	<filter>
 		<filter-name>logFilter</filter-name>
-		<filter-class>org.akaza.openclinica.control.core.OCServletFilter
+		<filter-class>com.liteoc.control.core.OCServletFilter
 		</filter-class>
 	</filter>
 	<filter-mapping>
@@ -161,26 +161,26 @@
 		<servlet-name>SQLInitServlet</servlet-name>
 		<display-name>SQLInitServlet</display-name>
 		<description>The SQL init Servlet</description>
-		<servlet-class>org.akaza.openclinica.web.SQLInitServlet
+		<servlet-class>com.liteoc.web.SQLInitServlet
 		</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet>
 		<servlet-name>ChooseDownloadFormat</servlet-name>
 		<description>ChooseDownloadFormat</description>
-		<servlet-class>org.akaza.openclinica.control.extract.ChooseDownloadFormat
+		<servlet-class>com.liteoc.control.extract.ChooseDownloadFormat
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewLogMessage</servlet-name>
 		<description>ViewLogMessage</description>
-		<servlet-class>org.akaza.openclinica.control.admin.ViewLogMessageServlet
+		<servlet-class>com.liteoc.control.admin.ViewLogMessageServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RssReaderServlet</servlet-name>
 		<description>RssReaderServlet</description>
-		<servlet-class>org.akaza.openclinica.control.RssReaderServlet
+		<servlet-class>com.liteoc.control.RssReaderServlet
 		</servlet-class>
 	</servlet>
 
@@ -198,42 +198,42 @@
 	<servlet>
 		<servlet-name>AuditUserActivityServlet</servlet-name>
 		<description>AuditUserActivityServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.AuditUserActivityServlet
+		<servlet-class>com.liteoc.control.admin.AuditUserActivityServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>SystemStatusServlet</servlet-name>
 		<description>SystemStatusServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.SystemStatusServlet
+		<servlet-class>com.liteoc.control.admin.SystemStatusServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>AuditDatabaseServlet</servlet-name>
 		<description>AuditDatabaseServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.AuditDatabaseServlet
+		<servlet-class>com.liteoc.control.admin.AuditDatabaseServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>CheckCRFLocked</servlet-name>
 		<description>CheckCRFLocked</description>
-		<servlet-class>org.akaza.openclinica.control.submit.CheckCRFLocked
+		<servlet-class>com.liteoc.control.submit.CheckCRFLocked
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ConfigureServlet</servlet-name>
 		<description>ConfigureServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.ConfigureServlet
+		<servlet-class>com.liteoc.control.admin.ConfigureServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>DiscrepancyNoteOutputServlet</servlet-name>
 		<description>DiscrepancyNoteOutputServlet</description>
-		<servlet-class>org.akaza.openclinica.control.extract.DiscrepancyNoteOutputServlet
+		<servlet-class>com.liteoc.control.extract.DiscrepancyNoteOutputServlet
 		</servlet-class>
 	</servlet>
 
@@ -241,7 +241,7 @@
 		<servlet-name>FormServlet</servlet-name>
 		<display-name>FormServlet</display-name>
 		<description>FormServlet</description>
-		<servlet-class>org.akaza.openclinica.view.form.FormServlet
+		<servlet-class>com.liteoc.view.form.FormServlet
 		</servlet-class>
 	</servlet>
 
@@ -249,68 +249,68 @@
 		<servlet-name>ListDiscNotesForCRFServlet</servlet-name>
 		<display-name>ListDiscNotesForCRFServlet</display-name>
 		<description>ListDiscNotesForCRFServlet</description>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ListDiscNotesForCRFServlet
+		<servlet-class>com.liteoc.control.managestudy.ListDiscNotesForCRFServlet
 		</servlet-class>
 	</servlet>
 
 	<!-- <servlet> <servlet-name>ListDiscNotesSubjectServlet</servlet-name> 
 		<display-name>ListDiscNotesSubjectServlet</display-name> <description>ListDiscNotesSubjectServlet</description> 
-		<servlet-class>org.akaza.openclinica.control.managestudy.ListDiscNotesSubjectServlet</servlet-class> 
+		<servlet-class>com.liteoc.control.managestudy.ListDiscNotesSubjectServlet</servlet-class> 
 		</servlet> -->
 	<servlet>
 		<servlet-name>ViewJobServlet</servlet-name>
 		<display-name>ViewJobServlet</display-name>
 		<description>ViewJobServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.ViewJobServlet
+		<servlet-class>com.liteoc.control.admin.ViewJobServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewAllJobsServlet</servlet-name>
 		<display-name>ViewAllJobsServlet</display-name>
 		<description>ViewAllJobsServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.ViewAllJobsServlet
+		<servlet-class>com.liteoc.control.admin.ViewAllJobsServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewImportJobServlet</servlet-name>
 		<display-name>ViewImportJobServlet</display-name>
 		<description>ViewImportJobServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.ViewImportJobServlet
+		<servlet-class>com.liteoc.control.admin.ViewImportJobServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewSingleJobServlet</servlet-name>
 		<display-name>ViewSingleJobServlet</display-name>
 		<description>ViewSingleJobServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.ViewSingleJobServlet
+		<servlet-class>com.liteoc.control.admin.ViewSingleJobServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>PauseJobServlet</servlet-name>
 		<display-name>PauseJobServlet</display-name>
 		<description>PauseJobServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.PauseJobServlet
+		<servlet-class>com.liteoc.control.admin.PauseJobServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateJobExportServlet</servlet-name>
 		<display-name>CreateJobExportServlet</display-name>
 		<description>CreateJobExportServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.CreateJobExportServlet
+		<servlet-class>com.liteoc.control.admin.CreateJobExportServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateJobImportServlet</servlet-name>
 		<display-name>CreateJobImportServlet</display-name>
 		<description>CreateJobImportServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.CreateJobImportServlet
+		<servlet-class>com.liteoc.control.admin.CreateJobImportServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UpdateJobExportServlet</servlet-name>
 		<display-name>UpdateJobExportServlet</display-name>
 		<description>UpdateJobExportServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.UpdateJobExportServlet
+		<servlet-class>com.liteoc.control.admin.UpdateJobExportServlet
 		</servlet-class>
 	</servlet>
 
@@ -318,7 +318,7 @@
 		<servlet-name>UpdateJobImportServlet</servlet-name>
 		<display-name>UpdateJobImportServlet</display-name>
 		<description>UpdateJobImportServlet</description>
-		<servlet-class>org.akaza.openclinica.control.admin.UpdateJobImportServlet
+		<servlet-class>com.liteoc.control.admin.UpdateJobImportServlet
 		</servlet-class>
 	</servlet>
 
@@ -326,904 +326,904 @@
 		<servlet-name>MainMenuServlet</servlet-name>
 		<display-name>MainMenuServlet</display-name>
 		<description>The Main Servlet</description>
-		<servlet-class>org.akaza.openclinica.control.MainMenuServlet
+		<servlet-class>com.liteoc.control.MainMenuServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LogoutServlet</servlet-name>
 		<display-name>LogoutServlet</display-name>
 		<description>The log out Servlet</description>
-		<servlet-class>org.akaza.openclinica.control.login.LogoutServlet
+		<servlet-class>com.liteoc.control.login.LogoutServlet
 		</servlet-class>
 	</servlet>
 	<!-- <servlet> <servlet-name>EnterpriseServlet</servlet-name> <display-name>EnterpriseServlet</display-name> 
-		<description>The Enterprise Servlet</description> <servlet-class>org.akaza.openclinica.control.login.EnterpriseServlet</servlet-class> 
+		<description>The Enterprise Servlet</description> <servlet-class>com.liteoc.control.login.EnterpriseServlet</servlet-class> 
 		</servlet> -->
 	<servlet>
 		<servlet-name>RequestPasswordServlet</servlet-name>
 		<display-name>RequestPasswordServlet</display-name>
-		<servlet-class>org.akaza.openclinica.control.login.RequestPasswordServlet
+		<servlet-class>com.liteoc.control.login.RequestPasswordServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ContactServlet</servlet-name>
 		<display-name>ContactServlet</display-name>
-		<servlet-class>org.akaza.openclinica.control.login.ContactServlet
+		<servlet-class>com.liteoc.control.login.ContactServlet
 		</servlet-class>
 	</servlet>
 	<!-- <servlet> <servlet-name>RequestAccountServlet</servlet-name> <display-name>RequestAccountServlet</display-name> 
-		<servlet-class>org.akaza.openclinica.control.login.RequestAccountServlet</servlet-class> 
+		<servlet-class>com.liteoc.control.login.RequestAccountServlet</servlet-class> 
 		</servlet> -->
 	<servlet>
 		<servlet-name>RequestStudyServlet</servlet-name>
 		<display-name>RequestStudyServlet</display-name>
-		<servlet-class>org.akaza.openclinica.control.login.RequestStudyServlet
+		<servlet-class>com.liteoc.control.login.RequestStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ResetPasswordServlet</servlet-name>
 		<display-name>ResetPassword</display-name>
-		<servlet-class>org.akaza.openclinica.control.login.ResetPasswordServlet
+		<servlet-class>com.liteoc.control.login.ResetPasswordServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UpdateProfileServlet</servlet-name>
 		<display-name>UpdateProfile</display-name>
-		<servlet-class>org.akaza.openclinica.control.login.UpdateProfileServlet
+		<servlet-class>com.liteoc.control.login.UpdateProfileServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ChangeStudyServlet</servlet-name>
 		<display-name>ChangeStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.login.ChangeStudyServlet
+		<servlet-class>com.liteoc.control.login.ChangeStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AccessFileServlet</servlet-name>
 		<display-name>AccessFile</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.AccessFileServlet
+		<servlet-class>com.liteoc.control.extract.AccessFileServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ShowFileServlet</servlet-name>
 		<display-name>ShowFile</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.ShowFileServlet
+		<servlet-class>com.liteoc.control.extract.ShowFileServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>StudyAuditLogServlet</servlet-name>
 		<display-name>StudyAuditLog</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.StudyAuditLogServlet
+		<servlet-class>com.liteoc.control.managestudy.StudyAuditLogServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AuditLogUserServlet</servlet-name>
 		<display-name>AuditLogUser</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.AuditLogUserServlet
+		<servlet-class>com.liteoc.control.admin.AuditLogUserServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>TechAdminServlet</servlet-name>
 		<display-name>TechAdmin</display-name>
-		<servlet-class>org.akaza.openclinica.control.techadmin.TechAdminServlet
+		<servlet-class>com.liteoc.control.techadmin.TechAdminServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewSchedulerServlet</servlet-name>
 		<display-name>ViewScehduler</display-name>
-		<servlet-class>org.akaza.openclinica.control.techadmin.ViewSchedulerServlet
+		<servlet-class>com.liteoc.control.techadmin.ViewSchedulerServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AuditLogStudyServlet</servlet-name>
 		<display-name>AuditLogStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.AuditLogStudyServlet
+		<servlet-class>com.liteoc.control.admin.AuditLogStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewUserAccountServlet</servlet-name>
 		<display-name>ViewUserAccount</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.ViewUserAccountServlet
+		<servlet-class>com.liteoc.control.admin.ViewUserAccountServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AddNewSubjectServlet</servlet-name>
 		<display-name>AddNewSubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.AddNewSubjectServlet
+		<servlet-class>com.liteoc.control.submit.AddNewSubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateNewStudyEventServlet</servlet-name>
 		<display-name>CreateNewStudyEvent</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.CreateNewStudyEventServlet
+		<servlet-class>com.liteoc.control.submit.CreateNewStudyEventServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateUserAccountServlet</servlet-name>
 		<display-name>CreateUserAccount</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.CreateUserAccountServlet
+		<servlet-class>com.liteoc.control.admin.CreateUserAccountServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>EditUserAccountServlet</servlet-name>
 		<display-name>EditUserAccount</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.EditUserAccountServlet
+		<servlet-class>com.liteoc.control.admin.EditUserAccountServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListUserAccountsServlet</servlet-name>
 		<display-name>ListUserAccounts</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.ListUserAccountsServlet
+		<servlet-class>com.liteoc.control.admin.ListUserAccountsServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>EditStudyUserRoleServlet</servlet-name>
 		<display-name>EditStudyUserRole</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.EditStudyUserRoleServlet
+		<servlet-class>com.liteoc.control.admin.EditStudyUserRoleServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DeleteStudyUserRoleServlet</servlet-name>
 		<display-name>DeleteStudyUserRole</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.DeleteStudyUserRoleServlet
+		<servlet-class>com.liteoc.control.admin.DeleteStudyUserRoleServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DeleteUserServlet</servlet-name>
 		<display-name>DeleteUser</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.DeleteUserServlet
+		<servlet-class>com.liteoc.control.admin.DeleteUserServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UnLockUserServlet</servlet-name>
 		<display-name>UnLockUser</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.UnLockUserServlet
+		<servlet-class>com.liteoc.control.admin.UnLockUserServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateStudyServlet</servlet-name>
 		<display-name>CreateStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.CreateStudyServlet
+		<servlet-class>com.liteoc.control.managestudy.CreateStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>InitUpdateStudyServlet</servlet-name>
 		<display-name>InitUpdateStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.InitUpdateStudyServlet
+		<servlet-class>com.liteoc.control.managestudy.InitUpdateStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UpdateStudyServlet</servlet-name>
 		<display-name>UpdateStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.UpdateStudyServlet
+		<servlet-class>com.liteoc.control.managestudy.UpdateStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateSubStudyServlet</servlet-name>
 		<display-name>CreateSubStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.CreateSubStudyServlet
+		<servlet-class>com.liteoc.control.managestudy.CreateSubStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>InitUpdateSubStudyServlet</servlet-name>
 		<display-name>InitUpdateSubStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.InitUpdateSubStudyServlet
+		<servlet-class>com.liteoc.control.managestudy.InitUpdateSubStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UpdateSubStudyServlet</servlet-name>
 		<display-name>UpdateSubStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.UpdateSubStudyServlet
+		<servlet-class>com.liteoc.control.managestudy.UpdateSubStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListStudyServlet</servlet-name>
 		<display-name>ListStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ListStudyServlet
+		<servlet-class>com.liteoc.control.managestudy.ListStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AssignUserToStudyServlet</servlet-name>
 		<display-name>AssignUserToStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.AssignUserToStudyServlet
+		<servlet-class>com.liteoc.control.managestudy.AssignUserToStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListCRFServlet</servlet-name>
 		<display-name>ListCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.ListCRFServlet
+		<servlet-class>com.liteoc.control.admin.ListCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DefineStudyEventServlet</servlet-name>
 		<display-name>DefineStudyEvent</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.DefineStudyEventServlet
+		<servlet-class>com.liteoc.control.managestudy.DefineStudyEventServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListEventDefinitionServlet</servlet-name>
 		<display-name>ListEventDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ListEventDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.ListEventDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>InitUpdateEventDefinitionServlet</servlet-name>
 		<display-name>InitUpdateEventDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.InitUpdateEventDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.InitUpdateEventDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UpdateEventDefinitionServlet</servlet-name>
 		<display-name>UpdateEventDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.UpdateEventDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.UpdateEventDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveCRFFromDefinitionServlet</servlet-name>
 		<display-name>RemoveCRFFromDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RemoveCRFFromDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.RemoveCRFFromDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreCRFFromDefinitionServlet</servlet-name>
 		<display-name>RestoreCRFFromDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RestoreCRFFromDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.RestoreCRFFromDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AddCRFToDefinitionServlet</servlet-name>
 		<display-name>AddCRFToDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.AddCRFToDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.AddCRFToDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewEventDefinitionServlet</servlet-name>
 		<display-name>ViewEventDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewEventDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewEventDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewEventDefinitionReadOnlyServlet</servlet-name>
 		<display-name>ViewEventDefinitionReadOnly</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewEventDefinitionReadOnlyServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewEventDefinitionReadOnlyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateCRFServlet</servlet-name>
 		<display-name>CreateCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.CreateCRFServlet
+		<servlet-class>com.liteoc.control.admin.CreateCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateCRFVersionServlet</servlet-name>
 		<display-name>CreateCRFVersion</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.CreateCRFVersionServlet
+		<servlet-class>com.liteoc.control.admin.CreateCRFVersionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>InitCreateCRFVersionServlet</servlet-name>
 		<display-name>InitCreateCRFVersion</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.InitCreateCRFVersionServlet
+		<servlet-class>com.liteoc.control.admin.InitCreateCRFVersionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ExtractDatasetsMainServlet</servlet-name>
 		<display-name>ExtractDatasetsMain</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.ExtractDatasetsMainServlet
+		<servlet-class>com.liteoc.control.extract.ExtractDatasetsMainServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewDatasetsServlet</servlet-name>
 		<display-name>ViewDatasets</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.ViewDatasetsServlet
+		<servlet-class>com.liteoc.control.extract.ViewDatasetsServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateDatasetServlet</servlet-name>
 		<display-name>CreateDataset</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.CreateDatasetServlet
+		<servlet-class>com.liteoc.control.extract.CreateDatasetServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ExportDatasetServlet</servlet-name>
 		<display-name>ExportDataset</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.ExportDatasetServlet
+		<servlet-class>com.liteoc.control.extract.ExportDatasetServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewCRFServlet</servlet-name>
 		<display-name>ViewCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.ViewCRFServlet
+		<servlet-class>com.liteoc.control.admin.ViewCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UpdateCRFServlet</servlet-name>
 		<display-name>UpdateCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.UpdateCRFServlet
+		<servlet-class>com.liteoc.control.admin.UpdateCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>InitUpdateCRFServlet</servlet-name>
 		<display-name>InitUpdateCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.InitUpdateCRFServlet
+		<servlet-class>com.liteoc.control.admin.InitUpdateCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AdminSystemServlet</servlet-name>
 		<display-name>AdminSystem</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.AdminSystemServlet
+		<servlet-class>com.liteoc.control.admin.AdminSystemServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ManageStudyServlet</servlet-name>
 		<display-name>ManageStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ManageStudyServlet
+		<servlet-class>com.liteoc.control.managestudy.ManageStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>SubmitDataServlet</servlet-name>
 		<display-name>SubmitData</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.SubmitDataServlet
+		<servlet-class>com.liteoc.control.submit.SubmitDataServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>FindStudyEventServlet</servlet-name>
 		<display-name>FindStudyEvent</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.FindStudyEventServlet
+		<servlet-class>com.liteoc.control.submit.FindStudyEventServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>EnterDataForStudyEventServlet</servlet-name>
 		<display-name>EnterDataForStudyEvent</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.EnterDataForStudyEventServlet
+		<servlet-class>com.liteoc.control.submit.EnterDataForStudyEventServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>TableOfContentsServlet</servlet-name>
 		<display-name>TableOfContents</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.TableOfContentsServlet
+		<servlet-class>com.liteoc.control.submit.TableOfContentsServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>MarkEventCRFCompleteServlet</servlet-name>
 		<display-name>MarkEventCRFComplete</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.MarkEventCRFCompleteServlet
+		<servlet-class>com.liteoc.control.submit.MarkEventCRFCompleteServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>InitialDataEntryServlet</servlet-name>
 		<display-name>InitialDataEntry</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.InitialDataEntryServlet
+		<servlet-class>com.liteoc.control.submit.InitialDataEntryServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DataEntryServlet</servlet-name>
 		<display-name>DataEntry</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.DataEntryServlet
+		<servlet-class>com.liteoc.control.submit.DataEntryServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>DoubleDataEntryServlet</servlet-name>
 		<display-name>DoubleDataEntry</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.DoubleDataEntryServlet
+		<servlet-class>com.liteoc.control.submit.DoubleDataEntryServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListSiteServlet</servlet-name>
 		<display-name>ListSite</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ListSiteServlet
+		<servlet-class>com.liteoc.control.managestudy.ListSiteServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewSiteServlet</servlet-name>
 		<display-name>ViewSite</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewSiteServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewSiteServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveSiteServlet</servlet-name>
 		<display-name>RemoveSite</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RemoveSiteServlet
+		<servlet-class>com.liteoc.control.managestudy.RemoveSiteServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreSiteServlet</servlet-name>
 		<display-name>RestoreSite</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RestoreSiteServlet
+		<servlet-class>com.liteoc.control.managestudy.RestoreSiteServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveEventDefinitionServlet</servlet-name>
 		<display-name>RemoveEventDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RemoveEventDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.RemoveEventDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreEventDefinitionServlet</servlet-name>
 		<display-name>RestoreEventDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RestoreEventDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.RestoreEventDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LockEventDefinitionServlet</servlet-name>
 		<display-name>LockEventDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.LockEventDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.LockEventDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UnlockEventDefinitionServlet</servlet-name>
 		<display-name>UnlockEventDefinition</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.UnlockEventDefinitionServlet
+		<servlet-class>com.liteoc.control.managestudy.UnlockEventDefinitionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListStudyUserServlet</servlet-name>
 		<display-name>ListStudyUser</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ListStudyUserServlet
+		<servlet-class>com.liteoc.control.managestudy.ListStudyUserServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewStudyUserServlet</servlet-name>
 		<display-name>ViewStudyUser</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewStudyUserServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewStudyUserServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>SetStudyUserRoleServlet</servlet-name>
 		<display-name>SetStudyUserRole</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.SetStudyUserRoleServlet
+		<servlet-class>com.liteoc.control.managestudy.SetStudyUserRoleServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveStudyUserRoleServlet</servlet-name>
 		<display-name>RemoveStudyUserRole</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RemoveStudyUserRoleServlet
+		<servlet-class>com.liteoc.control.managestudy.RemoveStudyUserRoleServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreStudyUserRoleServlet</servlet-name>
 		<display-name>RestoreStudyUserRole</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RestoreStudyUserRoleServlet
+		<servlet-class>com.liteoc.control.managestudy.RestoreStudyUserRoleServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListStudySubjectsServlet</servlet-name>
 		<display-name>ListStudySubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.ListStudySubjectsServlet
+		<servlet-class>com.liteoc.control.submit.ListStudySubjectsServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListStudySubjectsManageServlet</servlet-name>
 		<display-name>ListStudySubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ListStudySubjectsManageServlet
+		<servlet-class>com.liteoc.control.managestudy.ListStudySubjectsManageServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListStudySubjectsSubmitServlet</servlet-name>
 		<display-name>ListStudySubjectsSubmit</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.ListStudySubjectsSubmitServlet
+		<servlet-class>com.liteoc.control.submit.ListStudySubjectsSubmitServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewStudySubjectServlet</servlet-name>
 		<display-name>ViewStudySubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewStudySubjectServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewStudySubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UpdateStudySubjectServlet</servlet-name>
 		<display-name>UpdateStudySubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.UpdateStudySubjectServlet
+		<servlet-class>com.liteoc.control.managestudy.UpdateStudySubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveStudySubjectServlet</servlet-name>
 		<display-name>RemoveStudySubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RemoveStudySubjectServlet
+		<servlet-class>com.liteoc.control.managestudy.RemoveStudySubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreStudySubjectServlet</servlet-name>
 		<display-name>RestoreStudySubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RestoreStudySubjectServlet
+		<servlet-class>com.liteoc.control.managestudy.RestoreStudySubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveStudyEventServlet</servlet-name>
 		<display-name>RemoveStudyEvent</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RemoveStudyEventServlet
+		<servlet-class>com.liteoc.control.managestudy.RemoveStudyEventServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreStudyEventServlet</servlet-name>
 		<display-name>RestoreStudyEvent</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RestoreStudyEventServlet
+		<servlet-class>com.liteoc.control.managestudy.RestoreStudyEventServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DeleteStudyEventServlet</servlet-name>
 		<display-name>DeleteStudyEvent</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.DeleteStudyEventServlet
+		<servlet-class>com.liteoc.control.managestudy.DeleteStudyEventServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveEventCRFServlet</servlet-name>
 		<display-name>RemoveEventCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RemoveEventCRFServlet
+		<servlet-class>com.liteoc.control.managestudy.RemoveEventCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreEventCRFServlet</servlet-name>
 		<display-name>RestoreEventCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RestoreEventCRFServlet
+		<servlet-class>com.liteoc.control.managestudy.RestoreEventCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ApplyFilterServlet</servlet-name>
 		<display-name>ApplyFilter</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.ApplyFilterServlet
+		<servlet-class>com.liteoc.control.extract.ApplyFilterServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateFiltersOneServlet</servlet-name>
 		<display-name>CreateFiltersOne</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.CreateFiltersOneServlet
+		<servlet-class>com.liteoc.control.extract.CreateFiltersOneServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateFiltersTwoServlet</servlet-name>
 		<display-name>CreateFiltersTwo</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.CreateFiltersTwoServlet
+		<servlet-class>com.liteoc.control.extract.CreateFiltersTwoServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateFiltersThreeServlet</servlet-name>
 		<display-name>CreateFiltersThree</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.CreateFiltersThreeServlet
+		<servlet-class>com.liteoc.control.extract.CreateFiltersThreeServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewCRFVersionServlet</servlet-name>
 		<display-name>ViewCRFVersion</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewCRFVersionServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewCRFVersionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewEventCRFServlet</servlet-name>
 		<display-name>ViewEventCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewEventCRFServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewEventCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ReassignStudySubjectServlet</servlet-name>
 		<display-name>ReassignStudySubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ReassignStudySubjectServlet
+		<servlet-class>com.liteoc.control.managestudy.ReassignStudySubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>EditFilterServlet</servlet-name>
 		<display-name>EditFilter</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.EditFilterServlet
+		<servlet-class>com.liteoc.control.extract.EditFilterServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveFilterServlet</servlet-name>
 		<display-name>RemoveFilter</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.RemoveFilterServlet
+		<servlet-class>com.liteoc.control.extract.RemoveFilterServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveDatasetServlet</servlet-name>
 		<display-name>RemoveDataset</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.RemoveDatasetServlet
+		<servlet-class>com.liteoc.control.extract.RemoveDatasetServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreDatasetServlet</servlet-name>
 		<display-name>RestoreDataset</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.RestoreDatasetServlet
+		<servlet-class>com.liteoc.control.extract.RestoreDatasetServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>EditDatasetServlet</servlet-name>
 		<display-name>EditDataset</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.EditDatasetServlet
+		<servlet-class>com.liteoc.control.extract.EditDatasetServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveStudyServlet</servlet-name>
 		<display-name>RemoveStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.RemoveStudyServlet
+		<servlet-class>com.liteoc.control.admin.RemoveStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreStudyServlet</servlet-name>
 		<display-name>RestoreStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.RestoreStudyServlet
+		<servlet-class>com.liteoc.control.admin.RestoreStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListSubjectServlet</servlet-name>
 		<display-name>ListSubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.ListSubjectServlet
+		<servlet-class>com.liteoc.control.admin.ListSubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UpdateSubjectServlet</servlet-name>
 		<display-name>UpdateSubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.UpdateSubjectServlet
+		<servlet-class>com.liteoc.control.admin.UpdateSubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewStudyServlet</servlet-name>
 		<display-name>ViewStudy</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.ViewStudyServlet
+		<servlet-class>com.liteoc.control.admin.ViewStudyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveCRFServlet</servlet-name>
 		<display-name>RemoveCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.RemoveCRFServlet
+		<servlet-class>com.liteoc.control.admin.RemoveCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreCRFServlet</servlet-name>
 		<display-name>RestoreCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.RestoreCRFServlet
+		<servlet-class>com.liteoc.control.admin.RestoreCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveSubjectServlet</servlet-name>
 		<display-name>RemoveSubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.RemoveSubjectServlet
+		<servlet-class>com.liteoc.control.admin.RemoveSubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreSubjectServlet</servlet-name>
 		<display-name>RestoreSubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.RestoreSubjectServlet
+		<servlet-class>com.liteoc.control.admin.RestoreSubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveCRFVersionServlet</servlet-name>
 		<display-name>RemoveCRFVersion</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.RemoveCRFVersionServlet
+		<servlet-class>com.liteoc.control.admin.RemoveCRFVersionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreCRFVersionServlet</servlet-name>
 		<display-name>RestoreCRFVersion</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.RestoreCRFVersionServlet
+		<servlet-class>com.liteoc.control.admin.RestoreCRFVersionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewSubjectServlet</servlet-name>
 		<display-name>ViewSubjectVersion</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.ViewSubjectServlet
+		<servlet-class>com.liteoc.control.admin.ViewSubjectServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>SetUserRoleServlet</servlet-name>
 		<display-name>SetUserRole</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.SetUserRoleServlet
+		<servlet-class>com.liteoc.control.admin.SetUserRoleServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewTableOfContentServlet</servlet-name>
 		<display-name>VIewTableOfContent</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewTableOfContentServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewTableOfContentServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewStudySubjectAuditLogServlet</servlet-name>
 		<display-name>ViewStudySubjectAuditLog</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewStudySubjectAuditLogServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewStudySubjectAuditLogServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewSectionDataEntryServlet</servlet-name>
 		<display-name>ViewSectionDataEntry</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewSectionDataEntryServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewSectionDataEntryServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewSectionDataEntryByIdServlet</servlet-name>
 		<display-name>ViewSectionDataEntryById</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewSectionDataEntryByIdServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewSectionDataEntryByIdServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>PrintDataEntryServlet</servlet-name>
 		<display-name>PrintDataEntry</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.PrintDataEntryServlet
+		<servlet-class>com.liteoc.control.managestudy.PrintDataEntryServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>PrintCRFServlet</servlet-name>
 		<display-name>PrintCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.PrintCRFServlet
+		<servlet-class>com.liteoc.control.managestudy.PrintCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>PrintCRFByIdServlet</servlet-name>
 		<display-name>PrintCRFById</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.PrintCRFByIdServlet
+		<servlet-class>com.liteoc.control.managestudy.PrintCRFByIdServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewEventCRFContentServlet</servlet-name>
 		<display-name>ViewEventCRFContent</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewEventCRFContentServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewEventCRFContentServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ChangeDefinitionOrdinalServlet</servlet-name>
 		<display-name>ChangeDefinitionOrdinal</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ChangeDefinitionOrdinalServlet
+		<servlet-class>com.liteoc.control.managestudy.ChangeDefinitionOrdinalServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ChangeDefinitionCRFOrdinalServlet</servlet-name>
 		<display-name>ChangeDefinitionCRFOrdinal</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ChangeDefinitionCRFOrdinalServlet
+		<servlet-class>com.liteoc.control.managestudy.ChangeDefinitionCRFOrdinalServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AdministrativeEditingServlet</servlet-name>
 		<display-name>AdministrativeEditing</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.AdministrativeEditingServlet
+		<servlet-class>com.liteoc.control.submit.AdministrativeEditingServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UpdateStudyEventServlet</servlet-name>
 		<display-name>UpdateStudyEvent</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.UpdateStudyEventServlet
+		<servlet-class>com.liteoc.control.managestudy.UpdateStudyEventServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewStudyEventsServlet</servlet-name>
 		<display-name>ViewStudyEvents</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewStudyEventsServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewStudyEventsServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DeleteCRFVersionServlet</servlet-name>
 		<display-name>DeleteCRFVersion</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.DeleteCRFVersionServlet
+		<servlet-class>com.liteoc.control.admin.DeleteCRFVersionServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DeleteEventCRFServlet</servlet-name>
 		<display-name>DeleteEventCRF</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.DeleteEventCRFServlet
+		<servlet-class>com.liteoc.control.admin.DeleteEventCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewItemDetailServlet</servlet-name>
 		<display-name>ViewItemDetail</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.ViewItemDetailServlet
+		<servlet-class>com.liteoc.control.extract.ViewItemDetailServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>SelectItemsServlet</servlet-name>
 		<display-name>SelectItems</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.SelectItemsServlet
+		<servlet-class>com.liteoc.control.extract.SelectItemsServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewSelectedServlet</servlet-name>
 		<display-name>ViewSelected</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.ViewSelectedServlet
+		<servlet-class>com.liteoc.control.extract.ViewSelectedServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>EditSelectedServlet</servlet-name>
 		<display-name>EditSelected</display-name>
-		<servlet-class>org.akaza.openclinica.control.extract.EditSelectedServlet
+		<servlet-class>com.liteoc.control.extract.EditSelectedServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListSubjectGroupClassServlet</servlet-name>
 		<display-name>ListSubjectGroupClass</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ListSubjectGroupClassServlet
+		<servlet-class>com.liteoc.control.managestudy.ListSubjectGroupClassServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateSubjectGroupClassServlet</servlet-name>
 		<display-name>CreateSubjectGroupClass</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.CreateSubjectGroupClassServlet
+		<servlet-class>com.liteoc.control.managestudy.CreateSubjectGroupClassServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>UpdateSubjectGroupClassServlet</servlet-name>
 		<display-name>UpdateSubjectGroupClass</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.UpdateSubjectGroupClassServlet
+		<servlet-class>com.liteoc.control.managestudy.UpdateSubjectGroupClassServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewSubjectGroupClassServlet</servlet-name>
 		<display-name>ViewSubjectGroupClass</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewSubjectGroupClassServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewSubjectGroupClassServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RemoveSubjectGroupClassServlet</servlet-name>
 		<display-name>RemoveSubjectGroupClass</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RemoveSubjectGroupClassServlet
+		<servlet-class>com.liteoc.control.managestudy.RemoveSubjectGroupClassServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RestoreSubjectGroupClassServlet</servlet-name>
 		<display-name>RestoreSubjectGroupClass</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.RestoreSubjectGroupClassServlet
+		<servlet-class>com.liteoc.control.managestudy.RestoreSubjectGroupClassServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateDiscrepancyNoteServlet</servlet-name>
 		<display-name>CreateDiscrepancyNote</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.CreateDiscrepancyNoteServlet
+		<servlet-class>com.liteoc.control.submit.CreateDiscrepancyNoteServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewDiscrepancyNoteServlet</servlet-name>
 		<display-name>ViewDiscrepancyNote</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.ViewDiscrepancyNoteServlet
+		<servlet-class>com.liteoc.control.submit.ViewDiscrepancyNoteServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateOneDiscrepancyNoteServlet</servlet-name>
 		<display-name>CreateOneDiscrepancyNote</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.CreateOneDiscrepancyNoteServlet
+		<servlet-class>com.liteoc.control.submit.CreateOneDiscrepancyNoteServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DownloadStudyMetadataServlet</servlet-name>
 		<display-name>DownloadStudyMetadata</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.DownloadStudyMetadataServlet
+		<servlet-class>com.liteoc.control.admin.DownloadStudyMetadataServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DownloadVersionSpreadSheetServlet</servlet-name>
 		<display-name>DownloadVersionSpreadSheet</display-name>
-		<servlet-class>org.akaza.openclinica.control.admin.DownloadVersionSpreadSheetServlet
+		<servlet-class>com.liteoc.control.admin.DownloadVersionSpreadSheetServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DownloadAttachedFileServlet</servlet-name>
 		<display-name>DownloadAttachedFile</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.DownloadAttachedFileServlet
+		<servlet-class>com.liteoc.control.submit.DownloadAttachedFileServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewNotesServlet</servlet-name>
 		<display-name>ViewNotes</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewNotesServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewNotesServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewNoteServlet</servlet-name>
 		<display-name>ViewNote</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewNoteServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewNoteServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ResolveDiscrepancyServlet</servlet-name>
 		<display-name>ResolveDiscrepancy</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ResolveDiscrepancyServlet
+		<servlet-class>com.liteoc.control.managestudy.ResolveDiscrepancyServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListEventsForSubjectServlet</servlet-name>
 		<display-name>ListEventsForSubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ListEventsForSubjectServlet
+		<servlet-class>com.liteoc.control.managestudy.ListEventsForSubjectServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ListEventsForSubjectsServlet</servlet-name>
 		<display-name>ListEventsForSubjects</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ListEventsForSubjectsServlet
+		<servlet-class>com.liteoc.control.managestudy.ListEventsForSubjectsServlet
 		</servlet-class>
 	</servlet>
 
@@ -1231,154 +1231,154 @@
 		<servlet-name>ViewSectionDataEntryPreview</servlet-name>
 		<display-name>ViewSectionDataEntryPreview</display-name>
 		<servlet-class>
-			org.akaza.openclinica.control.managestudy.ViewSectionDataEntryPreview
+			com.liteoc.control.managestudy.ViewSectionDataEntryPreview
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ViewCRFVersionPreview</servlet-name>
 		<display-name>ViewCRFVersionPreview</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewCRFVersionPreview
+		<servlet-class>com.liteoc.control.managestudy.ViewCRFVersionPreview
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ImportCRFDataServlet</servlet-name>
 		<display-name>ImportCRFData</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.ImportCRFDataServlet
+		<servlet-class>com.liteoc.control.submit.ImportCRFDataServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>VerifyImportedCRFDataServlet</servlet-name>
 		<display-name>VerifyImportedCRFData</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.VerifyImportedCRFDataServlet
+		<servlet-class>com.liteoc.control.submit.VerifyImportedCRFDataServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ImportRuleServlet</servlet-name>
 		<display-name>ImportRule</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.ImportRuleServlet
+		<servlet-class>com.liteoc.control.submit.ImportRuleServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ViewRuleSetServlet</servlet-name>
 		<display-name>ViewRuleSet</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.ViewRuleSetServlet
+		<servlet-class>com.liteoc.control.submit.ViewRuleSetServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ViewRuleAssignmentNewServlet</servlet-name>
 		<display-name>ViewRuleAssignmentNew</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.ViewRuleAssignmentNewServlet
+		<servlet-class>com.liteoc.control.submit.ViewRuleAssignmentNewServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>DownloadRuleSetXmlServlet</servlet-name>
 		<display-name>DownloadRuleSetXml</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.DownloadRuleSetXmlServlet
+		<servlet-class>com.liteoc.control.submit.DownloadRuleSetXmlServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ViewRuleAssignmentServlet</servlet-name>
 		<display-name>ViewRuleAssignment</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.ViewRuleAssignmentServlet
+		<servlet-class>com.liteoc.control.submit.ViewRuleAssignmentServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>RunRuleServlet</servlet-name>
 		<display-name>RunRule</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.RunRuleServlet
+		<servlet-class>com.liteoc.control.submit.RunRuleServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>RunRuleSetServlet</servlet-name>
 		<display-name>RunRuleSet</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.RunRuleSetServlet
+		<servlet-class>com.liteoc.control.submit.RunRuleSetServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>RemoveRuleSetServlet</servlet-name>
 		<display-name>RemoveRuleSet</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.RemoveRuleSetServlet
+		<servlet-class>com.liteoc.control.submit.RemoveRuleSetServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>RestoreRuleSetServlet</servlet-name>
 		<display-name>RestoreRuleSet</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.RestoreRuleSetServlet
+		<servlet-class>com.liteoc.control.submit.RestoreRuleSetServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>UpdateRuleSetRuleServlet</servlet-name>
 		<display-name>UpdateRuleSetRule</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.UpdateRuleSetRuleServlet
+		<servlet-class>com.liteoc.control.submit.UpdateRuleSetRuleServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>VerifyImportedRuleServlet</servlet-name>
 		<display-name>VerifyImportedRule</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.VerifyImportedRuleServlet
+		<servlet-class>com.liteoc.control.submit.VerifyImportedRuleServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ViewRuleSetAuditServlet</servlet-name>
 		<display-name>ViewRuleSetAudit</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.ViewRuleSetAuditServlet
+		<servlet-class>com.liteoc.control.submit.ViewRuleSetAuditServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>TestRuleServlet</servlet-name>
 		<display-name>TestRule</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.TestRuleServlet
+		<servlet-class>com.liteoc.control.submit.TestRuleServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ExecuteCrossEditCheckServlet</servlet-name>
 		<display-name>ExecuteCrossEditCheck</display-name>
-		<servlet-class>org.akaza.openclinica.control.rule.ExecuteCrossEditCheckServlet
+		<servlet-class>com.liteoc.control.rule.ExecuteCrossEditCheckServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>SignStudySubjectServlet</servlet-name>
 		<display-name>SignStudySubject</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.SignStudySubjectServlet
+		<servlet-class>com.liteoc.control.managestudy.SignStudySubjectServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>UpdateStudyServletNew</servlet-name>
 		<display-name>UpdateStudyNew</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.UpdateStudyServletNew
+		<servlet-class>com.liteoc.control.managestudy.UpdateStudyServletNew
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>LockCRFVersionServlet</servlet-name>
 		<display-name>LockCRFVersion</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.LockCRFVersionServlet
+		<servlet-class>com.liteoc.control.managestudy.LockCRFVersionServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>UnlockCRFVersionServlet</servlet-name>
 		<display-name>UnlockCRFVersion</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.UnlockCRFVersionServlet
+		<servlet-class>com.liteoc.control.managestudy.UnlockCRFVersionServlet
 		</servlet-class>
 	</servlet>
 
@@ -1386,41 +1386,41 @@
 	<servlet>
 		<servlet-name>MatchPasswordServlet</servlet-name>
 		<display-name>MatchPasswordServlet</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.MatchPasswordServlet
+		<servlet-class>com.liteoc.control.submit.MatchPasswordServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>UploadFileServlet</servlet-name>
 		<display-name>UploadFile</display-name>
-		<servlet-class>org.akaza.openclinica.control.submit.UploadFileServlet
+		<servlet-class>com.liteoc.control.submit.UploadFileServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>PrintAllSiteEventCRFServlet</servlet-name>
 		<display-name>PrintAllSiteEventCRFServlet</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.PrintAllSiteEventCRFServlet
+		<servlet-class>com.liteoc.control.managestudy.PrintAllSiteEventCRFServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>PrintEventCRFServlet</servlet-name>
 		<display-name>PrintEventCRFServlet</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.PrintEventCRFServlet
+		<servlet-class>com.liteoc.control.managestudy.PrintEventCRFServlet
 		</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>PrintAllEventCRFServlet</servlet-name>
 		<display-name>PrintAllEventCRFServlet</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.PrintAllEventCRFServlet
+		<servlet-class>com.liteoc.control.managestudy.PrintAllEventCRFServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ViewItemAuditLogServlet</servlet-name>
 		<display-name>ViewItemAuditLogServlet</display-name>
-		<servlet-class>org.akaza.openclinica.control.managestudy.ViewItemAuditLogServlet
+		<servlet-class>com.liteoc.control.managestudy.ViewItemAuditLogServlet
 		</servlet-class>
 	</servlet>
 	<servlet>
@@ -1432,7 +1432,7 @@
 		<servlet-name>PrintAllEventCRFBySubjid</servlet-name>
 		<display-name>PrintAllEventCRFBySubjid</display-name>
 		<description>Print all the event CRF by subjid</description>
-		<servlet-class>org.akaza.openclinica.control.managestudy.PrintAllEventCRFBySubjid
+		<servlet-class>com.liteoc.control.managestudy.PrintAllEventCRFBySubjid
 		</servlet-class>
 	</servlet>
 

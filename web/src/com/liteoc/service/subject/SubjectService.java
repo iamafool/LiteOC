@@ -1,0 +1,141 @@
+package com.liteoc.service.subject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.liteoc.bean.core.Status;
+import com.liteoc.bean.login.UserAccountBean;
+import com.liteoc.bean.managestudy.StudyBean;
+import com.liteoc.bean.managestudy.StudySubjectBean;
+import com.liteoc.bean.managestudy.SubjectTransferBean;
+import com.liteoc.bean.submit.SubjectBean;
+import com.liteoc.core.SessionManager;
+import com.liteoc.dao.login.UserAccountDAO;
+import com.liteoc.dao.managestudy.StudyDAO;
+import com.liteoc.dao.managestudy.StudySubjectDAO;
+import com.liteoc.dao.submit.SubjectDAO;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+public class SubjectService implements SubjectServiceInterface {
+
+    protected final Logger logger = LoggerFactory.getLogger(getClass().getName());
+    SubjectDAO subjectDao;
+    StudySubjectDAO studySubjectDao;
+    UserAccountDAO userAccountDao;
+    StudyDAO studyDao;
+    DataSource dataSource;
+
+    public SubjectService(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    public SubjectService(SessionManager sessionManager) {
+        this.dataSource = sessionManager.getDataSource();
+    }
+
+    public List<StudySubjectBean> getStudySubject(StudyBean study) {
+        return getStudySubjectDao().findAllByStudy(study);
+
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see com.liteoc.service.subject.SubjectServiceInterface#createSubject(com.liteoc.bean.submit.SubjectBean,
+     * com.liteoc.bean.managestudy.StudyBean)
+     */
+    public String createSubject(SubjectBean subjectBean, StudyBean studyBean, Date enrollmentDate, String secondaryId) {
+        // studyBean = getStudyDao().findByUniqueIdentifier(studyBean.getIdentifier()); // Need to
+        if (subjectBean.getUniqueIdentifier() != null && getSubjectDao().findByUniqueIdentifier(subjectBean.getUniqueIdentifier()).getId() != 0) {
+            subjectBean = getSubjectDao().findByUniqueIdentifier(subjectBean.getUniqueIdentifier());
+        } else {
+            subjectBean.setStatus(Status.AVAILABLE);
+            subjectBean = getSubjectDao().create(subjectBean);
+        }
+
+        StudySubjectBean studySubject = createStudySubject(subjectBean, studyBean, enrollmentDate, secondaryId);
+        getStudySubjectDao().createWithoutGroup(studySubject);
+        return studySubject.getLabel();
+    }
+
+    private StudySubjectBean createStudySubject(SubjectBean subject, StudyBean studyBean, Date enrollmentDate, String secondaryId) {
+        StudySubjectBean studySubject = new StudySubjectBean();
+        studySubject.setSecondaryLabel(secondaryId);
+        studySubject.setOwner(getUserAccount());
+        studySubject.setEnrollmentDate(enrollmentDate);
+        studySubject.setLabel(subject.getLabel());
+        subject.setLabel(null);
+        studySubject.setSubjectId(subject.getId());
+        studySubject.setStudyId(studyBean.getId());
+        studySubject.setStatus(Status.AVAILABLE);
+        return studySubject;
+
+    }
+
+    public void validateSubjectTransfer(SubjectTransferBean subjectTransferBean) {
+        // TODO: Validate here
+    }
+
+    /**
+     * Getting the first user account from the database. This would be replaced by an authenticated user who is doing the SOAP requests .
+     * 
+     * @return UserAccountBean
+     */
+    private UserAccountBean getUserAccount() {
+
+        UserAccountBean user = new UserAccountBean();
+        user.setId(1);
+        return user;
+    }
+
+    /**
+     * @return the subjectDao
+     */
+    public SubjectDAO getSubjectDao() {
+        subjectDao = subjectDao != null ? subjectDao : new SubjectDAO(dataSource);
+        return subjectDao;
+    }
+
+    /**
+     * @return the subjectDao
+     */
+    public StudyDAO getStudyDao() {
+        studyDao = studyDao != null ? studyDao : new StudyDAO(dataSource);
+        return studyDao;
+    }
+
+    /**
+     * @return the subjectDao
+     */
+    public StudySubjectDAO getStudySubjectDao() {
+        studySubjectDao = studySubjectDao != null ? studySubjectDao : new StudySubjectDAO(dataSource);
+        return studySubjectDao;
+    }
+
+    /**
+     * @return the UserAccountDao
+     */
+    public UserAccountDAO getUserAccountDao() {
+        userAccountDao = userAccountDao != null ? userAccountDao : new UserAccountDAO(dataSource);
+        return userAccountDao;
+    }
+
+    /**
+     * @return the datasource
+     */
+    public DataSource getDataSource() {
+        return dataSource;
+    }
+
+    /**
+     * @param datasource
+     *            the datasource to set
+     */
+    public void setDatasource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+}

@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
 <script type="text/javascript" src="includes/wz_tooltip/wz_tooltip.js"></script>
 
 <jsp:include page="../include/submit-header-inactive.jsp"/>
@@ -15,7 +15,7 @@
 <jsp:include page="../include/submitSideInfo-inactive.jsp"/>
 
 <jsp:useBean scope="request" id="section" class=
-  "org.akaza.openclinica.bean.submit.DisplaySectionBean" />
+  "com.liteoc.bean.submit.DisplaySectionBean" />
 
 <%-- set button text depending on whether or not the user is confirming values --%>
 <c:choose>

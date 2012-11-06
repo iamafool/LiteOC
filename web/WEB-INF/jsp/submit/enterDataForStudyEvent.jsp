@@ -3,10 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:useBean scope='request' id='eventId' class='java.lang.String'/>
 <c:set var="eventId" value="${eventId}"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.workflow" var="resworkflow"/>
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
 <c:set var="dteFormat"><fmt:message key="date_format_string" bundle="${resformat}"/></c:set>
 
 <jsp:include page="../include/submit-header.jsp"/>
@@ -39,8 +39,8 @@
 
 <jsp:include page="../include/eventOverviewSideInfo.jsp"/>
 
-<jsp:useBean scope="request" id="studyEvent" class="org.akaza.openclinica.bean.managestudy.StudyEventBean" />
-<jsp:useBean scope="request" id="studySubject" class="org.akaza.openclinica.bean.managestudy.StudySubjectBean" />
+<jsp:useBean scope="request" id="studyEvent" class="com.liteoc.bean.managestudy.StudyEventBean" />
+<jsp:useBean scope="request" id="studySubject" class="com.liteoc.bean.managestudy.StudySubjectBean" />
 <jsp:useBean scope="request" id="uncompletedEventDefinitionCRFs" class="java.util.ArrayList" />
 <jsp:useBean scope="request" id="displayEventCRFs" class="java.util.ArrayList" />
 
@@ -477,13 +477,6 @@
             <c:set var="actionQuery" value="AdministrativeEditing?eventCRFId=${dec.eventCRF.id}" />
         </c:if>
     </c:if>
-
-        <%--
-                            <c:if test="${dec.locked}">
-                                locked
-                            </c:if>
-
-        --%>
 
     <c:choose>
         <c:when test='${actionQuery == "" && dec.stage.name =="invalid" }'>

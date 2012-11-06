@@ -2,20 +2,20 @@
 <!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
 <mapping>
 
-	<class name="org.akaza.openclinica.bean.submit.crfdata.ODMContainer">
+	<class name="com.liteoc.bean.submit.crfdata.ODMContainer">
         <map-to xml="ODM"/>
         
         <field name="CrfDataPostImportContainer"
-            type="org.akaza.openclinica.bean.submit.crfdata.CRFDataPostImportContainer">
+            type="com.liteoc.bean.submit.crfdata.CRFDataPostImportContainer">
             <bind-xml name="ClinicalData"/>
         </field>
     </class>
     
-	<class name="org.akaza.openclinica.bean.submit.crfdata.CRFDataPostImportContainer">
+	<class name="com.liteoc.bean.submit.crfdata.CRFDataPostImportContainer">
         <map-to xml="ClinicalData"/>
         
         <field name="SubjectData"
-            type="org.akaza.openclinica.bean.submit.crfdata.SubjectDataBean"
+            type="com.liteoc.bean.submit.crfdata.SubjectDataBean"
             collection="arraylist">
             <bind-xml name="SubjectData"/>
         </field>
@@ -28,7 +28,7 @@
         
     </class>
 
-	<class name="org.akaza.openclinica.bean.submit.crfdata.SubjectDataBean"> 
+	<class name="com.liteoc.bean.submit.crfdata.SubjectDataBean"> 
 		<map-to xml="SubjectData"/>
 		
 		<field name="SubjectOID"
@@ -37,13 +37,13 @@
        </field>
        
        <field name="StudyEventData"
-       		type="org.akaza.openclinica.bean.submit.crfdata.StudyEventDataBean"
+       		type="com.liteoc.bean.submit.crfdata.StudyEventDataBean"
        		collection="arraylist">
        		<bind-xml name="StudyEventData"/>
        	</field>
     </class>
     
-    <class name="org.akaza.openclinica.bean.submit.crfdata.StudyEventDataBean">
+    <class name="com.liteoc.bean.submit.crfdata.StudyEventDataBean">
     	<map-to xml="StudyEventData"/>
 		
 		<field name="StudyEventOID"
@@ -57,13 +57,13 @@
        </field>
        
        <field name="FormData"
-       		type="org.akaza.openclinica.bean.submit.crfdata.FormDataBean"
+       		type="com.liteoc.bean.submit.crfdata.FormDataBean"
        		collection="arraylist">
        		<bind-xml name="FormData"/>
        	</field>
     </class>
     
-    <class name="org.akaza.openclinica.bean.submit.crfdata.FormDataBean">
+    <class name="com.liteoc.bean.submit.crfdata.FormDataBean">
     	<map-to xml="FormData"/>
 		<field name="FormOID"
                type="java.lang.String">
@@ -71,13 +71,13 @@
        </field>
        
        <field name="ItemGroupData"
-       		type="org.akaza.openclinica.bean.submit.crfdata.ImportItemGroupDataBean"
+       		type="com.liteoc.bean.submit.crfdata.ImportItemGroupDataBean"
        		collection="arraylist">
        		<bind-xml name="ItemGroupData"/>
        	</field>
     </class>
     
-    <class name="org.akaza.openclinica.bean.submit.crfdata.ImportItemGroupDataBean">
+    <class name="com.liteoc.bean.submit.crfdata.ImportItemGroupDataBean">
     	<map-to xml="ItemGroupData"/>
 		<field name="ItemGroupOID"
                type="java.lang.String">
@@ -90,13 +90,13 @@
        </field>
        
        <field name="ItemData"
-       		type="org.akaza.openclinica.bean.submit.crfdata.ImportItemDataBean"
+       		type="com.liteoc.bean.submit.crfdata.ImportItemDataBean"
        		collection="arraylist">
        		<bind-xml name="ItemData"/>
        	</field>
     </class>
     
-    <class name="org.akaza.openclinica.bean.submit.crfdata.ImportItemDataBean">
+    <class name="com.liteoc.bean.submit.crfdata.ImportItemDataBean">
        <map-to xml="ItemData"/>
 	   <field name="ItemOID"
                type="java.lang.String">

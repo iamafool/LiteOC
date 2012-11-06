@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="reswords"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="reswords"/>
 <%--
 View
   Edit
@@ -88,12 +88,6 @@ View
                 </tr>
             </c:if>
         </table>
-
-        <div class="sidebar_tab_content">
-
-            <a href="#" onClick="openDefWindow('help/iconkey.html'); return false;"><fmt:message key="view_all_icons" bundle="${reswords}"/></a>
-
-        </div>
 
     </td>
 </tr>

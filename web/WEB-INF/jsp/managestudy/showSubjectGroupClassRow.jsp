@@ -3,10 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
 
 
-<jsp:useBean scope="request" id="currRow" class="org.akaza.openclinica.web.bean.StudyGroupClassRow" />
+<jsp:useBean scope="request" id="currRow" class="com.liteoc.web.bean.StudyGroupClassRow" />
 
 
 <tr valign="top">   

@@ -2,10 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
-<fmt:setBundle basename="org.akaza.openclinica.i18n.terms" var="resterm"/>
+<fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
+<fmt:setBundle basename="com.liteoc.i18n.workflow" var="resworkflow"/>
+<fmt:setBundle basename="com.liteoc.i18n.terms" var="resterm"/>
 
 <script type="text/javascript" language="JavaScript">
   <!--
@@ -35,13 +35,13 @@
 <jsp:include page="../include/sideInfo.jsp"/>
 
 
-<jsp:useBean scope='session' id='version' class='org.akaza.openclinica.bean.submit.CRFVersionBean'/>
-<jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
+<jsp:useBean scope='session' id='version' class='com.liteoc.bean.submit.CRFVersionBean'/>
+<jsp:useBean scope='session' id='userBean' class='com.liteoc.bean.login.UserAccountBean'/>
 <jsp:useBean scope='session' id='importedData' class='java.util.ArrayList'/>
 <jsp:useBean scope='session' id='subjectData' class='java.util.ArrayList'/>
 <jsp:useBean scope='session' id='validationErrors' class='java.util.HashMap'/>
 <jsp:useBean scope='session' id='hardValidationErrors' class='java.util.HashMap'/>
-<jsp:useBean scope='session' id='summaryStats' class='org.akaza.openclinica.bean.submit.crfdata.SummaryStatsBean'/>
+<jsp:useBean scope='session' id='summaryStats' class='com.liteoc.bean.submit.crfdata.SummaryStatsBean'/>
 <jsp:useBean scope='session' id='crfName' class='java.lang.String'/>
 
 

@@ -2,17 +2,17 @@
 <application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://www.zeroturnaround.com/alderaan/rebel-2_0.xsd">
 
 	<classpath>
-		<dir name="D:/workspace/java/OpenClinica-3.1.1-Community/projects/web/WEB-INF/classes">
+		<dir name="C:/workspace/java/OpenClinica-3.1.1-Community/projects/web/WEB-INF/classes">
 		</dir>
 	</classpath>
 
 	<web>
 		<link target="/">
-			<dir name="D:/workspace/java/OpenClinica-3.1.1-Community/projects/web">
+			<dir name="C:/workspace/java/OpenClinica-3.1.1-Community/projects/web">
 			</dir>
 		</link>
 		<link target="/">
-			<dir name="D:/workspace/java/OpenClinica-3.1.1-Community/projects/web">
+			<dir name="C:/workspace/java/OpenClinica-3.1.1-Community/projects/web">
 			</dir>
 		</link>
 	</web>

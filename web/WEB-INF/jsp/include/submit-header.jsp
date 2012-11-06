@@ -3,14 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/> 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/> 
-<fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/> 
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/> 
+<fmt:setBundle basename="com.liteoc.i18n.workflow" var="resworkflow"/> 
+<fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/> 
 
 
-<jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
-<jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean' />
-<jsp:useBean scope='session' id='userRole' class='org.akaza.openclinica.bean.login.StudyUserRoleBean' />
+<jsp:useBean scope='session' id='userBean' class='com.liteoc.bean.login.UserAccountBean'/>
+<jsp:useBean scope='session' id='study' class='com.liteoc.bean.managestudy.StudyBean' />
+<jsp:useBean scope='session' id='userRole' class='com.liteoc.bean.login.StudyUserRoleBean' />
 <jsp:useBean scope='request' id='isAdminServlet' class='java.lang.String' />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -68,10 +68,6 @@ onload="<jsp:include page="../include/showPopUp.jsp"/>"
 <table border="0" cellpadding="0" cellspacing="0" class="header">
 			<tr>
 				<td valign="top">
-
-<!-- Logo -->
-
-<!-- 	<div class="logo"><img src="images/Logo.gif"></div> -->
 
 <!-- Main Navigation -->
 
