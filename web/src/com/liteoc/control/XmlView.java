@@ -30,10 +30,11 @@ public class XmlView extends AbstractExportView {
         for (Object item : items) {
             rowcount++;
 
-            if (rowcount == 1)
+            if (rowcount == 1) {
                 data.append("" + ItemUtils.getItemValue(item, "ruleSetRuleId"));
-            else
+            } else {
                 data.append("," + ItemUtils.getItemValue(item, "ruleSetRuleId"));
+            }
 
         }
 

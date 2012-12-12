@@ -34,11 +34,11 @@ import com.liteoc.i18n.util.ResourceBundleProvider;
 public class SPSSReportBean extends ReportBean {
 
     protected final Logger logger = LoggerFactory.getLogger(getClass().getName());
-    private final static int FIRSTCASE = 2;
+    private static final int FIRSTCASE = 2;
 
-    private final static int FIRSTCASE_IND = 2;
+    private static final int FIRSTCASE_IND = 2;
 
-    private final static int COLUMNS_IND = FIRSTCASE_IND - 1;
+    private static final int COLUMNS_IND = FIRSTCASE_IND - 1;
 
     // YW 10-31-2007, more titles have been added because of additional
     // attrubutes added for extracting data\

@@ -182,8 +182,7 @@ public class ClinicalDataReportBean extends OdmXmlReportBean {
 
                                 String muRefOid = item.getMeasurementUnitRef().getElementDefOID();
                                 if (muRefOid != null && muRefOid.length() > 0) {
-                                    if (hasElm) {
-                                    } else {
+                                    if (!hasElm) {
                                         xml.append('>');
                                         xml.append(nls);
                                         hasElm = true;
@@ -196,8 +195,7 @@ public class ClinicalDataReportBean extends OdmXmlReportBean {
 
                                 if ("oc1.2".equalsIgnoreCase(ODMVersion) || "oc1.3".equalsIgnoreCase(ODMVersion)) {
                                     if (item.getAuditLogs() != null && item.getAuditLogs().getAuditLogs().size() > 0) {
-                                        if (hasElm) {
-                                        } else {
+                                        if (!hasElm) {
                                             xml.append('>');
                                             xml.append(nls);
                                             hasElm = true;
@@ -206,8 +204,7 @@ public class ClinicalDataReportBean extends OdmXmlReportBean {
                                     }
                                     //
                                     if (item.getDiscrepancyNotes() != null && item.getDiscrepancyNotes().getDiscrepancyNotes().size() > 0) {
-                                        if (hasElm) {
-                                        } else {
+                                        if (!hasElm) {
                                             xml.append('>');
                                             xml.append(nls);
                                             hasElm = true;

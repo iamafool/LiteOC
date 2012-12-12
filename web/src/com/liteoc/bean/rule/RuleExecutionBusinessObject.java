@@ -69,9 +69,6 @@ public class RuleExecutionBusinessObject {
         boolean sourceResult = true;// fireRule(sourceItemDataBean,rule.getSourceItemValue(),sourceItemFormMetadataBean,rule.getSourceOperator());
         boolean targetResult = true;// fireRule(targetItemDataBean,rule.getTargetItemValue(),targetItemFormMetadataBean,rule.getTargetOperator());
 
-        if (sourceResult && targetResult) {
-            // We are good
-        }
         if (sourceResult == true && targetResult == false) {
             // file a descrepancy Note
             createDiscrepancyNote(rule.toString(), targetItemDataBean, sourceItemDataBean);

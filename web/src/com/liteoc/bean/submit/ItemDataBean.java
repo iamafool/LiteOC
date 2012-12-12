@@ -62,8 +62,10 @@ public class ItemDataBean extends AuditableEntityBean {
     private int eventCRFId;
     private int itemId;
     private String value;// name will be null
+    private String value1;
 
-    private int ordinal;// for repeating items
+
+	private int ordinal;// for repeating items
 
     private boolean selected;// for construct data only
 
@@ -138,6 +140,15 @@ public class ItemDataBean extends AuditableEntityBean {
         this.value = value;
     }
 
+    public String getValue1() {
+		return value1;
+	}
+
+	public void setValue1(String value1) {
+		this.value1 = value1;
+	}
+
+	
     /**
      * @return the ordinal
      */

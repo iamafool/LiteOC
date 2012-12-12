@@ -1578,7 +1578,9 @@ function refreshSource(isRefresh, pattern) {
 
 
 
-
+function changeValue(inputTextId, targetValue) {
+	document.getElementById(inputTextId).value=targetValue;
+}
 
 
 

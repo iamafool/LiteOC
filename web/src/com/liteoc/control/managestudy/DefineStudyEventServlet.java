@@ -74,9 +74,6 @@ public class DefineStudyEventServlet extends SecureController {
      */
     @Override
     public void processRequest() throws Exception {
-        FormProcessor fpr = new FormProcessor(request);
-        // logger.info("actionName*******" + fpr.getString("actionName"));
-        // logger.info("pageNum*******" + fpr.getString("pageNum"));
 
         String actionName = request.getParameter("actionName");
         ArrayList crfsWithVersion = (ArrayList) session.getAttribute("crfsWithVersion");
@@ -307,8 +304,12 @@ public class DefineStudyEventServlet extends SecureController {
             } else {
                 edcBean.setRequiredCRF(false);
             }
-            if (!StringUtil.isBlank(doubleEntry) && "yes".equalsIgnoreCase(doubleEntry.trim())) {
+            if ("1".equalsIgnoreCase(doubleEntry.trim())) {
                 edcBean.setDoubleEntry(true);
+                edcBean.setDoubleEntryType(1);
+            } else if ("2".equalsIgnoreCase(doubleEntry.trim())){
+            	edcBean.setDoubleEntry(true);
+            	edcBean.setDoubleEntryType(2);
             } else {
                 edcBean.setDoubleEntry(false);
             }

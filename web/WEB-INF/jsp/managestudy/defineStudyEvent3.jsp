@@ -59,11 +59,15 @@
 
                             <td class="table_cell"><fmt:message key="required" bundle="${resword}"/>:<input type="checkbox" checked name="requiredCRF<c:out value="${count}"/>" value="yes"></td>
 
-                            <td class="table_cell"><fmt:message key="double_data_entry" bundle="${resword}"/>:<input type="checkbox" name="doubleEntry<c:out value="${count}"/>" value="yes"></td>
+                            <td class="table_cell"><fmt:message key="double_data_entry" bundle="${resword}"/>:
+                            	<select name="doubleEntry<c:out value="${count}"/>">
+                            		<option value="0"><fmt:message key="no" bundle="${resword}"/></option>
+                            		<option value="1"><fmt:message key="double_data_entry_type1" bundle="${resword}"/></option>
+                            		<option value="2"><fmt:message key="double_data_entry_type2" bundle="${resword}"/></option>
+                            	</select>
+                            </td>
 
                             <td class="table_cell"><fmt:message key="password_required" bundle="${resword}"/>:<input type="checkbox" name="electronicSignature<c:out value="${count}"/>" value="yes"></td>
-
-                                <%-- <td class="table_cell"><fmt:message key="enforce_decision_conditions" bundle="${restext}"/>:<input type="checkbox" name="decisionCondition<c:out value="${count}"/>"  checked value="yes"></td>--%>
 
                             <td class="table_cell" colspan="2"><fmt:message key="default_version" bundle="${resword}"/>:
 

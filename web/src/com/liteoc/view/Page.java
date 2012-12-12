@@ -520,12 +520,18 @@ public class Page {
     public final static Page INITIAL_DATA_ENTRY_SERVLET = new Page("/InitialDataEntry", "Initial Data Entry");
 
     public final static Page DOUBLE_DATA_ENTRY = new Page(path + "submit/doubleDataEntry.jsp", "Double Data Entry");
-    public final static Page DOUBLE_DATA_ENTRY_SERVLET = new Page("/DoubleDataEntry", "Double Data Entry");
+    public final static Page DOUBLE_DATA_ENTRY2 = new Page(path + "submit/doubleDataEntry2.jsp", "Double Data Entry");
 
+    public final static Page DOUBLE_DATA_ENTRY_SERVLET = new Page("/DoubleDataEntry", "Double Data Entry");
+    public final static Page DOUBLE_DATA_ENTRY_SERVLET2 = new Page("/DoubleDataEntry2", "Double Data Entry");
+    
     public final static Page MARK_EVENT_CRF_COMPLETE = new Page(path + "submit/markEventCRFComplete.jsp", "Mark Event CRF Complete");
 
     public final static Page ADMIN_EDIT = new Page(path + "submit/administrativeEditing.jsp", "Administrative Editing");
     public final static Page ADMIN_EDIT_SERVLET = new Page("/AdministrativeEditing", "Administrative Editing Servlet");
+
+    public final static Page ADMIN_EDIT2 = new Page(path + "submit/administrativeEditing2.jsp", "Administrative Editing");
+    public final static Page ADMIN_EDIT_SERVLET2 = new Page("/AdministrativeEditing2", "Administrative Editing Servlet");
 
     public final static Page LIST_USER_IN_STUDY = new Page(path + "managestudy/listUserInStudy.jsp", "list users in a study");
     public final static Page VIEW_USER_IN_STUDY = new Page(path + "managestudy/viewUserInStudy.jsp", "view a user in a study");

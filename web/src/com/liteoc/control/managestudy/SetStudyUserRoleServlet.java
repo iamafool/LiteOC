@@ -113,7 +113,7 @@ public class SetStudyUserRoleServlet extends SecureController {
                 sur.setUpdater(ub);
                 sur.setUpdatedDate(new Date());
                 udao.updateStudyUserRole(sur, userName);
-                addPageMessage(sendEmail(user, sur));
+                addPageMessage(respage.getString("action_success"));
                 forwardPage(Page.LIST_USER_IN_STUDY_SERVLET);
 
             }
@@ -121,29 +121,5 @@ public class SetStudyUserRoleServlet extends SecureController {
         }
     }
 
-    /**
-     * Send email to the user, director and administrator
-     *
-     * @param request
-     * @param response
-     */
-    private String sendEmail(UserAccountBean u, StudyUserRoleBean sub) throws Exception {
-
-        StudyDAO sdao = new StudyDAO(sm.getDataSource());
-        StudyBean study = (StudyBean) sdao.findByPK(sub.getStudyId());
-        logger.info("Sending email...");
-        String body =
-            u.getFirstName() + " " + u.getLastName() + " (" + resword.getString("username") + ": " + u.getName() + ") "
-                + respage.getString("has_been_granted_the_role") + " " + sub.getRole().getDescription() + " " + respage.getString("in_the_study_site") + " "
-                + study.getName() + ".";
-
-//        boolean emailSent = sendEmail(u.getEmail().trim(), respage.getString("set_user_role"), body, false);
-//        if (emailSent) {
-//            sendEmail(ub.getEmail().trim(), respage.getString("set_user_role"), body, false);
-//            sendEmail(EmailEngine.getAdminEmail(), respage.getString("set_user_role"), body, false);
-//        }
-        return body;
-
-    }
 
 }

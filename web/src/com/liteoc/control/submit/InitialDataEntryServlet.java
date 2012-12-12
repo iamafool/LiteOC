@@ -43,8 +43,6 @@ public class InitialDataEntryServlet extends DataEntryServlet {
     protected final Logger logger = LoggerFactory.getLogger(getClass().getName());
     Locale locale;
 
-    // < ResourceBundleresexception,respage;
-
     /*
      * (non-Javadoc)
      * 
@@ -82,9 +80,6 @@ public class InitialDataEntryServlet extends DataEntryServlet {
     protected DisplayItemBean validateDisplayItemBean(DiscrepancyValidator v, DisplayItemBean dib, String inputName, RuleValidator rv,
             HashMap<String, ArrayList<String>> groupOrdinalPLusItemOid, Boolean fireRuleValidation, ArrayList<String> messages, HttpServletRequest request) {
 
-        ItemBean ib = dib.getItem();
-        com.liteoc.bean.core.ResponseType rt = dib.getMetadata().getResponseSet().getResponseType();
-
         // note that this step sets us up both for
         // displaying the data on the form again, in the event of an error
         // and sending the data to the database, in the event of no error
@@ -93,12 +88,6 @@ public class InitialDataEntryServlet extends DataEntryServlet {
             dib = loadFormValue(dib, request);
         }
 
-        // types TEL and ED are not supported yet
-        if (rt.equals(com.liteoc.bean.core.ResponseType.TEXT) || rt.equals(com.liteoc.bean.core.ResponseType.TEXTAREA)) {
-            // dib = validateDisplayItemBeanText(v, dib, inputName);
-        } else if (rt.equals(com.liteoc.bean.core.ResponseType.RADIO) || rt.equals(com.liteoc.bean.core.ResponseType.SELECT)) {
-            // dib = validateDisplayItemBeanSingleCV(v, dib, inputName);
-        }
         if (groupOrdinalPLusItemOid.containsKey(dib.getItem().getOid()) || fireRuleValidation) {
             messages = messages == null ? groupOrdinalPLusItemOid.get(dib.getItem().getOid()) : messages;
             dib = validateDisplayItemBeanSingleCV(rv, dib, inputName, messages);

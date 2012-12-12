@@ -30,7 +30,7 @@ import java.util.Date;
 
 public class DisplayEventCRFBean implements Comparable {
 
-    protected final static Logger logger = LoggerFactory.getLogger(DisplayEventCRFBean.class.getName());
+    protected static final Logger logger = LoggerFactory.getLogger(DisplayEventCRFBean.class.getName());
 
     private EventDefinitionCRFBean eventDefinitionCRF;
     private EventCRFBean eventCRF;
@@ -175,8 +175,7 @@ public class DisplayEventCRFBean implements Comparable {
             if (isEditor) {
                 performAdministrativeEditingPermitted = true;
             }
-        } else if (stage.equals(DataEntryStage.INVALID)) {
-        }
+        } 
     }
 
 

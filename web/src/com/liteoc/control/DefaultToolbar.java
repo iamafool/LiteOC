@@ -44,11 +44,6 @@ public class DefaultToolbar extends AbstractToolbar {
 
         boolean filterable = ViewUtils.isFilterable(columns);
 
-        if (filterable) {
-            //addToolbarItem(ToolbarItemType.SEPARATOR);
-            //addToolbarItem(ToolbarItemType.FILTER_ITEM);
-            //addToolbarItem(ToolbarItemType.CLEAR_ITEM);
-        }
 
         boolean editable = ViewUtils.isEditable(getCoreContext().getWorksheet());
 

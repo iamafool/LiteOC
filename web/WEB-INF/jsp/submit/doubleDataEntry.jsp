@@ -189,17 +189,6 @@ margin-top:20px; updateTabs(<c:out value="${tabId}"/>);--%>
        Woops, you forgot to provide a value for
        <strong><label for="formElementName">formElementName</label></strong>.<br/>-->
     </div>
-
-    <%-- <div id="errorMessagesContainer" class="aka_err_message">
-        <ul>
-            <c:forEach var="formMsg" items="${formMessages}">
-                <li style="color:  #ff0000"><span style="text-decoration: underline"><strong>
-                    <label onclick="getFocused('<c:out value="${formMsg.key}" />');"><c:out value="${formMsg.value}" /></label>
-                </strong></span></li>
-            </c:forEach>
-        </ul>
-    </div> --%>
-	<%-- tbh << 04/2010 --%>
 </c:if><%-- error messages are not null --%>
 <div id="box" class="dialog" style="display:none;">
 <span id="mbm">

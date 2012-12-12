@@ -110,6 +110,7 @@ public class ItemDataDAO extends AuditableEntityDAO {
         this.setTypeExpected(9, TypeNames.INT);// update id
         this.setTypeExpected(10, TypeNames.INT);// ordinal
         this.setTypeExpected(11, TypeNames.INT);// ordinal
+        this.setTypeExpected(12, TypeNames.STRING);
     }
 
     public EntityBean update(EntityBean eb) {
@@ -420,6 +421,7 @@ public class ItemDataDAO extends AuditableEntityDAO {
         eb.setStatus(Status.get(((Integer) hm.get("status_id")).intValue()));
         eb.setOrdinal(((Integer) hm.get("ordinal")).intValue());
         eb.setOldStatus(Status.get(hm.get("old_status_id") == null ? 1 : ((Integer) hm.get("old_status_id")).intValue()));
+        eb.setValue1((String) hm.get("value1"));
         return eb;
     }
 
@@ -715,5 +717,36 @@ public class ItemDataDAO extends AuditableEntityDAO {
         }
         return vals;
     }
+
+	/**
+	 * This will update item data value
+	 * 
+	 * @param eb
+	 * @return
+	 */
+	public EntityBean updateValue1(EntityBean eb) {
+	    ItemDataBean idb = (ItemDataBean) eb;
+	
+	    ItemDataType dataType = getDataType(idb.getItemId());
+	    if (dataType.equals(ItemDataType.DATE)) {
+	        idb.setValue(Utils.convertedItemDateValue(idb.getValue(), local_df_string, oc_df_string));
+	    } else if (dataType.equals(ItemDataType.PDATE)) {
+	        idb.setValue(formatPDate(idb.getValue()));
+	    }
+	
+	    idb.setActive(false);
+	
+	    HashMap<Integer, Comparable> variables = new HashMap<Integer, Comparable>();
+	    variables.put(new Integer(1), idb.getValue());
+	    variables.put(new Integer(2), new Integer(idb.getUpdaterId()));
+	    variables.put(new Integer(3), new Integer(idb.getId()));
+	    this.execute(digester.getQuery("updateValue1"), variables);
+	
+	    if (isQuerySuccessful()) {
+	        idb.setActive(true);
+	    }
+	
+	    return idb;
+	}
 
 }

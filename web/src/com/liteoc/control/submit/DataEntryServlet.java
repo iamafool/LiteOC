@@ -121,7 +121,6 @@ import javax.sql.DataSource;
 public abstract class DataEntryServlet extends CoreSecureController {
 
     Locale locale;
-    // < ResourceBundleresmessage,restext,resexception,respage;
 
     // these inputs come from the form, from another JSP via POST,
     // or from another JSP via GET
@@ -247,12 +246,6 @@ public abstract class DataEntryServlet extends CoreSecureController {
      */
     @Override
     protected abstract void mayProceed(HttpServletRequest request, HttpServletResponse response) throws InsufficientPermissionException;
-
-    /*
-     * locale = request.getLocale(); //< resmessage = ResourceBundle.getBundle("com.liteoc.i18n.page_messages" ,locale); //< restext =
-     * ResourceBundle.getBundle("com.liteoc.i18n.notes",locale); //< resexception =ResourceBundle.getBundle("com.liteoc.i18n.exceptions"
-     * ,locale);
-     */
 
     /*
      * (non-Javadoc)
@@ -390,15 +383,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
             request.setAttribute("fromViewNotes", fromViewNotes);
         }
 
-        // Not necessary: } catch (NullPointerException npe) {
-        // temp fix, jun please address the above problems
-        // try to check if dn and dn. geResStatus are not null-jxu
-        // npe.printStackTrace();
-        /*
-         * request.setAttribute("updatedNum", "0"); request.setAttribute("openNum", "0"); request.setAttribute("closedNum", "0");
-         * request.setAttribute("resolvedNum", "0"); request.setAttribute("notAppNum", "0");
-         */
-        // }
+
         logMe("Entering Create studySubjDao.. ++++stuff"+System.currentTimeMillis());
         StudySubjectDAO ssdao = new StudySubjectDAO(getDataSource());
         StudySubjectBean ssb = (StudySubjectBean) ssdao.findByPK(ecb.getStudySubjectId());
@@ -445,7 +430,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
             }
             session.removeAttribute("newUploadedFiles");
             addPageMessage(respage.getString("exit_without_saving"), request);
-            // addPageMessage("You chose to exit the data entry page.");
+
             // changed bu jxu 03/06/2007- we should use redirection to go to
             // another servlet
             if(fromViewNotes!=null && "1".equals(fromViewNotes)) {
@@ -610,9 +595,8 @@ public abstract class DataEntryServlet extends CoreSecureController {
         logMe("Entering Checks !submitted  "+System.currentTimeMillis());
         if (!isSubmitted) {
             // TODO: prevent data enterer from seeing results of first round of
-            // data
-            // entry, if this is second round
-// FLAG--SLOW HERE WHEN LOADING
+            // data entry, if this is second round
+            // FLAG--SLOW HERE WHEN LOADING
             logMe("Entering Checks !submitted entered  "+System.currentTimeMillis());
             long t = System.currentTimeMillis();
             request.setAttribute(BEAN_DISPLAY, section);
@@ -622,12 +606,6 @@ public abstract class DataEntryServlet extends CoreSecureController {
             session.setAttribute(DataEntryServlet.NOTE_SUBMITTED, null);
 
             discNotes = new FormDiscrepancyNotes();
-            
-            //            discNotes = (FormDiscrepancyNotes) session.getAttribute(AddNewSubjectServlet.FORM_DISCREPANCY_NOTES_NAME);
-            //            if (discNotes == null) {
-            //                discNotes = new FormDiscrepancyNotes();
-            //            }
-            // << tbh 01/2010
             
             section = populateNotesWithDBNoteCounts(discNotes, section, request);
             logger.debug("+++ just ran populateNotes, printing field notes: " + discNotes.getFieldNotes().toString());
@@ -660,7 +638,6 @@ public abstract class DataEntryServlet extends CoreSecureController {
             forwardPage(getJSPPage(), request, response);
             return;
         } else {
-            logMe("Entering Checks !submitted not entered  "+System.currentTimeMillis());
             //
             // VALIDATION / LOADING DATA
             //
@@ -840,27 +817,10 @@ public abstract class DataEntryServlet extends CoreSecureController {
             }
             logMe(" Validate and Loop end  "+System.currentTimeMillis());
            
-            // this.getItemMetadataService().resetItemCounter();
+
             HashMap<String, ArrayList<String>> groupOrdinalPLusItemOid  = null;
             groupOrdinalPLusItemOid = runRules(allItems, ruleSets, true, shouldRunRules, MessageType.ERROR, phase2,ecb, request);
-          /*  if(( List<DisplayItemWithGroupBean>)session.getAttribute(ALL_ITEMS_LIST)==null)
-            {
-                 groupOrdinalPLusItemOid = runRules(allItems, ruleSets, true, shouldRunRules(), MessageType.ERROR, phase2,ecb, request);
-                 session.setAttribute(ALL_ITEMS_LIST, allItems);
-                 session.setAttribute("groupOrdinalPLusItemOid", groupOrdinalPLusItemOid);
-            }
-            else {
-                if( ((List<DisplayItemWithGroupBean>)session.getAttribute(ALL_ITEMS_LIST)).equals( allItems)){
-                    groupOrdinalPLusItemOid = (HashMap<String, ArrayList<String>> )session.getAttribute("groupOrdinalPLusItemOid");
-                }
-                else{
-                    groupOrdinalPLusItemOid = runRules(allItems, ruleSets, true, shouldRunRules(), MessageType.ERROR, phase2,ecb, request);
-                    session.setAttribute(ALL_ITEMS_LIST, allItems);
-                    session.setAttribute("groupOrdinalPLusItemOid", groupOrdinalPLusItemOid);
-                }
-                
-            }*/
-            ////System.out.println("first run of rules : " + groupOrdinalPLusItemOid.toString());
+
             logMe("allItems  Loop begin  "+System.currentTimeMillis());
             for (int i = 0; i < allItems.size(); i++) {
                 DisplayItemWithGroupBean diwg = allItems.get(i);
@@ -1385,30 +1345,11 @@ public abstract class DataEntryServlet extends CoreSecureController {
                     String fieldName = iter2.next().toString();
                     logger.debug("found error " + fieldName);
                 }
-                //                for (int i = 0; i < allItems.size(); i++) {
-                //                    DisplayItemWithGroupBean diwb = allItems.get(i);
-                //
-                //                    if (diwb.isInGroup()) {
-                //                        List<DisplayItemGroupBean> dgbs = diwb.getItemGroups();
-                //                        logger.debug("found manual rows " + getManualRows(dgbs) + " and total rows " + dgbs.size() + " from ordinal " + diwb.getOrdinal());
-                //                    }
-                //                }
 
                 errors = reshuffleErrorGroupNamesKK(errors, allItems, request);
                 // reset manual rows, so that we can catch errors correctly
                 // but it needs to be set per block of repeating items?  what if there are two or more?
 
-                /*
-                int manualRows = 0; // getManualRows(formGroups);
-                for (int i = 0; i < allItems.size(); i++) {
-                    DisplayItemWithGroupBean diwb = allItems.get(i);
-
-                    if (diwb.isInGroup()) {
-                        List<DisplayItemGroupBean> dgbs = diwb.getItemGroups();
-                        manualRows = getManualRows(dgbs);
-                    }
-                }
-                */
                 //request.setAttribute("manualRows", new Integer(manualRows));
                 Iterator iter3 = errors.keySet().iterator();
                 while (iter3.hasNext()) {
@@ -1425,15 +1366,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
                 setInputMessages(errors, request);
                 addPageMessage(respage.getString("errors_in_submission_see_below"), request);
                 request.setAttribute("hasError", "true");
-                // addPageMessage("To override these errors and keep the data as
-                // you
-                // entered it, click one of the \"Confirm\" buttons. ");
-                // if (section.isCheckInputs()) {
-                // addPageMessage("Please notice that you must enter data for
-                // the
-                // <b>required</b> entries.");
-                // }
-                // we do not save any DNs if we get here, so we have to set it back into session...
+
                 session.setAttribute(AddNewSubjectServlet.FORM_DISCREPANCY_NOTES_NAME, discNotes);
                 // << tbh 01/2010
                 setUpPanel(section);
@@ -1462,10 +1395,6 @@ public abstract class DataEntryServlet extends CoreSecureController {
                     ecb.setValidatorId(ub.getId());
 
                 }
-                /*
-                 * if(studyEventBean.getSubjectEventStatus().equals(SubjectEventStatus .SIGNED)){ if(edcBean.isDoubleEntry()){
-                 * ecb.setStage(DataEntryStage.DOUBLE_DATA_ENTRY_COMPLETE); }else{ ecb.setStage(DataEntryStage.INITIAL_DATA_ENTRY_COMPLETE); } }
-                 */
 
                 // for Administrative editing
                 if (studyEventBean.getSubjectEventStatus().equals(SubjectEventStatus.SIGNED) && changedItemsList.size() > 0) {
@@ -1511,7 +1440,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
 
                 logger.debug("all items before saving into DB" + allItems.size());
                 this.output(allItems);
-//TODO:Seems longer here, check this
+                //TODO:Seems longer here, check this
                 logMe("DisplayItemWithGroupBean allitems4 "+System.currentTimeMillis());
                 for (int i = 0; i < allItems.size(); i++) {
                     DisplayItemWithGroupBean diwb = allItems.get(i);
@@ -1810,20 +1739,6 @@ public abstract class DataEntryServlet extends CoreSecureController {
                 }
 
                 if (!inSameSection) {// else if not in same section, progress as usual
-                    /*
-                    toc =
-                        TableOfContentsServlet.getDisplayBeanWithShownSections(getDataSource(), (DisplayTableOfContentsBean) request.getAttribute(TOC_DISPLAY),
-                                (DynamicsMetadataService) SpringServletAccess.getApplicationContext(getServletContext()).getBean("dynamicsMetadataService"));
-                    request.setAttribute(TOC_DISPLAY, toc);
-                    sectionIdsInToc = TableOfContentsServlet.sectionIdsInToc(toc);
-                    sIndex = TableOfContentsServlet.sectionIndexInToc(section.getSection(), toc, sectionIdsInToc);
-                    previousSec = this.prevSection(section.getSection(), ecb, toc, sIndex);
-                    nextSec = this.nextSection(section.getSection(), ecb, toc, sIndex);
-                    section.setFirstSection(!previousSec.isActive());
-                    section.setLastSection(!nextSec.isActive());
-                    */
-                    // can we just forward page or do we actually need an ELSE here?
-                    // yes, we do. tbh 05/03/2010
 
                     ArrayList<String> updateFailedItems = sc.redoCalculations(scoreItems, scoreItemdata, changedItems, itemOrdinals, sb.getId());
                     success = updateFailedItems.size() > 0 ? false : true;
@@ -1995,9 +1910,6 @@ public abstract class DataEntryServlet extends CoreSecureController {
                                 forwardPage(getServletPage(request), request, response);
                               
                             }
-                            // session.removeAttribute(AddNewSubjectServlet.
-                            // FORM_DISCREPANCY_NOTES_NAME);
-                            // forwardPage(Page.SUBMIT_DATA_SERVLET);
                         }
                     }
                 }// end of if-block for dynamic rules not in same section, tbh 05/2010
@@ -2027,18 +1939,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
              */
             HashMap<Integer, Boolean> noteSubmitted = (HashMap<Integer, Boolean>) session.getAttribute(DataEntryServlet.NOTE_SUBMITTED);
             if (noteSubmitted == null || noteSubmitted.get(idb.getId()) == null || !(Boolean) noteSubmitted.get(idb.getId())) {
-                  //There would be no exception for Reason for change discrepancy notes.issue-5056.
-//                boolean hasRfcAlready = false;
-//                ArrayList<DiscrepancyNoteBean> notes = dndao.findExistingNotesForItemData(idb.getId());
-//                for (DiscrepancyNoteBean note : notes) {
-//                    if (note.getDiscrepancyNoteTypeId() == DiscrepancyNoteType.REASON_FOR_CHANGE.getId()) {
-//                        hasRfcAlready = true;
-//                        logger.debug("has Rfc already: " + formName + " note id " + note.getId());
-//                    }
-//                }
-//                if (!hasRfcAlready) {
                     errors.put(formName, error);
-//                }
             } else {
                 logger.debug("found note in session");
                 logger.debug("has a note in db: entered an error here: " + formName + ": " + errors.toString());
@@ -2487,33 +2388,12 @@ public abstract class DataEntryServlet extends CoreSecureController {
         logger.trace("+++ starting to review groups 3: " + repeatMax);
         two = System.currentTimeMillis() - timeCheck;
         logger.trace("time 3: " + two + "ms");
-        // >>TBH taking the nullvalues list out of the for loop, since it should
-        // be the same for all display beans
-        // nullValuesList = formBeanUtil.getNullValuesByEventCRFDefId(
-        // eventDefCRFId,
-        // getDataSource());
-        /*
-         * logger.trace("+++ count for null values list: " + nullValuesList.size()); logger.trace(nullValuesList.toString() + " found with " + eventDefCRFId);
-         */
 
         // had the call to form bean utils here, tbh
         for (int i = 0; i < repeatMax; i++) {
             DisplayItemGroupBean formGroup = new DisplayItemGroupBean();
             formGroup.setItemGroupBean(digb.getItemGroupBean());
 
-            //            try {
-            //                // set isShown here, tbh 04/2010
-            //                boolean showGroup = getItemMetadataService().isGroupShown(digb.getGroupMetaBean().getId(), ecb);
-            //                logger.debug("found show group for group meta bean " + digb.getGroupMetaBean().getId() + ": " + showGroup);
-            //                if (showGroup) {
-            //                    digb.getGroupMetaBean().setShowGroup(showGroup);
-            //                    // we are only hiding, not showing (for now) tbh
-            //                }
-            //                // << tbh 04/2010
-            //            } catch (OpenClinicaException oce) {
-            //                // do nothing for right now, just store the bean
-            //                logger.debug("throws an OCE for " + digb.getGroupMetaBean().getId());
-            //            }
             formGroup.setGroupMetaBean(runDynamicsCheck(digb.getGroupMetaBean(), request));
             ItemGroupBean igb = digb.getItemGroupBean();
             // adding this code from below, since we want to pass a null values
@@ -2604,14 +2484,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
         // model
 
         int manualRows = getManualRows(formGroups);
-        // for (int j = 0; j < formGroups.size(); j++) {
-        // DisplayItemGroupBean formItemGroup = formGroups.get(j);
-        // // logger.trace("begin formGroup Ordinal:" +
-        // // formItemGroup.getOrdinal());
-        // if (formItemGroup.isAuto() == false) {
-        // manualRows = manualRows + 1;
-        // }
-        // }
+
         logger.debug(" manual rows " + manualRows + " formGroup size " + formGroups.size());
 
         request.setAttribute("manualRows", new Integer(manualRows));
@@ -2755,14 +2628,8 @@ public abstract class DataEntryServlet extends CoreSecureController {
         ItemFormMetadataBean ibMeta = dib.getMetadata();
         ItemDataBean idb = dib.getData();
         if (StringUtil.isBlank(idb.getValue())) {
-            //if (ibMeta.isRequired() && showSCDItemIds.contains(ibMeta.getId())) {
             if (ibMeta.isRequired() && dib.getIsSCDtoBeShown()) {
                 v.addValidation(this.getInputName(dib), Validator.IS_REQUIRED);
-                /*if(dib.getIsSCDtoBeShown()) {
-                    v.addValidation(this.getInputName(dib), Validator.IS_REQUIRED);
-                } else {
-                    validateShownSCDToBeHiddenSingle(v,dib);
-                }*/
             }
         } else {
             validateShownSCDToBeHiddenSingle(v,dib);
@@ -2924,17 +2791,10 @@ public abstract class DataEntryServlet extends CoreSecureController {
                     v.addValidation(inputName, Validator.IS_VALID_WIDTH_DECIMAL, params);
                     v.alwaysExecuteLastValidation(inputName);
                 }
-                // >> tbh 4/30/2010 #4963 removing custom validations firing during AE
-
+ 
                 customValidation(v, dib, inputName);
 
-                /*
-                 * if (!StringUtil.isBlank(customValidationString)) { Validation customValidation = null; if (customValidationString.startsWith("func:")) { try
-                 * { customValidation = Validator.processCRFValidationFunction(customValidationString ); } catch (Exception e) { e.printStackTrace(); } } else
-                 * if (customValidationString.startsWith("regexp:")) { try { customValidation = Validator.processCRFValidationRegex(customValidationString); }
-                 * catch (Exception e) { } } if (customValidation != null) { customValidation .setErrorMessage(dib.getMetadata().getRegexpErrorMsg());
-                 * v.addValidation(inputName, customValidation); } }
-                 */
+
             }
         }
         return dib;
@@ -3080,7 +2940,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
             if (getServletPage(request).equals(Page.DOUBLE_DATA_ENTRY_SERVLET)) {
                     if (!dib.getMetadata().isShowItem() && !(dib.getScdData().getScdItemMetadataBean().getScdItemFormMetadataId()>0) &&
                                     idb.getValue().equals("") &&
-                                    !getItemMetadataService().hasPassedDDE(dib.getMetadata(), ecb, idb)) {//(dib.getItem().getId(), ecb, idb)) {// && !getItemMetadataService().isShown(dib.getItem().getId(), ecb, dib.getData())) {
+                                    !getItemMetadataService().hasPassedDDE(dib.getMetadata(), ecb, idb)) {
                             logger.debug("*** not shown - not writing for idb id " + dib.getData().getId() + " and item id " + dib.getItem().getId());
                             return true;
                     }
@@ -4064,70 +3924,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
         ArrayList nonRequiredCrfIds = new ArrayList();
         ArrayList requiredCrfIds = new ArrayList();
         
-        // go through the list and find out if all are required, tbh
-/*        for (int ii = 0; ii < allEDCs.size(); ii++) {
-            EventDefinitionCRFBean edcBean = (EventDefinitionCRFBean) allEDCs.get(ii);
-            if (!edcBean.isRequiredCRF()) {
-                logger.trace("found one non required CRF: " + edcBean.getCrfName() + " " + edcBean.getCrfId() + " " + edcBean.getDefaultVersionName());
-                allRequired = false;
-                nonRequiredCrfIds.add(new Integer(edcBean.getCrfId()));
-                allEDCsize--;
-            }
-            if (edcBean.isRequiredCRF()) {
-                logger.trace("found one non required CRF: " + edcBean.getCrfName() + " " + edcBean.getCrfId() + " " + edcBean.getDefaultVersionName());
-                            requiredCrfIds.add(new Integer(edcBean.getCrfId()));
-              
-            }
-            
-        }
-     */   
-        //JN: Add another loop to get list of all required crfs
         
-        
-       // logger.trace("non required crf ids: " + nonRequiredCrfIds.toString());
-        // go through all the crfs and check their status
-        // add an additional check to see if it is required or not, tbh
-    /*    for (int i = 0; i < allCRFs.size(); i++) {
-            EventCRFBean ec = (EventCRFBean) allCRFs.get(i);
-            logger.trace("-- looking at a CRF: " + ec.getName() + " " + ec.getCrf().getName() + " " + ec.getCrf().getId());
-            // if clause kind of not right since none of the above fields are
-            // set in the dao, tbh
-            if (!ec.getStatus().equals(Status.UNAVAILABLE) && ec.getDateInterviewed() != null) { // &&
-                // (!nonRequiredCrfIds.contains(new
-                // Integer(ec.getCrf().getId())))) {
-                eventCompleted = false;
-                logger.trace("just rejected eventCompleted looking at a CRF: " + ec.getName());
-                break;
-            }
-            
-        }
-        int reqCRFCNTR = 0;
-        //JN: The following logic is to iterate through all crfs to see if all are marked as done, if not allcrfsflag will be set to false.
-        for (int i = 0; i < allCRFs.size(); i++) {
-            EventCRFBean ec = (EventCRFBean) allCRFs.get(i);
-            logger.trace("-- looking at a CRF: " + ec.getName() + " " + ec.getCrf().getName() + " " + ec.getCrf().getId());
-            //System.out.println("-- looking at a CRF: " + ec.getName() + " " + ec.getCrf().getName() + " " + ec.getCrf().getId());
-            // if clause kind of not right since none of the above fields are
-            // set in the dao, tbh
-           CRFVersionBean crfVersionBean = (CRFVersionBean) crfversionDao.findByPK(ec.getCRFVersionId());
-           int crfId = crfVersionBean.getCrfId();
-           
-            
-            if (ec.getStatus().equals(Status.UNAVAILABLE) // && requiredCrfIds.contains(new Integer(crfId))
-                    ) { // &&
-                allCrfsCompleted = true;
-                logger.trace("just rejected eventCompleted looking at a CRF: " + ec.getName());
-                reqCRFCNTR++;
-           //     break;
-            }
-            
-        }
-      //  if (requiredCrfIds.size()==0) allCrfsCompleted = true;// Incase none of the crfs are required.
-       // else if(reqCRFCNTR!=requiredCrfIds.size()) allCrfsCompleted = false;
-        
-        if (!allRequired) {
-            logger.trace("SEB contains some nonrequired CRFs: " + allEDCsize + " vs " + allEDCs.size());
-        }*/
 
         if ( allCRFs.size() == allEDCs.size()) {// was
             // allEDCs.size(),
@@ -4137,15 +3934,6 @@ public abstract class DataEntryServlet extends CoreSecureController {
           
                 seb.setSubjectEventStatus(SubjectEventStatus.COMPLETED);
           
-            /*else if (!allRequired && allEDCsize != 0) {// what if there are no// TODO:
-                // required CRFs, and all
-                // CRFs have been finished?
-                addPageMessage(respage.getString("CRF_completed"), request);
-            }*/ 
-             /*if (!edcb.isDoubleEntry()){ //TODO: perhaps this logic can go... JN check later
-                logger.trace("just set subj event status to -- COMPLETED --");
-                seb.setSubjectEventStatus(SubjectEventStatus.COMPLETED);
-            }*/
         }
 
         seb = (StudyEventBean) sedao.update(seb);
@@ -4250,19 +4038,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
                     idb.setValue("");
                     boolean save = true;
                     if(itemBean.size()>0) save = false;
-                   /* while(itemBean.iterator().hasNext())
-                    {
-                       
-                        ItemDataBean temp = itemBean.iterator().next();
-                       if(idb.getEventCRFId()==(temp.getEventCRFId()))
-                       {
-                           if(idb.getItemId()==(temp.getItemId())){
-                              save = false; 
-                           }
-                       }
-                     
-                           
-                    }*/
+
                     if(save)
                     {
                         iddao.create(idb);
@@ -4467,10 +4243,7 @@ public abstract class DataEntryServlet extends CoreSecureController {
             if (data != null && data.size() > 0) {
                 session.setAttribute(HAS_DATA_FLAG, true);
             }
-            // logger.trace("how many groups:" +
-            // dsb.getDisplayFormGroups().size());
-            // logger.trace("just got data using section id " + sb.getId() + "
-            // and event crf id " + ecb.getId());
+
             logger.trace("found data: " + data.size());
             logger.trace("data.toString: " + data.toString());
 
@@ -4583,13 +4356,6 @@ public abstract class DataEntryServlet extends CoreSecureController {
         }// if hasItemGroup
         Collections.sort(displayItemWithGroups);
 
-        // add null values to displayitems in the itemGroups of
-        // DisplayItemWithGroupBeans;
-        // These item groups are used by the data entry screens
-        /*
-         * if(nullValuesList != null && (! nullValuesList.isEmpty())) { formBeanUtil.addNullValuesToDisplayItemWithGroupBeans( displayItemWithGroups,
-         * nullValuesList); }
-         */
         return displayItemWithGroups;
     }
     

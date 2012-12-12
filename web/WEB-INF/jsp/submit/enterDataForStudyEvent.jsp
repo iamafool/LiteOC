@@ -11,8 +11,8 @@
 
 <jsp:include page="../include/submit-header.jsp"/>
 
-<script type="text/JavaScript" language="JavaScript" src="includes/jmesa/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" language="javascript">
+<script type="text/javaScript" src="includes/jmesa/jquery-1.3.2.min.js"></script>
+<script type="text/javascript">
     function checkCRFLocked(ecId, url){
         jQuery.post("CheckCRFLocked?ecId="+ ecId + "&ran="+Math.random(), function(data){
             if(data == 'true'){
@@ -466,15 +466,30 @@
         </c:if>
 
         <c:if test="${dec.startDoubleDataEntryPermitted}">
-            <c:set var="actionQuery" value="DoubleDataEntry?eventCRFId=${dec.eventCRF.id}" />
+        	<c:if test="${dec.eventDefinitionCRF.doubleEntryType==1}">
+            	<c:set var="actionQuery" value="DoubleDataEntry?eventCRFId=${dec.eventCRF.id}" />
+            </c:if>
+            <c:if test="${dec.eventDefinitionCRF.doubleEntryType==2}">
+            	<c:set var="actionQuery" value="DoubleDataEntry2?eventCRFId=${dec.eventCRF.id}" />
+            </c:if>
         </c:if>
 
         <c:if test="${dec.continueDoubleDataEntryPermitted}">
-            <c:set var="actionQuery" value="DoubleDataEntry?eventCRFId=${dec.eventCRF.id}" />
+        	<c:if test="${dec.eventDefinitionCRF.doubleEntryType==1}">
+            	<c:set var="actionQuery" value="DoubleDataEntry?eventCRFId=${dec.eventCRF.id}" />
+            </c:if>
+            <c:if test="${dec.eventDefinitionCRF.doubleEntryType==2}">
+            	<c:set var="actionQuery" value="DoubleDataEntry2?eventCRFId=${dec.eventCRF.id}" />
+            </c:if>
         </c:if>
 
         <c:if test="${dec.performAdministrativeEditingPermitted}">
-            <c:set var="actionQuery" value="AdministrativeEditing?eventCRFId=${dec.eventCRF.id}" />
+        	<c:if test="${dec.eventDefinitionCRF.doubleEntryType==1}">        
+            	<c:set var="actionQuery" value="AdministrativeEditing?eventCRFId=${dec.eventCRF.id}" />
+            </c:if>
+        	<c:if test="${dec.eventDefinitionCRF.doubleEntryType==2}">        
+            	<c:set var="actionQuery" value="AdministrativeEditing2?eventCRFId=${dec.eventCRF.id}" />
+            </c:if>            
         </c:if>
     </c:if>
 

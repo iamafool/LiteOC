@@ -709,6 +709,14 @@
 		<servlet-class>com.liteoc.control.submit.DoubleDataEntryServlet
 		</servlet-class>
 	</servlet>
+
+	<servlet>
+		<servlet-name>DoubleDataEntryServlet2</servlet-name>
+		<display-name>DoubleDataEntry2</display-name>
+		<servlet-class>com.liteoc.control.submit.DoubleDataEntryServlet2
+		</servlet-class>
+	</servlet>
+
 	<servlet>
 		<servlet-name>ListSiteServlet</servlet-name>
 		<display-name>ListSite</display-name>
@@ -1073,6 +1081,12 @@
 		<servlet-name>AdministrativeEditingServlet</servlet-name>
 		<display-name>AdministrativeEditing</display-name>
 		<servlet-class>com.liteoc.control.submit.AdministrativeEditingServlet
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdministrativeEditingServlet2</servlet-name>
+		<display-name>AdministrativeEditing2</display-name>
+		<servlet-class>com.liteoc.control.submit.AdministrativeEditingServlet2
 		</servlet-class>
 	</servlet>
 	<servlet>
@@ -1827,6 +1841,12 @@
 		<servlet-name>DoubleDataEntryServlet</servlet-name>
 		<url-pattern>/DoubleDataEntry</url-pattern>
 	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DoubleDataEntryServlet2</servlet-name>
+		<url-pattern>/DoubleDataEntry2</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>AddNewSubjectServlet</servlet-name>
 		<url-pattern>/AddNewSubject</url-pattern>
@@ -2110,6 +2130,10 @@
 	<servlet-mapping>
 		<servlet-name>AdministrativeEditingServlet</servlet-name>
 		<url-pattern>/AdministrativeEditing</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdministrativeEditingServlet2</servlet-name>
+		<url-pattern>/AdministrativeEditing2</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>UpdateStudyEventServlet</servlet-name>

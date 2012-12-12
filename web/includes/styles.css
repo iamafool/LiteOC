@@ -1659,3 +1659,10 @@ div#sumBox table tr:first-child td { border-top-width: 0px;
 	
 }
 
+.double_entry_value{
+    font-family: Tahoma, Arial, Helvetica, Sans-Serif;
+    font-size: 1.5em;
+    font-style: normal;
+    font-weight: bold;
+    color:  #ff0000;
+}

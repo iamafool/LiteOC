@@ -8,12 +8,8 @@
 package com.liteoc.control.submit;
 
 import com.liteoc.bean.core.DataEntryStage;
-import com.liteoc.bean.core.Role;
 import com.liteoc.bean.core.Status;
-import com.liteoc.bean.login.StudyUserRoleBean;
-import com.liteoc.bean.login.UserAccountBean;
 import com.liteoc.bean.managestudy.EventDefinitionCRFBean;
-import com.liteoc.bean.submit.DisplayEventCRFBean;
 import com.liteoc.bean.submit.DisplayItemBean;
 import com.liteoc.bean.submit.DisplayItemGroupBean;
 import com.liteoc.bean.submit.EventCRFBean;
@@ -46,22 +42,10 @@ import javax.servlet.http.HttpSession;
 public class DoubleDataEntryServlet extends DataEntryServlet {
 
     Locale locale;
-    // < ResourceBundlerespage,restext,resexception,resword;
 
     public static final String COUNT_VALIDATE = "countValidate";
     public static final String DDE_ENTERED = "ddeEntered";
     public static final String DDE_PROGESS = "doubleDataProgress";
-
-    private boolean userIsOwnerAndLessThanTwelveHoursHavePassed(HttpServletRequest request) {
-        UserAccountBean ub =(UserAccountBean) request.getSession().getAttribute(USER_BEAN_NAME);
-        StudyUserRoleBean  currentRole = (StudyUserRoleBean) request.getSession().getAttribute("userRole");
-        EventCRFBean ecb = (EventCRFBean)request.getAttribute(INPUT_EVENT_CRF);
-        
-        boolean userIsOwner = ub.getId() == ecb.getOwnerId();
-        boolean lessThanTwelveHoursHavePassed = !DisplayEventCRFBean.initialDataEntryCompletedMoreThanTwelveHoursAgo(ecb);
-
-        return userIsOwner && lessThanTwelveHoursHavePassed;
-    }
 
     /*
      * (non-Javadoc)
@@ -72,23 +56,11 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
     protected void mayProceed(HttpServletRequest request, HttpServletResponse response) throws InsufficientPermissionException {
         checkStudyLocked(Page.LIST_STUDY_SUBJECTS, respage.getString("current_study_locked"), request, response);
         checkStudyFrozen(Page.LIST_STUDY_SUBJECTS, respage.getString("current_study_frozen"), request, response);
-        UserAccountBean ub =(UserAccountBean) request.getSession().getAttribute(USER_BEAN_NAME);
-        StudyUserRoleBean  currentRole = (StudyUserRoleBean) request.getSession().getAttribute("userRole");
+
         HttpSession session = request.getSession();
         locale = request.getLocale();
 
         
-        // < respage =
-        // ResourceBundle.getBundle("com.liteoc.i18n.page_messages",
-        // locale);
-        // < restext =
-        // ResourceBundle.getBundle("com.liteoc.i18n.notes",locale);
-        // <
-        // resexception=ResourceBundle.getBundle(
-        // "com.liteoc.i18n.exceptions",locale);
-        // < resword =
-        // ResourceBundle.getBundle("com.liteoc.i18n.words",locale);
-
         getInputBeans(request);
         EventCRFBean ecb = (EventCRFBean)request.getAttribute(INPUT_EVENT_CRF);
         FormProcessor fp = new FormProcessor(request);
@@ -108,9 +80,6 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
         }
         // if tabNumber still isn't valid, check the "tab" parameter
         if (tabNumber < 1) {
-            if (fp == null) {
-                fp = new FormProcessor(request);
-            }
             String tab = fp.getString("tab");
             if (tab == null || tab.length() < 1) {
                 tabNumber = 1;
@@ -159,36 +128,7 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
         doubleDataProgress.setSectionVisited(eventCRFId, tabNumber, true);
         mySession.setAttribute("doubleDataProgress", doubleDataProgress);
         // StudyEventStatus status =
-        Role r = currentRole.getRole();
         session.setAttribute("mayProcessUploading", "true");
-
-        //        if (!SubmitDataServlet.maySubmitData(ub, currentRole)) {
-        //            this.session.setAttribute("mayProcessUploading", "false");
-        //            String exceptionName = resexception.getString("no_permission_validation");
-        //            String noAccessMessage = resexception.getString("not_perfom_validation_syscontact");
-        //
-        //            addPageMessage(noAccessMessage);
-        //            throw new InsufficientPermissionException(Page.MENU, exceptionName, "1");
-        //        }
-        //
-        //        if (stage.equals(DataEntryStage.INITIAL_DATA_ENTRY_COMPLETE)) {
-        //            if (userIsOwnerAndLessThanTwelveHoursHavePassed() && !r.equals(Role.STUDYDIRECTOR) && !r.equals(Role.COORDINATOR)) {
-        //                this.session.setAttribute("mayProcessUploading", "false");
-        //                addPageMessage(respage.getString("since_perform_data_entry"));
-        //                throw new InsufficientPermissionException(Page.LIST_STUDY_SUBJECTS_SERVLET, resexception.getString("owner_attempting_double_data_entry"), "1");
-        //            }
-        //        } else if (stage.equals(DataEntryStage.DOUBLE_DATA_ENTRY)) {
-        //            if (ub.getId() != ecb.getValidatorId() && !r.equals(Role.STUDYDIRECTOR) && !r.equals(Role.COORDINATOR)) {
-        //                this.session.setAttribute("mayProcessUploading", "false");
-        //                addPageMessage(respage.getString("validation_has_already_begun"));
-        //                throw new InsufficientPermissionException(Page.LIST_STUDY_SUBJECTS_SERVLET, resexception
-        //                        .getString("non_validator_attempting_double_data_entry"), "1");
-        //            }
-        //        } else {
-        //            this.session.setAttribute("mayProcessUploading", "false");
-        //            addPageMessage(respage.getString("not_perform_validation"));
-        //            throw new InsufficientPermissionException(Page.LIST_STUDY_SUBJECTS_SERVLET, resexception.getString("using_double_data_entry_CRF_completed"), "1");
-        //        }
 
         return;
     }
@@ -217,8 +157,7 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
             isSingleItem = true;
         }
         // we only give warning to user if data entered in DDE is different from
-        // IDE when the first
-        // time user hits 'save'
+        // IDE when the first time user hits 'save'
         int keyId = ecb.getId();
         Integer validationCount = (Integer) session.getAttribute(COUNT_VALIDATE + keyId);
 
@@ -247,10 +186,6 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
 
             } else if (rt.equals(com.liteoc.bean.core.ResponseType.RADIO) || rt.equals(com.liteoc.bean.core.ResponseType.SELECT)) {
                 dib = validateDisplayItemBeanSingleCV(v, dib, inputName);
-                // ItemFormMetadataBean ifmdb = dib.getMetadata();
-                // ResponseSetBean rsBean = ifmdb.getResponseSet();
-                // logger.info("### found a response set count of "+inputName+"
-                // "+rsBean.getOptions().size());
                 // TODO sees it at this end tbh 1878
 
                 if (validationCount == null || validationCount.intValue() == 0) {
@@ -372,7 +307,6 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
         com.liteoc.bean.core.ResponseType rt = dib.getMetadata().getResponseSet().getResponseType();
         ItemDataDAO iddao = new ItemDataDAO(getDataSource());
         boolean isSingleItem = false;
-        HttpSession session = request.getSession();
         if (StringUtil.isBlank(inputName)) {// for single items
             inputName = getInputName(dib);
             isSingleItem = true;
@@ -382,9 +316,6 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
         // we only give warning to user if data entered in DDE is different from
         // IDE when the first
         // time user hits 'save'
-        int keyId = ecb.getId();
-        Integer validationCount = (Integer) session.getAttribute(COUNT_VALIDATE + keyId);
-
         ItemDataBean valueToCompare = new ItemDataBean();
         if (isSingleItem) {
             int idId = dib.getData().getId();
@@ -514,10 +445,6 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
         if (dib.getData().getStatus() == null || dib.getData().getStatus().equals(Status.UNAVAILABLE)) {
             return true;
         }
-        /*
-         * if (!dib.getData().getStatus().equals(Status.UNAVAILABLE)) {
-         * logger.info("status don't match.."); return false; //return true; }
-         */
 
         // how about this instead:
         // if it's pending, return false
@@ -535,7 +462,6 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
     protected DisplayItemBean validateDisplayItemBean(DiscrepancyValidator v, DisplayItemBean dib, String inputName, RuleValidator rv,
             HashMap<String, ArrayList<String>> groupOrdinalPLusItemOid, Boolean fireRuleValidation, ArrayList<String> messages, HttpServletRequest request) {
 
-        com.liteoc.bean.core.ResponseType rt = dib.getMetadata().getResponseSet().getResponseType();
         EventCRFBean ecb = (EventCRFBean)request.getAttribute(INPUT_EVENT_CRF);
         
         boolean isSingleItem = false;
@@ -546,9 +472,6 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
         // we only give warning to user if data entered in DDE is different from
         // IDE when the first
         // time user hits 'save'
-        int keyId = ecb.getId();
-        Integer validationCount = (Integer) request.getSession().getAttribute(COUNT_VALIDATE + keyId);
-
         ItemDataBean valueToCompare = dib.getData();
         if (!isSingleItem) {
             valueToCompare = dib.getDbData();
@@ -571,9 +494,6 @@ public class DoubleDataEntryServlet extends DataEntryServlet {
             List<DisplayItemGroupBean> formGroups, RuleValidator rv, HashMap<String, ArrayList<String>> groupOrdinalPLusItemOid, HttpServletRequest request, HttpServletResponse response) {
         EventCRFBean ecb = (EventCRFBean)request.getAttribute(INPUT_EVENT_CRF);
         EventDefinitionCRFBean edcb = (EventDefinitionCRFBean)request.getAttribute(EVENT_DEF_CRF_BEAN);
-        // logger.info("===got this far");
-        int keyId = ecb.getId();
-        Integer validationCount = (Integer) request.getSession().getAttribute(COUNT_VALIDATE + keyId);
 
         formGroups = loadFormValueForItemGroup(digb, digbs, formGroups, edcb.getId(), request);
         logger

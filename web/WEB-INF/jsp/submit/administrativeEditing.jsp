@@ -12,10 +12,7 @@
 <jsp:useBean scope='session' id='userBean' class='com.liteoc.bean.login.UserAccountBean'/>
 <jsp:useBean scope='session' id='study' class='com.liteoc.bean.managestudy.StudyBean' />
 <jsp:useBean scope='session' id='userRole' class='com.liteoc.bean.login.StudyUserRoleBean' />
-<%--<jsp:useBean scope='request' id='isAdminServlet' class='java.lang.String' />--%>
-<jsp:useBean scope="request" id="section" class=
-  "com.liteoc.bean.submit.DisplaySectionBean" />
-<%--<jsp:useBean scope="request" id="annotations" class="java.lang.String" />--%>
+<jsp:useBean scope="request" id="section" class="com.liteoc.bean.submit.DisplaySectionBean" />
 <jsp:useBean scope='request' id='pageMessages' class='java.util.ArrayList'/>
 <jsp:useBean scope='request' id='formMessages' class='java.util.HashMap'/>
 <jsp:useBean scope='request' id='exitTo' class='java.lang.String' />
@@ -50,11 +47,6 @@
         <c:if test='${popUpURL != ""}'>
         openDNoteWindow('<c:out value="${popUpURL}" />');</c:if>document.getElementById('CRF_infobox_closed').style.display='block';document.getElementById('CRF_infobox_open').style.display='none'" onunload="javascript:clsWin();">
 
-<%-- BWP:
- onload=
-  "document.getElementById('centralContainer').style.display='none'; new Effect.Appear('centralContainer', {duration:1});<jsp:include page="../include/showPopUp2.jsp"/>"
-  TabsForwardByNum(<c:out value="${tabId}"/>); alert(self.screen.availWidth);
-margin-top:20px; updateTabs(<c:out value="${tabId}"/>);--%>
 
 <div id="centralContainer" style=
   "padding-left:3em; margin-top:10px;background-color: white; color:black;">
@@ -107,7 +99,6 @@ margin-top:20px; updateTabs(<c:out value="${tabId}"/>);--%>
             </c:otherwise>
         </c:choose></b>  &nbsp;&nbsp;</span> </h1> </td><td>
 		<h1><span class="title_manage"> <c:out value="${studySubject.label}" />&nbsp;&nbsp; </span></h1></td></tr></table>
-<%--</div>--%>
 
 <form id="mainForm" name="crfForm" method="post" action="AdministrativeEditing" onLoad="javascript:leftnavExpand('CRF_infobox_open');"> 
 <input type="hidden" name="eventCRFId" value="<c:out value="${section.eventCRF.id}"/>" />
@@ -138,7 +129,7 @@ margin-top:20px; updateTabs(<c:out value="${tabId}"/>);--%>
   <c:param name="hasNameNote" value="${hasNameNote}"/>
   <c:param name="hasDateNote" value="${hasDateNote}"/>
 </c:import>
-<!--<br/><br/>-->
+
 <br />
 <%--I don't think we need this segment to accompany the existing error messages:--%>
 <%-- need to put this back, otherwise, error msg from 'mark complete' cannot show--%>

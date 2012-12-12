@@ -71,21 +71,6 @@ public abstract class AuditableEntityDAO extends EntityDAO {
         // logger.info("digester null? " + (digester == null));
     }
 
-    /*
-     * public AuditableEntityBean getEntityAuditInformation(HashMap hm) {
-     * AuditableEntityBean aeb = new AuditableEntityBean(); //grab the required
-     * information from the table //so that we don't have to repeat this in
-     * every single dao Date dateCreated = (Date) hm.get("date_created"); Date
-     * dateUpdated = (Date) hm.get("date_updated"); Integer statusId = (Integer)
-     * hm.get("status_id"); Integer ownerId = (Integer) hm.get("owner_id");
-     * Integer updateId = (Integer) hm.get("update_id");
-     *
-     * aeb.setCreatedDate(dateCreated); aeb.setUpdatedDate(dateUpdated);
-     * aeb.setStatus(Status.get(statusId.intValue()));
-     * aeb.setOwnerId(ownerId.intValue());
-     * aeb.setUpdaterId(updateId.intValue()); return aeb; }
-     */
-
     public abstract void setTypesExpected();
 
     /**

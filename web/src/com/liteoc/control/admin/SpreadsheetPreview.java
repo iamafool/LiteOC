@@ -156,9 +156,7 @@ public final class SpreadsheetPreview implements Preview {
                         cell = row.getCell((short) k);
                         if (groupHeaders[k].equalsIgnoreCase("group_header")) {
                             rowCells.put(groupHeaders[k], getCellValue(cell).replaceAll("<[^>]*>", ""));
-                        } else {
-
-                        }
+                        } 
                     }
 
                     allRows.put(j, rowCells);

@@ -35,10 +35,6 @@ public class ExtractCRFVersionBean extends EntityBean {
         ItemBean ib = new ItemBean();
         ib.setId(itemId.intValue());
         ib.setName(itemName);
-        if (!items.contains(ib)) {
-            // logger.info("adding item: " + itemId.intValue() + "-" +
-            // itemName);
-        }
         return (ItemBean) items.add(ib);
     }
 

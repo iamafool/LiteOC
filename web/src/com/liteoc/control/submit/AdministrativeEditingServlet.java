@@ -158,13 +158,6 @@ public class AdministrativeEditingServlet extends DataEntryServlet {
         StudyUserRoleBean  currentRole = (StudyUserRoleBean) request.getSession().getAttribute("userRole");
       
         
-        // <
-        // resexception=ResourceBundle.getBundle(
-        // "com.liteoc.i18n.exceptions",locale);
-        // < respage =
-        // ResourceBundle.getBundle("com.liteoc.i18n.page_messages",
-        // locale);
-
         getInputBeans(request);
         EventCRFBean ecb = (EventCRFBean)request.getAttribute(INPUT_EVENT_CRF);
         String fromResolvingNotes = fp.getString("fromResolvingNotes", true);
@@ -177,16 +170,7 @@ public class AdministrativeEditingServlet extends DataEntryServlet {
         }
         request.setAttribute("fromResolvingNotes", fromResolvingNotes);
         System.out.println(" +++++++++++++++++++ " + ecb.getStudyEventId());
-        // StudyEventDAO sedao = new StudyEventDAO(sm.getDataSource());
-        // StudyEventBean sEvent = (StudyEventBean)
-        // sedao.findByPK(ecb.getStudyEventId());
-        // if (sEvent.getSubjectEventStatus().equals(SubjectEventStatus.SIGNED))
-        // {
-        // sEvent.setSubjectEventStatus(SubjectEventStatus.COMPLETED);
-        // sEvent.setUpdater(ub);
-        // sEvent.setUpdatedDate(new Date());
-        // sedao.update(sEvent);
-        // }
+
         DataEntryStage stage = ecb.getStage();
         Role r = currentRole.getRole();
         session.setAttribute("mayProcessUploading", "true");
@@ -417,16 +401,8 @@ public class AdministrativeEditingServlet extends DataEntryServlet {
 
     @Override
     protected boolean isAdminForcedReasonForChange(HttpServletRequest request) {
-        // StudyParameterValueDAO spvdao = new
-        // StudyParameterValueDAO(sm.getDataSource());
-        // ArrayList studyParameters =
-        // spvdao.findParamConfigByStudy(currentStudy);
-
-        // currentStudy.setStudyParameters(studyParameters);
-        // refresh study params here, tbh 06/2009
         StudyBean currentStudy =    (StudyBean) request.getSession().getAttribute("study");
         if (currentStudy.getStudyParameterConfig().getAdminForcedReasonForChange().equals("true")) {
-            System.out.println("returning true for forced reason for change");
             return true;
         } else {
             return false;

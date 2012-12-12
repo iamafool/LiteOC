@@ -140,8 +140,13 @@ public class UpdateEventDefinitionServlet extends SecureController {
                     } else {
                         edcBean.setRequiredCRF(false);
                     }
-                    if (!StringUtil.isBlank(doubleEntry) && "yes".equalsIgnoreCase(doubleEntry.trim())) {
+                    
+                    if ("1".equalsIgnoreCase(doubleEntry.trim())) {
                         edcBean.setDoubleEntry(true);
+                        edcBean.setDoubleEntryType(1);
+                    } else if ("2".equalsIgnoreCase(doubleEntry.trim())){
+                    	edcBean.setDoubleEntry(true);
+                    	edcBean.setDoubleEntryType(2);
                     } else {
                         edcBean.setDoubleEntry(false);
                     }

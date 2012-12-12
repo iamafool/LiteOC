@@ -515,8 +515,7 @@ public class CreateNewStudyEventServlet extends SecureController {
                 if (!studyEvent.isActive()) {
                     throw new OpenClinicaException(restext.getString("event_not_created_in_database"), "2");
                 }
-                addPageMessage(restext.getString("X_event_wiht_definition") + definition.getName() + restext.getString("X_and_subject")
-                    + studySubject.getName() + respage.getString("X_was_created_succesfully"));
+                addPageMessage(restext.getString("X_event_wiht_definition") + respage.getString("X_was_created_succesfully"));
 
                 // save discrepancy notes into DB
                 FormDiscrepancyNotes fdn = (FormDiscrepancyNotes) session.getAttribute(AddNewSubjectServlet.FORM_DISCREPANCY_NOTES_NAME);

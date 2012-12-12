@@ -183,15 +183,11 @@
     </td>
 
     <td class="table_cell"><fmt:message key="double_data_entry" bundle="${resword}"/>:
-        <c:choose>
-            <c:when test="${edc.doubleEntry == true}">
-                <c:set var="msg" value="You are choosing to have this CRF go through one pass of data entry instead of having it go through Double Data Entry. Before choosing this option, ensure that all Subject`s who have data entry for this CRF are not in one of the following 2 phases:\n\n1. The event CRF is in a status of Double Data Entry Started\n2. The event CRF is in a status of Initial Data Entry Completed.\n\nIf the CRFs are in one of those two phases, data entry will not be allowed to continue. You will have to change the configuration back to Double Data Entry.\n\nSelect OK to remove the DDE configuration. Select Cancel to keep the DDE configuration."/>
-                <input type="checkbox" onclick="javascript:return confirm('<c:out value="${msg}"/>');" checked name="doubleEntry<c:out value="${count}"/>" value="yes">
-            </c:when>
-            <c:otherwise>
-                <input type="checkbox" name="doubleEntry<c:out value="${count}"/>" value="yes">
-            </c:otherwise>
-        </c:choose>
+        <select name="doubleEntry<c:out value="${count}"/>">
+        	<option value="0" <c:if test="${edc.doubleEntryType==0}">selected</c:if>><fmt:message key="no" bundle="${resword}"/></option>
+            <option value="1" <c:if test="${edc.doubleEntryType==1}">selected</c:if>><fmt:message key="double_data_entry_type1" bundle="${resword}"/></option>
+            <option value="2" <c:if test="${edc.doubleEntryType==2}">selected</c:if>><fmt:message key="double_data_entry_type2" bundle="${resword}"/></option>
+        </select>
     </td>
 
     <td class="table_cell"><fmt:message key="password_required" bundle="${resword}"/>:
@@ -204,17 +200,6 @@
             </c:otherwise>
         </c:choose>
     </td>
-
-        <%--<td class="table_cell"><fmt:message key="enforce_decision_conditions" bundle="${resword}"/>:
-          <c:choose>
-           <c:when test="${edc.decisionCondition == true}">
-             <input type="checkbox" checked name="decisionCondition<c:out value="${count}"/>" value="yes">
-            </c:when>
-           <c:otherwise>
-             <input type="checkbox" name="decisionCondition<c:out value="${count}"/>" value="yes">
-           </c:otherwise>
-          </c:choose>
-        </td>--%>
 
     <td class="table_cell" colspan="2"><fmt:message key="default_version" bundle="${resword}"/>:
         <select name="defaultVersionId<c:out value="${count}"/>">

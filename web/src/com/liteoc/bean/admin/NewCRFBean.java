@@ -71,7 +71,7 @@ public class NewCRFBean extends Object implements java.io.Serializable {
             this.setItemGroupNames(this.listGroupNames(crfId));
             this.setCrfVersions(this.listVersionNames());
         } catch (Exception pe) {
-            pe.printStackTrace();
+            
             logger.info("hit an exception in creating new crf bean;" + " empty item name list exists");
             this.setItemNames(new HashMap());
             this.setCrfVersions(new HashMap());
@@ -375,7 +375,7 @@ public class NewCRFBean extends Object implements java.io.Serializable {
             con.setAutoCommit(false);
             Set mySet = itemQueries.entrySet();
             logger.info("---start of item query generation here---");
-            System.out.println("start query generation");
+            // System.out.println("start query generation");
             for (Iterator itvl = mySet.iterator(); itvl.hasNext();) {
                 Map.Entry ment = (Map.Entry) itvl.next();
                 String pQuery = (String) ment.getValue();
