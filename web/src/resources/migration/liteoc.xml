@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="Kenneth Yan" id="2012110901">
+	  <addColumn tableName="event_definition_crf">
+		<column name="double_entry_type" type="integer" defaultValue="0"/>
+	  </addColumn>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="2012111201">
+	  <addColumn tableName="item_data">
+		<column name="value1" type="varchar(4000)"/>
+	  </addColumn>
+    </changeSet> 
+     
+</databaseChangeLog>
