@@ -13,6 +13,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
+import com.liteoc.i18n.util.ResourceBundleProvider;
 
 /**
  * @author Jun Xu
@@ -44,8 +46,9 @@ public class SubjectEventStatus extends Term implements Comparable {
     private static final SubjectEventStatus[] members = { SCHEDULED, NOT_SCHEDULED, DATA_ENTRY_STARTED, COMPLETED, STOPPED, SKIPPED, SIGNED, LOCKED };
 
     private static List list = Arrays.asList(members);
+    
+    private ResourceBundle resterm = ResourceBundleProvider.getTermsBundle();
 
-    // Solve the problem with the get() method...
     private static final Map<Integer, String> membersMap = new HashMap<Integer, String>();
     static {
         membersMap.put(0, "invalid");
@@ -58,6 +61,9 @@ public class SubjectEventStatus extends Term implements Comparable {
         membersMap.put(7, "locked");
         membersMap.put(8, "signed");
     }
+    
+    private Map<Integer, String> membersMapI18N = new HashMap<Integer, String>();
+
 
     public boolean isInvalid() {
         return this == SubjectEventStatus.INVALID;
@@ -99,7 +105,18 @@ public class SubjectEventStatus extends Term implements Comparable {
         super(id, name);
     }
 
-    private SubjectEventStatus() {
+    public SubjectEventStatus() {
+        
+    	membersMapI18N.put(0, resterm.getString("invalid"));
+    	membersMapI18N.put(1, resterm.getString("scheduled"));
+    	membersMapI18N.put(2, resterm.getString("not_scheduled"));
+    	membersMapI18N.put(3, resterm.getString("data_entry_started"));
+    	membersMapI18N.put(4, resterm.getString("completed"));
+    	membersMapI18N.put(5, resterm.getString("stopped"));
+    	membersMapI18N.put(6, resterm.getString("skipped"));
+    	membersMapI18N.put(7, resterm.getString("locked"));
+    	membersMapI18N.put(8, resterm.getString("signed"));    	
+    	
     }
 
     public static SubjectEventStatus getFromMap(int id) {
@@ -133,8 +150,8 @@ public class SubjectEventStatus extends Term implements Comparable {
     }
 
     @SuppressWarnings("unchecked")
-    public static Collection<String> getSubjectEventStatusValues() {
-        return membersMap.values();
+    public Collection<String> getSubjectEventStatusValues() {
+        return membersMapI18N.values();
     }
 
     public static String getSubjectEventStatusName(int id) {
@@ -152,7 +169,7 @@ public class SubjectEventStatus extends Term implements Comparable {
      *            A String name
      * @return An int id, like 1 for "scheduled"
      */
-    public static int getSubjectEventStatusIdByName(String name) {
+    public int getSubjectEventStatusIdByName(String name) {
 
         if (name == null || "".equalsIgnoreCase(name)) {
             return 0;
@@ -160,7 +177,8 @@ public class SubjectEventStatus extends Term implements Comparable {
         boolean validArg = false;
 
         String status_name = name.trim().replace(" ", "_").toLowerCase();
-        for (String statusName : getSubjectEventStatusValues()) {
+        Collection<String> c_se_status = getSubjectEventStatusValues();
+        for (String statusName : c_se_status) {
             if (status_name.equalsIgnoreCase(statusName)) {
                 validArg = true;
                 break;
@@ -171,16 +189,12 @@ public class SubjectEventStatus extends Term implements Comparable {
             return 0;
         }
 
-        for (int key : membersMap.keySet()) {
-            if (status_name.equalsIgnoreCase(getSubjectEventStatusName(key))) {
+        for (int key : membersMapI18N.keySet()) {
+            if (status_name.equalsIgnoreCase(resterm.getString(getSubjectEventStatusName(key)))) {
                 return key;
             }
         }
         return 0;
     }
 
-    public static void main(String[] args) {
-        ArrayList<String> myList = (ArrayList) getSubjectEventStatusValues();
-        System.out.println("myList = " + myList);
-    }
 }

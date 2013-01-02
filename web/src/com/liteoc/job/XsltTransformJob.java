@@ -19,20 +19,14 @@ import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.zip.ZipEntry;
+
 
 import java.util.zip.ZipOutputStream;
 
 import javax.sql.DataSource;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -249,13 +243,14 @@ public class XsltTransformJob extends QuartzJobBean {
             while(fileCntr<numXLS)
             {
                 String xsltPath = dataMap.getString(XSLT_PATH)+ File.separator +epBean.getFileName()[fileCntr];
-           // in = new java.io.FileInputStream(dataMap.getString(XSL_FILE_PATH));
                 in = new java.io.FileInputStream(xsltPath);
 
             Transformer transformer = tFactory.newTransformer(new StreamSource(in));
 
+            Properties properties = transformer.getOutputProperties();
+            properties.setProperty(OutputKeys.ENCODING,"GB2312");
+            transformer.setOutputProperties(properties); 
             
-           // String endFile = outputPath + File.separator + dataMap.getString(POST_FILE_NAME);
            endFile = outputPath + File.separator + epBean.getExportFileName()[fileCntr];
              
 

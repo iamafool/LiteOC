@@ -51,12 +51,10 @@
 
 <h1><span class="title_manage">
 <fmt:message key="view_subjects_in" bundle="${restext}"/> <c:out value="${study.name}"/>
-<a href="javascript:openDocWindow('https://docs.openclinica.com/3.1/openclinica-user-guide/submit-data-module-overview/subject-matrix')">
-    <img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${restext}"/>" title="<fmt:message key="help" bundle="${restext}"/>"></a>
 </span></h1>
 
 <div id="findSubjectsDiv">
-    <form  action="${pageContext.request.contextPath}/ListStudySubjects">
+    <form  action="${pageContext.request.contextPath}/ListStudySubjects" method="post">
         <input type="hidden" name="module" value="admin">
         ${findSubjectsHtml}
     </form>

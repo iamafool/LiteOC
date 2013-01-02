@@ -41,10 +41,9 @@
     <script type="text/javascript" src="includes/new_cal/calendar-setup.js"></script>
 <!-- End -->
     
-<%--<script type="text/javascript"  language="JavaScript" src=
-    "includes/repetition-model/repetition-model.js"></script>--%>
 <script type="text/JavaScript" language="JavaScript" src="includes/prototype.js"></script>
-<script type="text/JavaScript" language="JavaScript" src="includes/effects.js"></script>--%></head>
+<script type="text/JavaScript" language="JavaScript" src="includes/effects.js"></script>
+</head>
 
 
 <body style="width:1024px;" class="main_BG"
@@ -76,9 +75,3 @@ onload="TabsForwardByNum(<c:out value="${tabId}"/>);<jsp:include page="../includ
                 <tr>
                     <td valign="top">
                         <div class="disabled_header"><img src="images/spacer.gif"/></div>
-                        <!-- Logo -->
-                        <!-- <div class="logo"><img src="images/Logo.gif"></div> -->
-                        <!-- Main Navigation -->
-                        <%-- <jsp:include page="../include/navBar.jsp"/> --%>
-                        
-<%-- End Main Navigation --%>

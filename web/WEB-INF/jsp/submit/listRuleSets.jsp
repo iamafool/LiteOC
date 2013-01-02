@@ -27,10 +27,10 @@
 <jsp:useBean scope='request' id='table' class='com.liteoc.web.domain.EntityBeanTable'/>
 <c:choose>
 <c:when test="${userBean.sysAdmin && module=='admin'}">
- <h1><span class="title_manage"><fmt:message key="rule_manage_rule_assignment" bundle="${resworkflow}"/> <c:out value="${study.name}" /> <a href="javascript:openDocWindow('help/3_3_rules_Help.html')"><img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
+ <h1><span class="title_manage"><fmt:message key="rule_manage_rule_assignment" bundle="${resworkflow}"/> <c:out value="${study.name}" />
 </c:when>
 <c:otherwise>
- <h1><span class="title_manage"><fmt:message key="rule_manage_rule_assignment" bundle="${resworkflow}"/> <c:out value="${study.name}" /> <a href="javascript:openDocWindow('help/3_3_rules_Help.html')"><img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
+ <h1><span class="title_manage"><fmt:message key="rule_manage_rule_assignment" bundle="${resworkflow}"/> <c:out value="${study.name}" />
 </c:otherwise>
 </c:choose>
 </span></h1>

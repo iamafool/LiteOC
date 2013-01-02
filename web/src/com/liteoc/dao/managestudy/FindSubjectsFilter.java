@@ -42,7 +42,8 @@ public class FindSubjectsFilter implements CriteriaCommand {
                 criteria = criteria + " and ";
                 criteria = criteria + " " + columnMapping.get(property) + " = " + value.toString() + " ";
             } else if (property.startsWith("sed_")) {
-                value = SubjectEventStatus.getSubjectEventStatusIdByName(value.toString()) + "";
+            	SubjectEventStatus se_status = new SubjectEventStatus();
+                value = se_status.getSubjectEventStatusIdByName(value.toString()) + "";
                 if (!value.equals("2")) {
                     criteria += " and ";
                     criteria += " ( se.study_event_definition_id = " + property.substring(4);

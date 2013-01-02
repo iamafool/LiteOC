@@ -55,7 +55,7 @@
     </bean>
    
    
-       <bean name="scheduledJobTableFactory" class="com.liteoc.web.table.scheduledjobs.ScheduledJobTableFactory">
+    <bean name="scheduledJobTableFactory" class="com.liteoc.web.table.scheduledjobs.ScheduledJobTableFactory">
     </bean>
                  
 	
