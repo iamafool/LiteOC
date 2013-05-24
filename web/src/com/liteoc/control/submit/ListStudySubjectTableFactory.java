@@ -171,12 +171,9 @@ public class ListStudySubjectTableFactory extends AbstractTableFactory {
     @Override
     public void configureTableFacade(HttpServletResponse response, TableFacade tableFacade) {
         super.configureTableFacade(response, tableFacade);
-        // getColumnNames();
         getColumnNamesMap();
         tableFacade.addFilterMatcher(new MatcherKey(Character.class), new CharFilterMatcher());
         tableFacade.addFilterMatcher(new MatcherKey(Status.class), new StatusFilterMatcher());
-        // tableFacade.addFilterMatcher(new MatcherKey(Integer.class), new
-        // SubjectEventStatusFilterMatcher());
 
         for (int i = 6; i < 6 + studyGroupClasses.size(); i++) {
             tableFacade.addFilterMatcher(new MatcherKey(Integer.class, columnNames[i]), new SubjectGroupFilterMatcher());
@@ -189,10 +186,7 @@ public class ListStudySubjectTableFactory extends AbstractTableFactory {
 
     @Override
     public void configureTableFacadePostColumnConfiguration(TableFacade tableFacade) {
-        Role r = currentRole.getRole();
-        boolean addSubjectLinkShow = studyBean.getStatus().isAvailable() && !r.equals(Role.MONITOR);
-
-        tableFacade.setToolbar(new ListStudySubjectTableToolbar(getStudyEventDefinitions(), getStudyGroupClasses(), addSubjectLinkShow, showMoreLink));
+        tableFacade.setToolbar(new ListStudySubjectTableToolbar(getStudyEventDefinitions(), getStudyGroupClasses(), false, showMoreLink));
     }
 
     @Override
@@ -769,7 +763,8 @@ public class ListStudySubjectTableFactory extends AbstractTableFactory {
     
     private String PrintAllEventCRFBySubjidLinkBuilder(StudySubjectBean studySubject) {
         HtmlBuilder actionLink = new HtmlBuilder();
-        actionLink.a().href("PrintAllEventCRFBySubjid?id=" + studySubject.getId());
+        /* actionLink.a().href("PrintAllEventCRFBySubjid?id=" + studySubject.getId()); */
+        actionLink.a().href("PrintAllEventCRFBySubjid.lisp?id=" + studySubject.getId());
         actionLink.append("onMouseDown=\"javascript:setImage('bt_Print','images/bt_Print_d.gif');\"");
         actionLink.append("onMouseUp=\"javascript:setImage('bt_Print','images/bt_Print.gif');\"").close();
         actionLink.img().name("bt_View1").src("images/bt_Print.gif").border("0").alt(resword.getString("print")).title(resword.getString("print")).append("hspace=\"2\"").end().aEnd();
@@ -851,7 +846,7 @@ public class ListStudySubjectTableFactory extends AbstractTableFactory {
         eventDiv.div().styleClass("box_T").close().div().styleClass("box_L").close().div().styleClass("box_R").close().div().styleClass("box_B").close().div()
                 .styleClass("box_TL").close().div().styleClass("box_TR").close().div().styleClass("box_BL").close().div().styleClass("box_BR").close();
 
-        eventDiv.div().styleClass("tablebox_center").close();
+        eventDiv.div().styleClass("tablebox_center_matrix").close();
         eventDiv.div().styleClass("ViewSubjectsPopup").style("color: rgb(91, 91, 91);").close();
 
         eventDiv.table(0).border("0").cellpadding("0").cellspacing("0").close();

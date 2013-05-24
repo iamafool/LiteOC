@@ -18,7 +18,6 @@
 
 <h1><span class="title_manage">
 <fmt:message key="manage_all_groups_in_study" bundle="${restext}"/>
-    <c:out value="${study.name}"/>
 </span></h1>
 
 <%-- 

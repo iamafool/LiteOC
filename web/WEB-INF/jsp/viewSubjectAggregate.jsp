@@ -29,7 +29,7 @@
 </script>
 
 <h1><span class="title_manage">
-<fmt:message key="sdv_sdv_for" bundle="${resword}"/> <c:out value="${study.name}"/>
+<fmt:message key="sdv_sdv_for" bundle="${resword}"/>
 </span></h1>
 
 <div id="searchFilterSDV">

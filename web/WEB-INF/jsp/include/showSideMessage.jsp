@@ -11,7 +11,6 @@
 <div class="alert">    
 <c:forEach var="message" items="${pageMessages}">
  <c:out value="${message}" escapeXml="false"/> 
- <br/><br/>
 </c:forEach>
 </div>
 </c:if>

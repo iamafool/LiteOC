@@ -37,7 +37,6 @@
 
 <%-- move the alert message to the sidebar --%>
 
-<jsp:include page="../include/eventOverviewSideInfo.jsp"/>
 
 <jsp:useBean scope="request" id="studyEvent" class="com.liteoc.bean.managestudy.StudyEventBean" />
 <jsp:useBean scope="request" id="studySubject" class="com.liteoc.bean.managestudy.StudySubjectBean" />

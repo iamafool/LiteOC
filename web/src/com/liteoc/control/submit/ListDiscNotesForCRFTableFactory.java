@@ -768,12 +768,6 @@ public class ListDiscNotesForCRFTableFactory extends AbstractTableFactory {
                     studyEvents.add(studyEvent);
                 }
 
-                /*
-                 * EventCrfLayerBuilder eventCrfLayerBuilder = new EventCrfLayerBuilder(subject, Integer.valueOf(rowcount + String.valueOf(i)), studyEvents,
-                 * dataEntryStage, eventCrf, studySubjectBean, studyBean, currentRole, currentUser, eventDefintionCrf, crf);
-                 */
-
-                // url.append(eventCrfLayerBuilder.buid());
                 url.append("<table><tr><td>");
                 url.append("<img src='" + crfColumnImageIconPaths.get(dataEntryStage.getId()) + "' border='0'>");
                 for (ResolutionStatus key : discCounts.keySet()) {

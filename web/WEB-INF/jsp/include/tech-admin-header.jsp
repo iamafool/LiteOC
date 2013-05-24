@@ -19,8 +19,6 @@
 <title><fmt:message key="openclinica" bundle="${resword}"/></title>
 
 <link rel="stylesheet" href="includes/styles.css" type="text/css">
-
-<link rel="stylesheet" href="includes/NewNavStyles.css" type="text/css" />
 <script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript.js"></script>
 <script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript2.js"></script>
 <script language="JavaScript" src="includes/Tabs.js"></script>
@@ -51,10 +49,6 @@ document.write('<table border="0" cellpadding="0" cellspacing="0" width="' + doc
 </script>
 			<tr>
 				<td valign="top">
-
-<!-- Logo -->
-
-<!-- 	<div class="logo"><img src="images/Logo.gif"></div> -->
 
 <!-- Main Navigation -->
 

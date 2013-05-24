@@ -15,7 +15,6 @@
   <script type="text/javascript"  language="JavaScript" src=
     "includes/repetition-model/repetition-model.js"></script>
   <link rel="stylesheet" href="includes/styles.css" type="text/css">
-  <link rel="stylesheet" href="includes/print_crf.css" type="text/css">
 </head>
 <jsp:useBean scope="request" id="crfVersionBean" class="com.liteoc.bean.submit.CRFVersionBean" />
 <jsp:useBean scope="request" id="crfBean" class="com.liteoc.bean.admin.CRFBean" />

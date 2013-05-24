@@ -47,7 +47,7 @@ public class StudyStatisticsTableFactory extends AbstractTableFactory {
     @Override
     protected void configureColumns(TableFacade tableFacade, Locale locale) {
         tableFacade.setColumnProperties("name", "enrolled", "expectedTotalEnrollment", "percentage");
-        ((HtmlTableRenderer) tableFacade.getTable().getTableRenderer()).setWidth("363px");
+        ((HtmlTableRenderer) tableFacade.getTable().getTableRenderer()).setWidth("100%");
         Row row = tableFacade.getTable().getRow();
         configureColumn(row.getColumn("name"), reswords.getString("study"), null, null, false, true);
         configureColumn(row.getColumn("enrolled"), reswords.getString("enrolled"), null, null, false, true);

@@ -12,14 +12,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title>EDC&DMS</title>
+<title>LiteOC</title>
 
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
  <meta http-equiv="X-UA-Compatible" content="IE=8" />
 
 <link rel="stylesheet" href="<c:url value='/includes/styles.css'/>" type="text/css"/>
 
-<link rel="stylesheet" href="<c:url value='/includes/NewLoginStyles.css'/>" type="text/css"/>
 <script type="text/JavaScript" language="JavaScript" src="<c:url value='/includes/jmesa/jquery-1.3.2.min.js'/>"></script>
 <script type="text/javascript" language="JavaScript" src="<c:url value='/includes/jmesa/jquery.blockUI.js'/>"></script>
 <script type="text/JavaScript" language="JavaScript" src="<c:url value='/includes/global_functions_javascript2.js'/>"></script>
@@ -31,10 +30,6 @@
 <fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
 <fmt:setBundle basename="com.liteoc.i18n.format" var="resformat"/>
 
-<%--<c:choose>--%>
-    <%--<c:when test="${resword.locale == null}"><fmt:setLocale value="en" scope="session"/></c:when>--%>
-    <%--<c:otherwise><fmt:setLocale value="${resword.locale}" scope="session"/></c:otherwise>--%>
-<%--</c:choose>--%>
 
 <c:set var="formatLocale"><fmt:message key="locale_string" bundle="${resformat}"/></c:set>
 
@@ -87,7 +82,6 @@
     <table border="0" cellpadding="0" cellspacing="0" class="loginBoxes">
         <tr>
             <td class="loginBox_T">&nbsp;</td>
-<!--             <td class="loginBox_T">&nbsp;</td> -->
        </tr>
        <tr>
             <td class="loginBox">
@@ -114,13 +108,6 @@
             <!-- End Login box contents -->
             </div>
             </td>
-<!--             <td class="loginBox"> -->
-<!--             <div ID="newsBox"> -->
-<!--                 News box contents -->
-<%--                 <h1><fmt:message key="news" bundle="${resword}"/></h1><fmt:message key="loading" bundle="${resword}"/> ... --%>
-<!--                 End News box contents -->
-<!--             </div> -->
-<!--             </td> -->
       </tr>
     </table>
 
@@ -131,13 +118,6 @@
         document.getElementById('j_password').setAttribute( 'autocomplete', 'off' );
 
         jQuery(document).ready(function() {
-
-//         	jQuery.get("../../RssReader", function(data){
-// //                alert("Data Loaded: " + data);
-//                 jQuery("#newsBox").html(data);
-//             });
-
-
             jQuery('#requestPassword').click(function() {
                 jQuery.blockUI({ message: jQuery('#requestPasswordForm'), css:{left: "200px", top:"180px" } });
             });

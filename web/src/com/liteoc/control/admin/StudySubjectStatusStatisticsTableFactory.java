@@ -48,7 +48,7 @@ public class StudySubjectStatusStatisticsTableFactory extends AbstractTableFacto
     @Override
     protected void configureColumns(TableFacade tableFacade, Locale locale) {
         tableFacade.setColumnProperties("status", "studySubjects", "percentage");
-        ((HtmlTableRenderer) tableFacade.getTable().getTableRenderer()).setWidth("350px");
+        ((HtmlTableRenderer) tableFacade.getTable().getTableRenderer()).setWidth("100%");
         Row row = tableFacade.getTable().getRow();
         configureColumn(row.getColumn("status"), reswords.getString("study_subject_status"), null, null, false, true);
         configureColumn(row.getColumn("studySubjects"), reswords.getString("n_study_subjects"), null, null, false, true);

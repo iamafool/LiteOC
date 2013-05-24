@@ -21,7 +21,7 @@
 
 
 <h1><span class="title_manage">
-<fmt:message key="view_all_subjects_in" bundle="${restext}"/> <c:out value="${study.name}"/></span></h1>
+<fmt:message key="view_all_subjects_in" bundle="${restext}"/></span></h1>
 
 
 

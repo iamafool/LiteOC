@@ -41,8 +41,6 @@
 
 
 <%-- move the alert message to the sidebar --%>
-
-
 <jsp:include page="../include/sideInfo.jsp"/>
 
 <!-- the object inside the array is StudySubjectBean-->
@@ -55,14 +53,12 @@
 applied on resolution status or type--%>
 <c:set var="filterSummary" value="${filterSummary}" />
 
-
-
 <h1>
     <c:choose>
     <c:when test="${module eq 'manage'}"><span class="title_manage"></c:when>
     <c:otherwise><span class="title_manage"></c:otherwise>
         </c:choose>
-<fmt:message key="manage_all_discrepancy_notes_in" bundle="${restext}"/> <c:out value="${study.name}"/>
+<fmt:message key="manage_all_discrepancy_notes_in" bundle="${restext}"/>
     <c:choose>
         <c:when test="${module eq 'manage'}">
         </c:when>
@@ -142,17 +138,6 @@ applied on resolution status or type--%>
         </span>
     </c:forEach>
 </div>
-
-<!--<p>List of all subjects with their enrollment dates and status of study events. Select any subject for details on his/her subject record and study events or assign or reassign him/her to a different study/site.</p>
-
-<p>The list of subjects in the current study/site is shown below.</p>
-
-<div class="homebox_bullets"><a href="AddNewSubject">Enroll a New Subject</a></div>
-<p></p>
--->
-
-
-
 
 <%-- added 11-2007 per rjenkins' request, tbh --%>
 

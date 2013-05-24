@@ -30,17 +30,6 @@
         var parameterString = createParameterStringForLimit(id);
         location.href = '${pageContext.request.contextPath}/ListStudySubjects?'+ parameterString;
     }
-
-//     jQuery(document).ready(function() {
-//         jQuery('#addSubject').click(function() {
-// 			jQuery.blockUI({ message: jQuery('#addSubjectForm'), css:{left: "300px", top:"10px" } });
-//         });
-
-//         jQuery('#cancel').click(function() {
-//             jQuery.unblockUI();
-//             return false;
-//         });
-//     });
 </script>
 
 <jsp:include page="../include/sideInfo.jsp"/>
@@ -50,7 +39,7 @@
 
 
 <h1><span class="title_manage">
-<fmt:message key="view_subjects_in" bundle="${restext}"/> <c:out value="${study.name}"/>
+<fmt:message key="view_subjects_in" bundle="${restext}"/>
 </span></h1>
 
 <div id="findSubjectsDiv">
@@ -59,16 +48,8 @@
         ${findSubjectsHtml}
     </form>
 </div>
-<div id="addSubjectForm" style="display:none;">
-      <c:import url="../submit/addNewSubjectExpressNew.jsp">
-      </c:import>
-</div>
+
 
 <br/>
 <jsp:include page="../include/footer.jsp"/>
 
-<script type="text/javascript">
-    <c:if test="${showOverlay}">
-        jQuery.blockUI({ message: jQuery('#addSubjectForm'), css:{left: "300px", top:"10px" } });
-    </c:if>
-</script>

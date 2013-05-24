@@ -146,20 +146,6 @@ public class UpdateStudyEventServlet extends SecureController {
 
         studyEvent.setEventCRFs(ecrfdao.findAllByStudyEvent(studyEvent));
 
-        // only owner, admins, and study director/coordinator can update
-        // if (ub.getId() != studyEvent.getOwnerId()) {
-        // if (!ub.isSysAdmin() &&
-        // !currentRole.getRole().equals(Role.STUDYDIRECTOR)
-        // && !currentRole.getRole().equals(Role.COORDINATOR)) {
-        // addPageMessage(respage.getString("no_have_correct_privilege_current_study")
-        // + respage.getString("change_study_contact_sysadmin"));
-        // request.setAttribute("id", new Integer(studySubjectId).toString());
-        // forwardPage(Page.VIEW_STUDY_SUBJECT_SERVLET);
-        // return;
-        // }
-        // }
-        // above removed tbh 11162007
-
         ArrayList statuses = SubjectEventStatus.toArrayList();
         // remove more statuses here, tbh, 092007
         // ### updates to status setting, below added tbh 102007

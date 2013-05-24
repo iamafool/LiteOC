@@ -56,11 +56,11 @@
 <c:choose>
    <c:when test="${userRole.manageStudy && module=='manage'}">
     <span class="title_manage">
-    <fmt:message key="manage_all_discrepancy_notes_in" bundle="${restext}"/> <c:out value="${study.name}"/></span></h1>
+    <fmt:message key="manage_all_discrepancy_notes_in" bundle="${restext}"/></span></h1>
    </c:when>
    <c:otherwise>
     <span class="title_manage">
-    <fmt:message key="view_all_discrepancy_notes_in" bundle="${restext}"/> <c:out value="${study.name}"/></span></h1>
+    <fmt:message key="view_all_discrepancy_notes_in" bundle="${restext}"/></span></h1>
    </c:otherwise>
   </c:choose>
 

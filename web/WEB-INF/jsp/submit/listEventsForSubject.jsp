@@ -33,29 +33,15 @@
 <c:choose>
     <c:when test="${userRole.manageStudy && module=='manage'}">
     <span class="title_manage">
-    <fmt:message key="manage_all_subjects_in" bundle="${restext}"/> <c:out value="${study.name}"/></span></h1>
+    <fmt:message key="manage_all_subjects_in" bundle="${restext}"/></span></h1>
     </c:when>
     <c:otherwise>
     <span class="title_manage">
-    <fmt:message key="view_all_subjects_in" bundle="${restext}"/> <c:out value="${study.name}"/></span></h1>
+    <fmt:message key="view_all_subjects_in" bundle="${restext}"/></span></h1>
     </c:otherwise>
 </c:choose>
 
 
-
-
-
-
-
-<!--<p>The following is a list of all the subjects enrolled in the
-<c:out value="${study.name}" /> study, together with the status of each subject's
-study events.  Select any subject to view more details and to enter subject event data.
-You may also enroll a new subject and add a new study event:
-
-<div class="homebox_bullets"><a href="AddNewSubject?instr=1">Enroll a New Subject</a></div><br/>
-
-<div class="homebox_bullets"><a href="CreateNewStudyEvent">Add a New Study Event</a></div><br/>
--->
 
 <!---study event definition tabs -->
 

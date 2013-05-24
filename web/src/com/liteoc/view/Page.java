@@ -490,8 +490,7 @@ public class Page {
     public final static Page MANAGE_STUDY_SERVLET = new Page("/ManageStudy", "Manage Study Servlet");
 
     public final static Page SUBMIT_DATA = new Page(path + "submit/index.jsp", "Submit Data Menu");
-    // public final static Page SUBMIT_DATA_SERVLET = new Page("/SubmitData",
-    // "Submit Data Menu");
+
     public final static Page SUBMIT_DATA_SERVLET = new Page("/ListStudySubjectsSubmit", "Submit Data Menu");
 
     public final static Page CREATE_NEW_STUDY_EVENT = new Page(path + "submit/createNewStudyEvent.jsp", "Create a New Study Event");
@@ -540,7 +539,6 @@ public class Page {
     public final static Page RESTORE_USER_ROLE_IN_STUDY = new Page(path + "managestudy/restoreStudyUserRole.jsp", "restore a user role in a study");
     public final static Page LIST_USER_IN_STUDY_SERVLET = new Page("/ListStudyUser", "list users in a study");
 
-    public final static Page LIST_SUBJECT = new Page(path + "managestudy/listSubject.jsp", "list subjects in a study");
     public final static Page LIST_SUBJECT_SERVLET = new Page("/ListSubject", "list subjects in a study");
     public final static Page VIEW_SUBJECT = new Page(path + "admin/viewSubject.jsp", "View Subject");
 

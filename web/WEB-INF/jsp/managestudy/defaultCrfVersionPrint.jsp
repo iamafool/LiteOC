@@ -16,7 +16,6 @@
     <script type="text/javascript"  language="JavaScript" src=
       "includes/repetition-model/repetition-model.js"></script>
     <link rel="stylesheet" href="includes/styles.css" type="text/css">
-    <link rel="stylesheet" href="includes/print_crf.css" type="text/css">
 
     <style>
         .infotab{border-top:1px #CCCCCC solid; border-left:1px #CCCCCC solid}

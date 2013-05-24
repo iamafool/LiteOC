@@ -88,7 +88,6 @@
 	<classpathentry exported="true" kind="var" path="M2_REPO/rome/rome-fetcher/1.0/rome-fetcher-1.0.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/net/sf/saxon/saxon/8.7/saxon-8.7.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/net/sf/saxon/saxon-dom/8.7/saxon-dom-8.7.jar"/>
-	<classpathentry exported="true" kind="var" path="M2_REPO/opensymphony/sitemesh/2.3/sitemesh-2.3.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.5.6/slf4j-api-1.5.6.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="M2_REPO/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar"/>

@@ -29,7 +29,7 @@
 <c:set var="dtetmeFormat"><fmt:message key="date_time_format_string" bundle="${resformat}"/></c:set>
 
 <h1><span class="title_manage">
-<fmt:message key="view_study_log_for" bundle="${resword}"/> <c:out value="${study.name}"/>
+<fmt:message key="view_study_log_for" bundle="${resword}"/>
 </span></h1>
 
 <jsp:include page="../include/alertbox.jsp" />

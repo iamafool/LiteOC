@@ -19,7 +19,7 @@
 <jsp:useBean scope='request' id='table' class='com.liteoc.web.bean.EntityBeanTable'/>
 
 <h1><span class="title_manage">
-<fmt:message key="manage_all_sites_in_study" bundle="${restext}"/> <c:out value="${study.name}"/></span></h1>
+<fmt:message key="manage_all_sites_in_study" bundle="${restext}"/></span></h1>
 
 <div class="homebox_bullets">
  <c:choose>

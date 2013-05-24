@@ -16,21 +16,12 @@
   }
 </script>  
 
-<table border="0" cellpadding="0" cellspacing="0">
+<table class="body" border="0" cellpadding="0" cellspacing="0">
   <tr>
 	<td valign="top">
 	  <table border="0" cellpadding="0" cellspacing="0">
-        <tr id="sidebar_Info_closed" style="display: none">
-		  <td class="sidebar_tab">
-		    <a href="javascript:leftnavExpand('sidebar_Info_open'); leftnavExpand('sidebar_Info_closed');"><img src="${pageContext.request.contextPath}/images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
-		    <b><fmt:message key="info" bundle="${restext}"/></b>
-          </td>
-	    </tr>
-      	
         <tr id="sidebar_Info_open" style="display: all">
           <td class="sidebar_tab">
-            <a href="javascript:leftnavExpand('sidebar_Info_open'); leftnavExpand('sidebar_Info_closed');"><img src="${pageContext.request.contextPath}/images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
-            <b><fmt:message key="info" bundle="${resword}"/></b>
 	  
 			<%-- Side alert, only show the content after user logs in --%>
 			<c:if test="${userBean != null && userBean.id>0}">	 
@@ -47,19 +38,9 @@
 						</c:otherwise>
 					  </c:choose>
 					</i>
-					<br/>
-					<span style="color: #789EC5"></span>
 				  </div>
 				</c:when>
-			  </c:choose>	
-
- 	          <c:if test="${iconInfoShown}">
-	 			<c:import url="/WEB-INF/jsp/include/sideIconsSubject.jsp"/>
-	          </c:if>
-
-              <c:if test="${(!panel.iconInfoShown && panel.manageSubject) || closeInfoShowIcons}">
-				<c:import url="/WEB-INF/jsp/include/sideIconsSubject.jsp"/>
-	          </c:if>
+			  </c:choose>
 	
               <c:if test="${panel.submitDataModule}">      
                 <c:import url="/WEB-INF/jsp/include/submitDataSide.jsp"/>
@@ -68,8 +49,9 @@
 
       </table>
       <br/>
-      <img src="images/spacer.gif" width="120" height="1">
     </td>
+    </tr>
+    <tr>
     <td class="aka_revised_content" valign="top">
   
 

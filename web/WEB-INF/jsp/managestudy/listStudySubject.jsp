@@ -25,7 +25,7 @@
 
 
 <h1><span class="title_manage">
-<fmt:message key="manage_all_subjects_in" bundle="${restext}"/> <c:out value="${study.name}"/>
+<fmt:message key="manage_all_subjects_in" bundle="${restext}"/>
 </span></h1>
 
 <!--<p>List of all subjects with their enrollment dates and status of study events. Select any subject for details on his/her subject record and study events or assign or reassign him/her to a different study/site.</p>

@@ -41,7 +41,6 @@
             <fmt:message key="assign_users_to_current_study" bundle="${resword}"/>
         </c:otherwise>
     </c:choose>
-    <c:out value="${study.name}"/>
 </span>
 </h1>
 

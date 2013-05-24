@@ -41,18 +41,7 @@
 
 <div class="aka_revised_content">
 
-	<h1>
-		<span class="title_manage" style="line-height:5px;"> <fmt:message
-				key="welcome_to" bundle="${restext}" /> <c:choose>
-				<c:when test='${study.parentStudyId > 0}'>
-					<c:out value='${study.parentStudyName}' />
-				</c:when>
-				<c:otherwise>
-					<c:out value='${study.name}' />
-				</c:otherwise>
-			</c:choose> </span>
-	</h1>
-
+	<br/>
 	<c:set var="roleName" value=""/>
 <c:if test="${userRole != null && !userRole.invalid}">
 <c:set var="roleName" value="${userRole.role.name}"/>
@@ -123,14 +112,14 @@
 
     </script>
 
-<table>
+<table width="100%">
 <tr>
-    <td valign="top">
+    <td valign="top" width="50%">
     <form  action="${pageContext.request.contextPath}/MainMenu">
         ${studySiteStatistics}
     </form>
     </td>
-    <td valign="top">
+    <td valign="top" width="50%">
     <form  action="${pageContext.request.contextPath}/MainMenu">
         ${studyStatistics}
     </form>
@@ -139,15 +128,15 @@
 </table>
 
 
-<table>
+<table width="100%">
 <tr>
-    <td valign="top">
+    <td valign="top" width="50%">
     <form  action="${pageContext.request.contextPath}/MainMenu">
         ${subjectEventStatusStatistics}
     </form>
     </td>
 
-    <td valign="top">
+    <td valign="top" width="50%">
     <form  action="${pageContext.request.contextPath}/MainMenu">
         ${studySubjectStatusStatistics}
     </form>

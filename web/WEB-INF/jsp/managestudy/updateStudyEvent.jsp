@@ -76,7 +76,7 @@
 <input type="hidden" name="action" value="submit">
 <input type="hidden" name="event_id" value="<c:out value="${studyEvent.id}"/>">
 <input type="hidden" name="ss_id" value="<c:out value="${ss_id}"/>">
- <div style="width: 550px">
+ <div>
 <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
 
 <div class="tablebox_center">

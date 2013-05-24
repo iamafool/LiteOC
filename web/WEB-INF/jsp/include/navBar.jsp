@@ -48,52 +48,38 @@
 	<div id="StudyInfo">
 		<c:choose>
 			<c:when test='${study.parentStudyId > 0}'>
-				<b><a
-					href="${urlPrefix}ViewStudy?id=${study.parentStudyId}&viewFull=yes"
-					title="<c:out value='${study.parentStudyName}'/>"
-					alt="<c:out value='${study.parentStudyName}'/>"><c:out
-							value="${study.abbreviatedParentStudyName}" />
-				</a> :&nbsp;<a href="${urlPrefix}ViewSite?id=${study.id}"
-					title="<c:out value='${study.name}'/>"
-					alt="<c:out value='${study.name}'/>"><c:out
-							value="${study.abbreviatedName}" />
+				<b>
+				<a href="${urlPrefix}ViewStudy?id=${study.parentStudyId}&viewFull=yes" title="<c:out value='${study.parentStudyName}'/>" alt="<c:out value='${study.parentStudyName}'/>">
+					<c:out value="${study.abbreviatedParentStudyName}" />
+				</a>
+				>
+				<a href="${urlPrefix}ViewSite?id=${study.id}" title="<c:out value='${study.name}'/>" alt="<c:out value='${study.name}'/>">
+					<c:out value="${study.abbreviatedName}" />
 				</a>
 				</b>
 			</c:when>
 			<c:otherwise>
-				<b><a href="${urlPrefix}ViewStudy?id=${study.id}&viewFull=yes"
-					title="<c:out value='${study.name}'/>"
-					alt="<c:out value='${study.name}'/>"><c:out
-							value="${study.abbreviatedName}" />
+				<b><a href="${urlPrefix}ViewStudy?id=${study.id}&viewFull=yes" title="<c:out value='${study.name}'/>" alt="<c:out value='${study.name}'/>">
+					<c:out value="${study.abbreviatedName}" />
 				</a>
 				</b>
 			</c:otherwise>
 		</c:choose>
-		(
-		<c:out value="${study.abbreviatedIdentifier}" />
-		)&nbsp;&nbsp;|&nbsp;&nbsp; <a href="${urlPrefix}ChangeStudy"><fmt:message
-				key="change_study_site" bundle="${resworkflow}" />
-		</a>
 	</div>
+		
 	<div id="UserInfo">
-		<a href="${urlPrefix}UpdateProfile"><b><c:out
-					value="${userBean.name}" />
-		</b> (<c:out value="${userRole.role.description}" />)&nbsp; <c:set
-				var="formatLocale">
+		<a href="${urlPrefix}UpdateProfile"><b><c:out value="${userBean.name}" /> </b>
+			 (<c:out value="${userRole.role.description}" />)&nbsp; <c:set var="formatLocale">
 				<fmt:message key="locale_string" bundle="${resformat}" />
-			</c:set> <c:choose>
-				<c:when test="${formatLocale == null}">
-                        en
-                    </c:when>
-				<c:otherwise>
-					<c:out value="${formatLocale}" />
-				</c:otherwise>
-			</c:choose> </a>&nbsp;|&nbsp; <a href="${urlPrefix}j_spring_security_logout"><fmt:message
-				key="log_out" bundle="${resword}" />
-		</a>
+			</c:set>
+		</a>&nbsp;|&nbsp;
+		<a href="${urlPrefix}j_spring_security_logout"><fmt:message key="log_out" bundle="${resword}" /></a>
 	</div>
 	<br />
-	<br style="line-height: 4px;" />
+	<br />
+	
+	
+
 	<div class="box_T">
 		<div class="box_L">
 			<div class="box_R">
