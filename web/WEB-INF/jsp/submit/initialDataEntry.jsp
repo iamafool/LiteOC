@@ -7,12 +7,8 @@
 <fmt:setBundle basename="com.liteoc.i18n.notes" var="restext"/>
 <script type="text/javascript" src="includes/wz_tooltip/wz_tooltip.js"></script>
 
-<jsp:include page="../include/submit-header-inactive.jsp"/>
 
-<jsp:include page="../include/userbox-inactive.jsp"/>
 <%-- move the alert message to the sidebar --%>
-
-<jsp:include page="../include/submitSideInfo-inactive.jsp"/>
 
 <jsp:useBean scope="request" id="section" class=
   "com.liteoc.bean.submit.DisplaySectionBean" />
@@ -211,4 +207,4 @@ if (checkDataStatus()) {
 <DIV ID="testdiv1" STYLE="position:absolute;visibility:hidden;background-color:white;"></DIV>
 
 
-<jsp:include page="../include/footer-inactive.jsp"/>
+

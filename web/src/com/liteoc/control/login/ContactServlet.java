@@ -76,7 +76,7 @@ public class ContactServlet extends SecureController {
         String message = fp.getString("message");
         logger.info("Sending email...");
 
-        StringBuffer emailBody = new StringBuffer(restext.getString("dear_openclinica_administrator") + ", <br>");
+        StringBuffer emailBody = new StringBuffer(restext.getString("dear_administrator") + ", <br>");
         emailBody.append(name + " " + restext.getString("sent_you_the_following_message_br") + "<br>");
         emailBody.append("<br>" + resword.getString("email") + ": " + email);
         emailBody.append("<br>" + resword.getString("subject") + ":" + subject);

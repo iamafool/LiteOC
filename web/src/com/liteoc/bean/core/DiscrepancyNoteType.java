@@ -40,7 +40,11 @@ public class DiscrepancyNoteType extends Term {
     
     private static final DiscrepancyNoteType[] members = { FAILEDVAL, ANNOTATION, QUERY, REASON_FOR_CHANGE };
 
-    public static final List list = Arrays.asList(members);
+    public static DiscrepancyNoteType[] getMembers() {
+		return members;
+	}
+
+	public static final List list = Arrays.asList(members);
 
     private List privileges;
 

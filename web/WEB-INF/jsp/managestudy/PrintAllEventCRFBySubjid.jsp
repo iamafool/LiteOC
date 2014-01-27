@@ -16,7 +16,7 @@
       "includes/global_functions_javascript.js"></script>
     <script type="text/javascript"  language="JavaScript" src=
       "includes/repetition-model/repetition-model.js"></script>
-    <link rel="stylesheet" href="includes/styles.css" type="text/css">
+    <link rel="stylesheet" href="includes/print.css" type="text/css">
 
     <style>
         .infotab{border-top:1px #CCCCCC solid; border-left:1px #CCCCCC solid}
@@ -25,8 +25,8 @@
         thead { display: table-header-group; }
     </style>
 </head>
-<jsp:useBean scope="request" id="section" class="com.liteoc.bean.submit.DisplaySectionBean" />
-<jsp:useBean scope="session" id="studyEvent" class="com.liteoc.bean.managestudy.StudyEventBean" />
+<%-- <jsp:useBean scope="request" id="section" class="com.liteoc.bean.submit.DisplaySectionBean" />
+<jsp:useBean scope="session" id="studyEvent" class="com.liteoc.bean.managestudy.StudyEventBean" /> --%>
 <jsp:useBean scope="request" id="sedCrfBeans" class="java.util.LinkedHashMap" />
 <jsp:useBean scope="request" id="studySubject" class="com.liteoc.bean.managestudy.StudySubjectBean"></jsp:useBean>
 
@@ -42,23 +42,16 @@
 <th width=100%>
         <table class="infotab" cellpadding="0" cellspacing="0">
             <tr>
-                <td width="20%"><h1><fmt:message key="study_name" bundle="${resword}"/></h1> </td>
-                <td width="20%"><h1><fmt:message key="event_definition_name" bundle="${resword}"/></h1></td>
-                <td width="20%"><h1><fmt:message key="site" bundle="${resword}"/></h1></td>
-                <td width="20%"><h1><fmt:message key="study_subject_ID" bundle="${resword}"/></h1></td>
-                <td width="20%"><h1><fmt:message key="date_interviewed" bundle="${resword}"/></h1></td>
-                <td width="15%"><h1>Global ID </h1></td>
-                <td width="10%"><h1><fmt:message key="interviewer_name" bundle="${resword}"/></h1></td>
-
+                <td width="30%"><h1><fmt:message key="study_subject_ID" bundle="${resword}"/></h1></td>
+                <td width="40%"><h1><fmt:message key="event_definition_name" bundle="${resword}"/></h1></td>
+                <td width="30%"><h1><fmt:message key="date_interviewed" bundle="${resword}"/></h1></td>
             </tr>
             <tr>
-                <td><h1><c:out value="${studyName}"/></h1></td>
-                <td>&quot;<h1><c:out value="${item.key.name}"/></h1></td>
-                <td><h1>&nbsp;<c:out value="${site}"/></h1></td>
-                <td>&nbsp;<h1><c:out value="${studySubject.label}"/></h1></td>
-                <td>&nbsp;<h1></h1></td>
-                <td>&nbsp;<h1></h1></td>
-                <td>&nbsp;<h1></h1></td>
+                <td><h1><c:out value="${studySubject.label}"/></h1></td>
+                <td><h1><c:out value="${item.key[1].name}"/></h1></td>
+                <%-- <td><h1><c:out value="${item.key[0].dateStarted}"/></h1></td> --%>
+                <td><h1><fmt:formatDate value="${item.key[0].dateStarted}" type="date" pattern="yyyy-MM-dd"/></h1></td>
+                
             </tr>
         </table>
     <br/>

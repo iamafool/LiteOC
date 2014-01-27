@@ -73,7 +73,6 @@
 }
 
 .aka_font_general {
-	font-size: 1.6em;
 	font-style: normal;
 	font-weight: bold;
 }
@@ -309,28 +308,28 @@ td .aka_revised {
 }
 /* //////////////////////////////////////// */
 H1 {
-	font-size: 1.8em;
+	font-size: 1.4em;
 	line-height: 24px;
 	font-weight: bold;
 	color: #789EC5;
 }
 
 H2 {
-	font-size: 1.8em;
+	font-size: 1.4em;
 	line-height: 24px;
 	font-weight: bold;
 	color: #CCCCCC;
 }
 
 H3 {
-	font-size: 1.6em;
+	font-size: 1.2em;
 	line-height: 18px;
 	font-weight: bold;
 	color: #789EC5;
 }
 
 h4 {
-	font-size: 1.8em;
+	font-size: 1.2em;
 	line-height: 24px;
 	font-weight: bold;
 	color: #E46E16;
@@ -930,7 +929,6 @@ a.breadcrumb_completed:hover,a.breadcrumb_completed:active {
 	background-image: url(../images/button_BG.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	font-size: 1.6em;
 	line-height: 11px;
 	color: #FFFFFF;
 	font-weight: bold;
@@ -946,7 +944,6 @@ a.breadcrumb_completed:hover,a.breadcrumb_completed:active {
 	background-image: url(../images/button_BG.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	font-size: 1.6em;
 	line-height: 18px;
 	color: #FFFFFF;
 	font-weight: bold;
@@ -962,7 +959,6 @@ a.breadcrumb_completed:hover,a.breadcrumb_completed:active {
 	background-image: url(../images/loginbutton_BG.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	font-size: 1.6em;
 	line-height: 11px;
 	color: #FFFFFF;
 	font-weight: bold;
@@ -977,7 +973,6 @@ a.breadcrumb_completed:hover,a.breadcrumb_completed:active {
 	background-image: url(../images/button_Search_BG_dis.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	font-size: 1.6em;
 	line-height: 11px;
 	color: #E6E6E6;
 	font-weight: bold;
@@ -993,7 +988,6 @@ a.breadcrumb_completed:hover,a.breadcrumb_completed:active {
 	background-image: url(../images/button_Search_BG.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	font-size: 1.6em;
 	line-height: 11px;
 	color: #FFFFFF;
 	font-weight: bold;
@@ -1009,7 +1003,6 @@ a.breadcrumb_completed:hover,a.breadcrumb_completed:active {
 	background-image: url(../images/bt_Remove.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	font-size: 1.6em;
 	line-height: 11px;
 	color: #FFFFFF;
 	font-weight: bold;
@@ -1025,7 +1018,6 @@ a.breadcrumb_completed:hover,a.breadcrumb_completed:active {
 	background-image: url(../images/button_medium_BG.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	font-size: 1.6em;
 	line-height: 11px;
 	color: #FFFFFF;
 	font-weight: bold;
@@ -1041,7 +1033,6 @@ a.breadcrumb_completed:hover,a.breadcrumb_completed:active {
 	background-image: url(../images/button_long_BG.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	font-size: 1.6em;
 	line-height: 11px;
 	color: #FFFFFF;
 	font-weight: bold;
@@ -1057,7 +1048,6 @@ a.breadcrumb_completed:hover,a.breadcrumb_completed:active {
 	background-image: url(../images/button_xlong_BG.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	font-size: 1.6em;
 	line-height: 11px;
 	color: #FFFFFF;
 	font-weight: bold;
@@ -1736,7 +1726,6 @@ div#sumBox table tr:first-child td {
 }
 
 .double_entry_value {
-	font-size: 1.5em;
 	font-style: normal;
 	font-weight: bold;
 	color: #ff0000;
@@ -1747,15 +1736,15 @@ body.login_BG {
 }
 
 div.login_BG {
-	background: url(../images/login_BG.gif) no-repeat top center;
 	height: 100%;
 	padding-top: 117px;
 }
 
 #OClogo {
-	background: url(../images/OC_login_logo.png) no-repeat top left;
-	width: 428px;
 	height: 112px;
+	font-size: 2.8em;
+	color: #789EC5;	
+	font-weight: bold;	
 }
 
 #OClogoIE6 {
@@ -1818,7 +1807,6 @@ div.login_BG {
 	border-left: 1px;
 	border-right: 0px;
 	border-bottom: 1px;
-	font-size: 1.6em;
 	line-height: 15px;
 	color: #4D4D4D;
 }

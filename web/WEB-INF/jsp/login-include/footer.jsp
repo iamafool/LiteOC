@@ -22,9 +22,6 @@
 	
 <!-- Footer -->
 <img src="images/spacer.gif" width=1 height=3><br/>
-<center>
-<fmt:message key="Openclinica_Release_1_1" bundle="${resword}"/>
-</center>
 <img src="images/spacer.gif" width=1 height=1>
 
 <!-- end Footer -->

@@ -14,7 +14,6 @@ import com.liteoc.web.InsufficientPermissionException;
  */
 public class ChooseDownloadFormat extends SecureController{
     protected void processRequest() throws Exception {
-        //FormProcessor fp = new FormProcessor(request);
         String subjectId=request.getParameter("subjectId");
         request.setAttribute("subjectId",subjectId);
         String resolutionStatus=request.getParameter("resolutionStatus");

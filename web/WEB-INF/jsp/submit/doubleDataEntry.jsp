@@ -220,9 +220,9 @@ var TabsNumber = <c:out value="${sectionNum}"/>;
 var TabsShown = 3;
 
 // Labels to display on each tab (name of CRF)
-var TabLabel = new Array(TabsNumber)
-var TabFullName = new Array(TabsNumber)
-var TabSectionId = new Array(TabsNumber)
+var TabLabel = new Array(TabsNumber);
+var TabFullName = new Array(TabsNumber);
+var TabSectionId = new Array(TabsNumber);
 <c:set var="count" value="0"/>
 <c:forEach var="section" items="${toc.sections}">
 TabFullName[<c:out value="${count}"/>]="<c:out value="${section.label}"/> (<c:out value="${section.numItemsCompleted}"/>/<c:out value="${section.numItems}" />)";

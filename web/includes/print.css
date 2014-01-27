@@ -2,35 +2,49 @@
  http://meyerweb.com/eric/articles/webrev/200001.html
 
  */
- BODY {color: black; background: white;}
-A:link, A:visited {background: white; color: black; text-decoration: underline;
-   font-weight: bold;}
-H1, H2, H3 {background: white; color: black; padding-bottom: 1px;
-   border-bottom: 1px solid gray;}
-#centralContainer { display:block;
-  border: thin solid white;}
+BODY{
+ 	color: black;
+ 	background: white;
+}
+
+A:link, A:visited {
+	background: white;
+	color: black;
+	text-decoration: underline;
+    font-weight: bold;
+}
+
+H1, H2, H3 {
+	background: white;
+	color: black;
+	padding-bottom: 1px;
+}
+
+#centralContainer {
+	display:block;
+  	border: thin solid white;
+}
 
 /* ////////////////////////////////////////
 ////////// BWP: New classes temporarily   /////
 ///////// added to improve JSP formatting /////*/
 .aka_revised_content{
-  padding-left: 22px;
+	padding-left: 22px;
 	padding-right: 36px;
 	padding-top: 8px;
 	padding-bottom: 18px;
-  float:left
+    float:left
 }
 
 .aka_err_message{
-  border: 1px solid #c5c5c5;
+    border: 1px solid #c5c5c5;
 	background: #ECECEC;
-  width:450px;
-  font-family: Tahoma, Arial, Helvetica, Sans-Serif;
+    width:450px;
+    font-family: Tahoma, Arial, Helvetica, Sans-Serif;
 	font-size: 11px;
 	font-style: normal;
 	font-weight: bold;
 	color:  #ff0000;
-   /*color: #E46E16; */
 }
 
 .aka_exclaim_error{
@@ -115,7 +129,6 @@ td .aka_revised {
 
 .aka_text_block_shared {
   float:left;
-  width:11em;
   white-space:normal;
   padding-right:1px
 }

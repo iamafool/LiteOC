@@ -15,6 +15,7 @@ import org.jmesa.facade.TableFacade;
 
 import com.liteoc.bean.admin.CRFBean;
 import com.liteoc.bean.core.AuditableEntityBean;
+import com.liteoc.bean.core.DiscrepancyNoteType;
 import com.liteoc.bean.core.ResolutionStatus;
 import com.liteoc.bean.managestudy.DiscrepancyNoteBean;
 import com.liteoc.bean.managestudy.StudyBean;
@@ -59,13 +60,6 @@ public class ViewNotesServlet extends SecureController {
     public static final String DISCREPANCY_NOTE_TYPE = "discrepancyNoteType";
     private boolean showMoreLink;
 
-    /*
-     * public static final Map<Integer,String> TYPES = new HashMap<Integer,String>();
-     * static{ TYPES.put(1,"Failed Validation Check");
-     * TYPES.put(2,"Incomplete"); TYPES.put(3,"Unclear/Unreadable");
-     * TYPES.put(4,"Annotation"); TYPES.put(5,"Other"); TYPES.put(6,"Query");
-     * TYPES.put(7,"Reason for Change"); }
-     */
     /*
      * (non-Javadoc)
      * 
@@ -222,7 +216,7 @@ public class ViewNotesServlet extends SecureController {
 
         request.setAttribute("summaryMap", stats);
         request.setAttribute("mapKeys", ResolutionStatus.getMembers());
-        request.setAttribute("typeNames", discNoteUtil.getTypeNames());
+        request.setAttribute("typeNames", DiscrepancyNoteType.getMembers());
         request.setAttribute("typeKeys", totalMap);
         request.setAttribute("grandTotal", grandTotal);
 
@@ -306,19 +300,6 @@ public class ViewNotesServlet extends SecureController {
                     // dnr.setEntityName(cb.getName() + " (" + cvb.getName() +
                     // ")");
                 }
-                /*
-                 * else if (entityType.equalsIgnoreCase("studyEvent")) {
-                 * StudyEventDAO sed = new StudyEventDAO(sm.getDataSource());
-                 * StudyEventBean se = (StudyEventBean)
-                 * sed.findByPK(dnb.getEntityId());
-                 * 
-                 * StudyEventDefinitionDAO seddao = new
-                 * StudyEventDefinitionDAO(sm.getDataSource());
-                 * StudyEventDefinitionBean sedb = (StudyEventDefinitionBean)
-                 * seddao.findByPK(se.getStudyEventDefinitionId());
-                 * 
-                 * //dnr.setEntityName(sedb.getName()); }
-                 */
                 else if (entityType.equalsIgnoreCase("itemData")) {
                     // ItemDataBean idb = (ItemDataBean) aeb;
                     ItemDataDAO iddao = new ItemDataDAO(sm.getDataSource());
@@ -356,10 +337,6 @@ public class ViewNotesServlet extends SecureController {
      */
     @Override
     protected void mayProceed() throws InsufficientPermissionException {
-        /*
-         * if (currentRole.getRole().equals(Role.STUDYDIRECTOR) ||
-         * currentRole.getRole().equals(Role.COORDINATOR)) { return; }
-         */
         if (SubmitDataServlet.mayViewData(ub, currentRole)) {
             return;
         }

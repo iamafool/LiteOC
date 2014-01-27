@@ -70,19 +70,6 @@ function submitform(){
    //-->
 </script>
 
-<p><fmt:message key="can_download_blank_CRF_excel" bundle="${restext}"/><a href="DownloadVersionSpreadSheet?template=1"><b><fmt:message key="here" bundle="${resword}"/></b></a>.</p>
-
-<div style="font-family: Tahoma, Arial, Helvetica, Sans-Serif;font-size:12px;">
-    <p><fmt:message key="openclinica_excel_support" bundle="${restext}"/></p>
-
- </div>
-
-<%--
-<p><fmt:message key="also_download_set_example_CRFs" bundle="${restext}"/><a href="http://www.openclinica.org/entities/entity_details.php?eid=151" target="_blank"><fmt:message key="here" bundle="${resword}"/></a>.</p>
---%>
-
-
-
 <form action="CreateCRFVersion?action=confirm&crfId=<c:out value="${version.crfId}"/>&name=<c:out value="${version.name}"/>" method="post" ENCTYPE="multipart/form-data">
 <div style="width: 400px">
 <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
@@ -109,10 +96,10 @@ function submitform(){
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
 <td>
-<input type="submit" onclick="return submitform();" value="<fmt:message key="preview_CRF_version" bundle="${resword}"/>" class="button_long">
+<input type="submit" onclick="return submitform();" value="<fmt:message key="submit" bundle="${resword}"/>" class="button_medium">
 </td>
 <td>
-<input type="button" onclick="confirmExit('ListCRF?module=<c:out value="${module}"/>')" name="exit" value="<fmt:message key="exit" bundle="${resword}"/>   "class="button_medium"/>
+<input type="button" onclick="confirmExit('ListCRF?module=<c:out value="${module}"/>')" name="exit" value="<fmt:message key="cancel" bundle="${resword}"/>" class="button_medium"/>
 </tr></table>
 </form>
 

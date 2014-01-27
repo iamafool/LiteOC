@@ -34,7 +34,7 @@
 						  <jsp:include page="../include/showSideMessage.jsp" />
 						</c:when>
 						<c:otherwise>             
-						  <fmt:message key="have_logged_out_application" bundle="${resword}"/><a href="MainMenu"><fmt:message key="login_page" bundle="${resword}"/></a> <fmt:message key="in_order_to_re_enter_openclinica" bundle="${resword}"/>         
+						  <fmt:message key="have_logged_out_application" bundle="${resword}"/><a href="MainMenu"><fmt:message key="login_page" bundle="${resword}"/></a> <fmt:message key="in_order_to_re_enter_system" bundle="${resword}"/>         
 						</c:otherwise>
 					  </c:choose>
 					</i>

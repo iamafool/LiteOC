@@ -93,12 +93,6 @@
     </tr>
 </table>
 
-<%-- <p>
-    <a href="#events"><fmt:message key="events" bundle="${resword}"/></a> &nbsp; &nbsp; &nbsp;
-    <a href="#group"><fmt:message key="group" bundle="${resword}"/></a> &nbsp;&nbsp;&nbsp;
-    <a href="#global"><fmt:message key="global_subject_record" bundle="${resword}"/></a> &nbsp;&nbsp;&nbsp;
-    <a href="javascript:openDocWindow('ViewStudySubjectAuditLog?id=<c:out value="${studySub.id}"/>')"><fmt:message key="audit_logs" bundle="${resword}"/></a>
-</p> --%>
 
 <c:choose>
     <c:when test="${isAdminServlet == 'admin' && userBean.sysAdmin && module=='admin'}">
@@ -399,82 +393,7 @@
 
 
 </div>
-<%--
-</div></div></div></div></div></div></div></div>
 
-</td>
-
-
-<td valign="top" width="350" style="padding-right: 20px">
-
-    <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
-
-        <div class="tablebox_center">
-            <table border="0" cellpadding="0" cellspacing="0" width="330">
-                <tr>
-                    <td colspan="2" align="right" valign="top" class="table_actions">&nbsp;
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table_header_column_top"><fmt:message key="study_name" bundle="${resword}"/></td>
-                    <td class="table_cell_top">
-                        <c:choose>
-                            <c:when test="${subjectStudy.parentStudyId>0}">
-                                <c:out value="${parentStudy.name}"/>
-                            </c:when>
-                            <c:otherwise>
-                                <c:out value="${subjectStudy.name}"/>
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="table_header_column"><fmt:message key="unique_protocol_ID" bundle="${resword}"/></td>
-                    <td class="table_cell"><c:out value="${subjectStudy.identifier}"/></td>
-                </tr>
-                <tr>
-                    <td class="table_header_column"><fmt:message key="site_name" bundle="${resword}"/></td>
-                    <td class="table_cell">
-                        <c:if test="${subjectStudy.parentStudyId>0}">
-                            <c:out value="${subjectStudy.name}"/>
-                        </c:if>&nbsp;</td>
-                </tr>
-
-
-                <tr>
-                    <td class="table_divider" colspan="2">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="table_header_column_top"><fmt:message key="date_record_created" bundle="${resword}"/></td>
-                    <td class="table_cell_top"><fmt:formatDate value="${studySub.createdDate}" pattern="${dteFormat}"/></td>
-                </tr>
-                <tr>
-                    <td class="table_header_column"><fmt:message key="created_by" bundle="${resword}"/></td>
-                    <td class="table_cell"><c:out value="${studySub.owner.name}"/></td>
-                </tr>
-                <tr>
-                    <td class="table_header_column"><fmt:message key="date_record_last_updated" bundle="${resword}"/></td>
-                    <td class="table_cell"><fmt:formatDate value="${studySub.updatedDate}" pattern="${dteFormat}"/>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="table_header_column"><fmt:message key="updated_by" bundle="${resword}"/></td>
-                    <td class="table_cell"><c:out value="${studySub.updater.name}"/>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="table_header_column"><fmt:message key="status" bundle="${resword}"/></td>
-                    <td class="table_cell"><c:out value="${studySub.status.name}"/></td>
-                </tr>
-            </table>
-        </div>
-
-    </div></div></div></div></div></div></div></div>
-
-</td>
-</tr>
-</table>
-<br/><br/>
-</div>
---%>
 
 <c:choose>
     <c:when test="${isAdminServlet == 'admin' && userBean.sysAdmin && module=='admin'}">

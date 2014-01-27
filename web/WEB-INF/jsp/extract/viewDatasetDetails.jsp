@@ -59,7 +59,6 @@
 
 </div>
 <br/><br/>
-<jsp:include page="selected-inactive.jsp"></jsp:include>
 
 <table border="0">
 <tr>

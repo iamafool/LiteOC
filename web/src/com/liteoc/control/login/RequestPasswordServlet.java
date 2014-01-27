@@ -157,13 +157,13 @@ public class RequestPasswordServlet extends SecureController {
         logger.info("Sending email...");
 
         StringBuffer email = new StringBuffer("Hi " + ubDB.getFirstName() + ", <br>");
-        email.append(restext.getString("this_email_is_from_openclinica_admin") + "<br>").append(
+        email.append(restext.getString("this_email_is_from_admin") + "<br>").append(
                 restext.getString("your_password_has_been_reset_as") + ":" + passwd).append("<br>" + restext.getString("you_will_be_required_to_change"))
                 .append(restext.getString("time_you_login_to_the_system")).append(restext.getString("use_the_following_link_to_log") + ":<br>").append(
                         SQLInitServlet.getField("sysURL"));
 
         String emailBody = email.toString();
-        sendEmail(ubDB.getEmail().trim(), EmailEngine.getAdminEmail(), restext.getString("your_openclinica_password"), emailBody, true, respage
+        sendEmail(ubDB.getEmail().trim(), EmailEngine.getAdminEmail(), restext.getString("your_password"), emailBody, true, respage
                 .getString("your_password_reset_new_password_emailed"), respage.getString("your_password_not_send_due_mail_server_problem"), true);
 
         session.removeAttribute("challengeQuestions");

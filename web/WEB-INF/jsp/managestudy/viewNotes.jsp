@@ -49,58 +49,8 @@
         <c:otherwise><span class="title_manage"></c:otherwise>
         </c:choose>
 	<fmt:message key="view_discrepancy_notes" bundle="${resword}"/>
- <%--<a href="javascript:openDocWindow('ViewNotes?print=yes')"--%>
-<%--<a href="javascript:onInvokeAction('listNotes','filter')"--%>
-	<%--onMouseDown="javascript:setImage('bt_Print0','images/bt_Print_d.gif');"--%>
-	<%--onMouseUp="javascript:setImage('bt_Print0','images/bt_Print.gif');">--%>
-	<%--<img name="bt_Print0" src="images/bt_Print.gif" border="0" alt="<fmt:message key="print" bundle="${resword}"/>"></a>--%>
 </span></h1>
-<%--
-<div class="dnKey"><strong><fmt:message key="Filter_by_status" bundle="${resword}"/>
-:</strong>
 
-    <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&type=50" <c:if test="${param.type == 50}">style="color:green"</c:if>>All Notes</a>&nbsp;
-
-    <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&resolutionStatus=1&discNoteType=${param.discNoteType}"><img
-                      name="icon_Note" src="images/icon_Note.gif" border="0"
-                      alt="<fmt:message key="Open" bundle="${resterm}"/>" title="<fmt:message key="Open" bundle="${resterm}"/>"/></a> (<fmt:message key="Open" bundle="${resterm}"/>)&nbsp;
-
-    <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&resolutionStatus=2&discNoteType=${param.discNoteType}"><img
-                      name="icon_flagYellow" src="images/icon_flagYellow.gif" border="0"
-                      alt="<fmt:message key="Updated" bundle="${resterm}"/>" title="<fmt:message key="Updated" bundle="${resterm}"/>"/></a> (<fmt:message key="Updated" bundle="${resterm}"/>)&nbsp;
-
-    <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&resolutionStatus=3&discNoteType=${param.discNoteType}"><img
-                          name="icon_flagGreen" src="images/icon_flagGreen.gif" border="0"
-                          alt="<fmt:message key="Resolved" bundle="${resterm}"/>" title="<fmt:message key="Resolved" bundle="${resterm}"/>"/></a> (<fmt:message key="Resolved" bundle="${resterm}"/>)&nbsp;
-
-    <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&resolutionStatus=4&discNoteType=${param.discNoteType}"><img
-                             name="icon_flagBlack" src="images/icon_flagBlack.gif" border="0"
-                             alt="<fmt:message key="Closed" bundle="${resterm}"/>" title="<fmt:message key="Closed" bundle="${resterm}"/>"/></a> (<fmt:message key="Closed" bundle="${resterm}"/>)&nbsp;
-
-     <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&resolutionStatus=5&discNoteType=${param.type}"><img
-      name="icon_flagNA" src="images/icon_flagWhite.gif" border="0"
-      alt="<fmt:message key="Not_Applicable" bundle="${resterm}"/>" title="<fmt:message key="Not_Applicable" bundle="${resterm}"/>"/></a> (<fmt:message key="Not_Applicable" bundle="${resterm}"/>)&nbsp;
-</div>
-
-<div class="dnKey"><strong><fmt:message key="Filter_by_note_type" bundle="${resword}"/>
-:</strong>
-     <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&discNoteType=50&resolutionStatus=${param.resolutionStatus}" <c:if test="${param.discNoteType == 50}">style="color:green"</c:if>><fmt:message key="all_notes" bundle="${resterm}"/></a>&nbsp;|&nbsp;
-    <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&discNoteType=2&resolutionStatus=${param.resolutionStatus}" <c:if test="${param.discNoteType == 2}">style="color:green"</c:if>><fmt:message key="Annotation" bundle="${resterm}"/></a>&nbsp;|&nbsp;
-    <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&discNoteType=1&resolutionStatus=${param.resolutionStatus}" <c:if test="${param.discNoteType == 1}">style="color:green"</c:if>><fmt:message key="Failed_Validation_Check" bundle="${resterm}"/></a>&nbsp;|&nbsp;
-    <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&discNoteType=3&resolutionStatus=${param.resolutionStatus}" <c:if test="${param.discNoteType == 3}">style="color:green"</c:if>><fmt:message key="query" bundle="${resterm}"/></a>&nbsp;|&nbsp;
-    <a href="ViewNotes?module=${module}&viewForOne=${param.viewForOne}&id=${param.id}&discNoteType=4&resolutionStatus=${param.resolutionStatus}" <c:if test="${param.discNoteType == 4}">style="color:green"</c:if>><fmt:message key="reason_for_change" bundle="${resterm}"/></a>
-
-</div>
-%-->
-
-
-<%--<c:set var="module" value="${module}" scope="request"/>--%>
-<%--
-<c:import url="showNotesTable.jsp">
-	<c:param name="rowURL" value="showDiscrepancyNoteRow.jsp" />
-</c:import>
-<br/><br/>
---%>
 
 <div><a id="sumBoxParent" href="javascript:void(0)"
         onclick="showSummaryBox('sumBox',document.getElementById('sumBoxParent'),
@@ -116,21 +66,21 @@
     <table cellspacing="0" class="summaryTable" style="width:600px;">
         <tr><td>&nbsp;</td>
             <c:forEach var="typeName"  items="${typeNames}">
-                <td align="center"><strong>${typeName}</strong></td>
+                <td align="center"><strong>${typeName.name}</strong></td>
             </c:forEach>
-            <td align="center"><strong>Total</strong></td>
+            <td align="center"><strong><fmt:message key="total" bundle="${resword}"/></strong></td>
         </tr>
             <c:forEach var="status" items="${mapKeys}">
                 <tr>
                     <td><strong>${status.name}</strong><img src="${status.iconFilePath}" border="0" align="right"></td>
                     <c:forEach var="typeName" items="${typeNames}">
-                        <td align="center">${summaryMap[status.name][typeName]}</td>
+                        <td align="center">${summaryMap[status.name][typeName.name]}</td>
                     </c:forEach>
                     <td align="center"> ${summaryMap[status.name]['Total']}</td>
                 </tr>
             </c:forEach>
         <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-        <tr><td><strong>Total</strong></td>
+        <tr><td><strong><fmt:message key="total" bundle="${resword}"/></strong></td>
             <c:forEach var="typeName"  items="${typeNames}">
                 <td align="center">${typeKeys[typeName]}</td>
             </c:forEach>

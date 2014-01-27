@@ -53,7 +53,7 @@
 <table border="0" cellpadding="5" width="525">
 <tr valign="top">
     <td class="text">
-	<ul><%-- <li><a href="ExportDataset?action=html&datasetId=<c:out value="${dataset.id}"/>"><fmt:message key="view_as_HTML" bundle="${resword}"/></a></li> --%>
+	<ul>
 	<c:forEach var="extract" items="${extractProperties}">
 			<%-- use fn:startsWith(extract.filedescription, '&') here, for i18n --%>
 			<li>
@@ -82,72 +82,17 @@
 					</c:otherwise>
 				</c:choose>
 				</a>
-				<%--<c:out value="${extract.linkText}"/>--%>
 			</li>
-    </c:forEach>	
-	<%--<li><fmt:message key="download_a_file" bundle="${resword}"/>:
-		<ul>
-		<li><a href="javascript:openDoc('ExportDataset?action=txt&datasetId=<c:out value="${dataset.id}"/>')"><fmt:message key="tab_delimited_text" bundle="${resword}"/></a></li>
-		--%>
-		<%--<li><a href="javascript:openDocWindow('ExportDataset?action=csv&datasetId=<c:out value="${dataset.id}"/>')"><fmt:message key="comma_delimited_text" bundle="${resword}"/></a></li>--%>
-		<%-- 
-		<li><a href="javascript:openDoc('ExportDataset?action=spss&datasetId=<c:out value="${dataset.id}"/>')"><fmt:message key="SPSS_syntax_and_data" bundle="${resword}"/></a>&nbsp;<a href="javascript:openDocWindow('help/4_4_spssSpec_Help.html')"><img src="images/bt_Help_Extract.gif" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>" border="0"></a></li>
-		<li><a href="javascript:openDoc('ExportDataset?action=odm&datasetId=<c:out value="${dataset.id}"/>&odmVersion=1.3')"><fmt:message key="CDISC_ODM_XML_format" bundle="${resword}"/>&nbsp;1.3</a></li>
-		<li><a href="javascript:openDoc('ExportDataset?action=odm&datasetId=<c:out value="${dataset.id}"/>&odmVersion=1.3&xalan=1')">Generate the 1.3 XML and SQL Dataset with XSLT</a></li>
-		<li><a href="javascript:openDoc('ExportDataset?action=odm&datasetId=<c:out value="${dataset.id}"/>&odmVersion=1.2')"><fmt:message key="CDISC_ODM_XML_format" bundle="${resword}"/>&nbsp;1.2</a></li>
-		<c:forEach var="extract" items="${extractProperties}">
-			<li><a href='<c:out value="${extract.id}"/>'><c:out value="${extract.linkText}"/></a></li>
-		</c:forEach>
-		--%>
-		<%--
-		<li><a href="javascript:openDoc('ExportDataset?action=odm&datasetId=<c:out value="${dataset.id}"/>&odmVersion=1.2&xalan=1')">Generate the 1.2 XML and SQL Dataset with XSLT</a></li>
-		--%>
-		<%-- 
-			<ul><li><fmt:message key="import_CDISC_ODM_XML_into_SAS" bundle="${resword}"/>&nbsp;<a href="javascript:openDoc('help/4_5_sasSpec_Help.html')"><img src="images/bt_Help_Extract.gif" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>" border="0"></a></li></ul></li>
-		<li><fmt:message key="odm_openclinica_extension" bundle="${resword}"/></li>
-			<ul>
-			<li><a href="javascript:openDoc('ExportDataset?action=odm&datasetId=<c:out value="${dataset.id}"/>&odmVersion=oc1.3')">OpenClinica-Extension-1.3</a></li>
-			<li><a href="javascript:openDoc('ExportDataset?action=odm&datasetId=<c:out value="${dataset.id}"/>&odmVersion=oc1.2')">OpenClinica-Extension-1.2</a></li>
-			</ul
-		</ul>
-	</li>--%>
+    </c:forEach>
 	</ul>
 	</td>
 </tr>
-
-<%--<tr valign="top">
-    <td class="text"><input type="radio" name="action" value="txt" checked/> Tab Delimited Text</td>
-</tr>
-<tr valign="top">
-    <td class="text"><input type="radio" name="action" value="csv"/> Comma Delimited Text</td>
-</tr>
-<tr valign="top">
-    <td class="text"><input type="radio" name="action" value="html"/> Html</td>
-</tr>
-<tr valign="top">
-    <td class="text"><input type="radio" name="action" value="spss"/> SPSS Formats (text)</td>
-</tr>  --%>
-
-
-<%--
-<tr valign="top">
-    <td class="text"><input type="radio" name="action" value="excel"/> Excel</td>
-</tr>
---%>
-
-<%--<tr align="left">
-<!--	<td><input type="button" value="Download Data" onClick="sendToPage(theForm.datasetId.value,
-      			theForm.action)" class="button_xlong"/></tr>-->
-<td><input type="submit" value="Download Data" class="button_xlong"/></td>
-</tr>--%>
 
 </table>
 
 <P><b><fmt:message key="note" bundle="${resword}"/>: </b><fmt:message key="export_dataset_download2" bundle="${restext}"/>
 
 <p><fmt:message key="export_dataset_download3" bundle="${restext}"/><a href="javascript:openDocWindow('help/4_3_exportDatasets_Help.html#downloadsettings')"><img src="images/bt_Help_Extract.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a> <fmt:message key="export_dataset_download6" bundle="${restext}"/>
-<%--<P>You may select all, copy and paste the text generated into a text editor or excel spreadsheet.
---%>
 
 <p><e><fmt:message key="internet_explorer_users" bundle="${resword}"/></i>: <fmt:message key="export_dataset_download4" bundle="${restext}"/><a href="javascript:openDocWindow('help/4_3_exportDatasets_Help.html#downloadsettings')"><img src="images/bt_Help_Extract.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a> <fmt:message key="export_dataset_download5" bundle="${restext}"/>
 

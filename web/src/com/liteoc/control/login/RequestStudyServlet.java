@@ -111,7 +111,7 @@ public class RequestStudyServlet extends SecureController {
         StudyUserRoleBean newRole = (StudyUserRoleBean) session.getAttribute("newRole");
 
         logger.info("Sending email...");
-        StringBuffer email = new StringBuffer(restext.getString("dear_openclinica_administrator") + ", <br>");
+        StringBuffer email = new StringBuffer(restext.getString("dear_administrator") + ", <br>");
         email.append(ub.getFirstName() + restext.getString("request_to_acces_the_following_study") + ": <br>");
         email.append(resword.getString("user_full_name") + ": " + ub.getFirstName() + " " + ub.getLastName());
         email.append("<br>" + resword.getString("username2") + ": " + ub.getName());

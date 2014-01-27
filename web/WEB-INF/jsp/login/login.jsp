@@ -1,5 +1,10 @@
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/taglibs.jsp" %>
+
+
+<fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/> 
+
+
 <!-- For Mantis Issue 6099 -->
 <jsp:useBean scope='session' id='userBean' class='com.liteoc.bean.login.UserAccountBean'/>
     <c:if test="${userBean.name!=''}">
@@ -12,7 +17,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title>LiteOC</title>
+<title><fmt:message key="openclinica" bundle="${resword}"/></title>
 
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
  <meta http-equiv="X-UA-Compatible" content="IE=8" />
@@ -52,7 +57,7 @@
 	if(iev.length() > 1 && Double.valueOf(iev)<7) {%>
 	<div ID="OClogoIE6">&nbsp;</div>
 	<%} else {%>
-    <div ID="OClogo">&nbsp;</div>
+    <div ID="OClogo"><fmt:message key="openclinica" bundle="${resword}"/></div>
   	<%}%>
     <!-- end OpenClinica logo -->
         <table width="720 px">

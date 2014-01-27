@@ -253,10 +253,6 @@
 		</servlet-class>
 	</servlet>
 
-	<!-- <servlet> <servlet-name>ListDiscNotesSubjectServlet</servlet-name> 
-		<display-name>ListDiscNotesSubjectServlet</display-name> <description>ListDiscNotesSubjectServlet</description> 
-		<servlet-class>com.liteoc.control.managestudy.ListDiscNotesSubjectServlet</servlet-class> 
-		</servlet> -->
 	<servlet>
 		<servlet-name>ViewJobServlet</servlet-name>
 		<display-name>ViewJobServlet</display-name>
@@ -336,9 +332,6 @@
 		<servlet-class>com.liteoc.control.login.LogoutServlet
 		</servlet-class>
 	</servlet>
-	<!-- <servlet> <servlet-name>EnterpriseServlet</servlet-name> <display-name>EnterpriseServlet</display-name> 
-		<description>The Enterprise Servlet</description> <servlet-class>com.liteoc.control.login.EnterpriseServlet</servlet-class> 
-		</servlet> -->
 	<servlet>
 		<servlet-name>RequestPasswordServlet</servlet-name>
 		<display-name>RequestPasswordServlet</display-name>
@@ -1450,72 +1443,6 @@
 		</servlet-class>
 	</servlet>
 
-	<!-- Lisplets Start -->
-	<servlet>
-      <servlet-name>lisplet</servlet-name>
-      <description>
-        This servlet transmits requests and gets replies using s-expressions over a TCP socket.
-        The lisp-host and lisp-port parameters must be supplied
-      </description>
-      <servlet-class>com.richhickey.lisplets.Lisplet</servlet-class>
-        <!-- several init-params (beginning with lisp-) are used to configure the behavior of the servlet
-        The lisp-host and lisp-port parameters must be supplied -->
-      <init-param>
-        <param-name>lisp-host</param-name>
-        <param-value>localhost</param-value>
-      </init-param>
-      <init-param>
-        <param-name>lisp-port</param-name>
-        <param-value>13579</param-value>
-      </init-param>
-        <!-- we want all tags to come across as keywords, so prefix with : (lisp-tag-suffix is also supported) -->
-      <init-param>
-        <param-name>lisp-tag-prefix</param-name>
-        <param-value>:</param-value>
-      </init-param>
-      <!-- only information about the roles listed here will be sent to Lisp 
-      Note that authentication must be used for roles to be available -->
-      <init-param>
-        <param-name>lisp-roles</param-name>
-        <param-value>role1,tomcat,admin</param-value>
-      </init-param>
-      <init-param>
-        <param-name>lisp-create-session</param-name>
-        <param-value>true</param-value>
-      </init-param>
-      <!-- these are the defaults, no need to specify unless you want something else (e.g. for Scheme)
-      <init-param>
-        <param-name>lisp-true</param-name>
-        <param-value>t</param-value>
-      </init-param>
-      <init-param>
-        <param-name>lisp-false</param-name>
-        <param-value>nil</param-value>
-      </init-param>
-      <init-param>
-        <param-name>lisp-null</param-name>
-        <param-value>nil</param-value>
-      </init-param>
-      -->
-      <!-- you can add your own params to send to the Lisp application -->
-      <init-param>
-          <param-name>sample-user-param</param-name>
-          <param-value>a param</param-value>
-      </init-param>
-
-
-      <!-- Load this servlet at server startup time -->
-      <load-on-startup>5</load-on-startup>
-    </servlet>
-
-
-    <!-- what URIs will map to the servlet -->
-    <servlet-mapping>
-      <servlet-name>lisplet</servlet-name>
-      <url-pattern>*.lisp</url-pattern>
-    </servlet-mapping>
-	<!-- Lisplets End -->
-	
 	<servlet-mapping>
 		<servlet-name>LockCRFVersionServlet</servlet-name>
 		<url-pattern>/LockCRFVersion</url-pattern>
@@ -1542,8 +1469,6 @@
 		<url-pattern>/ListDiscNotesForCRFServlet</url-pattern>
 	</servlet-mapping>
 
-	<!-- <servlet-mapping> <servlet-name>ListDiscNotesSubjectServlet</servlet-name> 
-		<url-pattern>/ListDiscNotesSubjectServlet</url-pattern> </servlet-mapping> -->
 	<servlet-mapping>
 		<servlet-name>ViewJobServlet</servlet-name>
 		<url-pattern>/ViewJob</url-pattern>
@@ -1725,8 +1650,6 @@
 		<servlet-name>AccessFileServlet</servlet-name>
 		<url-pattern>/AccessFile</url-pattern>
 	</servlet-mapping>
-	<!--<servlet-mapping> <servlet-name>EnterpriseServlet</servlet-name> <url-pattern>/Enterprise</url-pattern> 
-		</servlet-mapping> -->
 	<servlet-mapping>
 		<servlet-name>ShowFileServlet</servlet-name>
 		<url-pattern>/ShowFile</url-pattern>

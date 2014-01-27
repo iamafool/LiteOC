@@ -102,7 +102,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
  <tr valign="top">
    <td class="table_header_column_top"><fmt:message key="subject_unique_identifier" bundle="${resword}"/></td>
-   <td class="table_header_column_top"><fmt:message key="openclinica_subject_id" bundle="${resword}"/></td>
+   <td class="table_header_column_top"><fmt:message key="subject_id" bundle="${resword}"/></td>
   </tr>
   <c:forEach var="subject" items="${subjectsToRestore}">
   <tr valign="top">

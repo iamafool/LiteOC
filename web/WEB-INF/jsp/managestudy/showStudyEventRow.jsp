@@ -16,15 +16,8 @@
      </td>
      <td class="table_cell"><fmt:formatDate value="${currRow.bean.studyEvent.dateStarted}" pattern="${dteFormat}"/>
      </td>
-     <%--<td class="table_cell"><fmt:formatDate value="${currRow.bean.studyEvent.updatedDate}" dateStyle="short"/>
-       <br/>
-       <c:if test="${currRow.bean.studyEvent.updater.name != null && currRow.bean.studyEvent.updater.name !=''}">
-       (<c:out value="${currRow.bean.studyEvent.updater.name}"/>)
-       </c:if>
-       &nbsp;
-     </td>--%>
      <td class="table_cell"><c:out value="${currRow.bean.studyEvent.location}"/></td>
-     <td class="table_cell" width="20"><c:out value="${currRow.bean.studyEvent.subjectEventStatus.name}"/></td>
+     <td class="table_cell"><c:out value="${currRow.bean.studyEvent.subjectEventStatus.name}"/></td>
      <td class="table_cell">
        <table border="0" cellpadding="0" cellspacing="0">
 		<tr>
@@ -299,26 +292,80 @@
 				    </a>
     		    </c:if>
 	    		<c:if test="${dec.startDoubleDataEntryPermitted}">
-    				<a href="#"
-	    			onMouseDown="javascript:setImage('bt_EnterData1','images/bt_EnterData_d.gif');"
-		    		onMouseUp="javascript:setImage('bt_EnterData1','images/bt_EnterData.gif');"
-                    onclick="checkCRFLocked('<c:out value="${dec.eventCRF.id}"/>', 'DoubleDataEntry?eventCRFId=<c:out value="${dec.eventCRF.id}"/>&exitTo=ViewStudySubject?id=${studySub.id}');">
-                        <img name="bt_EnterData1" src="images/bt_EnterData.gif" border="0" alt="<fmt:message key="begin_double_data_entry" bundle="${resword}"/>" title="<fmt:message key="begin_double_data_entry" bundle="${resword}"/>" align="left" hspace="6"></a>
+        			<c:if test="${dec.eventDefinitionCRF.doubleEntryType==1}">
+	    				<a href="#"
+			    			onMouseDown="javascript:setImage('bt_EnterData1','images/bt_EnterData_d.gif');"
+		    				onMouseUp="javascript:setImage('bt_EnterData1','images/bt_EnterData.gif');"
+                    		onclick="checkCRFLocked('<c:out value="${dec.eventCRF.id}"/>', 'DoubleDataEntry?eventCRFId=<c:out value="${dec.eventCRF.id}"/>&exitTo=ViewStudySubject?id=${studySub.id}');">
+                        	<img name="bt_EnterData1" src="images/bt_EnterData.gif" border="0"
+                        		alt="<fmt:message key="begin_double_data_entry" bundle="${resword}"/>"
+                        		title="<fmt:message key="begin_double_data_entry" bundle="${resword}"/>"
+                        		align="left" hspace="6">
+                       	</a>
+		            </c:if>
+        		    <c:if test="${dec.eventDefinitionCRF.doubleEntryType==2}">
+	    				<a href="#"
+			    			onMouseDown="javascript:setImage('bt_EnterData1','images/bt_EnterData_d.gif');"
+		    				onMouseUp="javascript:setImage('bt_EnterData1','images/bt_EnterData.gif');"
+                    		onclick="checkCRFLocked('<c:out value="${dec.eventCRF.id}"/>', 'DoubleDataEntry2?eventCRFId=<c:out value="${dec.eventCRF.id}"/>&exitTo=ViewStudySubject?id=${studySub.id}');">
+                        	<img name="bt_EnterData1" src="images/bt_EnterData.gif" border="0"
+                        		alt="<fmt:message key="begin_double_data_entry" bundle="${resword}"/>"
+                        		title="<fmt:message key="begin_double_data_entry" bundle="${resword}"/>"
+                        		align="left" hspace="6">
+                       	</a>            	
+		            </c:if>	    		
     			</c:if>
 	    		<c:if test="${dec.continueDoubleDataEntryPermitted}">
-		            <a href="#"
-				    onMouseDown="javascript:setImage('bt_EnterData1','images/bt_EnterData_d.gif');"
-				    onMouseUp="javascript:setImage('bt_EnterData1','images/bt_EnterData.gif');"
-                    onclick="checkCRFLocked('<c:out value="${dec.eventCRF.id}"/>', 'DoubleDataEntry?eventCRFId=<c:out value="${dec.eventCRF.id}"/>&exitTo=ViewStudySubject?id=${studySub.id}');">
-				    <img name="bt_EnterData1" src="images/bt_EnterData.gif" border="0" alt="<fmt:message key="continue_entering_data" bundle="${resword}"/>" title="<fmt:message key="continue_entering_data" bundle="${resword}"/>" align="left" hspace="6"></a>
+	    		
+       				<c:if test="${dec.eventDefinitionCRF.doubleEntryType==1}">
+		            	<a href="#"
+				    		onMouseDown="javascript:setImage('bt_EnterData1','images/bt_EnterData_d.gif');"
+				    		onMouseUp="javascript:setImage('bt_EnterData1','images/bt_EnterData.gif');"
+                    		onclick="checkCRFLocked('<c:out value="${dec.eventCRF.id}"/>', 'DoubleDataEntry?eventCRFId=<c:out value="${dec.eventCRF.id}"/>&exitTo=ViewStudySubject?id=${studySub.id}');">
+				    		<img name="bt_EnterData1" src="images/bt_EnterData.gif" border="0"
+				    			alt="<fmt:message key="continue_entering_data" bundle="${resword}"/>"
+				    			title="<fmt:message key="continue_entering_data" bundle="${resword}"/>"
+				    			align="left" hspace="6">
+				    	</a>
+		            </c:if>
+        		    <c:if test="${dec.eventDefinitionCRF.doubleEntryType==2}">
+		            	<a href="#"
+				    		onMouseDown="javascript:setImage('bt_EnterData1','images/bt_EnterData_d.gif');"
+				    		onMouseUp="javascript:setImage('bt_EnterData1','images/bt_EnterData.gif');"
+                    		onclick="checkCRFLocked('<c:out value="${dec.eventCRF.id}"/>', 'DoubleDataEntry2?eventCRFId=<c:out value="${dec.eventCRF.id}"/>&exitTo=ViewStudySubject?id=${studySub.id}');">
+				    		<img name="bt_EnterData1" src="images/bt_EnterData.gif" border="0"
+				    			alt="<fmt:message key="continue_entering_data" bundle="${resword}"/>"
+				    			title="<fmt:message key="continue_entering_data" bundle="${resword}"/>"
+				    			align="left" hspace="6">
+				    	</a>          	
+		            </c:if>	   
+		            	    		
+
     			</c:if>
     			<c:if test="${(dec.performAdministrativeEditingPermitted) &&(study.status.available)}">
-        		    <a href="#"
-				    onMouseDown="javascript:setImage('bt_EnterData1','images/bt_EnterData_d.gif');"
-				    onMouseUp="javascript:setImage('bt_EnterData1','images/bt_EnterData.gif');"
-                    onclick="checkCRFLocked('<c:out value="${dec.eventCRF.id}"/>', 'AdministrativeEditing?eventCRFId=<c:out value="${dec.eventCRF.id}"/>&exitTo=ViewStudySubject?id=${studySub.id}');">
-				    <img name="bt_EnterData1" src="images/bt_EnterData.gif" border="0" alt="<fmt:message key="administrative_editing" bundle="${resword}"/>" title="<fmt:message key="administrative_editing" bundle="${resword}"/>" align="left" hspace="6">
-				    </a>
+      				<c:if test="${dec.eventDefinitionCRF.doubleEntryType==1}">
+        		    	<a href="#"
+				    		onMouseDown="javascript:setImage('bt_EnterData1','images/bt_EnterData_d.gif');"
+				    		onMouseUp="javascript:setImage('bt_EnterData1','images/bt_EnterData.gif');"
+                    		onclick="checkCRFLocked('<c:out value="${dec.eventCRF.id}"/>', 'AdministrativeEditing?eventCRFId=<c:out value="${dec.eventCRF.id}"/>&exitTo=ViewStudySubject?id=${studySub.id}');">
+				    		<img name="bt_EnterData1" src="images/bt_EnterData.gif" border="0"
+				    			alt="<fmt:message key="administrative_editing" bundle="${resword}"/>"
+				    			title="<fmt:message key="administrative_editing" bundle="${resword}"/>"
+				    			align="left" hspace="6">
+				    	</a>
+		            </c:if>
+        		    <c:if test="${dec.eventDefinitionCRF.doubleEntryType==2}">
+        		    	<a href="#"
+				    		onMouseDown="javascript:setImage('bt_EnterData1','images/bt_EnterData_d.gif');"
+				    		onMouseUp="javascript:setImage('bt_EnterData1','images/bt_EnterData.gif');"
+                    		onclick="checkCRFLocked('<c:out value="${dec.eventCRF.id}"/>', 'AdministrativeEditing2?eventCRFId=<c:out value="${dec.eventCRF.id}"/>&exitTo=ViewStudySubject?id=${studySub.id}');">
+				    		<img name="bt_EnterData1" src="images/bt_EnterData.gif" border="0"
+				    			alt="<fmt:message key="administrative_editing" bundle="${resword}"/>"
+				    			title="<fmt:message key="administrative_editing" bundle="${resword}"/>"
+				    			align="left" hspace="6">
+				    	</a>        	
+		            </c:if>	       			
+
                 </c:if>
 			<%-- locked status here --%>
     			<c:if test="${dec.locked || dec.eventCRF.status.locked || dec.stage.locked || currRow.bean.studyEvent.subjectEventStatus.locked}">
@@ -327,12 +374,6 @@
     		</c:if>
 		</td>
 	     <td>
-	     <!--
-		 <a href="ViewEventCRFContent?id=<c:out value="${studySub.id}"/>&ecId=<c:out value="${dec.eventCRF.id}"/>&eventId=<c:out value="${currRow.bean.studyEvent.id}"/>"
-			onMouseDown="javascript:setImage('bt_View1','images/bt_View_d.gif');"
-			onMouseUp="javascript:setImage('bt_View1','images/bt_View.gif');"><img
-		    name="bt_View1" src="images/bt_View.gif" border="0" alt="<fmt:message key="view" bundle="${resword}"/>" title="<fmt:message key="view" bundle="${resword}"/>" align="left" hspace="6"></a>
-		 -->
 		 <a href="ViewSectionDataEntry?ecId=<c:out value="${dec.eventCRF.id}"/>&eventDefinitionCRFId=<c:out value="${dec.eventDefinitionCRF.id}"/>&tabId=1&studySubjectId=<c:out value="${studySub.id}"/>&exitTo=ViewStudySubject?id=${studySub.id}"
 			onMouseDown="javascript:setImage('bt_View1','images/bt_View_d.gif');"
 			onMouseUp="javascript:setImage('bt_View1','images/bt_View.gif');"><img

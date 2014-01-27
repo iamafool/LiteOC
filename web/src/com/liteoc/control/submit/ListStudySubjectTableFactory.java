@@ -764,7 +764,7 @@ public class ListStudySubjectTableFactory extends AbstractTableFactory {
     private String PrintAllEventCRFBySubjidLinkBuilder(StudySubjectBean studySubject) {
         HtmlBuilder actionLink = new HtmlBuilder();
         /* actionLink.a().href("PrintAllEventCRFBySubjid?id=" + studySubject.getId()); */
-        actionLink.a().href("PrintAllEventCRFBySubjid.lisp?id=" + studySubject.getId());
+        actionLink.a().href("PrintAllEventCRFBySubjid?id=" + studySubject.getId());
         actionLink.append("onMouseDown=\"javascript:setImage('bt_Print','images/bt_Print_d.gif');\"");
         actionLink.append("onMouseUp=\"javascript:setImage('bt_Print','images/bt_Print.gif');\"").close();
         actionLink.img().name("bt_View1").src("images/bt_Print.gif").border("0").alt(resword.getString("print")).title(resword.getString("print")).append("hspace=\"2\"").end().aEnd();

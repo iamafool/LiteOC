@@ -2,6 +2,7 @@ package com.liteoc.service;
 
 import com.liteoc.bean.core.ResolutionStatus;
 import com.liteoc.bean.managestudy.DiscrepancyNoteBean;
+import com.liteoc.bean.core.DiscrepancyNoteType;
 import com.liteoc.bean.managestudy.DisplayStudyEventBean;
 import com.liteoc.bean.managestudy.StudyBean;
 import com.liteoc.bean.managestudy.StudyEventBean;
@@ -14,8 +15,10 @@ import com.liteoc.dao.managestudy.ListNotesFilter;
 import com.liteoc.dao.managestudy.StudyDAO;
 import com.liteoc.dao.managestudy.StudySubjectDAO;
 import com.liteoc.dao.submit.EventCRFDAO;
+import com.liteoc.i18n.util.ResourceBundleProvider;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -26,6 +29,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javax.management.Query;
 import javax.sql.DataSource;
 
 /**
@@ -49,14 +53,6 @@ public class DiscrepancyNoteUtil {
         RESOLUTION_STATUS.put("Resolution Proposed", 3);
         RESOLUTION_STATUS.put("Closed", 4);
         RESOLUTION_STATUS.put("Not Applicable", 5);
-    }
-
-    // These two variables are to arrange the Summary Statistics accordingly
-    // Mantis Issue: 7771
-    public static final String[] TYPE_NAMES = {"Query", "Failed Validation Check", "Reason for Change", "Annotation"};
-
-    public static String[] getTypeNames() {
-        return TYPE_NAMES;
     }
 
 
@@ -271,24 +267,7 @@ public class DiscrepancyNoteUtil {
                         }
                     }
                 }
-                // 3014: Not for now; Find EventCRF type notes
-                /*
-                 * foundDiscNotes =
-                 * discrepancyNoteDAO.findEventCRFDNotesFromEventCRF(eventCrfBean);
-                 * //filter for any specified disc note type if((!
-                 * foundDiscNotes.isEmpty()) && hasDiscNoteType){ foundDiscNotes =
-                 * filterforDiscNoteType(foundDiscNotes,discNoteType); }
-                 *
-                 * if(! foundDiscNotes.isEmpty()){ if(! hasResolutionStatus) {
-                 * studyEventBean.getDiscBeanList().addAll(foundDiscNotes); }
-                 * else { //Only include disc notes with a particular resolution
-                 * status, specified by //the parameter passed to the servlet
-                 * for(DiscrepancyNoteBean discBean : foundDiscNotes) { for(int
-                 * statusId : resolutionStatusIds){
-                 * if(discBean.getResolutionStatusId() == statusId){
-                 * studyEventBean.getDiscBeanList().add(discBean); } } } } }
-                 */
-                // end if(! foundDiscNotes.isEmpty()){
+                
             }// end for(EventCRFBean...
         }// end for (DisplayStudyEventBean
     }
@@ -589,25 +568,6 @@ public class DiscrepancyNoteUtil {
         }
         allDiscNotes = discrepancyNoteDAO.findAllDiscrepancyNotesDataByStudy(currentStudy);
 
-        // ArrayList eventCRFNotes =
-        // discrepancyNoteDAO.findAllEventCRFByStudy(currentStudy);
-
-        // BWP 3167 Get all disc note for parent study as well>>
-        //        ArrayList parentItemDataNotes = null;
-        //        StudyBean parentStudy = null;
-        //        if (parentStudyId > 0) {
-        //            parentStudy = (StudyBean) studyDAO.findByPK(parentStudyId);
-        //            parentItemDataNotes = discrepancyNoteDAO.findAllItemDataByStudy(parentStudy, hiddenCrfNames);
-        //            itemDataNotes.addAll(parentItemDataNotes);
-        //        }
-        //
-        //        allDiscNotes.addAll(itemDataNotes);
-        // make sure that any "parent" notes have the last resolution status of
-        // any
-        // of their child notes
-        //if (updateStatusOfParents) {
-        //    updateStatusOfParents(allDiscNotes, dataSource, currentStudy);
-        //}
 
         if (filterDiscNotes) {
             // filter for the resolution status
@@ -750,20 +710,6 @@ public class DiscrepancyNoteUtil {
             // are no children
             tempDNThread.setLatestResolutionStatus(this.getResolutionStatusName(resolutionStatusId));
 
-            /*
-            if (!childDiscBeans.isEmpty()) {
-
-                for (DiscrepancyNoteBean childBean : childDiscBeans) {
-                    if (childBean.getResolutionStatusId() != resolutionStatusId) {
-                        // BWP issue 3468 WHO 5/2009: this local variable needs
-                        // to be updated>>
-                        resolutionStatusId = childBean.getResolutionStatusId();
-                        // <<
-                        tempDNThread.setLatestResolutionStatus(this.getResolutionStatusName(childBean.getResolutionStatusId()));
-                    }
-                    tempDNThread.getLinkedNoteList().offer(childBean);
-                }
-            }*/
             dnThreads.add(tempDNThread);
 
         }
@@ -964,8 +910,7 @@ public class DiscrepancyNoteUtil {
         DiscrepancyNoteDAO discrepancyNoteDAO = new DiscrepancyNoteDAO(ds);
         boolean filterDiscNotes = checkResolutionStatus(resolutionStatusIds);
         boolean filterforDiscNoteType = discNoteType >= 1 && discNoteType <= 4;
-        //if (allDiscBeans == null || allDiscBeans.isEmpty())
-        //   return new HashMap();
+
         /*
          * This container is a Map of Maps. e.g., Failed Validation Check -->
          * Map [Total --> total number of Failed Validation Check type notes,
@@ -981,12 +926,11 @@ public class DiscrepancyNoteUtil {
         int tempType = 0;
         int tempTotal = 0;
 
-        Set<String> p = new HashSet<String>();
+        Set<DiscrepancyNoteType> p = new HashSet<DiscrepancyNoteType>();
         if (filterforDiscNoteType) {
-            String[] discNoteTypeNames = { "Failed Validation Check", "Annotation", "Query", "Reason for Change" };
-            p.add(discNoteTypeNames[discNoteType - 1]);
+            p.add(DiscrepancyNoteType.get(discNoteType));
         } else {
-            p = TYPES.keySet();
+            p.addAll(Arrays.asList(DiscrepancyNoteType.getMembers()));
         }
 
         String q = "";
@@ -1004,17 +948,17 @@ public class DiscrepancyNoteUtil {
         }
 
         // initialize Map
-        for (String discNoteTypeName : p) {
+        for (DiscrepancyNoteType discNoteTypeName : p) {
 
             tempMap = new HashMap<String, Integer>();
             //String query = "";
             // Create the summary or outer Map for each type name (e.g.,
             // Incomplete)
-            summaryMap.put(discNoteTypeName, tempMap);
-            tempType = TYPES.get(discNoteTypeName);
+            summaryMap.put(discNoteTypeName.getName(), tempMap);
+            tempType = discNoteTypeName.getId();
             //tempTotal = getNumberOfDiscNoteType(allDiscBeans, tempType);
             tempTotal = discrepancyNoteDAO.getViewNotesCountWithFilter(q + " AND dn.discrepancy_note_type_id =" + tempType, currentStudy);
-            tempMap.put("Total", tempTotal);
+            tempMap.put(ResourceBundleProvider.getResWord("total"), tempTotal);
             if (tempTotal == 0)
                 continue;
 
@@ -1040,12 +984,12 @@ public class DiscrepancyNoteUtil {
             summaryMap.put(status.getName(), tempMap);
             // tempTotal = countNotes(discList, RESOLUTION_STATUS.get(status.getName()), 0);
             tempTotal = countNotes(discList, status.getId(), 0);
-            tempMap.put("Total", tempTotal.equals("0")?"--":tempTotal);
-            for (String typeName: TYPE_NAMES) {
-                tempType = TYPES.get(typeName);
+            tempMap.put(ResourceBundleProvider.getResWord("total"), tempTotal.equals("0")?"--":tempTotal);
+            for (DiscrepancyNoteType typeName: DiscrepancyNoteType.getMembers()) {
+                tempType = typeName.getId();
                 // String number = countNotes(discList, RESOLUTION_STATUS.get(status.getName()), tempType);
                 String number = countNotes(discList, status.getId(), tempType);
-                tempMap.put(typeName, number.equals("0")?"--":number);
+                tempMap.put(typeName.getName(), number.equals("0")?"--":number);
             }
         }
 
@@ -1056,10 +1000,10 @@ public class DiscrepancyNoteUtil {
 
         Map<String, String> summaryMap = new HashMap<String, String>();
         int tempType = 0;
-        for (String typeName: TYPE_NAMES) {
-            tempType = TYPES.get(typeName);
+        for (DiscrepancyNoteType typeName: DiscrepancyNoteType.getMembers()) {
+            tempType = typeName.getId();
             String tempTotal = countNotes(discList, 0, tempType);
-            summaryMap.put(typeName, tempTotal.equals("0")?"--":tempTotal);
+            summaryMap.put(typeName.getName(), tempTotal.equals("0")?"--":tempTotal);
         }
         return summaryMap;
     }
@@ -1144,15 +1088,15 @@ public class DiscrepancyNoteUtil {
         int tempTotal = 0;
 
         // initialize Map
-        for (String discNoteTypeName : TYPES.keySet()) {
+        for (DiscrepancyNoteType discNoteTypeName : DiscrepancyNoteType.getMembers()) {
 
             tempMap = new HashMap<String, Integer>();
             // Create the summary or outer Map for each type name (e.g.,
             // Incomplete)
-            summaryMap.put(discNoteTypeName, tempMap);
-            tempType = TYPES.get(discNoteTypeName);
+            summaryMap.put(discNoteTypeName.getName(), tempMap);
+            tempType = discNoteTypeName.getId();
             tempTotal = getNumberOfDiscNoteType(allDiscBeans, tempType);
-            tempMap.put("Total", tempTotal);
+            tempMap.put(ResourceBundleProvider.getResWord("total"), tempTotal);
             if (tempTotal == 0)
                 continue;
 
@@ -1193,10 +1137,10 @@ public class DiscrepancyNoteUtil {
 
         // Identify any filter for the resolution type
         filterNum = 0;
-        for (String typeName : TYPES.keySet()) {
-            filterNum = TYPES.get(typeName);
+        for (DiscrepancyNoteType typeName : DiscrepancyNoteType.getMembers()) {
+            filterNum = typeName.getId();
             if (discNoteType == filterNum) {
-                filterSummary.put("type", typeName);
+                filterSummary.put("type", typeName.getName());
             }
 
         }
@@ -1242,10 +1186,10 @@ public class DiscrepancyNoteUtil {
 
         // Identify any filter for the resolution type
         filterNum = 0;
-        for (String typeName : TYPES.keySet()) {
-            filterNum = TYPES.get(typeName);
+        for (DiscrepancyNoteType typeName : DiscrepancyNoteType.getMembers()) {
+            filterNum = typeName.getId();
             if (discNoteType == filterNum) {
-                filterSummary.get("type").add(typeName);
+                filterSummary.get("type").add(typeName.getName());
             }
 
         }
@@ -1370,9 +1314,9 @@ public class DiscrepancyNoteUtil {
 
     public String getResolutionStatusTypeName(int resTypeId) {
 
-        for (String resName : TYPES.keySet()) {
-            if (resTypeId == TYPES.get(resName)) {
-                return resName;
+        for (DiscrepancyNoteType resName : DiscrepancyNoteType.getMembers()) {
+            if (resTypeId == resName.getId()) {
+                return resName.getName();
             }
         }
         return "";
@@ -1525,61 +1469,14 @@ public class DiscrepancyNoteUtil {
             if (!childDiscBeans.isEmpty()) {
 
                 for (DiscrepancyNoteBean childBean : childDiscBeans) {
-                    /*
-                    if (childBean.getResolutionStatusId() != resolutionStatusId) {
-                        // BWP issue 3468 WHO 5/2009: this local variable needs
-                        // to be updated>>
-                        resolutionStatusId = childBean.getResolutionStatusId();
-                        // <<
-                        tempDNThread.setLatestResolutionStatus(this.getResolutionStatusName(childBean.getResolutionStatusId()));
-                    }
-                    */
                     tempDNThread.getLinkedNoteList().offer(childBean);
                 }
             }
             dnThreads.add(tempDNThread);
 
         }
-        /*
-                // Do the filtering here; remove any DN threads that do not have any
-                // notes
-                LinkedList<DiscrepancyNoteBean> linkedList = null;
-
-                if (resolutionStatusIds != null && !resolutionStatusIds.isEmpty()) {
-
-                    for (DiscrepancyNoteThread dnThread : dnThreads) {
-                        linkedList = new LinkedList<DiscrepancyNoteBean>();
-                        for (DiscrepancyNoteBean discBean : dnThread.getLinkedNoteList()) {
-                            for (int statusId : resolutionStatusIds) {
-                                if (discBean.getResolutionStatusId() == statusId) {
-                                    linkedList.offer(discBean);
-                                }
-                            }
-                        }
-                        dnThread.setLinkedNoteList(linkedList);
-                    }
-                    dnThreads = removeEmptyDNThreads(dnThreads);
-                }
-                if (discNoteType >= 1 && discNoteType <= 5) {
-
-                    for (DiscrepancyNoteThread dnThread : dnThreads) {
-                        linkedList = new LinkedList<DiscrepancyNoteBean>();
-                        for (DiscrepancyNoteBean discBean : dnThread.getLinkedNoteList()) {
-                            if (discBean.getDiscrepancyNoteTypeId() == discNoteType) {
-                                linkedList.offer(discBean);
-                            }
-                        }
-                        dnThread.setLinkedNoteList(linkedList);
-                    }
-                    dnThreads = removeEmptyDNThreads(dnThreads);
-                }
-        */
         return dnThreads;
     }
-//    public static void main (String arg[]) {
-//        for (String name: TYPE_NAMES) {
-//            System.out.println (name);
-//        }
-//    }
+
 
 }

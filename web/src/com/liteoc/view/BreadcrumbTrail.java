@@ -405,11 +405,6 @@ public class BreadcrumbTrail {
             } else if (jspPage.equals(Page.ADMIN_SYSTEM) || jspPage.equals(Page.TECH_ADMIN_SYSTEM)) {
                 trail = new ArrayList();
                 trail.add(new BreadcrumbBean(resworkflow.getString("business_admin"), "#", Status.PENDING));
-            } else if (jspPage.equals(Page.ENTERPRISE)) {
-                trail = new ArrayList();
-                trail.add(new BreadcrumbBean(resworkflow.getString("home"), "MainMenu", Status.AVAILABLE));
-                trail.add(new BreadcrumbBean(resworkflow.getString("openclinica_enterprise"), "#", Status.PENDING));
-
             } else if (jspPage.equals(Page.MANAGE_STUDY)) {
                 trail = new ArrayList();
                 trail.add(new BreadcrumbBean(resworkflow.getString("manage_study"), "#", Status.PENDING));

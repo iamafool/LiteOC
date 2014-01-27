@@ -19,7 +19,6 @@
 	<c:otherwise>
 		<jsp:include page="login-include/login-header.jsp"/>
 
-		<jsp:include page="include/userbox-inactive.jsp"/>
 		<table border="0" cellpadding=0" cellspacing="0">
 			<tr><td class="sidebar" valign="top"><br/><b><a href="j_spring_security_logout"><fmt:message key="logout" bundle="${restext}"/></a></b></br></td>
 				<td class="content" valign="top">

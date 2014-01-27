@@ -263,7 +263,7 @@ if (TabLabel[<c:out value="${count}"/>].length>8) {
 
 <c:set var="count" value="${count+1}"/>
 </c:forEach>
-DisplaySectionTabs()
+DisplaySectionTabs();
 
 selectTabs(${tabId},${sectionNum},'crfHeaderTabs');
 

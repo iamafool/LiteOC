@@ -502,11 +502,6 @@ public class Page {
 
     public final static Page INSTRUCTIONS_ENROLL_SUBJECT_SERVLET = new Page("/AddNewSubject?instr=1", "Enroll New Subject Servlet");
 
-    public final static Page FIND_STUDY_EVENTS_SERVLET = new Page("/FindStudyEvents", "Find Study Events");
-    public final static Page FIND_STUDY_EVENTS_STEP1 = new Page(path + "submit/findStudyEventsStep1.jsp", "Find Study Events - Step 1");
-    public final static Page FIND_STUDY_EVENTS_STEP2 = new Page(path + "submit/findStudyEventsStep2.jsp", "Find Study Events - Step 2");
-    public final static Page FIND_STUDY_EVENTS_STEP3 = new Page(path + "submit/findStudyEventsStep3.jsp", "Find Study Events - Step 3");
-
     public final static Page ENTER_DATA_FOR_STUDY_EVENT = new Page(path + "submit/enterDataForStudyEvent.jsp", "Enter Data for a Study Event");
     public final static Page ENTER_DATA_FOR_STUDY_EVENT_SERVLET = new Page("/EnterDataForStudyEvent", "Enter Data for a Study Event");
 

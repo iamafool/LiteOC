@@ -4,20 +4,18 @@
 <fmt:setBundle basename="com.liteoc.i18n.words" var="resword"/>
 <fmt:setBundle basename="com.liteoc.i18n.terms" var="resterm"/>
 <html>
-<head><title>Choose a format for downloading notes</title></head>
+<head><title><fmt:message key="choose_download_format" bundle="${resword}"/></title></head>
 <link rel="stylesheet" href="includes/styles.css" type="text/css">
 <script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript.js"></script>
-<%--<c:set var="subjectId" value="${requestScope[subjectId]}" />
 
-/discrepancyNoteReport.csv--%>
 <body style="margin: 5px">
 <h2><fmt:message key="choose_download_format" bundle="${resword}"/></h2>
 
 <div id="downloadDiv">
     <form action="DiscrepancyNoteOutputServlet" name="downloadForm">
         <fmt:message key="format" bundle="${resword}"/>: <select id="fmt" name="fmt">
-           <option value="csv">comma separated values</option>
-           <option value="pdf">portable document format</option>
+           <option value="csv"><fmt:message key="comma_separated_values" bundle="${resword}"/></option>
+           <option value="pdf"><fmt:message key="portable_document_format" bundle="${resword}"/></option>
         </select><br /><br />
 
         <input type="hidden" name="list" value="y"/>

@@ -139,10 +139,10 @@ public class DeleteUserServlet extends SecureController {
         body += restext.getString("please_test_your_login_information_and_let") + "\n";
         body += SQLInitServlet.getField("sysURL");
         body += " . ";
-        body += restext.getString("openclinica_system_administrator");
+        body += restext.getString("system_administrator");
 
         logger.info("Sending email...begin");
-        sendEmail(u.getEmail().trim(), restext.getString("your_new_openclinica_account_has_been_restored"), body, false);
+        sendEmail(u.getEmail().trim(), restext.getString("your_new_account_has_been_restored"), body, false);
         logger.info("Sending email...done");
     }
 

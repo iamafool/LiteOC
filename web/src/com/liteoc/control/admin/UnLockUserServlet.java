@@ -106,10 +106,10 @@ public class UnLockUserServlet extends SecureController {
         body += restext.getString("please_test_your_login_information_and_let") + "<br>";
         body += "<A HREF='" + SQLInitServlet.getField("sysURL.base") + "'>";
         body += SQLInitServlet.getField("sysURL.base") + "</A> <br><br>";
-        body += restext.getString("openclinica_system_administrator");
+        body += restext.getString("system_administrator");
 
         logger.info("Sending email...begin");
-        sendEmail(u.getEmail().trim(), restext.getString("your_new_openclinica_account_has_been_restored"), body, false);
+        sendEmail(u.getEmail().trim(), restext.getString("your_new_account_has_been_restored"), body, false);
         logger.info("Sending email...done");
     }
 

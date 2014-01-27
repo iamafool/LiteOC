@@ -9,17 +9,16 @@
 
 <c:choose>
 <c:when test="${userBean.sysAdmin}">
- <c:import url="../include/admin-head-prev.jsp"/>
+ <c:import url="../include/admin-header.jsp"/>
 </c:when>
 <c:otherwise>
- <c:import url="../include/managestudy-head-prev.jsp"/>
+ <c:import url="../include/managestudy-header.jsp"/>
 </c:otherwise>
 </c:choose>
 
 
 <%-- move the alert message to the sidebar --%>
 
-<jsp:include page="../include/sideInfo_prev.jsp"/>
 
 <jsp:useBean scope='session' id='userBean' class='com.liteoc.bean.login.UserAccountBean'/>
 <jsp:useBean scope='session' id='excelErrors' class='java.util.ArrayList'/>

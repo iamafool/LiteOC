@@ -30,11 +30,6 @@
  <p class="aka_para"><fmt:message key="also_download_set_example_CRFs" bundle="${restext}"/><a href="http://www.openclinica.org/entities/entity_details.php?eid=151" target="_blank"><fmt:message key="here" bundle="${resword}"/></a>.
  <strong><fmt:message key="CRF_name_case_sensitive" bundle="${restext}"/></strong></p>
 
-<div style="font-family: Tahoma, Arial, Helvetica, Sans-Serif;font-size:12px;">
-    <p><fmt:message key="openclinica_excel_support" bundle="${restext}"/></p>
-
- </div>
-
 
 <P>
 <P><fmt:message key="field_required" bundle="${resword}"/></P>

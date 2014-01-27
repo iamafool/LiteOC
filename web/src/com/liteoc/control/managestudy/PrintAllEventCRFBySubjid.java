@@ -110,12 +110,19 @@ public class PrintAllEventCRFBySubjid extends DataEntryServlet {
     	Map sedCrfBeans = new LinkedHashMap();
 
         for (StudyEventBean se_bean : al_seb) {
-            
+        	List KeyList = new ArrayList();
+        	
         	ArrayList<EventCRFBean> al_ecb = new ArrayList<EventCRFBean>();
             al_ecb = (ArrayList) ecdao.findAllByStudyEvent(se_bean);
             StudyEventDefinitionBean sedBean = (StudyEventDefinitionBean) sedao.findByPK(se_bean.getStudyEventDefinitionId());
             
+            KeyList.add(se_bean);
+            KeyList.add(sedBean);
+            
+           
             for (EventCRFBean ec_bean: al_ecb) {
+
+            	
             	ArrayList<SectionBean> allSectionBeans;
 
             	CRFVersionBean crfVersionBean = (CRFVersionBean) crfVersionDAO.findByPK(ec_bean.getCRFVersionId());
@@ -148,7 +155,7 @@ public class PrintAllEventCRFBySubjid extends DataEntryServlet {
             		CRFVersionBean crfverBean = (CRFVersionBean) crfVersionDAO.findByPK(crfVersionBean.getId());
             		request.setAttribute("crfVersionBean", crfverBean);
             		request.setAttribute("crfBean", crfBean);
-            		// Set an attribute signaling that data is not involved
+            		// Set an attribute signaling that data is involved
             		request.setAttribute("dataInvolved", "true");
             		PrintCRFBean printCrfBean = new PrintCRFBean();
             		printCrfBean.setDisplaySectionBeans(displaySectionBeans);
@@ -156,11 +163,11 @@ public class PrintAllEventCRFBySubjid extends DataEntryServlet {
             		printCrfBean.setCrfBean(crfBean);
             		printCrfBean.setEventCrfBean(ecb);
             		printCrfBean.setGrouped(true);
-            		List list = (ArrayList) sedCrfBeans.get(sedBean);
+            		List list = (ArrayList) sedCrfBeans.get(KeyList);
             		if (list == null)
             			list = new ArrayList();
             		list.add(printCrfBean);
-            		sedCrfBeans.put(sedBean, list);
+            		sedCrfBeans.put(KeyList, list);
 
             		continue;
             	}
@@ -188,11 +195,11 @@ public class PrintAllEventCRFBySubjid extends DataEntryServlet {
             	printCrfBean.setCrfBean(crfBean);
             	printCrfBean.setGrouped(false);
             	
-            	List list = (ArrayList) sedCrfBeans.get(sedBean);
+            	List list = (ArrayList) sedCrfBeans.get(KeyList);
             	if (list == null)
             		list = new ArrayList();
             	list.add(printCrfBean);
-            	sedCrfBeans.put(sedBean, list);
+            	sedCrfBeans.put(KeyList, list);
             }
         }
             request.setAttribute("sedCrfBeans", sedCrfBeans);

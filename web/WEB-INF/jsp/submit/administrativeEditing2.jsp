@@ -22,7 +22,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head><title>OpenClinica <fmt:message key="administrative_editing" bundle="${resword}"/></title>
+<head>
+	<title>OpenClinica <fmt:message key="administrative_editing" bundle="${resword}"/></title>
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
     
     <link rel="stylesheet" href="includes/styles.css" type="text/css">
@@ -30,9 +31,8 @@
 
     <script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript.js"></script>
     <script type="text/JavaScript" language="JavaScript" src="includes/Tabs.js"></script>
-   <script type="text/JavaScript" language="JavaScript" src="includes/CalendarPopup.js"></script>
-    <script type="text/javascript"  language="JavaScript" src=
-      "includes/repetition-model/repetition-model.js"></script>
+    <script type="text/JavaScript" language="JavaScript" src="includes/CalendarPopup.js"></script>
+    <script type="text/javascript"  language="JavaScript" src="includes/repetition-model/repetition-model.js"></script>
     <script type="text/JavaScript" language="JavaScript" src="includes/prototype.js"></script>
     <script type="text/JavaScript" language="JavaScript" src="includes/effects.js"></script>
     <!-- Added for the new Calender -->
@@ -43,9 +43,10 @@
     <script type="text/javascript" src="includes/new_cal/calendar-setup.js"></script>
     <!-- End -->
 </head>
-<body class="aka_bodywidth" onload="
-        <c:if test='${popUpURL != ""}'>
-        openDNoteWindow('<c:out value="${popUpURL}" />');</c:if>document.getElementById('CRF_infobox_closed').style.display='block';document.getElementById('CRF_infobox_open').style.display='none'" onunload="javascript:clsWin();">
+
+<body class="aka_bodywidth"
+	onload="<c:if test='${popUpURL != ""}'>openDNoteWindow('<c:out value="${popUpURL}" />');</c:if>
+			document.getElementById('CRF_infobox_closed').style.display='block';document.getElementById('CRF_infobox_open').style.display='none'" onunload="javascript:clsWin();">
 
 
 <div id="centralContainer" style=
@@ -963,7 +964,6 @@
     	<tr class="aka_stripes">
 	</c:otherwise>
 	</c:choose>
-            <%--<td class="table_cell_left" bgcolor="#F5F5F5">--%>
         <td class="table_cell_left aka_stripes"><b><c:out value=
           "${displayItem.singleItem.metadata.header}" escapeXml="false"/></b></td>
     </tr>
@@ -1094,7 +1094,7 @@
                             	<c:if test='${displayItem.singleItem.data.value1 != displayItem.singleItem.data.value}'>
                             		<span class="double_entry_value">
                             			<label onclick="changeValue('input${displayItem.singleItem.item.id}', '${displayItem.singleItem.data.value1}');">
-                            				<c:out value="(${displayItem.singleItem.data.value1})" escapeXml="false"/>
+                            				(<fmt:message key="first_entry" bundle="${resword}"/>: <c:out value="${displayItem.singleItem.data.value1}" escapeXml="false"/>)
                             			</label>
                             		</span>
                             	</c:if>
@@ -1242,8 +1242,11 @@ table-->
                     <td><input type="submit" id="srl" name="submittedResume" value="<fmt:message key="save" bundle="${resword}"/>" class=
                       "button_medium" onclick="disableSubmit(); this.form.submit();"/></td>
                     <td>
-                    <input type="hidden" name="fromResolvingNotes" value="${fromResolvingNotes}"/>
-                    <input type="submit" id="sel" name="submittedExit" value="<fmt:message key="exit" bundle="${resword}"/>" class="button_medium" onClick="return checkEntryStatus('DataStatus_bottom');" /></td>
+                    	<input type="hidden" name="fromResolvingNotes" value="${fromResolvingNotes}"/>
+                    	<input type="submit" id="sel" name="submittedExit"
+                    		value="<fmt:message key="exit" bundle="${resword}"/>"
+                    		class="button_medium" onClick="return checkEntryStatus('DataStatus_bottom');" />
+                    </td>
                     <c:choose>
                         <c:when test="${! empty formMessages}">
                             <td valign="bottom"><img name="DataStatus_bottom" alt="<fmt:message key="data_status" bundle="${resword}"/>" title="<fmt:message key="changed_not_saved" bundle="${restext}"/>" src="images/icon_UnsavedData.gif">&nbsp;</td>

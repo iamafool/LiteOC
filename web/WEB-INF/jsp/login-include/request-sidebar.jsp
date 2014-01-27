@@ -28,27 +28,7 @@ function reportBug(versionNumber) {
 
 				</td>
 
-<!-- Help and OpenClinica Feedback Buttons -->
 
-                <!-- 
-				<td valign="top">
-                    <table border="0" cellpadding="0" cellspacing="0">
-                        <tr>&nbsp;</tr>
-                        <tr>
-                <td style="white-space:nowrap">
-                    <a href="javascript:reportBug()">
-                        <span class="aka_font_general" style="font-size: 0.9em">
-                            <fmt:message key="openclinica_report_issue" bundle="${resword}"/></span>
-                    </a>
-                    |
-                    <a href="javascript:openDocWindow('<c:out value="${sessionScope.supportURL}" />')">
-                    <span class="aka_font_general" style="font-size: 0.9em"><fmt:message key="openclinica_feedback" bundle="${resword}"/></span></a>        </td>
-                        </tr>
-                    </table>
-				</td>
-				 -->
-
-<!-- end Help and OpenClinica Feedback Buttons -->
 
 	<td valign="top" align="right">
 

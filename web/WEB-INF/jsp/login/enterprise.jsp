@@ -14,13 +14,4 @@
 
 <jsp:include page="../include/sideInfo.jsp"/>
 
-
-<h1><span class="title_manage"><fmt:message key="openclinica_enterprise" bundle="${resworkflow}"/></span></h1>
-
-
-<fmt:message key="openclinica_enterprise_is_an_enhaced_version" bundle="${restext}"/>
-<fmt:message key="user_support_network" bundle="${restext}"/>
-<fmt:message key="technical_administration_network" bundle="${restext}"/>
-<fmt:message key="developer_network" bundle="${restext}"/>
-
 <jsp:include page="../include/footer.jsp"/>

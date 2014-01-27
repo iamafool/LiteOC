@@ -290,14 +290,14 @@ public class EditUserAccountServlet extends SecureController {
         logger.info("Sending password reset notification to " + user.getName());
 
         String body = resword.getString("dear") + " " + user.getFirstName() + " " + user.getLastName() + ",<br/>\n";
-        body += restext.getString("your_password_has_been_reset_on_openclinica") + ":<br/><br/>\n\n";
+        body += restext.getString("your_password_has_been_reset") + ":<br/><br/>\n\n";
         body += resword.getString("user_name") + ": " + user.getName() + "<br/>\n";
         body += resword.getString("password") + ": " + password + "<br/><br/>\n\n";
         body += restext.getString("please_test_your_login_information_and_let") + "<br/>\n";
         body += "<a href='" + SQLInitServlet.getField("sysURL") + "'>" + SQLInitServlet.getField("sysURL") + "</a><br/>\n";
-        body += restext.getString("openclinica_system_administrator");
+        body += restext.getString("system_administrator");
 
-        sendEmail(user.getEmail().trim(), restext.getString("your_openclinica_account_password_reset"), body, false);
+        sendEmail(user.getEmail().trim(), restext.getString("your_password_has_been_reset"), body, false);
     }
 
     @Override
