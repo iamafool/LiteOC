@@ -1,0 +1,2703 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet author="pgawade (generated)" id="1235684743487-0">
+   		<preConditions onFail="MARK_RAN">
+   			<dbms type="postgresql" />
+   		</preConditions>
+		<sql splitStatements="false">
+			DROP LANGUAGE IF EXISTS plpgsql;
+			CREATE PROCEDURAL LANGUAGE plpgsql;
+			SET check_function_bodies = false;
+			SET client_min_messages = error;
+			SET default_tablespace = '';
+			SET default_with_oids = true;
+			SET search_path = public, pg_catalog;
+			COMMENT ON SCHEMA public IS 'Standard public schema';
+		</sql>			
+    </changeSet> 
+    <changeSet author="Kenneth Yan" id="1390871399801-8">
+        <createTable tableName="archived_dataset_file">
+            <column autoIncrement="true" name="archived_dataset_file_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_archived_dataset_file"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="dataset_id" type="INT4"/>
+            <column name="export_format_id" type="INT4"/>
+            <column name="file_reference" type="VARCHAR(1000)"/>
+            <column name="run_time" type="INT4"/>
+            <column name="file_size" type="INT4"/>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="owner_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-9">
+        <createTable tableName="audit_event">
+            <column autoIncrement="true" name="audit_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_audit_event"/>
+            </column>
+            <column name="audit_date" type="TIMESTAMPTZ">
+                <constraints nullable="false"/>
+            </column>
+            <column name="audit_table" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="INT4"/>
+            <column name="entity_id" type="INT4"/>
+            <column name="reason_for_change" type="VARCHAR(1000)"/>
+            <column name="action_message" type="VARCHAR(4000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-10">
+        <createTable tableName="audit_event_context">
+            <column name="audit_id" type="INT4"/>
+            <column name="study_id" type="INT4"/>
+            <column name="subject_id" type="INT4"/>
+            <column name="study_subject_id" type="INT4"/>
+            <column name="role_name" type="VARCHAR(200)"/>
+            <column name="event_crf_id" type="INT4"/>
+            <column name="study_event_id" type="INT4"/>
+            <column name="study_event_definition_id" type="INT4"/>
+            <column name="crf_id" type="INT4"/>
+            <column name="crf_version_id" type="INT4"/>
+            <column name="study_crf_id" type="INT4"/>
+            <column name="item_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-11">
+        <createTable tableName="audit_event_values">
+            <column name="audit_id" type="INT4"/>
+            <column name="column_name" type="VARCHAR(255)"/>
+            <column name="old_value" type="VARCHAR(2000)"/>
+            <column name="new_value" type="VARCHAR(2000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-12">
+        <createTable tableName="audit_log_event">
+            <column autoIncrement="true" name="audit_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_audit_log_event"/>
+            </column>
+            <column name="audit_date" type="TIMESTAMPTZ">
+                <constraints nullable="false"/>
+            </column>
+            <column name="audit_table" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="INT4"/>
+            <column name="entity_id" type="INT4"/>
+            <column name="entity_name" type="VARCHAR(500)"/>
+            <column name="reason_for_change" type="VARCHAR(1000)"/>
+            <column name="audit_log_event_type_id" type="INT4"/>
+            <column name="old_value" type="VARCHAR(4000)"/>
+            <column name="new_value" type="VARCHAR(4000)"/>
+            <column name="event_crf_id" type="INT4"/>
+            <column name="study_event_id" type="INT4"/>
+            <column name="event_crf_version_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-13">
+        <createTable tableName="audit_log_event_type">
+            <column autoIncrement="true" name="audit_log_event_type_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_audit_log_event_type"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-14">
+        <createTable tableName="audit_user_login">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_audit_user_login"/>
+            </column>
+            <column name="user_name" type="VARCHAR(255)"/>
+            <column name="user_account_id" type="INT4"/>
+            <column name="login_attempt_date" type="TIMESTAMPTZ"/>
+            <column name="login_status_code" type="INT4"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-15">
+        <createTable tableName="authorities">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-16">
+        <createTable tableName="completion_status">
+            <column autoIncrement="true" name="completion_status_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_completion_status"/>
+            </column>
+            <column name="status_id" type="INT4"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-17">
+        <createTable tableName="configuration">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_configuration"/>
+            </column>
+            <column name="key" type="VARCHAR(255)"/>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(512)"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-18">
+        <createTable tableName="crf">
+            <column autoIncrement="true" name="crf_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_crf"/>
+            </column>
+            <column name="status_id" type="INT4"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2048)"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="oc_oid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="source_study_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-19">
+        <createTable tableName="crf_version">
+            <column autoIncrement="true" name="crf_version_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_crf_version"/>
+            </column>
+            <column name="crf_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(4000)"/>
+            <column name="revision_notes" type="VARCHAR(255)"/>
+            <column name="status_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="update_id" type="INT4"/>
+            <column name="oc_oid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-20">
+        <createTable tableName="dataset">
+            <column autoIncrement="true" name="dataset_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_dataset"/>
+            </column>
+            <column name="study_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2000)"/>
+            <column name="sql_statement" type="TEXT"/>
+            <column name="num_runs" type="INT4"/>
+            <column name="date_start" type="date"/>
+            <column name="date_end" type="date"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="date_last_run" type="date"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="approver_id" type="INT4"/>
+            <column name="update_id" type="INT4"/>
+            <column defaultValueBoolean="false" name="show_event_location" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_event_start" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_event_end" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_subject_dob" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_subject_gender" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_event_status" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_subject_status" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_subject_unique_id" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_subject_age_at_event" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_crf_status" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_crf_version" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_crf_int_name" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_crf_int_date" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_group_info" type="BOOL"/>
+            <column defaultValueBoolean="false" name="show_disc_info" type="BOOL"/>
+            <column name="odm_metadataversion_name" type="VARCHAR(255)"/>
+            <column name="odm_metadataversion_oid" type="VARCHAR(255)"/>
+            <column name="odm_prior_study_oid" type="VARCHAR(255)"/>
+            <column name="odm_prior_metadataversion_oid" type="VARCHAR(255)"/>
+            <column defaultValueBoolean="false" name="show_secondary_id" type="BOOL"/>
+            <column name="dataset_item_status_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-21">
+        <createTable tableName="dataset_crf_version_map">
+            <column name="dataset_id" type="INT4"/>
+            <column name="event_definition_crf_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-22">
+        <createTable tableName="dataset_filter_map">
+            <column name="dataset_id" type="INT4"/>
+            <column name="filter_id" type="INT4"/>
+            <column name="ordinal" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-23">
+        <createTable tableName="dataset_item_status">
+            <column autoIncrement="true" name="dataset_item_status_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_dataset_item_status"/>
+            </column>
+            <column name="name" type="VARCHAR(50)"/>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-24">
+        <createTable tableName="dataset_study_group_class_map">
+            <column name="dataset_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="study_group_class_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-25">
+        <createTable tableName="dc_computed_event">
+            <column autoIncrement="true" name="dc_summary_event_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_dc_computed_event"/>
+            </column>
+            <column name="dc_event_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="item_target_id" type="INT4"/>
+            <column name="summary_type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-26">
+        <createTable tableName="dc_event">
+            <column autoIncrement="true" name="dc_event_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_dc_event"/>
+            </column>
+            <column name="decision_condition_id" type="INT4"/>
+            <column name="ordinal" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-27">
+        <createTable tableName="dc_primitive">
+            <column autoIncrement="true" name="dc_primitive_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_dc_primitive"/>
+            </column>
+            <column name="decision_condition_id" type="INT4"/>
+            <column name="item_id" type="INT4"/>
+            <column name="dynamic_value_item_id" type="INT4"/>
+            <column name="comparison" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="constant_value" type="VARCHAR(4000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-28">
+        <createTable tableName="dc_section_event">
+            <column autoIncrement="true" name="dc_event_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_dc_section_event"/>
+            </column>
+            <column name="section_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-29">
+        <createTable tableName="dc_send_email_event">
+            <column autoIncrement="true" name="dc_event_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_dc_send_email_event"/>
+            </column>
+            <column name="to_address" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="subject" type="VARCHAR(1000)"/>
+            <column name="body" type="VARCHAR(4000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-30">
+        <createTable tableName="dc_substitution_event">
+            <column autoIncrement="true" name="dc_event_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_dc_substitution_event"/>
+            </column>
+            <column name="item_id" type="INT4"/>
+            <column name="value" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-31">
+        <createTable tableName="dc_summary_item_map">
+            <column name="dc_summary_event_id" type="INT4"/>
+            <column name="item_id" type="INT4"/>
+            <column name="ordinal" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-32">
+        <createTable tableName="decision_condition">
+            <column autoIncrement="true" name="decision_condition_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_decision_condition"/>
+            </column>
+            <column name="crf_version_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="label" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comments" type="VARCHAR(3000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-33">
+        <createTable tableName="discrepancy_note">
+            <column autoIncrement="true" name="discrepancy_note_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_discrepancy_note"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="discrepancy_note_type_id" type="INT4"/>
+            <column name="resolution_status_id" type="INT4"/>
+            <column name="detailed_notes" type="VARCHAR(1000)"/>
+            <column name="date_created" type="date"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="parent_dn_id" type="INT4"/>
+            <column name="entity_type" type="VARCHAR(30)"/>
+            <column name="study_id" type="INT4"/>
+            <column name="assigned_user_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-34">
+        <createTable tableName="discrepancy_note_type">
+            <column autoIncrement="true" name="discrepancy_note_type_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_discrepancy_note_type"/>
+            </column>
+            <column name="name" type="VARCHAR(50)"/>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-35">
+        <createTable tableName="dn_event_crf_map">
+            <column name="event_crf_id" type="INT4"/>
+            <column name="discrepancy_note_id" type="INT4"/>
+            <column name="column_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-36">
+        <createTable tableName="dn_item_data_map">
+            <column name="item_data_id" type="INT4"/>
+            <column name="discrepancy_note_id" type="INT4"/>
+            <column name="column_name" type="VARCHAR(255)"/>
+            <column name="study_subject_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-37">
+        <createTable tableName="dn_study_event_map">
+            <column name="study_event_id" type="INT4"/>
+            <column name="discrepancy_note_id" type="INT4"/>
+            <column name="column_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-38">
+        <createTable tableName="dn_study_subject_map">
+            <column name="study_subject_id" type="INT4"/>
+            <column name="discrepancy_note_id" type="INT4"/>
+            <column name="column_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-39">
+        <createTable tableName="dn_subject_map">
+            <column name="subject_id" type="INT4"/>
+            <column name="discrepancy_note_id" type="INT4"/>
+            <column name="column_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-40">
+        <createTable tableName="dyn_item_form_metadata">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_dyn_item_form_metadata"/>
+            </column>
+            <column name="item_form_metadata_id" type="INT4"/>
+            <column name="item_id" type="INT4"/>
+            <column name="crf_version_id" type="INT4"/>
+            <column defaultValueBoolean="true" name="show_item" type="BOOL"/>
+            <column name="event_crf_id" type="INT4"/>
+            <column name="version" type="INT4"/>
+            <column name="item_data_id" type="INT4"/>
+            <column defaultValueNumeric="0" name="passed_dde" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-41">
+        <createTable tableName="dyn_item_group_metadata">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_dyn_item_group_metadata"/>
+            </column>
+            <column name="item_group_metadata_id" type="INT4"/>
+            <column name="item_group_id" type="INT4"/>
+            <column defaultValueBoolean="true" name="show_group" type="BOOL"/>
+            <column name="event_crf_id" type="INT4"/>
+            <column name="version" type="INT4"/>
+            <column defaultValueNumeric="0" name="passed_dde" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-42">
+        <createTable tableName="event_crf">
+            <column autoIncrement="true" name="event_crf_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_event_crf"/>
+            </column>
+            <column name="study_event_id" type="INT4"/>
+            <column name="crf_version_id" type="INT4"/>
+            <column name="date_interviewed" type="date"/>
+            <column name="interviewer_name" type="VARCHAR(255)"/>
+            <column name="completion_status_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="annotations" type="VARCHAR(4000)"/>
+            <column name="date_completed" type="TIMESTAMPTZ"/>
+            <column name="validator_id" type="INT4"/>
+            <column name="date_validate" type="date"/>
+            <column name="date_validate_completed" type="TIMESTAMPTZ"/>
+            <column name="validator_annotations" type="VARCHAR(4000)"/>
+            <column name="validate_string" type="VARCHAR(256)"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="study_subject_id" type="INT4"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column defaultValueBoolean="false" name="electronic_signature_status" type="BOOL"/>
+            <column defaultValueBoolean="false" name="sdv_status" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="old_status_id" type="INT4"/>
+            <column defaultValueNumeric="0" name="sdv_update_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-43">
+        <createTable tableName="event_definition_crf">
+            <column autoIncrement="true" name="event_definition_crf_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_event_definition_crf"/>
+            </column>
+            <column name="study_event_definition_id" type="INT4"/>
+            <column name="study_id" type="INT4"/>
+            <column name="crf_id" type="INT4"/>
+            <column name="required_crf" type="BOOL"/>
+            <column name="double_entry" type="BOOL"/>
+            <column name="require_all_text_filled" type="BOOL"/>
+            <column name="decision_conditions" type="BOOL"/>
+            <column name="null_values" type="VARCHAR(255)"/>
+            <column name="default_version_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="ordinal" type="INT4"/>
+            <column defaultValueBoolean="false" name="electronic_signature" type="BOOL"/>
+            <column defaultValueBoolean="false" name="hide_crf" type="BOOL"/>
+            <column name="source_data_verification_code" type="INT4"/>
+            <column name="selected_version_ids" type="VARCHAR(150)"/>
+            <column name="parent_id" type="INT4"/>
+            <column defaultValueNumeric="0" name="double_entry_type" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-44">
+        <createTable tableName="export_format">
+            <column autoIncrement="true" name="export_format_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_export_format"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+            <column name="mime_type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-45">
+        <createTable tableName="filter">
+            <column autoIncrement="true" name="filter_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_filter"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(2000)"/>
+            <column name="sql_statement" type="VARCHAR(4000)"/>
+            <column name="status_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="owner_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="update_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-46">
+        <createTable tableName="filter_crf_version_map">
+            <column name="filter_id" type="INT4"/>
+            <column name="crf_version_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-47">
+        <createTable tableName="group_class_types">
+            <column autoIncrement="true" name="group_class_type_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_group_class_types"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-48">
+        <createTable tableName="item">
+            <column autoIncrement="true" name="item_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_item"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(4000)"/>
+            <column name="units" type="VARCHAR(64)"/>
+            <column name="phi_status" type="BOOL"/>
+            <column name="item_data_type_id" type="INT4"/>
+            <column name="item_reference_type_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="oc_oid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-49">
+        <createTable tableName="item_data">
+            <column autoIncrement="true" name="item_data_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_item_data"/>
+            </column>
+            <column name="item_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="event_crf_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="value" type="VARCHAR(4000)"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="update_id" type="INT4"/>
+            <column name="ordinal" type="INT4"/>
+            <column name="old_status_id" type="INT4"/>
+            <column name="value1" type="VARCHAR(4000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-50">
+        <createTable tableName="item_data_type">
+            <column autoIncrement="true" name="item_data_type_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_item_data_type"/>
+            </column>
+            <column name="code" type="VARCHAR(20)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="definition" type="VARCHAR(1000)"/>
+            <column name="reference" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-51">
+        <createTable tableName="item_form_metadata">
+            <column autoIncrement="true" name="item_form_metadata_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_item_form_metadata"/>
+            </column>
+            <column name="item_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crf_version_id" type="INT4"/>
+            <column name="header" type="VARCHAR(2000)"/>
+            <column name="subheader" type="VARCHAR(240)"/>
+            <column name="parent_id" type="INT4"/>
+            <column name="parent_label" type="VARCHAR(120)"/>
+            <column name="column_number" type="INT4"/>
+            <column name="page_number_label" type="VARCHAR(5)"/>
+            <column name="question_number_label" type="VARCHAR(20)"/>
+            <column name="left_item_text" type="VARCHAR(4000)"/>
+            <column name="right_item_text" type="VARCHAR(2000)"/>
+            <column name="section_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="decision_condition_id" type="INT4"/>
+            <column name="response_set_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="regexp" type="VARCHAR(1000)"/>
+            <column name="regexp_error_msg" type="VARCHAR(255)"/>
+            <column name="ordinal" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="required" type="BOOL"/>
+            <column name="default_value" type="VARCHAR(4000)"/>
+            <column name="response_layout" type="VARCHAR(255)"/>
+            <column name="width_decimal" type="VARCHAR(10)"/>
+            <column defaultValueBoolean="true" name="show_item" type="BOOL"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-52">
+        <createTable tableName="item_group">
+            <column autoIncrement="true" name="item_group_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_item_group"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="crf_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="update_id" type="INT4"/>
+            <column name="oc_oid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-53">
+        <createTable tableName="item_group_metadata">
+            <column autoIncrement="true" name="item_group_metadata_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_item_group_metadata"/>
+            </column>
+            <column name="item_group_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="header" type="VARCHAR(255)"/>
+            <column name="subheader" type="VARCHAR(255)"/>
+            <column name="layout" type="VARCHAR(100)"/>
+            <column name="repeat_number" type="INT4"/>
+            <column name="repeat_max" type="INT4"/>
+            <column name="repeat_array" type="VARCHAR(255)"/>
+            <column name="row_start_number" type="INT4"/>
+            <column name="crf_version_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="item_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ordinal" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="borders" type="INT4"/>
+            <column defaultValueBoolean="true" name="show_group" type="BOOL"/>
+            <column defaultValueBoolean="true" name="repeating_group" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-54">
+        <createTable tableName="item_reference_type">
+            <column autoIncrement="true" name="item_reference_type_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_item_reference_type"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-55">
+        <createTable tableName="measurement_unit">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_measurement_unit"/>
+            </column>
+            <column name="oc_oid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-56">
+        <createTable tableName="null_value_type">
+            <column autoIncrement="true" name="null_value_type_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_null_value_type"/>
+            </column>
+            <column name="code" type="VARCHAR(20)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="definition" type="VARCHAR(1000)"/>
+            <column name="reference" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-57">
+        <createTable tableName="oc_qrtz_blob_triggers">
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="blob_data" type="BYTEA"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-58">
+        <createTable tableName="oc_qrtz_calendars">
+            <column name="calendar_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="calendar" type="BYTEA">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-59">
+        <createTable tableName="oc_qrtz_cron_triggers">
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cron_expression" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time_zone_id" type="VARCHAR(80)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-60">
+        <createTable tableName="oc_qrtz_fired_triggers">
+            <column name="entry_id" type="VARCHAR(95)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_volatile" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="instance_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fired_time" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="priority" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_name" type="VARCHAR(200)"/>
+            <column name="job_group" type="VARCHAR(200)"/>
+            <column name="is_stateful" type="BOOL"/>
+            <column name="requests_recovery" type="BOOL"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-61">
+        <createTable tableName="oc_qrtz_job_details">
+            <column name="job_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(250)"/>
+            <column name="job_class_name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_durable" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_volatile" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_stateful" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="requests_recovery" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_data" type="BYTEA"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-62">
+        <createTable tableName="oc_qrtz_job_listeners">
+            <column name="job_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_listener" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-63">
+        <createTable tableName="oc_qrtz_locks">
+            <column name="lock_name" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-64">
+        <createTable tableName="oc_qrtz_paused_trigger_grps">
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-65">
+        <createTable tableName="oc_qrtz_scheduler_state">
+            <column name="instance_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_checkin_time" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="checkin_interval" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-66">
+        <createTable tableName="oc_qrtz_simple_triggers">
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repeat_count" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="repeat_interval" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="times_triggered" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-67">
+        <createTable tableName="oc_qrtz_trigger_listeners">
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_listener" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-68">
+        <createTable tableName="oc_qrtz_triggers">
+            <column name="trigger_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_group" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_volatile" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(250)"/>
+            <column name="next_fire_time" type="INT8"/>
+            <column name="prev_fire_time" type="INT8"/>
+            <column name="priority" type="INT4"/>
+            <column name="trigger_state" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trigger_type" type="VARCHAR(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_time" type="INT8"/>
+            <column name="calendar_name" type="VARCHAR(200)"/>
+            <column name="misfire_instr" type="SMALLINT"/>
+            <column name="job_data" type="BYTEA"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-69">
+        <createTable tableName="openclinica_version">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_openclinica_version"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="build_number" type="VARCHAR(1000)"/>
+            <column name="version" type="INT4"/>
+            <column name="update_timestamp" type="TIMESTAMPTZ"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-70">
+        <createTable tableName="privilege">
+            <column autoIncrement="true" name="priv_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_privilege"/>
+            </column>
+            <column name="priv_name" type="VARCHAR(50)"/>
+            <column name="priv_desc" type="VARCHAR(2000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-71">
+        <createTable tableName="resolution_status">
+            <column autoIncrement="true" name="resolution_status_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_resolution_status"/>
+            </column>
+            <column name="name" type="VARCHAR(50)"/>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-72">
+        <createTable tableName="response_set">
+            <column autoIncrement="true" name="response_set_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_response_set"/>
+            </column>
+            <column name="response_type_id" type="INT4"/>
+            <column name="label" type="VARCHAR(80)"/>
+            <column name="options_text" type="VARCHAR(4000)"/>
+            <column name="options_values" type="VARCHAR(4000)"/>
+            <column name="version_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-73">
+        <createTable tableName="response_type">
+            <column autoIncrement="true" name="response_type_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_response_type"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-74">
+        <createTable tableName="role_privilege_map">
+            <column name="role_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="priv_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="priv_value" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-75">
+        <createTable tableName="rule">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_rule"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="oc_oid" type="VARCHAR(40)"/>
+            <column name="enabled" type="BOOL"/>
+            <column name="rule_expression_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="version" type="INT4"/>
+            <column name="study_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-76">
+        <createTable tableName="rule_action">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_rule_action"/>
+            </column>
+            <column name="rule_set_rule_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="action_type" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expression_evaluates_to" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message" type="VARCHAR(255)"/>
+            <column name="email_to" type="VARCHAR(255)"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="version" type="INT4"/>
+            <column name="rule_action_run_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-77">
+        <createTable tableName="rule_action_property">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_rule_action_property"/>
+            </column>
+            <column name="rule_action_id" type="INT4"/>
+            <column name="oc_oid" type="VARCHAR(512)"/>
+            <column name="value" type="VARCHAR(512)"/>
+            <column name="version" type="INT4"/>
+            <column name="rule_expression_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-78">
+        <createTable tableName="rule_action_run">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_rule_action_run"/>
+            </column>
+            <column name="administrative_data_entry" type="BOOL"/>
+            <column name="initial_data_entry" type="BOOL"/>
+            <column name="double_data_entry" type="BOOL"/>
+            <column name="import_data_entry" type="BOOL"/>
+            <column name="batch" type="BOOL"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-79">
+        <createTable tableName="rule_action_run_log">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_rule_action_run_log"/>
+            </column>
+            <column name="action_type" type="INT4"/>
+            <column name="item_data_id" type="INT4"/>
+            <column name="value" type="VARCHAR(4000)"/>
+            <column name="rule_oc_oid" type="VARCHAR(40)"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-80">
+        <createTable tableName="rule_expression">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_rule_expression"/>
+            </column>
+            <column name="value" type="VARCHAR(1025)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="context" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-81">
+        <createTable tableName="rule_set">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_rule_set"/>
+            </column>
+            <column name="rule_expression_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="study_event_definition_id" type="INT4"/>
+            <column name="crf_id" type="INT4"/>
+            <column name="crf_version_id" type="INT4"/>
+            <column name="study_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="version" type="INT4"/>
+            <column name="item_id" type="INT4"/>
+            <column name="item_group_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-82">
+        <createTable tableName="rule_set_audit">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_rule_set_audit"/>
+            </column>
+            <column name="rule_set_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_updated" type="date"/>
+            <column name="updater_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-83">
+        <createTable tableName="rule_set_rule">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_rule_set_rule"/>
+            </column>
+            <column name="rule_set_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rule_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-84">
+        <createTable tableName="rule_set_rule_audit">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_rule_set_rule_audit"/>
+            </column>
+            <column name="rule_set_rule_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_updated" type="date"/>
+            <column name="updater_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-85">
+        <createTable tableName="scd_item_metadata">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_scd_item_metadata"/>
+            </column>
+            <column name="scd_item_form_metadata_id" type="INT4"/>
+            <column name="control_item_form_metadata_id" type="INT4"/>
+            <column name="control_item_name" type="VARCHAR(255)"/>
+            <column name="option_value" type="VARCHAR(500)"/>
+            <column name="message" type="VARCHAR(3000)"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-86">
+        <createTable tableName="section">
+            <column autoIncrement="true" name="section_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_section"/>
+            </column>
+            <column name="crf_version_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status_id" type="INT4"/>
+            <column name="label" type="VARCHAR(2000)"/>
+            <column name="title" type="VARCHAR(2000)"/>
+            <column name="subtitle" type="VARCHAR(2000)"/>
+            <column name="instructions" type="VARCHAR(2000)"/>
+            <column name="page_number_label" type="VARCHAR(5)"/>
+            <column name="ordinal" type="INT4"/>
+            <column name="parent_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="owner_id" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="update_id" type="INT4"/>
+            <column name="borders" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-87">
+        <createTable tableName="status">
+            <column autoIncrement="true" name="status_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_status"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-88">
+        <createTable tableName="study">
+            <column autoIncrement="true" name="study_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_study"/>
+            </column>
+            <column name="parent_study_id" type="INT4"/>
+            <column name="unique_identifier" type="VARCHAR(30)"/>
+            <column name="secondary_identifier" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="summary" type="VARCHAR(255)"/>
+            <column name="date_planned_start" type="date"/>
+            <column name="date_planned_end" type="date"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="update_id" type="INT4"/>
+            <column name="type_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="principal_investigator" type="VARCHAR(255)"/>
+            <column name="facility_name" type="VARCHAR(255)"/>
+            <column name="facility_city" type="VARCHAR(255)"/>
+            <column name="facility_state" type="VARCHAR(20)"/>
+            <column name="facility_zip" type="VARCHAR(64)"/>
+            <column name="facility_country" type="VARCHAR(64)"/>
+            <column name="facility_recruitment_status" type="VARCHAR(60)"/>
+            <column name="facility_contact_name" type="VARCHAR(255)"/>
+            <column name="facility_contact_degree" type="VARCHAR(255)"/>
+            <column name="facility_contact_phone" type="VARCHAR(255)"/>
+            <column name="facility_contact_email" type="VARCHAR(255)"/>
+            <column name="protocol_type" type="VARCHAR(30)"/>
+            <column name="protocol_description" type="VARCHAR(1000)"/>
+            <column name="protocol_date_verification" type="date"/>
+            <column name="phase" type="VARCHAR(30)"/>
+            <column name="expected_total_enrollment" type="INT4"/>
+            <column name="sponsor" type="VARCHAR(255)"/>
+            <column name="collaborators" type="VARCHAR(1000)"/>
+            <column name="medline_identifier" type="VARCHAR(255)"/>
+            <column name="url" type="VARCHAR(255)"/>
+            <column name="url_description" type="VARCHAR(255)"/>
+            <column name="conditions" type="VARCHAR(500)"/>
+            <column name="keywords" type="VARCHAR(255)"/>
+            <column name="eligibility" type="VARCHAR(500)"/>
+            <column name="gender" type="VARCHAR(30)"/>
+            <column name="age_max" type="VARCHAR(3)"/>
+            <column name="age_min" type="VARCHAR(3)"/>
+            <column name="healthy_volunteer_accepted" type="BOOL"/>
+            <column name="purpose" type="VARCHAR(64)"/>
+            <column name="allocation" type="VARCHAR(64)"/>
+            <column name="masking" type="VARCHAR(30)"/>
+            <column name="control" type="VARCHAR(30)"/>
+            <column name="assignment" type="VARCHAR(30)"/>
+            <column name="endpoint" type="VARCHAR(64)"/>
+            <column name="interventions" type="VARCHAR(1000)"/>
+            <column name="duration" type="VARCHAR(30)"/>
+            <column name="selection" type="VARCHAR(30)"/>
+            <column name="timing" type="VARCHAR(30)"/>
+            <column name="official_title" type="VARCHAR(255)"/>
+            <column name="results_reference" type="BOOL"/>
+            <column name="oc_oid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="old_status_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-89">
+        <createTable tableName="study_event">
+            <column autoIncrement="true" name="study_event_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_study_event"/>
+            </column>
+            <column name="study_event_definition_id" type="INT4"/>
+            <column name="study_subject_id" type="INT4"/>
+            <column name="location" type="VARCHAR(2000)"/>
+            <column name="sample_ordinal" type="INT4"/>
+            <column name="date_start" type="TIMESTAMPTZ"/>
+            <column name="date_end" type="TIMESTAMPTZ"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="subject_event_status_id" type="INT4"/>
+            <column name="start_time_flag" type="BOOL"/>
+            <column name="end_time_flag" type="BOOL"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-90">
+        <createTable tableName="study_event_definition">
+            <column autoIncrement="true" name="study_event_definition_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_study_event_definition"/>
+            </column>
+            <column name="study_id" type="INT4"/>
+            <column name="name" type="VARCHAR(2000)"/>
+            <column name="description" type="VARCHAR(2000)"/>
+            <column name="repeating" type="BOOL"/>
+            <column name="type" type="VARCHAR(20)"/>
+            <column name="category" type="VARCHAR(2000)"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="ordinal" type="INT4"/>
+            <column name="oc_oid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-91">
+        <createTable tableName="study_group">
+            <column autoIncrement="true" name="study_group_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_study_group"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+            <column name="study_group_class_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-92">
+        <createTable tableName="study_group_class">
+            <column autoIncrement="true" name="study_group_class_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_study_group_class"/>
+            </column>
+            <column name="name" type="VARCHAR(30)"/>
+            <column name="study_id" type="INT4"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="group_class_type_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="subject_assignment" type="VARCHAR(30)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-93">
+        <createTable tableName="study_module_status">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_study_module_status"/>
+            </column>
+            <column name="study_id" type="INT4"/>
+            <column defaultValueNumeric="1" name="study" type="INT4"/>
+            <column defaultValueNumeric="1" name="crf" type="INT4"/>
+            <column defaultValueNumeric="1" name="event_definition" type="INT4"/>
+            <column defaultValueNumeric="1" name="subject_group" type="INT4"/>
+            <column defaultValueNumeric="1" name="rule" type="INT4"/>
+            <column defaultValueNumeric="1" name="site" type="INT4"/>
+            <column defaultValueNumeric="1" name="users" type="INT4"/>
+            <column name="version" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="update_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-94">
+        <createTable tableName="study_parameter">
+            <column autoIncrement="true" name="study_parameter_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_study_parameter"/>
+            </column>
+            <column name="handle" type="VARCHAR(50)"/>
+            <column name="name" type="VARCHAR(50)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="default_value" type="VARCHAR(50)"/>
+            <column defaultValueBoolean="true" name="inheritable" type="BOOL"/>
+            <column name="overridable" type="BOOL"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-95">
+        <createTable tableName="study_parameter_value">
+            <column autoIncrement="true" name="study_parameter_value_id" type="SERIAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="study_id" type="INT4"/>
+            <column name="value" type="VARCHAR(50)"/>
+            <column name="parameter" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-96">
+        <createTable tableName="study_subject">
+            <column autoIncrement="true" name="study_subject_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_study_subject"/>
+            </column>
+            <column name="label" type="VARCHAR(30)"/>
+            <column name="secondary_label" type="VARCHAR(30)"/>
+            <column name="subject_id" type="INT4"/>
+            <column name="study_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="enrollment_date" type="date"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="update_id" type="INT4"/>
+            <column name="oc_oid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-97">
+        <createTable tableName="study_type">
+            <column autoIncrement="true" name="study_type_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_study_type"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-98">
+        <createTable tableName="study_user_role">
+            <column name="role_name" type="VARCHAR(40)"/>
+            <column name="study_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="user_name" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-99">
+        <createTable tableName="subject">
+            <column autoIncrement="true" name="subject_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_subject"/>
+            </column>
+            <column name="father_id" type="INT4"/>
+            <column name="mother_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="gender" type="BPCHAR(1)"/>
+            <column name="unique_identifier" type="VARCHAR(255)"/>
+            <column name="date_created" type="date"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="dob_collected" type="BOOL"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-100">
+        <createTable tableName="subject_event_status">
+            <column autoIncrement="true" name="subject_event_status_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_subject_event_status"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-101">
+        <createTable tableName="subject_group_map">
+            <column autoIncrement="true" name="subject_group_map_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_subject_group_map"/>
+            </column>
+            <column name="study_group_class_id" type="INT4"/>
+            <column name="study_subject_id" type="INT4"/>
+            <column name="study_group_id" type="INT4"/>
+            <column name="status_id" type="INT4"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="update_id" type="INT4"/>
+            <column name="notes" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-102">
+        <createTable tableName="usage_statistics_data">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_usage_statistics_data"/>
+            </column>
+            <column name="param_key" type="VARCHAR(255)"/>
+            <column name="param_value" type="VARCHAR(1000)"/>
+            <column name="update_timestamp" type="TIMESTAMPTZ"/>
+            <column name="version" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-103">
+        <createTable tableName="user_account">
+            <column autoIncrement="true" name="user_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_user_account"/>
+            </column>
+            <column name="user_name" type="VARCHAR(64)"/>
+            <column name="passwd" type="VARCHAR(255)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="email" type="VARCHAR(120)"/>
+            <column name="active_study" type="INT4"/>
+            <column name="institutional_affiliation" type="VARCHAR(255)"/>
+            <column name="status_id" type="INT4"/>
+            <column name="owner_id" type="INT4"/>
+            <column name="date_created" type="date"/>
+            <column name="date_updated" type="date"/>
+            <column name="date_lastvisit" type="TIMESTAMPTZ"/>
+            <column name="passwd_timestamp" type="date"/>
+            <column name="passwd_challenge_question" type="VARCHAR(64)"/>
+            <column name="passwd_challenge_answer" type="VARCHAR(255)"/>
+            <column name="phone" type="VARCHAR(64)"/>
+            <column name="user_type_id" type="INT4"/>
+            <column name="update_id" type="INT4"/>
+            <column defaultValueBoolean="true" name="enabled" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="account_non_locked" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="lock_counter" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="run_webservices" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-104">
+        <createTable tableName="user_role">
+            <column autoIncrement="true" name="role_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_user_role"/>
+            </column>
+            <column name="role_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" type="INT4"/>
+            <column name="role_desc" type="VARCHAR(2000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-105">
+        <createTable tableName="user_type">
+            <column autoIncrement="true" name="user_type_id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="pk_user_type"/>
+            </column>
+            <column name="user_type" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-106">
+        <createTable tableName="versioning_map">
+            <column name="crf_version_id" type="INT4"/>
+            <column name="item_id" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-107">
+        <addPrimaryKey columnNames="trigger_name, trigger_group" constraintName="pk_oc_qrtz_blob_triggers" tableName="oc_qrtz_blob_triggers"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-108">
+        <addPrimaryKey columnNames="calendar_name" constraintName="pk_oc_qrtz_calendars" tableName="oc_qrtz_calendars"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-109">
+        <addPrimaryKey columnNames="trigger_name, trigger_group" constraintName="pk_oc_qrtz_cron_triggers" tableName="oc_qrtz_cron_triggers"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-110">
+        <addPrimaryKey columnNames="entry_id" constraintName="pk_oc_qrtz_fired_triggers" tableName="oc_qrtz_fired_triggers"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-111">
+        <addPrimaryKey columnNames="job_name, job_group" constraintName="pk_oc_qrtz_job_details" tableName="oc_qrtz_job_details"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-112">
+        <addPrimaryKey columnNames="job_name, job_group, job_listener" constraintName="pk_oc_qrtz_job_listeners" tableName="oc_qrtz_job_listeners"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-113">
+        <addPrimaryKey columnNames="lock_name" constraintName="pk_oc_qrtz_locks" tableName="oc_qrtz_locks"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-114">
+        <addPrimaryKey columnNames="trigger_group" constraintName="pk_oc_qrtz_paused_trigger_grps" tableName="oc_qrtz_paused_trigger_grps"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-115">
+        <addPrimaryKey columnNames="instance_name" constraintName="pk_oc_qrtz_scheduler_state" tableName="oc_qrtz_scheduler_state"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-116">
+        <addPrimaryKey columnNames="trigger_name, trigger_group" constraintName="pk_oc_qrtz_simple_triggers" tableName="oc_qrtz_simple_triggers"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-117">
+        <addPrimaryKey columnNames="trigger_name, trigger_group, trigger_listener" constraintName="pk_oc_qrtz_trigger_listeners" tableName="oc_qrtz_trigger_listeners"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-118">
+        <addPrimaryKey columnNames="trigger_name, trigger_group" constraintName="pk_oc_qrtz_triggers" tableName="oc_qrtz_triggers"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-119">
+        <addForeignKeyConstraint baseColumnNames="dataset_item_status_id" baseTableName="dataset" constraintName="dataset_fk_dataset_item_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dataset_item_status_id" referencedTableName="dataset_item_status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-120">
+        <addForeignKeyConstraint baseColumnNames="assigned_user_id" baseTableName="discrepancy_note" constraintName="discrepancy_note_asn_u_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-121">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="discrepancy_note" constraintName="discrepancy_note_owner_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-122">
+        <addForeignKeyConstraint baseColumnNames="study_id" baseTableName="discrepancy_note" constraintName="discrepancy_note_study_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_id" referencedTableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-123">
+        <addForeignKeyConstraint baseColumnNames="discrepancy_note_type_id" baseTableName="discrepancy_note" constraintName="dn_discrepancy_note_type_id_fk" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="discrepancy_note_type_id" referencedTableName="discrepancy_note_type"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-124">
+        <addForeignKeyConstraint baseColumnNames="discrepancy_note_id" baseTableName="dn_event_crf_map" constraintName="dn_event_crf_map_dn_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="discrepancy_note_id" referencedTableName="discrepancy_note"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-125">
+        <addForeignKeyConstraint baseColumnNames="event_crf_id" baseTableName="dn_event_crf_map" constraintName="dn_evnt_crf_map_evnt_crf_id_fk" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="event_crf_id" referencedTableName="event_crf"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-126">
+        <addForeignKeyConstraint baseColumnNames="discrepancy_note_id" baseTableName="dn_item_data_map" constraintName="dn_item_data_map_dn_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="discrepancy_note_id" referencedTableName="discrepancy_note"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-127">
+        <addForeignKeyConstraint baseColumnNames="item_data_id" baseTableName="dn_item_data_map" constraintName="dn_itm_data_map_itm_data_id_fk" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_data_id" referencedTableName="item_data"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-128">
+        <addForeignKeyConstraint baseColumnNames="resolution_status_id" baseTableName="discrepancy_note" constraintName="dn_resolution_status_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="resolution_status_id" referencedTableName="resolution_status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-129">
+        <addForeignKeyConstraint baseColumnNames="study_event_id" baseTableName="dn_study_event_map" constraintName="dn_sem_study_event_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_event_id" referencedTableName="study_event"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-130">
+        <addForeignKeyConstraint baseColumnNames="study_subject_id" baseTableName="dn_study_subject_map" constraintName="dn_ssm_study_subject_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_subject_id" referencedTableName="study_subject"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-131">
+        <addForeignKeyConstraint baseColumnNames="discrepancy_note_id" baseTableName="dn_study_event_map" constraintName="dn_study_event_map_dn_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="discrepancy_note_id" referencedTableName="discrepancy_note"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-132">
+        <addForeignKeyConstraint baseColumnNames="discrepancy_note_id" baseTableName="dn_study_subject_map" constraintName="dn_study_subject_map_dn_id_fk" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="discrepancy_note_id" referencedTableName="discrepancy_note"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-133">
+        <addForeignKeyConstraint baseColumnNames="discrepancy_note_id" baseTableName="dn_subject_map" constraintName="dn_subject_map_dn_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="discrepancy_note_id" referencedTableName="discrepancy_note"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-134">
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="dn_subject_map" constraintName="dn_subject_map_subject_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="subject_id" referencedTableName="subject"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-135">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="item_data" constraintName="fk_answer_reference_item" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="item_id" referencedTableName="item"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-136">
+        <addForeignKeyConstraint baseColumnNames="dataset_id" baseTableName="archived_dataset_file" constraintName="fk_archived_reference_dataset" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dataset_id" referencedTableName="dataset"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-137">
+        <addForeignKeyConstraint baseColumnNames="export_format_id" baseTableName="archived_dataset_file" constraintName="fk_archived_reference_export_f" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="export_format_id" referencedTableName="export_format"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-138">
+        <addForeignKeyConstraint baseColumnNames="audit_id" baseTableName="audit_event_context" constraintName="fk_audit_ev_reference_audit_ev" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="audit_id" referencedTableName="audit_event"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-139">
+        <addForeignKeyConstraint baseColumnNames="audit_id" baseTableName="audit_event_values" constraintName="fk_audit_lo_ref_audit_lo" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="audit_id" referencedTableName="audit_event"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-140">
+        <addForeignKeyConstraint baseColumnNames="user_account_id" baseTableName="audit_user_login" constraintName="fk_audit_user_login_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-141">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="completion_status" constraintName="fk_completi_fk_comple_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-142">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="crf" constraintName="fk_crf_crf_user_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-143">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="crf" constraintName="fk_crf_fk_crf_fk_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-144">
+        <addForeignKeyConstraint baseColumnNames="crf_version_id" baseTableName="item_group_metadata" constraintName="fk_crf_metadata" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="crf_version_id" referencedTableName="crf_version"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-145">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="crf_version" constraintName="fk_crf_vers_crf_versi_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-146">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="crf_version" constraintName="fk_crf_vers_fk_crf_ve_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-147">
+        <addForeignKeyConstraint baseColumnNames="event_definition_crf_id" baseTableName="dataset_crf_version_map" constraintName="fk_dataset__ref_event_event_de" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="event_definition_crf_id" referencedTableName="event_definition_crf"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-148">
+        <addForeignKeyConstraint baseColumnNames="dataset_id" baseTableName="dataset_crf_version_map" constraintName="fk_dataset_crf_ref_dataset" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dataset_id" referencedTableName="dataset"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-149">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="dataset" constraintName="fk_dataset_fk_datase_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-150">
+        <addForeignKeyConstraint baseColumnNames="study_id" baseTableName="dataset" constraintName="fk_dataset_fk_datase_study" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_id" referencedTableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-151">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="dataset" constraintName="fk_dataset_fk_datase_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-152">
+        <addForeignKeyConstraint baseColumnNames="study_group_class_id" baseTableName="dataset_study_group_class_map" constraintName="fk_dataset_ref_study_grp_class" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_group_class_id" referencedTableName="study_group_class"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-153">
+        <addForeignKeyConstraint baseColumnNames="dataset_id" baseTableName="dataset_filter_map" constraintName="fk_dataset_reference_dataset" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dataset_id" referencedTableName="dataset"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-154">
+        <addForeignKeyConstraint baseColumnNames="filter_id" baseTableName="dataset_filter_map" constraintName="fk_dataset_reference_filter" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="filter_id" referencedTableName="filter"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-155">
+        <addForeignKeyConstraint baseColumnNames="dataset_id" baseTableName="dataset_study_group_class_map" constraintName="fk_dataset_study_ref_dataset" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dataset_id" referencedTableName="dataset"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-156">
+        <addForeignKeyConstraint baseColumnNames="dc_event_id" baseTableName="dc_computed_event" constraintName="fk_dc_compu_fk_dc_com_dc_event" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dc_event_id" referencedTableName="dc_event"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-157">
+        <addForeignKeyConstraint baseColumnNames="decision_condition_id" baseTableName="dc_event" constraintName="fk_dc_event_fk_dc_eve_decision" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="decision_condition_id" referencedTableName="decision_condition"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-158">
+        <addForeignKeyConstraint baseColumnNames="decision_condition_id" baseTableName="dc_primitive" constraintName="fk_dc_primi_fk_dc_pri_decision" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="decision_condition_id" referencedTableName="decision_condition"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-159">
+        <addForeignKeyConstraint baseColumnNames="dynamic_value_item_id" baseTableName="dc_primitive" constraintName="fk_dc_primi_fk_dc_pri_item" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_id" referencedTableName="item"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-160">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="dc_primitive" constraintName="fk_dc_primi_fk_item_i_item" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_id" referencedTableName="item"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-161">
+        <addForeignKeyConstraint baseColumnNames="dc_event_id" baseTableName="dc_section_event" constraintName="fk_dc_secti_fk_dc_sec_dc_event" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dc_event_id" referencedTableName="dc_event"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-162">
+        <addForeignKeyConstraint baseColumnNames="dc_event_id" baseTableName="dc_send_email_event" constraintName="fk_dc_send__dc_send_e_dc_event" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dc_event_id" referencedTableName="dc_event"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-163">
+        <addForeignKeyConstraint baseColumnNames="dc_event_id" baseTableName="dc_substitution_event" constraintName="fk_dc_subst_fk_dc_sub_dc_event" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dc_event_id" referencedTableName="dc_event"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-164">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="dc_substitution_event" constraintName="fk_dc_subst_fk_dc_sub_item" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_id" referencedTableName="item"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-165">
+        <addForeignKeyConstraint baseColumnNames="dc_summary_event_id" baseTableName="dc_summary_item_map" constraintName="fk_dc_summa_fk_dc_sum_dc_compu" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="dc_summary_event_id" referencedTableName="dc_computed_event"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-166">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="dc_summary_item_map" constraintName="fk_dc_summa_fk_dc_sum_item" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_id" referencedTableName="item"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-167">
+        <addForeignKeyConstraint baseColumnNames="crf_version_id" baseTableName="decision_condition" constraintName="fk_decision_fk_decisi_crf_vers" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="crf_version_id" referencedTableName="crf_version"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-168">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="decision_condition" constraintName="fk_decision_fk_decisi_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-169">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="decision_condition" constraintName="fk_decision_fk_decisi_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-170">
+        <addForeignKeyConstraint baseColumnNames="completion_status_id" baseTableName="event_crf" constraintName="fk_event_cr_fk_event__completi" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="completion_status_id" referencedTableName="completion_status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-171">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="event_crf" constraintName="fk_event_cr_fk_event__status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-172">
+        <addForeignKeyConstraint baseColumnNames="study_event_id" baseTableName="event_crf" constraintName="fk_event_cr_fk_event__study_ev" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_event_id" referencedTableName="study_event"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-173">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="event_crf" constraintName="fk_event_cr_fk_event__user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-174">
+        <addForeignKeyConstraint baseColumnNames="study_subject_id" baseTableName="event_crf" constraintName="fk_event_cr_reference_study_su" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_subject_id" referencedTableName="study_subject"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-175">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="event_definition_crf" constraintName="fk_event_de_fk_study__status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-176">
+        <addForeignKeyConstraint baseColumnNames="study_event_definition_id" baseTableName="event_definition_crf" constraintName="fk_event_de_reference_study_ev" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_event_definition_id" referencedTableName="study_event_definition"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-177">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="event_definition_crf" constraintName="fk_event_de_study_crf_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-178">
+        <addForeignKeyConstraint baseColumnNames="crf_version_id" baseTableName="filter_crf_version_map" constraintName="fk_filter_c_reference_crf_vers" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="crf_version_id" referencedTableName="crf_version"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-179">
+        <addForeignKeyConstraint baseColumnNames="filter_id" baseTableName="filter_crf_version_map" constraintName="fk_filter_c_reference_filter" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="filter_id" referencedTableName="filter"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-180">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="filter" constraintName="fk_filter_fk_query__status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-181">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="filter" constraintName="fk_filter_fk_query__user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-182">
+        <addForeignKeyConstraint baseColumnNames="study_group_class_id" baseTableName="study_group" constraintName="fk_group_class_study_group" deferrable="false" initiallyDeferred="false" onDelete="SET NULL" onUpdate="RESTRICT" referencedColumnNames="study_group_class_id" referencedTableName="study_group_class"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-183">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="item_group_metadata" constraintName="fk_item" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_id" referencedTableName="item"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-184">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="item_data" constraintName="fk_item_dat_fk_item_d_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-185">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="item_data" constraintName="fk_item_dat_fk_item_d_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-186">
+        <addForeignKeyConstraint baseColumnNames="item_reference_type_id" baseTableName="item" constraintName="fk_item_fk_item_f_item_ref" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_reference_type_id" referencedTableName="item_reference_type"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-187">
+        <addForeignKeyConstraint baseColumnNames="item_data_type_id" baseTableName="item" constraintName="fk_item_fk_item_i_item_dat" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_data_type_id" referencedTableName="item_data_type"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-188">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="item" constraintName="fk_item_fk_item_s_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-189">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="item" constraintName="fk_item_fk_item_u_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-190">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="item_group" constraintName="fk_item_gro_fk_item_g_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-191">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="item_group" constraintName="fk_item_gro_fk_item_g_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-192">
+        <addForeignKeyConstraint baseColumnNames="item_group_id" baseTableName="item_group_metadata" constraintName="fk_item_group" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_group_id" referencedTableName="item_group"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-193">
+        <addForeignKeyConstraint baseColumnNames="crf_id" baseTableName="item_group" constraintName="fk_item_group_crf" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="crf_id" referencedTableName="crf"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-194">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="item_form_metadata" constraintName="fk_item_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="item_id" referencedTableName="item"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-195">
+        <addForeignKeyConstraint baseColumnNames="event_crf_id" baseTableName="item_data" constraintName="fk_item_reference_subject" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="event_crf_id" referencedTableName="event_crf"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-196">
+        <addForeignKeyConstraint baseColumnNames="old_status_id" baseTableName="study" constraintName="fk_old_status_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-197">
+        <addForeignKeyConstraint baseColumnNames="study_id" baseTableName="study_user_role" constraintName="fk_person_role_study_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="study_id" referencedTableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-198">
+        <addForeignKeyConstraint baseColumnNames="priv_id" baseTableName="role_privilege_map" constraintName="fk_priv_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="priv_id" referencedTableName="privilege"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-199">
+        <addForeignKeyConstraint baseColumnNames="study_id" baseTableName="study_subject" constraintName="fk_project__reference_study2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="study_id" referencedTableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-200">
+        <addForeignKeyConstraint baseColumnNames="response_type_id" baseTableName="response_set" constraintName="fk_response_fk_respon_response" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="response_type_id" referencedTableName="response_type"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-201">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="role_privilege_map" constraintName="fk_role_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="role_id" referencedTableName="user_role"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-202">
+        <addForeignKeyConstraint baseColumnNames="response_set_id" baseTableName="item_form_metadata" constraintName="fk_rs_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="response_set_id" referencedTableName="response_set"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-203">
+        <addForeignKeyConstraint baseColumnNames="section_id" baseTableName="item_form_metadata" constraintName="fk_sec_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="section_id" referencedTableName="section"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-204">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="section" constraintName="fk_section_fk_sectio_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-205">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="section" constraintName="fk_section_fk_sectio_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-206">
+        <addForeignKeyConstraint baseColumnNames="crf_version_id" baseTableName="section" constraintName="fk_section_version" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="crf_version_id" referencedTableName="crf_version"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-207">
+        <addForeignKeyConstraint baseColumnNames="source_study_id" baseTableName="crf" constraintName="fk_source_study_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="study_id" referencedTableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-208">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="study_event" constraintName="fk_study_ev_fk_study__status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-209">
+        <addForeignKeyConstraint baseColumnNames="study_id" baseTableName="study_event_definition" constraintName="fk_study_ev_fk_study__study" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_id" referencedTableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-210">
+        <addForeignKeyConstraint baseColumnNames="study_event_definition_id" baseTableName="study_event" constraintName="fk_study_ev_fk_study__study_ev" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_event_definition_id" referencedTableName="study_event_definition"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-211">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="study_event" constraintName="fk_study_ev_fk_study__user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-212">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="study_event_definition" constraintName="fk_study_ev_fk_studye_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-213">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="study_event_definition" constraintName="fk_study_ev_fk_studye_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-214">
+        <addForeignKeyConstraint baseColumnNames="study_subject_id" baseTableName="study_event" constraintName="fk_study_ev_reference_study_su" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_subject_id" referencedTableName="study_subject"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-215">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="study" constraintName="fk_study_fk_study__status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-216">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="study" constraintName="fk_study_fk_study__user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-217">
+        <addForeignKeyConstraint baseColumnNames="group_class_type_id" baseTableName="study_group_class" constraintName="fk_study_gr_fk_study__group_ty" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="group_class_type_id" referencedTableName="group_class_types"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-218">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="study_group_class" constraintName="fk_study_gr_fk_study__status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-219">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="study_group_class" constraintName="fk_study_gr_fk_study__user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-220">
+        <addForeignKeyConstraint baseColumnNames="crf_id" baseTableName="event_definition_crf" constraintName="fk_study_inst_reference" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="crf_id" referencedTableName="crf"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-221">
+        <addForeignKeyConstraint baseColumnNames="study_id" baseTableName="study_module_status" constraintName="fk_study_module_study_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="study_id" referencedTableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-222">
+        <addForeignKeyConstraint baseColumnNames="study_id" baseTableName="event_definition_crf" constraintName="fk_study_reference_instrument" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="study_id" referencedTableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-223">
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="study_subject" constraintName="fk_study_reference_subject" deferrable="false" initiallyDeferred="false" onDelete="SET NULL" onUpdate="RESTRICT" referencedColumnNames="subject_id" referencedTableName="subject"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-224">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="study_subject" constraintName="fk_study_su_fk_study__status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-225">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="study_subject" constraintName="fk_study_su_fk_study__user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-226">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="study" constraintName="fk_study_type" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_type_id" referencedTableName="study_type"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-227">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="study_user_role" constraintName="fk_study_us_fk_study__status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-228">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="study_user_role" constraintName="fk_study_us_study_use_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-229">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="subject_group_map" constraintName="fk_subject__fk_sub_gr_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-230">
+        <addForeignKeyConstraint baseColumnNames="study_group_id" baseTableName="subject_group_map" constraintName="fk_subject__fk_subjec_group_ro" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_group_id" referencedTableName="study_group"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-231">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="subject_group_map" constraintName="fk_subject__fk_subjec_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-232">
+        <addForeignKeyConstraint baseColumnNames="study_group_class_id" baseTableName="subject_group_map" constraintName="fk_subject__fk_subjec_study_gr" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_group_class_id" referencedTableName="study_group_class"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-233">
+        <addForeignKeyConstraint baseColumnNames="study_subject_id" baseTableName="subject_group_map" constraintName="fk_subject__subject_g_study_su" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_subject_id" referencedTableName="study_subject"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-234">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="subject" constraintName="fk_subject_fk_subjec_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-235">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="subject" constraintName="fk_subject_fk_subjec_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-236">
+        <addForeignKeyConstraint baseColumnNames="crf_version_id" baseTableName="event_crf" constraintName="fk_subject_referenc_instrument" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="crf_version_id" referencedTableName="crf_version"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-237">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="user_account" constraintName="fk_user_acc_fk_user_f_user_acc" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_id" referencedTableName="user_account"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-238">
+        <addForeignKeyConstraint baseColumnNames="user_type_id" baseTableName="user_account" constraintName="fk_user_acc_ref_user__user_typ" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="user_type_id" referencedTableName="user_type"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-239">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="user_account" constraintName="fk_user_acc_status_re_status" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="status_id" referencedTableName="status"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-240">
+        <addForeignKeyConstraint baseColumnNames="crf_version_id" baseTableName="versioning_map" constraintName="fk_versioni_fk_versio_crf_vers" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="crf_version_id" referencedTableName="crf_version"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-241">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="versioning_map" constraintName="fk_versioni_fk_versio_item" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_id" referencedTableName="item"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-242">
+        <addForeignKeyConstraint baseColumnNames="crf_id" baseTableName="crf_version" constraintName="fk_versioni_reference_instrume" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="RESTRICT" referencedColumnNames="crf_id" referencedTableName="crf"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-243">
+        <addForeignKeyConstraint baseColumnNames="default_version_id" baseTableName="event_definition_crf" constraintName="fk_versioning_study_inst" deferrable="false" initiallyDeferred="false" onDelete="SET NULL" onUpdate="RESTRICT" referencedColumnNames="crf_version_id" referencedTableName="crf_version"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-244">
+        <addForeignKeyConstraint baseColumnNames="father_id" baseTableName="subject" constraintName="has_father" deferrable="false" initiallyDeferred="false" onDelete="SET NULL" onUpdate="RESTRICT" referencedColumnNames="subject_id" referencedTableName="subject"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-245">
+        <addForeignKeyConstraint baseColumnNames="mother_id" baseTableName="subject" constraintName="has_mother" deferrable="false" initiallyDeferred="false" onDelete="SET NULL" onUpdate="RESTRICT" referencedColumnNames="subject_id" referencedTableName="subject"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-246">
+        <addForeignKeyConstraint baseColumnNames="trigger_name, trigger_group" baseTableName="oc_qrtz_blob_triggers" constraintName="oc_qrtz_blob_triggers_trg_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="trigger_name, trigger_group" referencedTableName="oc_qrtz_triggers"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-247">
+        <addForeignKeyConstraint baseColumnNames="trigger_name, trigger_group" baseTableName="oc_qrtz_cron_triggers" constraintName="oc_qrtz_cron_triggers_trg_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="trigger_name, trigger_group" referencedTableName="oc_qrtz_triggers"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-248">
+        <addForeignKeyConstraint baseColumnNames="job_name, job_group" baseTableName="oc_qrtz_job_listeners" constraintName="oc_qrtz_job_listeners_job_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="job_name, job_group" referencedTableName="oc_qrtz_job_details"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-249">
+        <addForeignKeyConstraint baseColumnNames="trigger_name, trigger_group" baseTableName="oc_qrtz_simple_triggers" constraintName="oc_qrtz_simple_trigs_trg_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="trigger_name, trigger_group" referencedTableName="oc_qrtz_triggers"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-250">
+        <addForeignKeyConstraint baseColumnNames="trigger_name, trigger_group" baseTableName="oc_qrtz_trigger_listeners" constraintName="oc_qrtz_trigger_lsnrs_trg_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="trigger_name, trigger_group" referencedTableName="oc_qrtz_triggers"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-251">
+        <addForeignKeyConstraint baseColumnNames="job_name, job_group" baseTableName="oc_qrtz_triggers" constraintName="oc_qrtz_triggers_job_name_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="job_name, job_group" referencedTableName="oc_qrtz_job_details"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-252">
+        <addForeignKeyConstraint baseColumnNames="parent_study_id" baseTableName="study" constraintName="project_is_contained_within_pa" deferrable="false" initiallyDeferred="false" onDelete="SET NULL" onUpdate="RESTRICT" referencedColumnNames="study_id" referencedTableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-253">
+        <addForeignKeyConstraint baseColumnNames="control_item_form_metadata_id" baseTableName="scd_item_metadata" constraintName="scd_meta_fk_control_meta_id" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_form_metadata_id" referencedTableName="item_form_metadata"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-254">
+        <addForeignKeyConstraint baseColumnNames="scd_item_form_metadata_id" baseTableName="scd_item_metadata" constraintName="scd_meta_fk_scd_form_meta_id" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="item_form_metadata_id" referencedTableName="item_form_metadata"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-261">
+        <addUniqueConstraint columnNames="handle" constraintName="study_parameter_handle_key" deferrable="false" disabled="false" initiallyDeferred="false" tableName="study_parameter"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-255">
+        <addForeignKeyConstraint baseColumnNames="parameter" baseTableName="study_parameter_value" constraintName="study_param_value_param_fkey" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="handle" referencedTableName="study_parameter"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-256">
+        <addForeignKeyConstraint baseColumnNames="study_id" baseTableName="study_parameter_value" constraintName="study_param_value_study_id_fk" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="study_id" referencedTableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-257">
+        <addUniqueConstraint columnNames="key" constraintName="configuration_key_key" deferrable="false" disabled="false" initiallyDeferred="false" tableName="configuration"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-258">
+        <addUniqueConstraint columnNames="name" constraintName="measurement_unit_name_key" deferrable="false" disabled="false" initiallyDeferred="false" tableName="measurement_unit"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-259">
+        <addUniqueConstraint columnNames="oc_oid" constraintName="measurement_unit_oc_oid_key" deferrable="false" disabled="false" initiallyDeferred="false" tableName="measurement_unit"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-260">
+        <addUniqueConstraint columnNames="item_id, event_crf_id, ordinal" constraintName="pk_item_data_new" deferrable="false" disabled="false" initiallyDeferred="false" tableName="item_data"/>
+    </changeSet>
+
+    <changeSet author="Kenneth Yan" id="1390871399801-262">
+        <addUniqueConstraint columnNames="oc_oid" constraintName="uniq_crf_oc_oid" deferrable="false" disabled="false" initiallyDeferred="false" tableName="crf"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-263">
+        <addUniqueConstraint columnNames="oc_oid" constraintName="uniq_crf_version_oc_oid" deferrable="false" disabled="false" initiallyDeferred="false" tableName="crf_version"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-264">
+        <addUniqueConstraint columnNames="oc_oid" constraintName="uniq_item_group_oc_oid" deferrable="false" disabled="false" initiallyDeferred="false" tableName="item_group"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-265">
+        <addUniqueConstraint columnNames="oc_oid" constraintName="uniq_item_oc_oid" deferrable="false" disabled="false" initiallyDeferred="false" tableName="item"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-266">
+        <addUniqueConstraint columnNames="oc_oid" constraintName="uniq_study_event_def_oid" deferrable="false" disabled="false" initiallyDeferred="false" tableName="study_event_definition"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-267">
+        <addUniqueConstraint columnNames="oc_oid" constraintName="uniq_study_oid" deferrable="false" disabled="false" initiallyDeferred="false" tableName="study"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-268">
+        <addUniqueConstraint columnNames="oc_oid" constraintName="uniq_study_subject_oid" deferrable="false" disabled="false" initiallyDeferred="false" tableName="study_subject"/>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-269">
+        <createIndex indexName="i_audit_event_audit_table" tableName="audit_event" unique="false">
+            <column name="audit_table"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-270">
+        <createIndex indexName="i_audit_event_context_study_id" tableName="audit_event_context" unique="false">
+            <column name="study_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-271">
+        <createIndex indexName="i_audit_event_entity_id" tableName="audit_event" unique="false">
+            <column name="entity_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-272">
+        <createIndex indexName="i_audit_event_user_id" tableName="audit_event" unique="false">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-273">
+        <createIndex indexName="i_audit_log_event_audit_log_event_type_id" tableName="audit_log_event" unique="false">
+            <column name="audit_log_event_type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-274">
+        <createIndex indexName="i_audit_log_event_audit_table" tableName="audit_log_event" unique="false">
+            <column name="audit_table"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-275">
+        <createIndex indexName="i_audit_log_event_entity_id" tableName="audit_log_event" unique="false">
+            <column name="entity_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-276">
+        <createIndex indexName="i_audit_log_event_event_crf_id" tableName="audit_log_event" unique="false">
+            <column name="event_crf_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-277">
+        <createIndex indexName="i_audit_log_event_event_crf_version_id" tableName="audit_log_event" unique="false">
+            <column name="event_crf_version_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-278">
+        <createIndex indexName="i_audit_log_event_study_event_id" tableName="audit_log_event" unique="false">
+            <column name="study_event_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-279">
+        <createIndex indexName="i_audit_log_event_user_id" tableName="audit_log_event" unique="false">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-280">
+        <createIndex indexName="i_completion_status_status_id" tableName="completion_status" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-281">
+        <createIndex indexName="i_crf_name" tableName="crf" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-282">
+        <createIndex indexName="i_crf_owner_id" tableName="crf" unique="false">
+            <column name="owner_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-283">
+        <createIndex indexName="i_crf_status_id" tableName="crf" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-284">
+        <createIndex indexName="i_crf_version_name" tableName="crf_version" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-285">
+        <createIndex indexName="i_crf_version_status_id" tableName="crf_version" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-286">
+        <createIndex indexName="i_dataset_crf_version_map_dataset_id" tableName="dataset_crf_version_map" unique="false">
+            <column name="dataset_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-287">
+        <createIndex indexName="i_dataset_crf_version_map_event_definition_crf_id" tableName="dataset_crf_version_map" unique="false">
+            <column name="event_definition_crf_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-288">
+        <createIndex indexName="i_dataset_filter_map_dataset_id" tableName="dataset_filter_map" unique="false">
+            <column name="dataset_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-289">
+        <createIndex indexName="i_dataset_filter_map_filter_id" tableName="dataset_filter_map" unique="false">
+            <column name="filter_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-290">
+        <createIndex indexName="i_dataset_filter_map_ordinal" tableName="dataset_filter_map" unique="false">
+            <column name="ordinal"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-291">
+        <createIndex indexName="i_dataset_status_id" tableName="dataset" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-292">
+        <createIndex indexName="i_dataset_study_group_class_map_dataset_id" tableName="dataset_study_group_class_map" unique="false">
+            <column name="dataset_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-293">
+        <createIndex indexName="i_dataset_study_group_class_map_study_group_class_id" tableName="dataset_study_group_class_map" unique="false">
+            <column name="study_group_class_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-294">
+        <createIndex indexName="i_dc_computed_event_dc_event_id" tableName="dc_computed_event" unique="false">
+            <column name="dc_event_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-295">
+        <createIndex indexName="i_dc_computed_event_item_target_id" tableName="dc_computed_event" unique="false">
+            <column name="item_target_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-296">
+        <createIndex indexName="i_dc_primitive_decision_condition_id" tableName="dc_primitive" unique="false">
+            <column name="decision_condition_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-297">
+        <createIndex indexName="i_dc_primitive_dynamic_value_item_id" tableName="dc_primitive" unique="false">
+            <column name="dynamic_value_item_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-298">
+        <createIndex indexName="i_dc_primitive_item_id" tableName="dc_primitive" unique="false">
+            <column name="item_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-299">
+        <createIndex indexName="i_dc_section_event_section_id" tableName="dc_section_event" unique="false">
+            <column name="section_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-300">
+        <createIndex indexName="i_dc_substitution_event_item_id" tableName="dc_substitution_event" unique="false">
+            <column name="item_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-301">
+        <createIndex indexName="i_dc_summary_item_map_item_id" tableName="dc_summary_item_map" unique="false">
+            <column name="item_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-302">
+        <createIndex indexName="i_decision_condition_crf_version_id" tableName="decision_condition" unique="false">
+            <column name="crf_version_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-303">
+        <createIndex indexName="i_decision_condition_status_id" tableName="decision_condition" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-304">
+        <createIndex indexName="i_discrepancy_note_discrepancy_note_type_id" tableName="discrepancy_note" unique="false">
+            <column name="discrepancy_note_type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-305">
+        <createIndex indexName="i_discrepancy_note_entity_type" tableName="discrepancy_note" unique="false">
+            <column name="entity_type"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-306">
+        <createIndex indexName="i_discrepancy_note_owner_id" tableName="discrepancy_note" unique="false">
+            <column name="owner_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-307">
+        <createIndex indexName="i_discrepancy_note_parent_dn_id" tableName="discrepancy_note" unique="false">
+            <column name="parent_dn_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-308">
+        <createIndex indexName="i_discrepancy_note_resolution_status_id" tableName="discrepancy_note" unique="false">
+            <column name="resolution_status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-309">
+        <createIndex indexName="i_discrepancy_note_study_id" tableName="discrepancy_note" unique="false">
+            <column name="study_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-310">
+        <createIndex indexName="i_dn_event_crf_map_discrepancy_note_id" tableName="dn_event_crf_map" unique="false">
+            <column name="discrepancy_note_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-311">
+        <createIndex indexName="i_dn_event_crf_map_event_crf_id" tableName="dn_event_crf_map" unique="false">
+            <column name="event_crf_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-312">
+        <createIndex indexName="i_dn_item_data_map_discrepancy_note_id" tableName="dn_item_data_map" unique="false">
+            <column name="discrepancy_note_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-313">
+        <createIndex indexName="i_dn_item_data_map_item_data_id" tableName="dn_item_data_map" unique="false">
+            <column name="item_data_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-314">
+        <createIndex indexName="i_dn_study_event_map_discrepancy_note_id" tableName="dn_study_event_map" unique="false">
+            <column name="discrepancy_note_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-315">
+        <createIndex indexName="i_dn_study_event_map_study_event_id" tableName="dn_study_event_map" unique="false">
+            <column name="study_event_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-316">
+        <createIndex indexName="i_dn_study_subject_map_discrepancy_note_id" tableName="dn_study_subject_map" unique="false">
+            <column name="discrepancy_note_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-317">
+        <createIndex indexName="i_dn_study_subject_map_study_subject_id" tableName="dn_study_subject_map" unique="false">
+            <column name="study_subject_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-318">
+        <createIndex indexName="i_dn_subject_map_discrepancy_note_id" tableName="dn_subject_map" unique="false">
+            <column name="discrepancy_note_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-319">
+        <createIndex indexName="i_dn_subject_map_subject_id" tableName="dn_subject_map" unique="false">
+            <column name="subject_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-320">
+        <createIndex indexName="i_event_crf_completion_status_id" tableName="event_crf" unique="false">
+            <column name="completion_status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-321">
+        <createIndex indexName="i_event_crf_date_interviewed" tableName="event_crf" unique="false">
+            <column name="date_interviewed"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-322">
+        <createIndex indexName="i_event_crf_interviewer_name" tableName="event_crf" unique="false">
+            <column name="interviewer_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-323">
+        <createIndex indexName="i_event_crf_owner_id" tableName="event_crf" unique="false">
+            <column name="owner_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-324">
+        <createIndex indexName="i_event_crf_status_id" tableName="event_crf" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-325">
+        <createIndex indexName="i_event_crf_study_subject_id" tableName="event_crf" unique="false">
+            <column name="study_subject_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-326">
+        <createIndex indexName="i_event_crf_validator_id" tableName="event_crf" unique="false">
+            <column name="validator_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-327">
+        <createIndex indexName="i_event_definition_crf_crf_id" tableName="event_definition_crf" unique="false">
+            <column name="crf_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-328">
+        <createIndex indexName="i_event_definition_crf_default_version_id" tableName="event_definition_crf" unique="false">
+            <column name="default_version_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-329">
+        <createIndex indexName="i_event_definition_crf_electronic_signature" tableName="event_definition_crf" unique="false">
+            <column name="electronic_signature"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-330">
+        <createIndex indexName="i_event_definition_crf_ordinal" tableName="event_definition_crf" unique="false">
+            <column name="ordinal"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-331">
+        <createIndex indexName="i_event_definition_crf_status_id" tableName="event_definition_crf" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-332">
+        <createIndex indexName="i_event_definition_crf_study_id" tableName="event_definition_crf" unique="false">
+            <column name="study_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-333">
+        <createIndex indexName="i_filter_crf_version_map_crf_version_id" tableName="filter_crf_version_map" unique="false">
+            <column name="crf_version_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-334">
+        <createIndex indexName="i_filter_crf_version_map_filter_id" tableName="filter_crf_version_map" unique="false">
+            <column name="filter_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-335">
+        <createIndex indexName="i_item_data_event_crf_id" tableName="item_data" unique="false">
+            <column name="event_crf_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-336">
+        <createIndex indexName="i_item_data_item_id" tableName="item_data" unique="false">
+            <column name="item_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-337">
+        <createIndex indexName="i_item_data_ordinal" tableName="item_data" unique="false">
+            <column name="ordinal"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-338">
+        <createIndex indexName="i_item_data_status_id" tableName="item_data" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-339">
+        <createIndex indexName="i_item_form_metadata_decision_condition_id" tableName="item_form_metadata" unique="false">
+            <column name="decision_condition_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-340">
+        <createIndex indexName="i_item_form_metadata_ordinal" tableName="item_form_metadata" unique="false">
+            <column name="ordinal"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-341">
+        <createIndex indexName="i_item_form_metadata_parent_id" tableName="item_form_metadata" unique="false">
+            <column name="parent_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-342">
+        <createIndex indexName="i_item_group_crf_id" tableName="item_group" unique="false">
+            <column name="crf_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-343">
+        <createIndex indexName="i_item_group_metadata_crf_version_id" tableName="item_group_metadata" unique="false">
+            <column name="crf_version_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-344">
+        <createIndex indexName="i_item_group_metadata_item_group_id" tableName="item_group_metadata" unique="false">
+            <column name="item_group_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-345">
+        <createIndex indexName="i_item_group_metadata_item_id" tableName="item_group_metadata" unique="false">
+            <column name="item_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-346">
+        <createIndex indexName="i_item_group_status_id" tableName="item_group" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-347">
+        <createIndex indexName="i_item_item_data_type_id" tableName="item" unique="false">
+            <column name="item_data_type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-348">
+        <createIndex indexName="i_item_item_reference_type_id" tableName="item" unique="false">
+            <column name="item_reference_type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-349">
+        <createIndex indexName="i_item_name" tableName="item" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-350">
+        <createIndex indexName="i_item_units" tableName="item" unique="false">
+            <column name="units"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-351">
+        <createIndex indexName="i_itm_form_metadata_crf_ver_id" tableName="item_form_metadata" unique="false">
+            <column name="crf_version_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-352">
+        <createIndex indexName="i_null_value_type_code" tableName="null_value_type" unique="false">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-353">
+        <createIndex indexName="i_rule_action_action_type" tableName="rule_action" unique="false">
+            <column name="action_type"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-354">
+        <createIndex indexName="i_rule_action_rule_set_rule_id" tableName="rule_action" unique="false">
+            <column name="rule_set_rule_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-355">
+        <createIndex indexName="i_rule_action_status_id" tableName="rule_action" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-356">
+        <createIndex indexName="i_rule_expression_status_id" tableName="rule_expression" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-357">
+        <createIndex indexName="i_rule_oc_oid" tableName="rule" unique="false">
+            <column name="oc_oid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-358">
+        <createIndex indexName="i_rule_rule_expression_id" tableName="rule" unique="false">
+            <column name="rule_expression_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-359">
+        <createIndex indexName="i_rule_set_audit_rule_set_id" tableName="rule_set_audit" unique="false">
+            <column name="rule_set_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-360">
+        <createIndex indexName="i_rule_set_audit_status_id" tableName="rule_set_audit" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-361">
+        <createIndex indexName="i_rule_set_crf_id" tableName="rule_set" unique="false">
+            <column name="crf_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-362">
+        <createIndex indexName="i_rule_set_crf_version_id" tableName="rule_set" unique="false">
+            <column name="crf_version_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-363">
+        <createIndex indexName="i_rule_set_rule_audit_rule_set_rule_id" tableName="rule_set_rule_audit" unique="false">
+            <column name="rule_set_rule_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-364">
+        <createIndex indexName="i_rule_set_rule_audit_status_id" tableName="rule_set_rule_audit" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-365">
+        <createIndex indexName="i_rule_set_rule_expression_id" tableName="rule_set" unique="false">
+            <column name="rule_expression_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-366">
+        <createIndex indexName="i_rule_set_rule_rule_id" tableName="rule_set_rule" unique="false">
+            <column name="rule_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-367">
+        <createIndex indexName="i_rule_set_rule_rule_set_id" tableName="rule_set_rule" unique="false">
+            <column name="rule_set_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-368">
+        <createIndex indexName="i_rule_set_rule_status_id" tableName="rule_set_rule" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-369">
+        <createIndex indexName="i_rule_set_status_id" tableName="rule_set" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-370">
+        <createIndex indexName="i_rule_set_study_event_definition_id" tableName="rule_set" unique="false">
+            <column name="study_event_definition_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-371">
+        <createIndex indexName="i_rule_set_study_id" tableName="rule_set" unique="false">
+            <column name="study_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-372">
+        <createIndex indexName="i_rule_status_id" tableName="rule" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-373">
+        <createIndex indexName="i_section_ordinal" tableName="section" unique="false">
+            <column name="ordinal"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-374">
+        <createIndex indexName="i_section_parent_id" tableName="section" unique="false">
+            <column name="parent_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-375">
+        <createIndex indexName="i_section_status_id" tableName="section" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-376">
+        <createIndex indexName="i_study_event_date_end" tableName="study_event" unique="false">
+            <column name="date_end"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-377">
+        <createIndex indexName="i_study_event_date_start" tableName="study_event" unique="false">
+            <column name="date_start"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-378">
+        <createIndex indexName="i_study_event_definition_status_id" tableName="study_event_definition" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-379">
+        <createIndex indexName="i_study_event_definition_update_id" tableName="study_event_definition" unique="false">
+            <column name="update_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-380">
+        <createIndex indexName="i_study_event_sample_ordinal" tableName="study_event" unique="false">
+            <column name="sample_ordinal"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-381">
+        <createIndex indexName="i_study_event_status_id" tableName="study_event" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-382">
+        <createIndex indexName="i_study_event_subject_event_status_id" tableName="study_event" unique="false">
+            <column name="subject_event_status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-383">
+        <createIndex indexName="i_study_group_class_status_id" tableName="study_group_class" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-384">
+        <createIndex indexName="i_study_group_class_study_id" tableName="study_group_class" unique="false">
+            <column name="study_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-385">
+        <createIndex indexName="i_study_owner_id" tableName="study" unique="false">
+            <column name="owner_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-386">
+        <createIndex indexName="i_study_parameter_value_study_id" tableName="study_parameter_value" unique="false">
+            <column name="study_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-387">
+        <createIndex indexName="i_study_parent_study_id" tableName="study" unique="false">
+            <column name="parent_study_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-388">
+        <createIndex indexName="i_study_status_id" tableName="study" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-389">
+        <createIndex indexName="i_study_subject_label" tableName="study_subject" unique="false">
+            <column name="label"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-390">
+        <createIndex indexName="i_study_subject_status_id" tableName="study_subject" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-391">
+        <createIndex indexName="i_study_type_id" tableName="study" unique="false">
+            <column name="type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-392">
+        <createIndex indexName="i_study_unique_identifier" tableName="study" unique="false">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-393">
+        <createIndex indexName="i_study_user_role_user_name" tableName="study_user_role" unique="false">
+            <column name="user_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-394">
+        <createIndex indexName="i_subject_date_created" tableName="subject" unique="false">
+            <column name="date_created"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-395">
+        <createIndex indexName="i_subject_date_of_birth" tableName="subject" unique="false">
+            <column name="date_of_birth"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-396">
+        <createIndex indexName="i_subject_gender" tableName="subject" unique="false">
+            <column name="gender"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-397">
+        <createIndex indexName="i_subject_group_map_status_id" tableName="subject_group_map" unique="false">
+            <column name="status_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-398">
+        <createIndex indexName="i_subject_group_map_study_group_class_id" tableName="subject_group_map" unique="false">
+            <column name="study_group_class_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-399">
+        <createIndex indexName="i_subject_unique_identifier" tableName="subject" unique="false">
+            <column name="unique_identifier"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-400">
+        <createIndex indexName="i_user_account_user_name" tableName="user_account" unique="false">
+            <column name="user_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Kenneth Yan" id="1390871399801-401">
+        <createView viewName="dn_age_days">SELECT dn.discrepancy_note_id, CASE WHEN (dn.resolution_status_id = ANY (ARRAY[1, 2, 3])) THEN (('now'::text)::date - (SELECT cdn.date_created FROM discrepancy_note cdn WHERE (cdn.discrepancy_note_id = (SELECT max(idn.discrepancy_note_id) AS max FROM discrepancy_note idn WHERE (idn.parent_dn_id = dn.discrepancy_note_id))))) ELSE NULL::integer END AS days, CASE WHEN (dn.resolution_status_id = 4) THEN ((SELECT cdn.date_created FROM discrepancy_note cdn WHERE (cdn.discrepancy_note_id = (SELECT max(idn.discrepancy_note_id) AS max FROM discrepancy_note idn WHERE (idn.parent_dn_id = dn.discrepancy_note_id)))) - dn.date_created) WHEN (dn.resolution_status_id = ANY (ARRAY[1, 2, 3])) THEN (('now'::text)::date - dn.date_created) ELSE NULL::integer END AS age FROM discrepancy_note dn WHERE (dn.parent_dn_id IS NULL);</createView>
+    </changeSet>
+</databaseChangeLog>

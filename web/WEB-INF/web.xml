@@ -2292,6 +2292,11 @@
 		<servlet-name>PrintAllEventCRFBySubjid</servlet-name>
 		<url-pattern>/PrintAllEventCRFBySubjid</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AuditDatabaseServlet</servlet-name>
+		<url-pattern>/AuditDatabase</url-pattern>
+	</servlet-mapping>
 
 
 

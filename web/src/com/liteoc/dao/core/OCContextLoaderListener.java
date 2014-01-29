@@ -2,7 +2,7 @@ package com.liteoc.dao.core;
 
 import javax.servlet.ServletContextEvent;
 import org.slf4j.bridge.SLF4JBridgeHandler;
-import liquibase.log.LogFactory;
+import liquibase.logging.LogFactory;
 import org.slf4j.MDC;
 import org.springframework.web.context.ContextLoaderListener;
 
@@ -17,7 +17,7 @@ public class OCContextLoaderListener extends ContextLoaderListener {
         MDC.put("WEBAPP", webAppName);
         // Get the liquibase logs inside the application log files using
         // SLF4JBridgeHandler
-        LogFactory.getLogger().addHandler(new SLF4JBridgeHandler());
+        // LogFactory.getInstance().getLog().addHandler(new SLF4JBridgeHandler());
         super.contextInitialized(event);
     }
 
